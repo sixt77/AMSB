@@ -42,11 +42,7 @@
                                 connection
                             </button>
                         </li>
-                        <li class="ac-home-sign-item-boutton-right">
-                            <a href="index.php?subform" class="ac-home-sign-item-boutton-sign">
-                                Inscription
-                            </a>
-                        </li>
+
 
 
 

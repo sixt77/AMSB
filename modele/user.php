@@ -7,15 +7,19 @@ function user_signin($pseudo, $password, $c, $encryption_key) {
 //récupération des compte streamer
 	//cryptage du password
 	$password = crypt($password,$encryption_key);
-	$sql = ("SELECT * FROM utilisateurs WHERE mail='$pseudo' AND motDePasse='$password'");
+	$sql = ("SELECT U.id, U.mail, D.id_dirigeants 
+FROM utilisateurs U  
+INNER JOIN dirigeants D ON U.id = D.id_utilisateurs 
+WHERE U.mail='$pseudo' AND U.motDePasse='$password'");
 	$result = mysqli_query($c,$sql);
 	//test des résultat
 	if($row = mysqli_fetch_row($result)){
-		if (isset($row[0])) {
+		if (isset($row[0]) && isset($row[2])) {
 			//attribution d'une session
 			$_SESSION['etat'] = "enregistré";
 			$_SESSION['id'] = $row[0];
-			$_SESSION['mail'] = $row[3];
+			$_SESSION['mail'] = $row[1];
+            $_SESSION['id_dirigeants'] = $row[2];
 			return true;
 		}
 		else {
@@ -31,12 +35,15 @@ $result->close();
 //script d'inscription pour les user 
 //ajoute dans la bdd les valeurs
 //renvoi true si la connection a fonctionné sinon false
-function user_signup($fname, $lname, $email,$password, $c, $encryption_key) {
+function user_signup($nom, $prenom, $mail,$motDePasse, $telephone, $licence, $c, $encryption_key) {
 	//cryptage du password
-	$password = crypt($password,$encryption_key);
+    $motDePasse = crypt($motDePasse,$encryption_key);
 	//insertion des valeurs dans la bdd
-	$sql = ("INSERT INTO users(fname, lname, mail, password) VALUES('$fname', '$lname', '$email', '$password')");
-	if(mysqli_query($c,$sql)){
+	$sql = ("INSERT INTO utilisateurs(nom, prenom, mail, motDePasse, telephone, licence) VALUES('$nom', '$prenom', '$mail', '$motDePasse', '$telephone', '$licence')");
+
+
+
+    if(mysqli_query($c,$sql)){
 		return true;
 	}
 	else{

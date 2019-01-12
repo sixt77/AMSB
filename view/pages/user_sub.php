@@ -1,10 +1,4 @@
-<div class="ac-home-header">
 
-    <h1 class="ac-home-header-title">
-        Agenda Collaboratif
-    </h1>
-
-</div>
 
 <div class="ac-home-container ac-home-signup">
 
@@ -17,21 +11,19 @@
                 <li class="ac-home-sign-item-inscrip">
 
                     <h2 class="ac-home-sign-item-h2">
-                        Créez vous un compte !
+                        ajoutez un licencié !
                     </h2>
 
-                    <p class="ac-home-sign-item-subtitle">
-                        Et découvrez notre agenda collaboratif.
-                    </p>
+
 
                 </li>
 
                 <li class="ac-home-sign-item">
-                    <input type="text" class="ac-home-sign-item-input" name="Pseudo" placeholder="Pseudo" required>
+                    <input type="text" class="ac-home-sign-item-input" name="nom" placeholder="Nom" required>
                 </li>
 
                 <li class="ac-home-sign-item">
-                    <input type='password' class="ac-home-sign-item-input" name="password" placeholder="Mot de passe" required>
+                    <input class="ac-home-sign-item-input" type="text" placeholder='Prenom' name='prenom' required/>
                 </li>
 
                 <li class="ac-home-sign-item">
@@ -39,15 +31,15 @@
                 </li>
 
                 <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" placeholder='Prenom' name='fname' required/>
+                    <input type='password' class="ac-home-sign-item-input" name="motDePasse" placeholder="Mot de passe" required>
                 </li>
 
                 <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" placeholder='Nom' name='lname' required/>
+                    <input class="ac-home-sign-item-input" type="text" placeholder='Téléphone' name='Telephone' required/>
                 </li>
 
                 <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" placeholder='Téléphone' name='tel' required/>
+                    <input class="ac-home-sign-item-input" type="text" placeholder='licence' name='Licence' required/>
                 </li>
 
                 <div class="ac-home-sign-allBoutton">

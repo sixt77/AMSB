@@ -4,6 +4,7 @@ session_start();
 include("dblog/dblog.php");
 include("modele/crypt.php");
 include("modele/user.php");
+include("modele/leader.php");
 include("controller/controller.php");
 include("view/display.php");
 include("view/display_user.php");

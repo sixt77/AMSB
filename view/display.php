@@ -21,6 +21,11 @@ function display_main(){
     require ("pages/main.php");
 
 }
+function display_role_selection($id){
+
+    require ("pages/role_selection.php");
+
+}
 function display_signin_failed(){
 
 	require ("pages/signin_failed.php");

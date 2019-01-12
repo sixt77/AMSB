@@ -11,23 +11,22 @@ if (empty($_POST) && empty($_GET)) {
     }
 } else {
 //script de connection et l'inscription
-    if (isset($_POST["action"])) {
 
+    if (isset($_POST["action"])) {
+        //connection
         if ($_POST["action"] == "signin") {
             if (user_signin(protect($_POST["pseudo"]), protect($_POST["password"]), $c, $encryption_key)) {
                 header('Location: index.php');
             } else {
                 $page = "erreur";
             }
-        } else {
-            $page = "erreur";
         }
-        //incription et connection automatique
+        //incription
         if ($_POST["action"] == "signup") {
-            if (!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["email"]) && isset($_POST["password"])) {
-                if (user_signup(protect($_POST["fname"]), protect($_POST["lname"]), protect($_POST["email"]), protect($_POST["password"]), $c, $encryption_key)) {
-                    user_signin(protect($_POST["email"]), protect($_POST["password"]), $c, $encryption_key);
-                    header('Location: index.php');
+            if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["Telephone"]) && !empty($_POST["Licence"])) {
+                if (user_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["Telephone"]), protect($_POST["Licence"]), $c, $encryption_key)) {
+                    $id = $c->insert_id;
+                    $page = "role_selection";
                 } else {
                     $page = "erreur";
                 }
@@ -35,23 +34,23 @@ if (empty($_POST) && empty($_GET)) {
                 $page = "erreur";
             }
         }
+        //selection de rôle
+        if ($_POST["action"] == "role_selection") {
+            var_dump($_POST);
+            if(isset($_POST["Dirigeant"])){
+                if (add_leader($_POST["id_user"], $c)) {
+                    header('Location: index.php');
+                } else {
+                    $page = "erreur";
+                }
+            }
+
+        }
+
 
         //affichage des page view
     } elseif (isset($_POST["view"])) {
-        if ($_POST["view"] == "set_group") {
-            $one_group = get_one_group_by_id($_POST["id_groups"], $c);
-            $users_in_gr = get_users_list_in_group_by_id($_POST["id_groups"], $c);
-            $users_not_in_gr = get_users_list_not_in_group_by_id($_POST["id_groups"], $c);
-            $pending_invitation_list = get_pending_invitation_by_id_user($_SESSION['id'], $c);
-            $users_list = get_users_list($c);
-            $page = "set_group";
-        }
-        if ($_POST["view"] == "set_event") {
-            $one_event = get_one_event_by_id($_POST["id_event"], $c);
-            $pending_invitation_list = get_pending_invitation_by_id_user($_SESSION['id'], $c);
-            $users_list = get_users_list($c);
-            $page = "set_event";
-        }
+
 
     } else {
         //formulaire d'incription

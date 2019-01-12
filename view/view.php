@@ -8,7 +8,10 @@ elseif ($page == "main") {
     display_header_cal();
     display_main();
 }
-
+elseif ($page == "role_selection") {
+    display_header_cal();
+    display_role_selection($id);
+}
 elseif ($page == "connection_failed") {
     display_home();
     display_footer_home();
