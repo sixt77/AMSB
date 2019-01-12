@@ -25,7 +25,8 @@ var_dump($id);
 
             </li>
             dirigeant ?
-            <input type="checkbox" id="subscribeNews" name="Dirigeant" value="dirigeant">
+            <input type="checkbox" id="leaderCheckbox" name="Dirigeant" value="dirigeant">
+            <input type="checkbox" id="OTMCheckbox" name="OTM" value="otm">
             <input type="hidden" name="id_user" value="<?php echo $id;?>">
             <div class="ac-home-sign-allBoutton">
                 <ul>

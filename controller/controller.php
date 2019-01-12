@@ -36,9 +36,16 @@ if (empty($_POST) && empty($_GET)) {
         }
         //selection de rôle
         if ($_POST["action"] == "role_selection") {
-            var_dump($_POST);
             if(isset($_POST["Dirigeant"])){
                 if (add_leader($_POST["id_user"], $c)) {
+                    header('Location: index.php');
+                } else {
+                    $page = "erreur";
+                }
+            }
+            if(isset($_POST["OTM"])){
+
+                if (add_OTM($_POST["id_user"], $c)) {
                     header('Location: index.php');
                 } else {
                     $page = "erreur";
