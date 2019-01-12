@@ -34,23 +34,49 @@ if (empty($_POST) && empty($_GET)) {
                 $page = "erreur";
             }
         }
-        //selection de rôle
+        //ajout de rôle
         if ($_POST["action"] == "role_selection") {
-            if(isset($_POST["Dirigeant"])){
+            //dirigeants
+            if(isset($_POST["Leader"])){
                 if (add_leader($_POST["id_user"], $c)) {
                     header('Location: index.php');
                 } else {
                     $page = "erreur";
                 }
             }
+            //OTM
             if(isset($_POST["OTM"])){
-
                 if (add_OTM($_POST["id_user"], $c)) {
                     header('Location: index.php');
                 } else {
                     $page = "erreur";
                 }
             }
+            //arbitres
+            if(isset($_POST["Arbiter"])){
+                if (add_arbiter($_POST["id_user"], $c)) {
+                    header('Location: index.php');
+                } else {
+                    $page = "erreur";
+                }
+            }
+            //bénévoles
+            if(isset($_POST["Volunteer"])){
+                if (add_volunteer($_POST["id_user"], $c)) {
+                    header('Location: index.php');
+                } else {
+                    $page = "erreur";
+                }
+            }
+            //joueur
+            if(isset($_POST["Player"])){
+                if (add_player($_POST["id_user"], $c)) {
+                    header('Location: index.php');
+                } else {
+                    $page = "erreur";
+                }
+            }
+
 
         }
 

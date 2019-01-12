@@ -25,8 +25,15 @@ var_dump($id);
 
             </li>
             dirigeant ?
-            <input type="checkbox" id="leaderCheckbox" name="Dirigeant" value="dirigeant">
+            <input type="checkbox" id="leaderCheckbox" name="Leader" value="dirigeant">
+            OTM ?
             <input type="checkbox" id="OTMCheckbox" name="OTM" value="otm">
+            arbitre ?
+            <input type="checkbox" id="arbiterCheckbox" name="Arbiter" value="arbitre">
+            benevole ?
+            <input type="checkbox" id="volunteerCheckbox" name="Volunteer" value="volunteer">
+            joueur ?
+            <input type="checkbox" id="playerCheckbox" name="Player" value="player">
             <input type="hidden" name="id_user" value="<?php echo $id;?>">
             <div class="ac-home-sign-allBoutton">
                 <ul>
