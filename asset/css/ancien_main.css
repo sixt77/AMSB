@@ -1,0 +1,2857 @@
+/*********************************************************************************\
+ *   Global                                                                      *
+\*********************************************************************************/
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+:focus {
+    outline: none;
+}
+
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', 'PT Sans', sans-serif;
+    background-size: cover;
+    background: #1B2129;
+    font-size: 15px;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+input::placeholder {
+    color: #fff;
+}
+
+input:placeholder-shown {
+    color: #fff;
+}
+
+@supports (pointer-events: none) and
+      ((-webkit-appearance: none) or
+      (-moz-appearance: none) or
+      (appearance: none)) {
+
+    option {
+        background-color: #c8d6e5;
+    }
+
+}
+
+
+/*********************************************************************************\
+ *   Container                                                                   *
+\*********************************************************************************/
+
+
+.amsb-home-container {
+    width: 100%;
+    padding: 50px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+
+/*********************************************************************************\
+ *   Home                                                                        *
+\*********************************************************************************/
+
+
+/*************\
+ *   Header  *
+\*************/
+
+
+.amsb-home-header {
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0px -2px 20px 0px #000;
+}
+
+.amsb-home-header-title {
+    font-size: 30px;
+    color: #FC8;
+    text-transform: uppercase;
+    text-align: center;
+    width: 280px;
+    margin: 0 auto;
+    cursor: default;
+}
+
+
+/*************\
+ *   Main    *
+\*************/
+
+
+.amsb-home {
+    max-width: 350px;
+    border-radius: 5px;
+    padding: 10px 25px;
+    margin: 20px auto;
+}
+
+.amsb-home-signin {
+    padding: 0px;
+}
+
+.amsb-home-signup {
+    padding: 0px;
+}
+
+.amsb-home-sign-item {
+    padding: 8px 10px;
+    box-shadow: 2px 3px 20px -2px #000;
+    border-radius: 3px;
+    margin-top: 20px;
+    background-color: #718093;
+}
+
+.amsb-home-sign-item-connec {
+    padding: 10px;
+    cursor: default;
+}
+
+.amsb-home-sign-item-inscrip {
+    cursor: default;
+}
+
+.amsb-home-sign-item-h2 {
+    color: #fff;
+    line-height: 40px;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 20px;
+}
+
+.amsb-home-sign-item-subtitle {
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+    font-style: italic;
+}
+
+.amsb-home-sign-item-input {
+    color: #fff;
+    width: 100%;
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.amsb-home-sign-item-input:focus {
+    outline: none;
+    border-bottom: 1px solid #fff;
+}
+
+.amsb-home-sign-allBoutton {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 40px;
+    margin-top: 20px;
+}
+
+.amsb-home-sign-item-boutton-left {
+    width: 100%;
+}
+
+.amsb-home-sign-item-boutton-right {
+    width: 100%;
+}
+
+.amsb-home-sign-item-boutton-log {
+    border-color: transparent;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    line-height: 40px;
+    height: 40px;
+    width: 100%;
+    min-width: 170px;
+    color: #fff;
+    cursor: pointer;
+    background-color: transparent;
+    box-shadow: 4px 4px 20px -4px #000;
+
+    -webkit-transition: background-color .25s ease-in-out, color .25s ease-in-out, transform .25s ease-in-out, box-shadow .25s ease-in-out;
+    -moz-transition: background-color .25s ease-in-out, color .25s ease-in-out, transform .25s ease-in-out, box-shadow .25s ease-in-out;
+    transition: background-color .25s ease-in-out, color .25s ease-in-out, transform .25s ease-in-out, box-shadow .25s ease-in-out;
+
+}
+
+.amsb-home-sign-item-boutton-log:hover {
+    transform: scale(0.95);
+    background-color: #fff;
+    color: #000;
+    box-shadow: 6px 6px 8px 0px #000;
+
+}
+
+.amsb-home-sign-item-boutton-sign {
+    border-color: transparent;
+    border-radius: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 0 20px;
+    margin-top: 10px;
+    line-height: 40px;
+    height: 40px;
+    width: 100%;
+    min-width: 170px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    background-color: #453963;
+    box-shadow: 4px 4px 20px -4px #000;
+
+    -webkit-transition: background-color .25s ease-in-out, color .25s ease-in-out, transform .25s ease-in-out, box-shadow .25s ease-in-out;
+    -moz-transition: background-color .25s ease-in-out, color .25s ease-in-out, transform .25s ease-in-out, box-shadow .25s ease-in-out;
+    transition: background-color .25s ease-in-out, color .25s ease-in-out, transform .25s ease-in-out, box-shadow .25s ease-in-out;
+
+}
+
+.amsb-home-sign-item-boutton-sign:hover {
+    transform: scale(0.95);
+    background-color: #76EAA8;
+    box-shadow: 6px 6px 8px 0px #000;
+
+}
+
+.amsb-home-signin-text {
+    color: #fff;
+}
+
+.amsb-home-signin-continue {
+    width: 90px;
+    padding: 6px 12px;
+    margin-left: auto;
+    display: block;
+    border: 1px solid;
+    border-radius: 5px;
+    color: #fff;
+    box-shadow: 4px 4px 10px -2px black;
+}
+
+
+/*************\
+ *   Footer  *
+\*************/
+
+
+.amsb-home-footer {
+    padding: 20px;
+    width: 100%;
+    background-color: transparent;
+    box-shadow: 0px 2px 20px 0px #000;
+    z-index: -1;
+}
+
+.amsb-home-footer-title {
+    width: 100%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 18px;
+    color: #fff;
+    cursor: default;
+}
+
+
+/*********************************************************************************\
+ *   Main                                                                        *
+\*********************************************************************************/
+
+
+.amsb-main {
+    height: calc(100% - 70px);
+}
+
+.amsb-main-header {
+    width: 100%;
+    height: 70px;
+    position: relative;
+    background-color: #1C2229;
+    box-shadow: inset 0px 0px 6px -2px #000000;
+    z-index: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.amsb-main-header-invitation {
+    display: block;
+    float: left;
+    width: 70px;
+    padding: 10px 0px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    font-size: 42px;
+    cursor: pointer;
+}
+
+.amsb-main-header-invitation:hover {
+    background-color: #576574;
+}
+
+.amsb-main-header-invitation:active {
+    background-color: #8395a7;
+}
+
+.amsb-main-header-invitation-notif {
+    position: absolute;
+    font-size: 10px;
+    top: 20px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+    margin-top: -10px;
+    padding: 0px;
+    font-weight: normal;
+    color: white;
+    text-align: center;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+    background: #e23442;
+    border: 1px solid #911f28;
+    border-radius: 11px;
+    background-image: -webkit-linear-gradient(top, #e8616c, #dd202f);
+    background-image: -moz-linear-gradient(top, #e8616c, #dd202f);
+    background-image: -o-linear-gradient(top, #e8616c, #dd202f);
+    background-image: linear-gradient(to bottom, #e8616c, #dd202f);
+    -webkit-box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.1), 0 1px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.1), 0 1px rgba(0, 0, 0, 0.12);
+}
+
+
+.amsb-main-header-createGroup {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    float: right;
+    line-height: 50px;
+    border: none;
+    padding: 10px 0px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 40px;
+    color: #fff;
+    width: 70px;
+    text-align: center;
+}
+
+.amsb-main-header-createGroup:hover {
+    background-color: #576574;
+}
+
+.amsb-main-header-createGroup:active {
+    background-color: #8395a7;
+}
+
+
+.amsb-main-header-allGroup {
+    font-family: FontAwesome;
+    display: inline-block;
+    line-height: 50px;
+    float: right;
+    border: none;
+    padding: 10px 0px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 25px;
+    color: #fff;
+    width: 70px;
+    text-align: center;
+}
+
+.amsb-main-header-allGroup:hover {
+    background-color: #576574;
+}
+
+.amsb-main-header-allGroup:active {
+    background-color: #8395a7;
+}
+
+
+.amsb-main-header-allEvent {
+    font-family: 'Material Icons';
+    display: inline-block;
+    line-height: 50px;
+    float: right;
+    border: none;
+    padding: 10px 0px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 30px;
+    color: #fff;
+    width: 70px;
+    text-align: center;
+}
+
+.amsb-main-header-allEvent:hover {
+    background-color: #576574;
+}
+
+.amsb-main-header-allEvent:active {
+    background-color: #8395a7;
+}
+
+
+.amsb-main-header-logout {
+    float: right;
+    line-height: 50px;
+    border: none;
+    padding: 10px 0px;
+    cursor: pointer;
+    background-color: transparent;
+    font-family: FontAwesome;
+    font-size: 27px;
+    color: #fff;
+    width: 70px;
+    text-align: center;
+}
+
+.amsb-main-header-logout:hover {
+    background-color: #576574;
+}
+
+.amsb-main-header-logout:active {
+    background-color: #8395a7;
+}
+
+.amsb-main-header-logout:before {
+    content: "\f011";
+}
+
+
+.amsb-main-calendrier {
+    width: 100%;
+    height: 100%;
+    float: right;
+    background-color: #fff;
+    box-shadow: inset 0px 0px 0px 1px #fcf8e3;
+}
+
+.amsb-main-calendrier-createEvent {
+    display: block;
+    height: 50px;
+    width: 50px;
+    line-height: 30px;
+    background-color: #1C2229;
+    box-shadow: 2px 2px 8px 0 #000;
+    bottom: 20px;
+    right: 20px;
+    position: absolute;
+    z-index: 0;
+    border-radius: 50%;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    color: white;
+    font-size: 30px;
+}
+
+.amsb-main-calendrier-createEvent:hover {
+    background-color: #576574;
+}
+
+.amsb-main-calendrier-createEvent:active {
+    background-color: #8395a7;
+
+}
+
+
+
+.amsb-main-nav {
+    width: 300px;
+    height: calc(100% - 71px);
+    flex-direction: column;
+    background-color: #c8d6e5;
+    overflow-y: scroll;
+    box-shadow: inset -2px 2px 10px -1px #000;
+    position: absolute;
+    z-index: 2;
+}
+
+
+/*************\
+ *   Invite  *
+\*************/
+
+
+.amsb-main-nav-invit {
+    display: block;
+    height: calc(100% - 40px);
+    background-color: #576574;
+    box-shadow: inset -6px -3px 9px -5px #000;
+    overflow-y: scroll;
+}
+
+.amsb-main-nav-invit-item {
+    margin: 15px;
+    height: 84px;
+    display: flex;
+    box-shadow: 2px 3px 20px -4px #000;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+
+/*************\
+ *  Descrip  *
+\*************/
+
+
+.amsb-main-nav-invit-item-description {
+    width: 70%;
+    display: inline-block;
+    border-radius: 5px 0px 0px 5px;
+    background-color: #1B2129;
+}
+
+.amsb-main-nav-invit-item-description li {
+    display: inline-block;
+    line-height: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.amsb-main-nav-invit-item-description-name {
+    width: 100%;
+    padding: 0px 20px;
+    text-align: left;
+}
+
+.amsb-main-nav-invit-item-description-jourStart {
+    width: 70%;
+    border-top: 1px solid;
+}
+
+.amsb-main-nav-invit-item-description-heureStart {
+    width: 30%;
+    border-left: 1px solid;
+    border-top: 1px solid;
+}
+
+.amsb-main-nav-invit-item-description-jourFin {
+    width: 70%;
+    border-bottom: 1px solid;
+}
+
+.amsb-main-nav-invit-item-description-heureFin {
+    width: 30%;
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+
+}
+
+.amsb-main-nav-invit-item-description-descript {
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+}
+
+
+/*************\
+ *  Boutton  *
+\*************/
+
+
+.amsb-main-nav-invit-item-boutton {
+    display: inline-block;
+    width: 30%;
+}
+
+.amsb-main-nav-invit-item-boutton form button {
+    width: 100%;
+    height: 41px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.amsb-main-nav-invit-item-boutton-valider {
+    border-radius: 0px 5px 0px 0px;
+    background-color: #fff;
+    font: normal normal normal 14px/1 FontAwesome;
+    color: #000;
+    font-size: 20px;
+}
+
+.amsb-main-nav-invit-item-boutton-valider:hover {
+    background-color: #b2bec3;
+}
+
+.amsb-main-nav-invit-item-boutton-refuser {
+    border-radius: 0px 0px 5px 0px;
+    background-color: #b71540;
+    font: normal normal normal 14px/1 FontAwesome;
+    color: #fff;
+    font-size: 20px;
+}
+
+.amsb-main-nav-invit-item-boutton-refuser:hover {
+    background-color: #d63031;
+}
+
+
+/*********************************************************************************\
+ *   Font Gris                                                                   *
+\*********************************************************************************/
+
+
+.amsb-fontGris {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    bottom: -70px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.38);
+    z-index: 1;
+    pointer-events: none;
+    -webkit-transition: opacity 200ms ease-in-out;
+    transition: opacity 200ms ease-in-out;
+    opacity: 0;
+}
+
+
+/*********************************************************************************\
+ *   Creer Event                                                                 *
+\*********************************************************************************/
+
+
+.amsb-createEvent {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+}
+
+.amsb-createEventMaj {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+}
+
+.amsb-createEvent-header {
+    width: 100%;
+    height: 80px;
+    word-wrap: break-word;
+    padding: 0px;
+    background-color: #1C2229;
+    color: white;
+}
+
+.amsb-createEvent-header-close {
+    color: white;
+    float: left;
+    cursor: pointer;
+    padding: 15px 15px 0px 15px;
+    font: normal normal normal 20px/1 FontAwesome;
+}
+
+.amsb-createEvent-header-close:hover {
+    transform: scale(1.1);
+}
+
+.amsb-createEvent-header-close:active {
+    transform: scale(.9);
+}
+
+.amsb-createEvent-header-save {
+    color: white;
+    background-color: #1C2229;
+    outline: none;
+    font-size: 14px;
+    border: none;
+    float: right;
+    line-height: 20px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.amsb-createEvent-header-save:hover {
+    background-color: #576574;
+}
+
+.amsb-createEvent-header-save:active {
+    background-color: #8395a7;
+}
+
+.amsb-createEventModif-header-save {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.amsb-createEvent-header-title {
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    padding: 0px 10px;
+}
+
+.amsb-createEventModif-header-title {
+    width: 100%;
+    font-size: 18px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 80px;
+    line-height: 20px;
+    padding-top: 48px;
+    text-align: center;
+}
+
+.amsb-createEvent-header-item-checkmark {
+
+}
+
+.amsb-createEvent-body {
+    width: 100%;
+    height: calc(100vh - 80px);
+    padding: 5px 0px;
+    background-color: #fff;
+    color: #000;
+    overflow-y: auto;
+}
+
+.amsb-createEvent-body-creneaux {
+    margin-top: 10px;
+}
+
+.amsb-createEvent-body-creneaux-title {
+    margin-bottom: 15px;
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+    cursor: default;
+}
+
+.amsb-createEvent-body-invitation {
+
+}
+
+.amsb-createEvent-body-invitation-title {
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+    cursor: default;
+    padding-top: 10px;
+}
+
+.amsb-createEvent-body-invitation-users {
+    cursor: default;
+    font-size: 21px;
+    background-color: #1C2229;
+    color: #FFF;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.amsb-createEvent-body-invitation-groups {
+    cursor: default;
+    font-size: 21px;
+    background-color: #1C2229;
+    color: #FFF;
+    text-align: center;
+    padding: 5px 0;
+    margin-top: 20px;
+}
+
+.amsb-createEvent-body-creneaux-first {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    margin-top: 30px;
+}
+
+.amsb-createEvent-body-creneaux-second {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    margin-top: 30px;
+}
+
+.amsb-createEvent-body-creneaux-crenTxt {
+    display: inline-block;
+    border: none;
+    outline: none;
+    font: normal normal normal 30px/1 FontAwesome;
+}
+
+.amsb-createEvent-body-creneaux-dateEv {
+    font-size: 17px;
+    height: 50px;
+    background-color: #c8d6e5;
+    border: none;
+    box-shadow: 0px 0px 5px 1px;
+}
+
+.amsb-createEvent-body-creneaux-hoursEv {
+    border: none;
+    outline: none;
+    font-size: 19px;
+    height: 50px;
+    box-shadow: 0px 0px 5px 1px;
+    background-color: #c8d6e5;
+}
+
+.amsb-createEvent-body-description {
+    margin-top: 80px;
+}
+
+.amsb-createEvent-body-description-input {
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    padding: 0px 10px;
+}
+
+.amsb-createEvent-body-description-input::placeholder {
+    color: white;
+
+}
+
+.amsb-createEvent-body-description-radio {
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.amsb-createEvent-body-description-radio-item {
+    height: 80px;
+    line-height: 40px;
+    border: 1px solid;
+    margin: 10px 0;
+}
+
+.amsb-createEvent-body-radio {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 24px;
+    cursor: pointer;
+}
+
+.amsb-createEvent-body-radio-span {
+    display: inline-block;
+    width: calc(100% - 80px);
+    float: right;
+}
+
+.amsb-createEvent-body-item {
+    display: flex;
+    height: 30px;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.amsb-createEvent-body-item-fullDay {
+    text-align: left;
+    line-height: 30px;
+    padding-left: 10px;
+    font-size: 24px;
+}
+
+.amsb-createEvent-body-item-name {
+    width: 30%;
+    text-align: left;
+    line-height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.amsb-createEvent-body-item-lname {
+    width: 30%;
+    text-align: left;
+    line-height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.amsb-createEvent-body-item-select {
+    height: 40px;
+    background-color: red;
+    border: none;
+    border-radius: 0px;
+    width: 30%;
+    float: right;
+    display: block;
+}
+
+.amsb-createEvent-body-item-checkbox {
+    width: 15%;
+    height: 40px;
+    margin: 0;
+}
+
+.amsb-createEvent-body-item-descriptionGroup {
+
+}
+
+/*cacher checkbox par default */
+.amsb-createEvent-body-item input {
+    opacity: 0;
+    cursor: pointer;
+    order: 2;
+}
+
+.amsb-createEvent-body-item:hover input ~ .amsb-createEvent-body-item-checkmark {
+    background-color: transparent;
+}
+
+/* checked, then background-color */
+.amsb-createEvent-body-item input:checked ~ .amsb-createEvent-body-item-checkmark {
+    background-color: #1C2229;
+}
+
+.amsb-createEvent-body-item-checkmark {
+    height: 30px;
+    width: 30px;
+    border: 3px solid #1C2229;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.amsb-createEvent-body-item-checkmark:after {
+    content: "";
+    display: none;
+}
+
+.amsb-createEvent-body-item input:checked ~ .amsb-createEvent-body-item-checkmark:after {
+    display: block;
+}
+
+.amsb-createEvent-body-item-checkmark:after {
+    width: 6px;
+    height: 16px;
+    margin: 0px 0px 0px 7px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.amsb-createEvent-footer {
+    width: 100%;
+    height: 15%;
+    word-wrap: break-word;
+    padding: 10px;
+    background-color: #3b9f97;
+    color: white;
+}
+
+
+/*********************************************************************************\
+ *   Cree Groupe                                                                  *
+\*********************************************************************************/
+
+
+.amsb-createGroup {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+}
+
+.amsb-createGroup-header {
+    width: 100%;
+    height: 80px;
+    word-wrap: break-word;
+    padding: 0px;
+    background-color: #1C2229;
+    color: white;
+}
+
+.amsb-createGroup-header-close {
+    color: white;
+    float: left;
+    cursor: pointer;
+    padding: 15px 15px 0px 15px;
+    font: normal normal normal 20px/1 FontAwesome;
+}
+
+.amsb-createGroup-header-close:hover {
+    transform: scale(1.1);
+}
+
+.amsb-createGroup-header-close:active {
+    transform: scale(.9);
+}
+
+.amsb-createGroup-header-save {
+    color: white;
+    background-color: #1C2229;
+    outline: none;
+    font-size: 14px;
+    border: none;
+    float: right;
+    line-height: 20px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.amsb-createGroup-header-save:hover {
+    background-color: #576574;
+}
+
+.amsb-createGroup-header-save:active {
+    background-color: #8395a7;
+}
+
+.amsb-createGroup-header-title {
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    padding: 0px 10px;
+}
+
+.amsb-createGroup-body {
+    width: 100%;
+    height: calc(100vh - 80px);
+    padding: 5px 0px;
+    background-color: #fff;
+    color: #000;
+    overflow-y: auto;
+}
+
+.amsb-createGroup-body-addTitle{
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+    cursor: default;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.amsb-createGroup-body-columns{
+    display: flex;
+    width: 100%;
+}
+
+.amsb-createGroup-body-ul{
+    background-color: #c8d6e5;
+    box-shadow: 0 0 5px 2px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.amsb-createGroup-body-h2{
+    text-align: center;
+    line-height: 40px;
+    box-shadow: 5px 5px 3px 1px #000;
+    background-color: #1C2229;
+    margin: 10px auto;
+    color: white;
+    width: 30%;
+    font-size: 23px;
+    cursor: default;
+}
+
+.amsb-createGroup-body-description-input {
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    padding: 0px 10px;
+}
+
+.amsb-createGroup-body-description-input::placeholder {
+    color: white;
+
+}
+
+.amsb-createGroup-body-item {
+    display: flex;
+    height: 40px;
+    justify-content: space-around;
+    margin: 20px 0px;
+    white-space: nowrap;
+}
+
+.amsb-createGroup-body-item-name {
+    width: 30%;
+    text-align: left;
+    line-height: 40px;
+    padding-left: 10px;
+    box-shadow: 0px 0px 5px 1px;
+    background-color: #c8d6e5;
+    margin-left: 5px;
+    overflow-x: scroll;
+    cursor: default;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.amsb-createGroup-body-item-lname {
+    width: 30%;
+    text-align: left;
+    line-height: 40px;
+    padding-left: 10px;
+    box-shadow: 0px 0px 5px 1px;
+    background-color: #c8d6e5;
+    margin-left: 5px;
+    overflow-x: scroll;
+    cursor: default;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.amsb-createGroup-body-item-select {
+    height: 40px;
+    border: none;
+    box-shadow: 0px 0px 5px 1px;
+    background-color: #c8d6e5;
+    width: 25%;
+    margin-left: 10px;
+    font-size: 17px;
+}
+
+.amsb-createGroup-body-item-checkbox {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+}
+
+.amsb-container {
+    cursor: pointer;
+    font-size: 22px;
+    display: flex;
+    padding: 10px 0px;
+    word-break: break-all;
+    width: 100%;
+    justify-content: space-between;
+    line-height: 30px;
+}
+
+/*cacher checkbox par default */
+.amsb-container input {
+    opacity: 0;
+    cursor: pointer;
+    order: 2;
+}
+
+/* custom checkbox */
+.amsb-checkmark {
+    height: 30px;
+    width: 30px;
+    border: 3px solid #1C2229;
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+
+.amsb-container:hover input ~ .amsb-checkmark {
+    background-color: #1C2229;
+}
+
+/* checked, then background-color */
+.amsb-container input:checked ~ .amsb-checkmark {
+    background-color: #1C2229;
+}
+
+.amsb-createGroup-body-item-checkmark {
+    width: 15%;
+    height: 40px;
+    margin: 0;
+}
+
+.amsb-createGroup-body-item-checkmark:after {
+    content: "";
+    display: none;
+}
+
+.amsb-createGroup-body-item input:checked ~ .amsb-createGroup-body-item-checkmark:after {
+    display: block;
+}
+
+.amsb-createGroup-body-item-container .amsb-createGroup-body-item-checkmark:after {
+    width: 6px;
+    height: 16px;
+    margin: 0px 0px 0px 7px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.amsb-createGroup-footer {
+    width: 100%;
+    height: 15%;
+    word-wrap: break-word;
+    padding: 10px;
+    background-color: #3b9f97;
+    color: white;
+}
+
+
+/*********************************************************************************\
+ *   Liste Groupe                                                                  *
+\*********************************************************************************/
+
+
+.amsb-listGroup {
+    width: 100%;
+    height: calc(100% - 70px);
+}
+
+.amsb-listGroup-header {
+    width: 100%;
+    height: 80px;
+    word-wrap: break-word;
+    padding: 0px;
+    background-color: #1C2229;
+    color: white;
+    position: relative;
+}
+
+.amsb-listGroup-header-close {
+    color: white;
+    float: left;
+    cursor: pointer;
+    padding: 15px 15px 0px 15px;
+    font: normal normal normal 20px/1 FontAwesome;
+}
+
+.amsb-listGroup-header-close:hover {
+    transform: scale(1.1);
+}
+
+.amsb-listGroup-header-close:active {
+    transform: scale(.9);
+}
+
+.amsb-listGroup-header-save {
+    color: white;
+    background-color: #1C2229;
+    outline: none;
+    font-size: 14px;
+    border: none;
+    float: right;
+    line-height: 20px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.amsb-listGroup-header-save:hover {
+    background-color: #576574;
+}
+
+.amsb-listGroup-header-save:active {
+    background-color: #8395a7;
+}
+
+.amsb-listGroup-header-title {
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 10px;
+    position: absolute;
+    top: 40px;
+    text-align: center;
+}
+
+.amsb-listGroup-body {
+    width: 100%;
+    height: calc(100vh - 150px);
+    background-color: #FFE;
+    color: #000;
+    overflow-y: auto;
+
+}
+
+.amsb-listGroup-body-liste {
+    min-width: 300px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.amsb-listGroup-body-block {
+    border-bottom: 1px solid #000;
+    background-color: #C9D6E5;
+}
+
+.amsb-listGroup-body-block ul {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.amsb-listGroup-body-block-item {
+    width: calc(100% / 3);
+    line-height: 30px;
+    height: 30px;
+    font-size: 15px;
+    padding: 0px 10px;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.amsb-listGroup-body-block-item-nom {
+    background-color: #1D2329;
+    color: #fff;
+}
+
+.amsb-listGroup-body-block-item-description {
+}
+
+.amsb-listGroup-body-block-item-boutton {
+    padding: 0px;
+}
+
+.amsb-listGroup-body-block-item-boutton-link {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #8395A6;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 18px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.amsb-listGroupModif-body-block {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px auto 0;
+}
+
+.amsb-listGroupModif-body-block-nom {
+}
+
+.amsb-listGroupModif-body-block-description {
+}
+
+.amsb-listGroupModif-body-block-boutton {
+    width: 50%;
+    height: 40px;
+    padding: 0;
+    margin: 0 auto;
+    border: 1px solid #C9D6E5;
+    border-radius: 5px;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.amsb-listGroupModif-body-block-input {
+    height: 40px;
+    width: 90%;
+    display: inline-block;
+    border: 1px solid #C9D6E5;
+    padding: 0;
+    text-align: center;
+    font-size: 16px;
+    background-color: #1D2329;
+    margin: 20px auto;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.amsb-listGroup-body-invitation {
+    margin: 10px auto 0;
+    max-width: 400px;
+}
+
+.amsb-listGroup-body-invitation-item {
+    max-width: 400px;
+    background-color: #C9D6E5;
+    padding: 0px;
+    border: 1px solid #000;
+    margin: 10px 0;
+}
+
+.amsb-listGroup-body-invitation-item h1 {
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+    height: 40px;
+    background-color: #1D2329;
+    color: #fff;
+}
+
+.amsb-listGroup-body-invitation-item-ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+.amsb-listGroup-body-invitation-item-li {
+    width: 50%;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.amsb-listGroup-body-invitation-item-li-boutton {
+    padding: 0px 10px;
+    height: 40px;
+}
+
+.amsb-listGroup-body-invitation-item-li-boutton-solo {
+    width: 100%;
+}
+
+.amsb-listGroup-body-invitation-item-li-boutton-solo-item {
+    width: 100%;
+}
+
+.amsb-listGroup-body-invitation-item-li-boutton-item {
+    width: 100%;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.amsb-listGroup-body-invitation-accepte {
+
+}
+
+.amsb-listGroup-body-invitation-refuse {
+
+}
+
+.amsb-listGroup-body-invitation-envoye {
+
+}
+
+
+/*********************************************************************************\
+ *   Liste Event                                                                  *
+\*********************************************************************************/
+
+
+.amsb-listEvent {
+    width: 100%;
+    height: calc(100% - 70px);
+}
+
+.amsb-listEvent-header {
+    width: 100%;
+    height: 80px;
+    word-wrap: break-word;
+    padding: 0px;
+    background-color: #1C2229;
+    color: white;
+    position: relative;
+}
+
+.amsb-listEvent-header-close {
+    color: white;
+    float: left;
+    cursor: pointer;
+    padding: 15px 15px 0px 15px;
+    font: normal normal normal 20px/1 FontAwesome;
+}
+
+.amsb-listEvent-header-close:hover {
+    transform: scale(1.1);
+}
+
+.amsb-listEvent-header-close:active {
+    transform: scale(.9);
+}
+
+.amsb-listEvent-header-save {
+    color: white;
+    background-color: #1C2229;
+    outline: none;
+    font-size: 14px;
+    border: none;
+    float: right;
+    line-height: 20px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.amsb-listEvent-header-save:hover {
+    background-color: #576574;
+}
+
+.amsb-listEvent-header-save:active {
+    background-color: #8395a7;
+}
+
+.amsb-listEvent-header-title {
+    width: 100%;
+    font-size: 30px;
+    cursor: default;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 10px;
+    position: absolute;
+    top: 40px;
+    text-align: center;
+}
+
+.amsb-listEvent-body {
+    width: 100%;
+    height: calc(100vh - 150px);
+    padding: 5px 0px;
+    background-color: #1C2229;
+    color: #000;
+    overflow-y: auto;
+}
+
+.amsb-listEvent-body-ul{
+    padding: 12px;
+    margin: 0px;
+    background-color: #c8d6e5;
+    width: 100%;
+    color: white;
+    box-shadow: 0 0 4px 0px;
+    text-align: center;
+    font-size: 18px;
+    cursor: default;
+}
+
+.amsb-listEvent-body-li{
+    cursor: default;
+    padding: 10px 0px;
+    margin: 5px 0 10px;
+    background-color: #1C2229;
+    box-shadow: 0 0 4px 3px #000;
+}
+
+.amsb-listEvent-body-button{
+    text-align: center;
+    margin: 10px 0;
+}
+
+.amsb-listEvent-body-button-content{
+    cursor: pointer;
+    border: none;
+    background-color: #76EAA8;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    padding: 5px 15px;
+    box-shadow: 0 0 4px 2px;
+}
+
+.amsb-listEvent-body-button-content:hover{
+    padding: 7px 17px;
+    font-size: 20px;
+}
+
+.amsb-listEvent-body-h1{
+    width: 100%;
+    font-size: 30px;
+    cursor: default;
+    color: white;
+    text-align: center;
+    margin: 45px 0 20px;
+}
+
+.amsb-listEvent-body-block {
+    margin: 20px auto;
+    border: 1px solid #000;
+    background-color: #C9D6E5;
+    max-width: 400px;
+}
+
+.amsb-listEvent-body-block-item {
+    display: inline-block;
+    width: 50%;
+    line-height: 30px;
+    height: 30px;
+    font-size: 15px;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.amsb-listEvent-body-block-item-nom {
+    width: 100%;
+    border-bottom: 1px solid #000;
+    background-color: #1D2329;
+    color: #fff;
+    text-align: left;
+}
+
+.amsb-listEvent-body-block-item-description {
+    width: 100%;
+    border-bottom: 1px solid #000;
+    text-align: left;
+}
+
+.amsb-listEvent-body-block-item-boutton {
+    width: 100%;
+    padding: 0px;
+    border-top: 1px solid #000;
+}
+
+.amsb-listEvent-body-block-item-boutton-link {
+    width: 100%;
+    height: 100%;
+    background-color: #8395A6;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 18px;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+}
+
+.amsb-listEventModif-body-block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px auto 0;
+}
+
+.amsb-listEventModif-body-block-nom {
+}
+
+.amsb-listEventModif-body-block-description {
+}
+
+.amsb-listEventModif-body-block-boutton {
+    width: 50%;
+    height: 40px;
+    padding: 0;
+    margin: 0 auto;
+    border: 1px solid #C9D6E5;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.amsb-listEventModif-body-block-input {
+    height: 40px;
+    width: 90%;
+    display: inline-block;
+    border: 1px solid #C9D6E5;
+    padding: 0;
+    text-align: center;
+    font-size: 16px;
+    background-color: #1D2329;
+    margin: 5px auto;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.amsb-listEventModif-body-block-boutton-first {
+    margin-top: 20px;
+}
+
+.amsb-listEventModif-body-block-boutton-valide {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+
+/*********************************************************************************\
+ *   Calendrier                                                                  *
+\*********************************************************************************/
+
+
+.fc-scroller.fc-day-grid-container {
+    height: calc(100vh - 200px) !important;
+    overflow-y: auto;
+}
+
+.fc-unthemed .fc-list-empty {
+    background-color: #b2bec3;
+}
+
+.fc-toolbar {
+    padding: 0px;
+    background-color: #1B2129;
+}
+
+.fc-toolbar h2 {
+    text-align: center;
+    line-height: 30px;
+    margin: 0 auto;
+    display: contents;
+}
+
+.fc-view {
+    z-index: 0;
+}
+
+.fc-event {
+    border: 1px solid #1C2229;
+}
+
+.fc-event, .fc-event-dot {
+    background-color: #1C2229;
+}
+
+.fc-view-container {
+    background-color: #8395a7;
+}
+
+.fc-button-group {
+    width: 100%;
+}
+
+.fc-left {
+    width: 50%;
+}
+
+.fc-center {
+    text-transform: uppercase;
+    height: 30px;
+    margin: 0;
+    padding: 0px;
+    float: left;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    color: #fff;
+    width: 100%;
+    background-color: #1C2229;
+}
+
+.fc-right {
+    width: 50%;
+}
+
+.fc button {
+    width: 50%;
+    background-color: #1C2229;
+    background-image: none;
+    color: #fff;
+    box-shadow: none;
+    line-height: 20px;
+    font-size: 20px;
+    text-shadow: none;
+}
+
+.fc button:hover {
+    background-color: #576574;
+}
+
+.fc button:active {
+    background-color: #8395a7;
+}
+
+.fc-button-group button {
+    border-radius: 0px 0px 0px 0px !important;
+}
+
+button.fc-Semaine-button.fc-button.fc-state-default {
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+button.fc-today-button.fc-button.fc-state-default.fc-corner-right {
+    width: 100%;
+}
+
+button.fc-today-button.fc-button.fc-state-default.fc-corner-right.fc-state-disabled {
+    width: 100%;
+}
+
+.fc .fc-button-group > * {
+    margin: 0 0 0 0px;
+}
+
+.fc-agenda-view .fc-day-grid {
+    display: none;
+}
+
+.fc-state-hover, .fc-state-down, .fc-state-active, .fc-state-disabled {
+    background-color: #fff;
+}
+
+th.fc-day-header.fc-widget-header.fc-thu.fc-today span {
+    line-height: 30px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.fc-view.fc-month-view.fc-basic-view table tbody tr td .fc-scroller {
+    height: calc(100vh - 207px) !important;
+}
+
+.fc-view.fc-month-view.fc-basic-view table tbody tr td div div .fc-row.fc-week.fc-widget-content {
+    min-height: calc((100vh - 207px) / 6) !important;
+}
+
+.fc-view.fc-agendaDay-view.fc-agenda-view table tbody tr td .fc-scroller {
+    height: calc(100vh - 211px) !important;
+}
+
+.fc-view.fc-agendaWeek-view.fc-agenda-view table tbody tr td .fc-scroller {
+    height: calc(100vh - 231px) !important;
+}
+
+.fc-view.fc-listWeek-view.fc-list-view.fc-widget-content .fc-scroller {
+    height: calc(100vh - 186px) !important;
+}
+
+.fc-unthemed .fc-divider, .fc-unthemed .fc-popover .fc-header, .fc-unthemed .fc-list-heading td {
+    background-color: #1B2129;
+}
+
+
+.fc-unthemed th,
+.fc-unthemed td,
+.fc-unthemed thead,
+.fc-unthemed tbody,
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-row,
+.fc-unthemed .fc-content,
+.fc-unthemed .fc-popover,
+.fc-unthemed .fc-list-view,
+.fc-unthemed .fc-list-heading td {
+    border-color: #000;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 20px;
+}
+
+.fc-ltr .fc-basic-view .fc-day-top .fc-day-number {
+    color: #fff;
+}
+
+.fc-unthemed td.fc-today {
+    background: #c8d6e5;
+}
+
+.fc-toolbar.fc-header-toolbar {
+    margin-bottom: 0px;
+    margin-top: 30px;
+}
+
+a[data-goto] {
+    color: #fff;
+}
+
+
+/*********************************************************************************\
+ *   PopUp                                                                       *
+\*********************************************************************************/
+
+
+/*************\
+ * CreeEvent *
+\*************/
+
+.amsb-createEvent-popUp {
+    position: fixed;
+    z-index: 2;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.amsb-createEvent-popUp-content {
+    position: relative;
+    margin: auto;
+    width: 80%;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    box-shadow: 3px 3px 15px 2px;
+}
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.amsb-createEvent-popUp-header {
+    width: 100%;
+    height: 80px;
+    word-wrap: break-word;
+    padding: 0px;
+    background-color: #1C2229;
+    color: white;
+}
+
+.amsb-createEvent-popUp-header-save {
+    color: white;
+    background-color: #1C2229;
+    outline: none;
+    font-size: 14px;
+    border: none;
+    float: right;
+    line-height: 20px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.amsb-createEvent-popUp-header-save:hover {
+    background-color: #576574;
+}
+
+.amsb-createEvent-popUp-header-save:active {
+    background-color: #8395a7;
+}
+
+.amsb-createEvent-popUp-header-close {
+    color: white;
+    float: left;
+    cursor: pointer;
+    padding: 15px 0px 0px 15px;
+    font: normal normal normal 20px/1 FontAwesome;
+}
+
+.amsb-createEvent-popUp-header-close:hover,
+.amsb-createEvent-popUp-header-close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.amsb-createEvent-popUp-header-title {
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    padding: 0px 10px;
+}
+
+.amsb-createEvent-popUp-body {
+    background-color: #fff;
+    height: 260px;
+
+}
+
+.amsb-createEvent-popUp-body-creneaux-title {
+    margin-bottom: 15px;
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+    cursor: default;
+}
+
+.amsb-createEvent-popUp-body-creneaux {
+    width: 50%;
+    float: left;
+    padding: 10px;
+    border-right: 1px solid #000;
+    height: 100%;
+}
+
+.amsb-createEvent-popUp-body-invitation {
+    width: 50%;
+    float: right;
+    height: 100%;
+    overflow-y: scroll;
+
+}
+
+.amsb-createEvent-popUp-body-invitation-title {
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+    cursor: default;
+    padding-top: 10px;
+}
+
+.amsb-createEvent-popUp-body-invitation-users {
+    cursor: default;
+    font-size: 21px;
+    background-color: #1C2229;
+    color: #FFF;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.amsb-createEvent-popUp-body-invitation-groups {
+    cursor: default;
+    font-size: 21px;
+    background-color: #1C2229;
+    color: #FFF;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.amsb-createEvent-popUp-body-creneaux-first {
+    display: flex;
+    height: 70px;
+    margin-top: 30px;
+}
+
+.amsb-createEvent-popUp-body-creneaux-second {
+    display: flex;
+    height: 70px;
+}
+
+.amsb-createEvent-popUp-body-creneaux-crenTxt {
+    display: inline-block;
+    border: none;
+    outline: none;
+    padding: 10px 10px;
+    font: normal normal normal 30px/1 FontAwesome;
+}
+
+.amsb-createEvent-popUp-body-creneaux-dateEv {
+    font-size: 17px;
+    height: 50px;
+    padding-left: 65px;
+    background-color: #c8d6e5;
+    border: none;
+    box-shadow: 0px 0px 5px 1px;
+    margin: 0 40px;
+}
+
+.amsb-createEvent-popUp-body-creneaux-hoursEv {
+    border: none;
+    outline: none;
+    font-size: 19px;
+    height: 50px;
+    box-shadow: 0px 0px 5px 1px;
+    background-color: #c8d6e5;
+    padding-left: 30px;
+    margin-left: 20px;
+}
+
+.amsb-createEvent-popUp-body-description {
+    position: absolute;
+    width: 100%;
+    box-shadow: 2px 7px 12px 3px;
+}
+
+.amsb-createEvent-popUp-body-description-input {
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    padding: 0px 10px;
+}
+
+.amsb-createEvent-popUp-body-description-input::placeholder {
+    color: white;
+
+}
+
+
+/**************\
+ * CreeGroupe *
+\**************/
+
+
+.amsb-createGroup-popUp{
+    position: fixed;
+    z-index: 2;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.amsb-createGroup-popUp-content {
+    position: relative;
+    margin: auto;
+    width: 60%;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    box-shadow: 3px 3px 15px 2px;
+}
+
+.amsb-createGroup-popUp-body {
+    background-color: #fff;
+    height: calc(60vh - 80px);
+    overflow-y: scroll;
+
+}
+
+.amsb-createGroup-popUp-body-addTitle{
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+    cursor: default;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.amsb-createGroup-popUp-body-item-name{
+    width: 25%;
+    text-align: center;
+    line-height: 40px;
+    box-shadow: 0px 0px 5px 1px;
+    background-color: #c8d6e5;
+    margin-left: 28px;
+    overflow-x: scroll;
+    cursor: default;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.amsb-createGroup-popUp-body-item-lname{
+    width: 25%;
+    text-align: center;
+    line-height: 40px;
+    box-shadow: 0px 0px 5px 1px;
+    background-color: #c8d6e5;
+    margin-left: 45px;
+    overflow-x: scroll;
+    cursor: default;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.amsb-createGroup-popUp-body-item-select{
+    height: 40px;
+    border: none;
+    box-shadow: 0px 0px 5px 1px;
+    background-color: #c8d6e5;
+    width: 25%;
+    margin-left: 45px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.amsb-createGroup-popUp-body-columns{
+    display: flex;
+    width: 100%;
+    margin-left: 30px;
+}
+
+.amsb-createGroup-popUp-body-ul{
+    background-color: #c8d6e5;
+    box-shadow: 0 0 5px 2px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.amsb-createGroup-popUp-body-h2{
+    text-align: center;
+    line-height: 40px;
+    box-shadow: 5px 5px 3px 1px #000;
+    background-color: #1C2229;
+    margin: 10px 52px 0 0;
+    color: white;
+    width: 200px;
+    font-size: 23px;
+    cursor: default;
+}
+
+.amsb-createGroup-popUp-body-invitation-users {
+    cursor: default;
+    font-size: 21px;
+    background-color: #1C2229;
+    color: #FFF;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.amsb-createGroup-popUp-body-description {
+    position: absolute;
+    width: 100%;
+    box-shadow: 2px 7px 12px 3px;
+}
+
+.amsb-createGroup-popUp-body-description-input {
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    padding: 0px 10px;
+}
+
+.amsb-createGroup-popUp-body-description-input::placeholder {
+    color: white;
+
+}
+
+
+/*************\
+ *   Fail    *
+\*************/
+
+
+.amsb-popUpFail {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 200px;
+    width: 100%;
+}
+
+.amsb-popUpFail-content {
+    position: relative;
+    margin: auto;
+    width: 250px;
+    box-shadow: 3px 3px 15px 2px;
+}
+
+.amsb-popUpFail-header {
+    width: 100%;
+    height: 250px;
+    word-wrap: break-word;
+    padding: 0px;
+    background-color: #1D2329;
+    color: white;
+    border-radius: 3px;
+    padding: 30px;
+}
+
+.amsb-popUpFail-header-text {
+    color: #fff;
+    text-align: center;
+    line-height: 70px;
+    font-size: 20px;
+}
+
+.amsb-popUpFail-header-close {
+    color: white;
+    cursor: pointer;
+    display: block;
+    width: 150px;
+    margin: 30px auto 0px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    border-radius: 3px;
+    box-shadow: 4px 4px 21px 0px #000;
+}
+
+.amsb-popUpFail-header-close:hover,
+.amsb-popUpFail-header-close:focus {
+    text-decoration: none;
+    box-shadow: 4px 4px 20px -3px #000;
+    background-color: #409E83;
+}
+
+
+/**************\
+ *    Event   *
+\**************/
+
+
+.amsb-popUpEvent {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 200px;
+    width: 100%;
+}
+
+.amsb-popUpEvent-content {
+    position: relative;
+    margin: auto;
+    width: 250px;
+    box-shadow: 3px 3px 15px 2px;
+}
+
+.amsb-popUpEvent-header {
+    width: 100%;
+    height: 250px;
+    word-wrap: break-word;
+    background-color: #1D2329;
+    color: white;
+    border-radius: 3px;
+    padding: 20px;
+}
+
+.amsb-popUpEvent-header-text {
+    color: #fff;
+    text-align: center;
+    line-height: 70px;
+    font-size: 20px;
+}
+
+.amsb-popUpEvent-header-close {
+    cursor: pointer;
+    width: 130px;
+    display: block;
+    margin: 40px auto 0px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    border-radius: 3px;
+    box-shadow: 4px 4px 20px -5px #000;
+}
+
+.amsb-popUpEvent-header-close:hover,
+.amsb-popUpEvent-header-close:focus {
+    text-decoration: none;
+    box-shadow: 4px 4px 20px -3px #000;
+    background-color: #409E83;
+}
+
+.amsb-popUpEvent-header-item {
+    line-height: 20px;
+    text-align: center;
+    width: 50%;
+    display: inline-block;
+}
+
+.amsb-popUpEvent-header-item-nom {
+    width: 100%;
+    line-height: 30px;
+    font-size: 20px;
+    border: 1px solid;
+    border-radius: 3px;
+    background-color: #8395A6;
+    margin-bottom: 30px;
+}
+
+.amsb-popUpEvent-header-item-description {
+    width: 100%;
+    font-size: 14px;
+}
+
+/*********************************************************************************\
+ *   checkbox standar                                                               *
+\*********************************************************************************/
+
+
+.amsb-container {
+    cursor: pointer;
+    font-size: 22px;
+    display: flex;
+    padding: 10px 0px;
+    word-break: break-all;
+    width: 100%;
+    justify-content: space-between;
+    line-height: 30px;
+}
+
+/*cacher checkbox par default */
+.amsb-container input {
+    opacity: 0;
+    cursor: pointer;
+    order: 2;
+}
+
+/* custom checkbox */
+.amsb-checkmark {
+    height: 30px;
+    width: 30px;
+    border: 3px solid #1C2229;
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+
+.amsb-container:hover input ~ .amsb-checkmark {
+    background-color: #1C2229;
+}
+
+/* checked, then background-color */
+.amsb-container input:checked ~ .amsb-checkmark {
+    background-color: #1C2229;
+}
+
+.amsb-checkmark:after {
+    content: "";
+    display: none;
+}
+
+.amsb-container input:checked ~ .amsb-checkmark:after {
+    display: block;
+}
+
+.amsb-container .amsb-checkmark:after {
+    width: 6px;
+    height: 16px;
+    margin: 0px 0px 0px 7px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/*********************************************************************************\
+ *   checkbox nav                                                               *
+\*********************************************************************************/
+
+
+.amsb-main-nav-showEv-container {
+    cursor: pointer;
+    font-size: 22px;
+    display: flex;
+    padding: 10px 0px;
+    word-break: break-all;
+    width: 100%;
+    justify-content: space-between;
+    line-height: 30px;
+}
+
+/*cacher checkbox par default */
+.amsb-main-nav-showEv-container input {
+    opacity: 0;
+    cursor: pointer;
+    order: 2;
+}
+
+/* custom checkbox */
+.amsb-main-nav-showEv-checkmark {
+    height: 30px;
+    width: 30px;
+    border: 3px solid #1C2229;
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+
+.amsb-main-nav-showEv-container:hover input ~ .amsb-main-nav-showEv-checkmark {
+    background-color: #1C2229;
+}
+
+/* checked, then background-color */
+.amsb-main-nav-showEv-container input:checked ~ .amsb-main-nav-showEv-checkmark {
+    background-color: #1C2229;
+}
+
+.amsb-main-nav-showEv-checkmark:after {
+    content: "";
+    display: none;
+}
+
+.amsb-main-nav-showEv-container input:checked ~ .amsb-main-nav-showEv-checkmark:after {
+    display: block;
+}
+
+.amsb-main-nav-showEv-container .amsb-main-nav-showEv-checkmark:after {
+    width: 6px;
+    height: 16px;
+    margin: 0px 0px 0px 7px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/*********************************************************************************\
+ *   checkbox popup   CreeEvent                                                            *
+\*********************************************************************************/
+
+
+.amsb-createEvent-popUp-checkbox-container {
+    cursor: pointer;
+    font-size: 22px;
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.amsb-createEvent-popUp-checkbox-container span:nth-child(1),
+.amsb-createEvent-popUp-checkbox-container span:nth-child(2) {
+}
+
+/*cacher checkbox par default */
+.amsb-createEvent-popUp-checkbox-container input {
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* custom checkbox */
+.amsb-createEvent-popUp-checkbox-container-checkmark {
+    height: 24px;
+    width: 24px;
+    border: 3px solid #1c2229;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.amsb-createEvent-popUp-checkbox-container:hover input ~ .amsb-createEvent-popUp-checkbox-container-checkmark {
+    background-color: #efefef;
+}
+
+/* checked, then background-color */
+.amsb-createEvent-popUp-checkbox-container input:checked ~ .amsb-createEvent-popUp-checkbox-container-checkmark {
+    background-color: #1c2229;
+}
+
+.amsb-createEvent-popUp-checkbox-container-checkmark:after {
+    content: "";
+    display: none;
+}
+
+.amsb-createEvent-popUp-checkbox-container input:checked ~ .amsb-createEvent-popUp-checkbox-container-checkmark:after {
+    display: block;
+}
+
+.amsb-createEvent-popUp-checkbox-container .amsb-createEvent-popUp-checkbox-container-checkmark:after {
+    width: 5px;
+    height: 12px;
+    margin-left: 5px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.amsb-createEvent-popUp-creneaux-checkbox-container {
+    cursor: pointer;
+    font-size: 23px;
+    display: flex;
+    margin-left: 85px;
+    word-break: break-all;
+    width: 220px;
+}
+
+/*cacher checkbox par default */
+.amsb-createEvent-popUp-creneaux-checkbox-container input {
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* custom checkbox */
+.amsb-createEvent-popUp-creneaux-checkbox-container-checkmark {
+    height: 24px;
+    width: 24px;
+    border: 3px solid #1c2229;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+.amsb-createEvent-popUp-creneaux-checkbox-container:hover input ~ .amsb-createEvent-popUp-creneaux-checkbox-container-checkmark {
+    background-color: #efefef;
+}
+
+/* checked, then background-color */
+.amsb-createEvent-popUp-creneaux-checkbox-container input:checked ~ .amsb-createEvent-popUp-creneaux-checkbox-container-checkmark {
+    background-color: #1c2229;
+}
+
+.amsb-createEvent-popUp-creneaux-checkbox-container-checkmark:after {
+    content: "";
+    display: none;
+}
+
+.amsb-createEvent-popUp-creneaux-checkbox-container input:checked ~ .amsb-createEvent-popUp-creneaux-checkbox-container-checkmark:after {
+    display: block;
+}
+
+.amsb-createEvent-popUp-creneaux-checkbox-container .amsb-createEvent-popUp-creneaux-checkbox-container-checkmark:after {
+    width: 5px;
+    height: 12px;
+    margin-left: 5px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/*********************************************************************************\
+ *   checkbox popup  Cree Groupe                                                             *
+\*********************************************************************************/
+
+
+.amsb-createGroup-popUp-checkbox-container {
+    cursor: pointer;
+    display: flex;
+    margin: 0px 0px 0px 5px;
+}
+
+/*cacher checkbox par default */
+.amsb-createGroup-popUp-checkbox-container input {
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* custom checkbox */
+.amsb-createGroup-popUp-checkbox-container-checkmark {
+    height: 40px;
+    min-width: 40px;
+    border: 3px solid #1c2229;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.amsb-createGroup-popUp-checkbox-container:hover input ~ .amsb-createGroup-popUp-checkbox-container-checkmark {
+    background-color: #efefef;
+}
+
+/* checked, then background-color */
+.amsb-createGroup-popUp-checkbox-container input:checked ~ .amsb-createGroup-popUp-checkbox-container-checkmark {
+    background-color: #1c2229;
+}
+
+.amsb-createGroup-popUp-checkbox-container-checkmark:after {
+    content: "";
+    display: none;
+}
+
+.amsb-createGroup-popUp-checkbox-container input:checked ~ .amsb-createGroup-popUp-checkbox-container-checkmark:after {
+    display: block;
+}
+
+.amsb-createGroup-popUp-checkbox-container .amsb-createGroup-popUp-checkbox-container-checkmark:after {
+    width: 10px;
+    height: 23px;
+    margin-left: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/*********************************************************************************\
+ *   Footer                                                                      *
+\*********************************************************************************/
+
+
+/*************\
+ *   Main    *
+\*************/
+
+
+.amsb-main-footer {
+    margin-top: auto;
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    box-shadow: inset 0px 0px 8px -2px #000;
+}
+
+.amsb-main-footer-title {
+    text-align: center;
+    font-size: 14px;
+    color: #000;
+    width: 100%;
+    line-height: 20px;
+}
+
+
+/*********************************************************************************\
+ *   Responsive                                                                  *
+\*********************************************************************************/
+
+
+.responsive-nav-bar {
+    display: flex!important;
+}
+
+
+/*********************************************************************************\
+ *   Media screen                                                                *
+\*********************************************************************************/
+
+
+@media only screen and (max-width: 1150px) {
+    .amsb-createEvent-popUp {
+        display: none !important;
+    }
+
+    .amsb-createGroup-popUp {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .amsb-home {
+        width: 600px;
+    }
+
+    .amsb-header-home {
+        border-bottom: none;
+    }
+
+    .amsb-main-footer {
+        border-top: none;
+    }
+
+    .amsb-popUpFail-content {
+        width: 60%;
+    }
+}
+
+@media only screen and (min-width: 1150px) {
+
+    .amsb-createEvent {
+        display: none !important;
+    }
+
+    .amsb-createGroup {
+        display: none !important;
+    }
+
+    .amsb-popUpFail-content {
+        width: 400px;
+    }
+
+    .amsb-createEvent-body-item:hover input ~ .amsb-createEvent-body-item-checkmark {
+        background-color: #1C2229;
+    }
+
+    .fc-scroller.fc-time-grid-container {
+        height: calc(100vh - 211px) !important;
+    }
+
+    .fc-view.fc-agendaWeek-view.fc-agenda-view table tbody tr td .fc-scroller {
+        height: calc(100vh - 211px) !important;
+    }
+
+    .amsb-main-header {
+        justify-content: space-around;
+    }
+
+    .amsb-listGroup-body {
+    }
+
+    .amsb-listGroup-body-liste {
+        min-width: 600px;
+        max-width: 600px;
+        margin-top: 10px;
+        border: 2px solid #000;
+    }
+
+    .amsb-listGroup-body-invitation {
+        margin: 0px auto;
+        display: flex;
+        justify-content: space-between;
+        min-width: 80%;
+    }
+
+    .amsb-listGroup-body-block-item {
+        line-height: 50px;
+        height: 50px;
+    }
+
+    .amsb-listGroup-body-invitation-item {
+        min-width: 350px;
+    }
+
+    .amsb-listEvent-body-ul{
+        width: 30%;
+        margin: 0 auto;
+    }
+
+    .amsb-createEvent-body-description-radio {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 100%;
+    }
+
+    .amsb-createEvent-body-description-radio-item {
+        min-width: 250px;
+        width: calc(100% / 3);
+    }
+
+    .amsb-createEvent-body-creneaux {
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    .amsb-createEvent-body-description-radio-item {
+        margin: 10px auto;
+    }
+
+}
