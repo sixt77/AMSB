@@ -1,0 +1,2857 @@
+/*********************************************************************************\
+ *   Global                                                                      *
+\*********************************************************************************/
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+:focus {
+    outline: none;
+}
+
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', 'PT Sans', sans-serif;
+    background-size: cover;
+    background: #1B2129;
+    font-size: 15px;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+input::placeholder {
+    color: #fff;
+}
+
+input:placeholder-shown {
+    color: #fff;
+}
+
+@supports (pointer-events: none) and
+      ((-webkit-appearance: none) or
+      (-moz-appearance: none) or
+      (appearance: none)) {
+
+    option {
+        background-color: #c8d6e5;
+    }
+
+}
+
+
+/*********************************************************************************\
+ *   Container                                                                   *
+\*********************************************************************************/
+
+
+.ac-home-container {
+    width: 100%;
+    padding: 50px;
+    height: calc(100% - 160px);
+    overflow-y: auto;
+}
+
+
+/*********************************************************************************\
+ *   Home                                                                        *
+\*********************************************************************************/
+
+
+/*************\
+ *   Header  *
+\*************/
+
+
+.ac-home-header {
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0px -2px 20px 0px #000;
+}
+
+.ac-home-header-title {
+    font-size: 30px;
+    color: #FC8;
+    text-transform: uppercase;
+    text-align: center;
+    width: 280px;
+    margin: 0 auto;
+    cursor: default;
+}
+
+
+/*************\
+ *   Main    *
+\*************/
+
+
+.ac-home {
+    max-width: 350px;
+    border-radius: 5px;
+    padding: 10px 25px;
+    margin: 20px auto;
+}
+
+.ac-home-signin {
+    padding: 0px;
+}
+
+.ac-home-signup {
+    padding: 0px;
+}
+
+.ac-home-sign-item {
+    padding: 8px 10px;
+    box-shadow: 2px 3px 20px -2px #000;
+    border-radius: 3px;
+    margin-top: 20px;
+    background-color: #718093;
+}
+
+.ac-home-sign-item-connec {
+    padding: 10px;
+    cursor: default;
+}
+
+.ac-home-sign-item-inscrip {
+    cursor: default;
+}
+
+.ac-home-sign-item-h2 {
+    color: #fff;
+    line-height: 40px;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 20px;
+}
+
+.ac-home-sign-item-subtitle {
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+    font-style: italic;
+}
+
+.ac-home-sign-item-input {
+    color: #fff;
+    width: 100%;
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.ac-home-sign-item-input:focus {
+    outline: none;
+    border-bottom: 1px solid #fff;
+}
+
+.ac-home-sign-allBoutton {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 40px;
+    margin-top: 20px;
+}
+
+.ac-home-sign-item-boutton-left {
+    width: 100%;
+}
+
+.ac-home-sign-item-boutton-right {
+    width: 100%;
+}
+
+.ac-home-sign-item-boutton-log {
+    border-color: transparent;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    line-height: 40px;
+    height: 40px;
+    width: 100%;
+    min-width: 170px;
+    color: #fff;
+    cursor: pointer;
+    background-color: transparent;
+    box-shadow: 4px 4px 20px -4px #000;
+
+    -webkit-transition: background-color .25s ease-in-out, color .25s ease-in-out, transform .25s ease-in-out, box-shadow .25s ease-in-out;
+    -moz-transition: background-color .25s ease-in-out, color .25s ease-in-out, transform .25s ease-in-out, box-shadow .25s ease-in-out;
+    transition: background-color .25s ease-in-out, color .25s ease-in-out, transform .25s ease-in-out, box-shadow .25s ease-in-out;
+
+}
+
+.ac-home-sign-item-boutton-log:hover {
+    transform: scale(0.95);
+    background-color: #fff;
+    color: #000;
+    box-shadow: 6px 6px 8px 0px #000;
+
+}
+
+.ac-home-sign-item-boutton-sign {
+    border-color: transparent;
+    border-radius: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 0 20px;
+    margin-top: 10px;
+    line-height: 40px;
+    height: 40px;
+    width: 100%;
+    min-width: 170px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    background-color: #453963;
+    box-shadow: 4px 4px 20px -4px #000;
+
+    -webkit-transition: background-color .25s ease-in-out, color .25s ease-in-out, transform .25s ease-in-out, box-shadow .25s ease-in-out;
+    -moz-transition: background-color .25s ease-in-out, color .25s ease-in-out, transform .25s ease-in-out, box-shadow .25s ease-in-out;
+    transition: background-color .25s ease-in-out, color .25s ease-in-out, transform .25s ease-in-out, box-shadow .25s ease-in-out;
+
+}
+
+.ac-home-sign-item-boutton-sign:hover {
+    transform: scale(0.95);
+    background-color: #76EAA8;
+    box-shadow: 6px 6px 8px 0px #000;
+
+}
+
+.ac-home-signin-text {
+    color: #fff;
+}
+
+.ac-home-signin-continue {
+    width: 90px;
+    padding: 6px 12px;
+    margin-left: auto;
+    display: block;
+    border: 1px solid;
+    border-radius: 5px;
+    color: #fff;
+    box-shadow: 4px 4px 10px -2px black;
+}
+
+
+/*************\
+ *   Footer  *
+\*************/
+
+
+.ac-home-footer {
+    padding: 20px;
+    width: 100%;
+    background-color: transparent;
+    box-shadow: 0px 2px 20px 0px #000;
+    z-index: -1;
+}
+
+.ac-home-footer-title {
+    width: 100%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 18px;
+    color: #fff;
+    cursor: default;
+}
+
+
+/*********************************************************************************\
+ *   Main                                                                        *
+\*********************************************************************************/
+
+
+.ac-main {
+    height: calc(100% - 70px);
+}
+
+.ac-main-header {
+    width: 100%;
+    height: 70px;
+    position: relative;
+    background-color: #1C2229;
+    box-shadow: inset 0px 0px 6px -2px #000000;
+    z-index: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.ac-main-header-invitation {
+    display: block;
+    float: left;
+    width: 70px;
+    padding: 10px 0px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    font-size: 42px;
+    cursor: pointer;
+}
+
+.ac-main-header-invitation:hover {
+    background-color: #576574;
+}
+
+.ac-main-header-invitation:active {
+    background-color: #8395a7;
+}
+
+.ac-main-header-invitation-notif {
+    position: absolute;
+    font-size: 10px;
+    top: 20px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+    margin-top: -10px;
+    padding: 0px;
+    font-weight: normal;
+    color: white;
+    text-align: center;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+    background: #e23442;
+    border: 1px solid #911f28;
+    border-radius: 11px;
+    background-image: -webkit-linear-gradient(top, #e8616c, #dd202f);
+    background-image: -moz-linear-gradient(top, #e8616c, #dd202f);
+    background-image: -o-linear-gradient(top, #e8616c, #dd202f);
+    background-image: linear-gradient(to bottom, #e8616c, #dd202f);
+    -webkit-box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.1), 0 1px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.1), 0 1px rgba(0, 0, 0, 0.12);
+}
+
+
+.ac-main-header-createGroup {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    float: right;
+    line-height: 50px;
+    border: none;
+    padding: 10px 0px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 40px;
+    color: #fff;
+    width: 70px;
+    text-align: center;
+}
+
+.ac-main-header-createGroup:hover {
+    background-color: #576574;
+}
+
+.ac-main-header-createGroup:active {
+    background-color: #8395a7;
+}
+
+
+.ac-main-header-allGroup {
+    font-family: FontAwesome;
+    display: inline-block;
+    line-height: 50px;
+    float: right;
+    border: none;
+    padding: 10px 0px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 25px;
+    color: #fff;
+    width: 70px;
+    text-align: center;
+}
+
+.ac-main-header-allGroup:hover {
+    background-color: #576574;
+}
+
+.ac-main-header-allGroup:active {
+    background-color: #8395a7;
+}
+
+
+.ac-main-header-allEvent {
+    font-family: 'Material Icons';
+    display: inline-block;
+    line-height: 50px;
+    float: right;
+    border: none;
+    padding: 10px 0px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 30px;
+    color: #fff;
+    width: 70px;
+    text-align: center;
+}
+
+.ac-main-header-allEvent:hover {
+    background-color: #576574;
+}
+
+.ac-main-header-allEvent:active {
+    background-color: #8395a7;
+}
+
+
+.ac-main-header-logout {
+    float: right;
+    line-height: 50px;
+    border: none;
+    padding: 10px 0px;
+    cursor: pointer;
+    background-color: transparent;
+    font-family: FontAwesome;
+    font-size: 27px;
+    color: #fff;
+    width: 70px;
+    text-align: center;
+}
+
+.ac-main-header-logout:hover {
+    background-color: #576574;
+}
+
+.ac-main-header-logout:active {
+    background-color: #8395a7;
+}
+
+.ac-main-header-logout:before {
+    content: "\f011";
+}
+
+
+.ac-main-calendrier {
+    width: 100%;
+    height: 100%;
+    float: right;
+    background-color: #fff;
+    box-shadow: inset 0px 0px 0px 1px #fcf8e3;
+}
+
+.ac-main-calendrier-createEvent {
+    display: block;
+    height: 50px;
+    width: 50px;
+    line-height: 30px;
+    background-color: #1C2229;
+    box-shadow: 2px 2px 8px 0 #000;
+    bottom: 20px;
+    right: 20px;
+    position: absolute;
+    z-index: 0;
+    border-radius: 50%;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    color: white;
+    font-size: 30px;
+}
+
+.ac-main-calendrier-createEvent:hover {
+    background-color: #576574;
+}
+
+.ac-main-calendrier-createEvent:active {
+    background-color: #8395a7;
+
+}
+
+
+
+.ac-main-nav {
+    width: 300px;
+    height: calc(100% - 71px);
+    flex-direction: column;
+    background-color: #c8d6e5;
+    overflow-y: scroll;
+    box-shadow: inset -2px 2px 10px -1px #000;
+    position: absolute;
+    z-index: 2;
+}
+
+
+/*************\
+ *   Invite  *
+\*************/
+
+
+.ac-main-nav-invit {
+    display: block;
+    height: calc(100% - 40px);
+    background-color: #576574;
+    box-shadow: inset -6px -3px 9px -5px #000;
+    overflow-y: scroll;
+}
+
+.ac-main-nav-invit-item {
+    margin: 15px;
+    height: 84px;
+    display: flex;
+    box-shadow: 2px 3px 20px -4px #000;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+
+/*************\
+ *  Descrip  *
+\*************/
+
+
+.ac-main-nav-invit-item-description {
+    width: 70%;
+    display: inline-block;
+    border-radius: 5px 0px 0px 5px;
+    background-color: #1B2129;
+}
+
+.ac-main-nav-invit-item-description li {
+    display: inline-block;
+    line-height: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.ac-main-nav-invit-item-description-name {
+    width: 100%;
+    padding: 0px 20px;
+    text-align: left;
+}
+
+.ac-main-nav-invit-item-description-jourStart {
+    width: 70%;
+    border-top: 1px solid;
+}
+
+.ac-main-nav-invit-item-description-heureStart {
+    width: 30%;
+    border-left: 1px solid;
+    border-top: 1px solid;
+}
+
+.ac-main-nav-invit-item-description-jourFin {
+    width: 70%;
+    border-bottom: 1px solid;
+}
+
+.ac-main-nav-invit-item-description-heureFin {
+    width: 30%;
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+
+}
+
+.ac-main-nav-invit-item-description-descript {
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+}
+
+
+/*************\
+ *  Boutton  *
+\*************/
+
+
+.ac-main-nav-invit-item-boutton {
+    display: inline-block;
+    width: 30%;
+}
+
+.ac-main-nav-invit-item-boutton form button {
+    width: 100%;
+    height: 41px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.ac-main-nav-invit-item-boutton-valider {
+    border-radius: 0px 5px 0px 0px;
+    background-color: #fff;
+    font: normal normal normal 14px/1 FontAwesome;
+    color: #000;
+    font-size: 20px;
+}
+
+.ac-main-nav-invit-item-boutton-valider:hover {
+    background-color: #b2bec3;
+}
+
+.ac-main-nav-invit-item-boutton-refuser {
+    border-radius: 0px 0px 5px 0px;
+    background-color: #b71540;
+    font: normal normal normal 14px/1 FontAwesome;
+    color: #fff;
+    font-size: 20px;
+}
+
+.ac-main-nav-invit-item-boutton-refuser:hover {
+    background-color: #d63031;
+}
+
+
+/*********************************************************************************\
+ *   Font Gris                                                                   *
+\*********************************************************************************/
+
+
+.ac-fontGris {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    bottom: -70px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.38);
+    z-index: 1;
+    pointer-events: none;
+    -webkit-transition: opacity 200ms ease-in-out;
+    transition: opacity 200ms ease-in-out;
+    opacity: 0;
+}
+
+
+/*********************************************************************************\
+ *   Creer Event                                                                 *
+\*********************************************************************************/
+
+
+.ac-createEvent {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+}
+
+.ac-createEventMaj {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+}
+
+.ac-createEvent-header {
+    width: 100%;
+    height: 80px;
+    word-wrap: break-word;
+    padding: 0px;
+    background-color: #1C2229;
+    color: white;
+}
+
+.ac-createEvent-header-close {
+    color: white;
+    float: left;
+    cursor: pointer;
+    padding: 15px 15px 0px 15px;
+    font: normal normal normal 20px/1 FontAwesome;
+}
+
+.ac-createEvent-header-close:hover {
+    transform: scale(1.1);
+}
+
+.ac-createEvent-header-close:active {
+    transform: scale(.9);
+}
+
+.ac-createEvent-header-save {
+    color: white;
+    background-color: #1C2229;
+    outline: none;
+    font-size: 14px;
+    border: none;
+    float: right;
+    line-height: 20px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.ac-createEvent-header-save:hover {
+    background-color: #576574;
+}
+
+.ac-createEvent-header-save:active {
+    background-color: #8395a7;
+}
+
+.ac-createEventModif-header-save {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.ac-createEvent-header-title {
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    padding: 0px 10px;
+}
+
+.ac-createEventModif-header-title {
+    width: 100%;
+    font-size: 18px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 80px;
+    line-height: 20px;
+    padding-top: 48px;
+    text-align: center;
+}
+
+.ac-createEvent-header-item-checkmark {
+
+}
+
+.ac-createEvent-body {
+    width: 100%;
+    height: calc(100vh - 80px);
+    padding: 5px 0px;
+    background-color: #fff;
+    color: #000;
+    overflow-y: auto;
+}
+
+.ac-createEvent-body-creneaux {
+    margin-top: 10px;
+}
+
+.ac-createEvent-body-creneaux-title {
+    margin-bottom: 15px;
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+    cursor: default;
+}
+
+.ac-createEvent-body-invitation {
+
+}
+
+.ac-createEvent-body-invitation-title {
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+    cursor: default;
+    padding-top: 10px;
+}
+
+.ac-createEvent-body-invitation-users {
+    cursor: default;
+    font-size: 21px;
+    background-color: #1C2229;
+    color: #FFF;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.ac-createEvent-body-invitation-groups {
+    cursor: default;
+    font-size: 21px;
+    background-color: #1C2229;
+    color: #FFF;
+    text-align: center;
+    padding: 5px 0;
+    margin-top: 20px;
+}
+
+.ac-createEvent-body-creneaux-first {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    margin-top: 30px;
+}
+
+.ac-createEvent-body-creneaux-second {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    margin-top: 30px;
+}
+
+.ac-createEvent-body-creneaux-crenTxt {
+    display: inline-block;
+    border: none;
+    outline: none;
+    font: normal normal normal 30px/1 FontAwesome;
+}
+
+.ac-createEvent-body-creneaux-dateEv {
+    font-size: 17px;
+    height: 50px;
+    background-color: #c8d6e5;
+    border: none;
+    box-shadow: 0px 0px 5px 1px;
+}
+
+.ac-createEvent-body-creneaux-hoursEv {
+    border: none;
+    outline: none;
+    font-size: 19px;
+    height: 50px;
+    box-shadow: 0px 0px 5px 1px;
+    background-color: #c8d6e5;
+}
+
+.ac-createEvent-body-description {
+    margin-top: 80px;
+}
+
+.ac-createEvent-body-description-input {
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    padding: 0px 10px;
+}
+
+.ac-createEvent-body-description-input::placeholder {
+    color: white;
+
+}
+
+.ac-createEvent-body-description-radio {
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.ac-createEvent-body-description-radio-item {
+    height: 80px;
+    line-height: 40px;
+    border: 1px solid;
+    margin: 10px 0;
+}
+
+.ac-createEvent-body-radio {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 24px;
+    cursor: pointer;
+}
+
+.ac-createEvent-body-radio-span {
+    display: inline-block;
+    width: calc(100% - 80px);
+    float: right;
+}
+
+.ac-createEvent-body-item {
+    display: flex;
+    height: 30px;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.ac-createEvent-body-item-fullDay {
+    text-align: left;
+    line-height: 30px;
+    padding-left: 10px;
+    font-size: 24px;
+}
+
+.ac-createEvent-body-item-name {
+    width: 30%;
+    text-align: left;
+    line-height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.ac-createEvent-body-item-lname {
+    width: 30%;
+    text-align: left;
+    line-height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.ac-createEvent-body-item-select {
+    height: 40px;
+    background-color: red;
+    border: none;
+    border-radius: 0px;
+    width: 30%;
+    float: right;
+    display: block;
+}
+
+.ac-createEvent-body-item-checkbox {
+    width: 15%;
+    height: 40px;
+    margin: 0;
+}
+
+.ac-createEvent-body-item-descriptionGroup {
+
+}
+
+/*cacher checkbox par default */
+.ac-createEvent-body-item input {
+    opacity: 0;
+    cursor: pointer;
+    order: 2;
+}
+
+.ac-createEvent-body-item:hover input ~ .ac-createEvent-body-item-checkmark {
+    background-color: transparent;
+}
+
+/* checked, then background-color */
+.ac-createEvent-body-item input:checked ~ .ac-createEvent-body-item-checkmark {
+    background-color: #1C2229;
+}
+
+.ac-createEvent-body-item-checkmark {
+    height: 30px;
+    width: 30px;
+    border: 3px solid #1C2229;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.ac-createEvent-body-item-checkmark:after {
+    content: "";
+    display: none;
+}
+
+.ac-createEvent-body-item input:checked ~ .ac-createEvent-body-item-checkmark:after {
+    display: block;
+}
+
+.ac-createEvent-body-item-checkmark:after {
+    width: 6px;
+    height: 16px;
+    margin: 0px 0px 0px 7px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.ac-createEvent-footer {
+    width: 100%;
+    height: 15%;
+    word-wrap: break-word;
+    padding: 10px;
+    background-color: #3b9f97;
+    color: white;
+}
+
+
+/*********************************************************************************\
+ *   Cree Groupe                                                                  *
+\*********************************************************************************/
+
+
+.ac-createGroup {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+}
+
+.ac-createGroup-header {
+    width: 100%;
+    height: 80px;
+    word-wrap: break-word;
+    padding: 0px;
+    background-color: #1C2229;
+    color: white;
+}
+
+.ac-createGroup-header-close {
+    color: white;
+    float: left;
+    cursor: pointer;
+    padding: 15px 15px 0px 15px;
+    font: normal normal normal 20px/1 FontAwesome;
+}
+
+.ac-createGroup-header-close:hover {
+    transform: scale(1.1);
+}
+
+.ac-createGroup-header-close:active {
+    transform: scale(.9);
+}
+
+.ac-createGroup-header-save {
+    color: white;
+    background-color: #1C2229;
+    outline: none;
+    font-size: 14px;
+    border: none;
+    float: right;
+    line-height: 20px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.ac-createGroup-header-save:hover {
+    background-color: #576574;
+}
+
+.ac-createGroup-header-save:active {
+    background-color: #8395a7;
+}
+
+.ac-createGroup-header-title {
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    padding: 0px 10px;
+}
+
+.ac-createGroup-body {
+    width: 100%;
+    height: calc(100vh - 80px);
+    padding: 5px 0px;
+    background-color: #fff;
+    color: #000;
+    overflow-y: auto;
+}
+
+.ac-createGroup-body-addTitle{
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+    cursor: default;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.ac-createGroup-body-columns{
+    display: flex;
+    width: 100%;
+}
+
+.ac-createGroup-body-ul{
+    background-color: #c8d6e5;
+    box-shadow: 0 0 5px 2px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.ac-createGroup-body-h2{
+    text-align: center;
+    line-height: 40px;
+    box-shadow: 5px 5px 3px 1px #000;
+    background-color: #1C2229;
+    margin: 10px auto;
+    color: white;
+    width: 30%;
+    font-size: 23px;
+    cursor: default;
+}
+
+.ac-createGroup-body-description-input {
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    padding: 0px 10px;
+}
+
+.ac-createGroup-body-description-input::placeholder {
+    color: white;
+
+}
+
+.ac-createGroup-body-item {
+    display: flex;
+    height: 40px;
+    justify-content: space-around;
+    margin: 20px 0px;
+    white-space: nowrap;
+}
+
+.ac-createGroup-body-item-name {
+    width: 30%;
+    text-align: left;
+    line-height: 40px;
+    padding-left: 10px;
+    box-shadow: 0px 0px 5px 1px;
+    background-color: #c8d6e5;
+    margin-left: 5px;
+    overflow-x: scroll;
+    cursor: default;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.ac-createGroup-body-item-lname {
+    width: 30%;
+    text-align: left;
+    line-height: 40px;
+    padding-left: 10px;
+    box-shadow: 0px 0px 5px 1px;
+    background-color: #c8d6e5;
+    margin-left: 5px;
+    overflow-x: scroll;
+    cursor: default;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.ac-createGroup-body-item-select {
+    height: 40px;
+    border: none;
+    box-shadow: 0px 0px 5px 1px;
+    background-color: #c8d6e5;
+    width: 25%;
+    margin-left: 10px;
+    font-size: 17px;
+}
+
+.ac-createGroup-body-item-checkbox {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+}
+
+.ac-container {
+    cursor: pointer;
+    font-size: 22px;
+    display: flex;
+    padding: 10px 0px;
+    word-break: break-all;
+    width: 100%;
+    justify-content: space-between;
+    line-height: 30px;
+}
+
+/*cacher checkbox par default */
+.ac-container input {
+    opacity: 0;
+    cursor: pointer;
+    order: 2;
+}
+
+/* custom checkbox */
+.ac-checkmark {
+    height: 30px;
+    width: 30px;
+    border: 3px solid #1C2229;
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+
+.ac-container:hover input ~ .ac-checkmark {
+    background-color: #1C2229;
+}
+
+/* checked, then background-color */
+.ac-container input:checked ~ .ac-checkmark {
+    background-color: #1C2229;
+}
+
+.ac-createGroup-body-item-checkmark {
+    width: 15%;
+    height: 40px;
+    margin: 0;
+}
+
+.ac-createGroup-body-item-checkmark:after {
+    content: "";
+    display: none;
+}
+
+.ac-createGroup-body-item input:checked ~ .ac-createGroup-body-item-checkmark:after {
+    display: block;
+}
+
+.ac-createGroup-body-item-container .ac-createGroup-body-item-checkmark:after {
+    width: 6px;
+    height: 16px;
+    margin: 0px 0px 0px 7px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.ac-createGroup-footer {
+    width: 100%;
+    height: 15%;
+    word-wrap: break-word;
+    padding: 10px;
+    background-color: #3b9f97;
+    color: white;
+}
+
+
+/*********************************************************************************\
+ *   Liste Groupe                                                                  *
+\*********************************************************************************/
+
+
+.ac-listGroup {
+    width: 100%;
+    height: calc(100% - 70px);
+}
+
+.ac-listGroup-header {
+    width: 100%;
+    height: 80px;
+    word-wrap: break-word;
+    padding: 0px;
+    background-color: #1C2229;
+    color: white;
+    position: relative;
+}
+
+.ac-listGroup-header-close {
+    color: white;
+    float: left;
+    cursor: pointer;
+    padding: 15px 15px 0px 15px;
+    font: normal normal normal 20px/1 FontAwesome;
+}
+
+.ac-listGroup-header-close:hover {
+    transform: scale(1.1);
+}
+
+.ac-listGroup-header-close:active {
+    transform: scale(.9);
+}
+
+.ac-listGroup-header-save {
+    color: white;
+    background-color: #1C2229;
+    outline: none;
+    font-size: 14px;
+    border: none;
+    float: right;
+    line-height: 20px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.ac-listGroup-header-save:hover {
+    background-color: #576574;
+}
+
+.ac-listGroup-header-save:active {
+    background-color: #8395a7;
+}
+
+.ac-listGroup-header-title {
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 10px;
+    position: absolute;
+    top: 40px;
+    text-align: center;
+}
+
+.ac-listGroup-body {
+    width: 100%;
+    height: calc(100vh - 150px);
+    background-color: #FFE;
+    color: #000;
+    overflow-y: auto;
+
+}
+
+.ac-listGroup-body-liste {
+    min-width: 300px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.ac-listGroup-body-block {
+    border-bottom: 1px solid #000;
+    background-color: #C9D6E5;
+}
+
+.ac-listGroup-body-block ul {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ac-listGroup-body-block-item {
+    width: calc(100% / 3);
+    line-height: 30px;
+    height: 30px;
+    font-size: 15px;
+    padding: 0px 10px;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.ac-listGroup-body-block-item-nom {
+    background-color: #1D2329;
+    color: #fff;
+}
+
+.ac-listGroup-body-block-item-description {
+}
+
+.ac-listGroup-body-block-item-boutton {
+    padding: 0px;
+}
+
+.ac-listGroup-body-block-item-boutton-link {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #8395A6;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 18px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.ac-listGroupModif-body-block {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px auto 0;
+}
+
+.ac-listGroupModif-body-block-nom {
+}
+
+.ac-listGroupModif-body-block-description {
+}
+
+.ac-listGroupModif-body-block-boutton {
+    width: 50%;
+    height: 40px;
+    padding: 0;
+    margin: 0 auto;
+    border: 1px solid #C9D6E5;
+    border-radius: 5px;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.ac-listGroupModif-body-block-input {
+    height: 40px;
+    width: 90%;
+    display: inline-block;
+    border: 1px solid #C9D6E5;
+    padding: 0;
+    text-align: center;
+    font-size: 16px;
+    background-color: #1D2329;
+    margin: 20px auto;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.ac-listGroup-body-invitation {
+    margin: 10px auto 0;
+    max-width: 400px;
+}
+
+.ac-listGroup-body-invitation-item {
+    max-width: 400px;
+    background-color: #C9D6E5;
+    padding: 0px;
+    border: 1px solid #000;
+    margin: 10px 0;
+}
+
+.ac-listGroup-body-invitation-item h1 {
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+    height: 40px;
+    background-color: #1D2329;
+    color: #fff;
+}
+
+.ac-listGroup-body-invitation-item-ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+.ac-listGroup-body-invitation-item-li {
+    width: 50%;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.ac-listGroup-body-invitation-item-li-boutton {
+    padding: 0px 10px;
+    height: 40px;
+}
+
+.ac-listGroup-body-invitation-item-li-boutton-solo {
+    width: 100%;
+}
+
+.ac-listGroup-body-invitation-item-li-boutton-solo-item {
+    width: 100%;
+}
+
+.ac-listGroup-body-invitation-item-li-boutton-item {
+    width: 100%;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ac-listGroup-body-invitation-accepte {
+
+}
+
+.ac-listGroup-body-invitation-refuse {
+
+}
+
+.ac-listGroup-body-invitation-envoye {
+
+}
+
+
+/*********************************************************************************\
+ *   Liste Event                                                                  *
+\*********************************************************************************/
+
+
+.ac-listEvent {
+    width: 100%;
+    height: calc(100% - 70px);
+}
+
+.ac-listEvent-header {
+    width: 100%;
+    height: 80px;
+    word-wrap: break-word;
+    padding: 0px;
+    background-color: #1C2229;
+    color: white;
+    position: relative;
+}
+
+.ac-listEvent-header-close {
+    color: white;
+    float: left;
+    cursor: pointer;
+    padding: 15px 15px 0px 15px;
+    font: normal normal normal 20px/1 FontAwesome;
+}
+
+.ac-listEvent-header-close:hover {
+    transform: scale(1.1);
+}
+
+.ac-listEvent-header-close:active {
+    transform: scale(.9);
+}
+
+.ac-listEvent-header-save {
+    color: white;
+    background-color: #1C2229;
+    outline: none;
+    font-size: 14px;
+    border: none;
+    float: right;
+    line-height: 20px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.ac-listEvent-header-save:hover {
+    background-color: #576574;
+}
+
+.ac-listEvent-header-save:active {
+    background-color: #8395a7;
+}
+
+.ac-listEvent-header-title {
+    width: 100%;
+    font-size: 30px;
+    cursor: default;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 10px;
+    position: absolute;
+    top: 40px;
+    text-align: center;
+}
+
+.ac-listEvent-body {
+    width: 100%;
+    height: calc(100vh - 150px);
+    padding: 5px 0px;
+    background-color: #1C2229;
+    color: #000;
+    overflow-y: auto;
+}
+
+.ac-listEvent-body-ul{
+    padding: 12px;
+    margin: 0px;
+    background-color: #c8d6e5;
+    width: 100%;
+    color: white;
+    box-shadow: 0 0 4px 0px;
+    text-align: center;
+    font-size: 18px;
+    cursor: default;
+}
+
+.ac-listEvent-body-li{
+    cursor: default;
+    padding: 10px 0px;
+    margin: 5px 0 10px;
+    background-color: #1C2229;
+    box-shadow: 0 0 4px 3px #000;
+}
+
+.ac-listEvent-body-button{
+    text-align: center;
+    margin: 10px 0;
+}
+
+.ac-listEvent-body-button-content{
+    cursor: pointer;
+    border: none;
+    background-color: #76EAA8;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    padding: 5px 15px;
+    box-shadow: 0 0 4px 2px;
+}
+
+.ac-listEvent-body-button-content:hover{
+    padding: 7px 17px;
+    font-size: 20px;
+}
+
+.ac-listEvent-body-h1{
+    width: 100%;
+    font-size: 30px;
+    cursor: default;
+    color: white;
+    text-align: center;
+    margin: 45px 0 20px;
+}
+
+.ac-listEvent-body-block {
+    margin: 20px auto;
+    border: 1px solid #000;
+    background-color: #C9D6E5;
+    max-width: 400px;
+}
+
+.ac-listEvent-body-block-item {
+    display: inline-block;
+    width: 50%;
+    line-height: 30px;
+    height: 30px;
+    font-size: 15px;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.ac-listEvent-body-block-item-nom {
+    width: 100%;
+    border-bottom: 1px solid #000;
+    background-color: #1D2329;
+    color: #fff;
+    text-align: left;
+}
+
+.ac-listEvent-body-block-item-description {
+    width: 100%;
+    border-bottom: 1px solid #000;
+    text-align: left;
+}
+
+.ac-listEvent-body-block-item-boutton {
+    width: 100%;
+    padding: 0px;
+    border-top: 1px solid #000;
+}
+
+.ac-listEvent-body-block-item-boutton-link {
+    width: 100%;
+    height: 100%;
+    background-color: #8395A6;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 18px;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+}
+
+.ac-listEventModif-body-block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px auto 0;
+}
+
+.ac-listEventModif-body-block-nom {
+}
+
+.ac-listEventModif-body-block-description {
+}
+
+.ac-listEventModif-body-block-boutton {
+    width: 50%;
+    height: 40px;
+    padding: 0;
+    margin: 0 auto;
+    border: 1px solid #C9D6E5;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.ac-listEventModif-body-block-input {
+    height: 40px;
+    width: 90%;
+    display: inline-block;
+    border: 1px solid #C9D6E5;
+    padding: 0;
+    text-align: center;
+    font-size: 16px;
+    background-color: #1D2329;
+    margin: 5px auto;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.ac-listEventModif-body-block-boutton-first {
+    margin-top: 20px;
+}
+
+.ac-listEventModif-body-block-boutton-valide {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+
+/*********************************************************************************\
+ *   Calendrier                                                                  *
+\*********************************************************************************/
+
+
+.fc-scroller.fc-day-grid-container {
+    height: calc(100vh - 200px) !important;
+    overflow-y: auto;
+}
+
+.fc-unthemed .fc-list-empty {
+    background-color: #b2bec3;
+}
+
+.fc-toolbar {
+    padding: 0px;
+    background-color: #1B2129;
+}
+
+.fc-toolbar h2 {
+    text-align: center;
+    line-height: 30px;
+    margin: 0 auto;
+    display: contents;
+}
+
+.fc-view {
+    z-index: 0;
+}
+
+.fc-event {
+    border: 1px solid #1C2229;
+}
+
+.fc-event, .fc-event-dot {
+    background-color: #1C2229;
+}
+
+.fc-view-container {
+    background-color: #8395a7;
+}
+
+.fc-button-group {
+    width: 100%;
+}
+
+.fc-left {
+    width: 50%;
+}
+
+.fc-center {
+    text-transform: uppercase;
+    height: 30px;
+    margin: 0;
+    padding: 0px;
+    float: left;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    color: #fff;
+    width: 100%;
+    background-color: #1C2229;
+}
+
+.fc-right {
+    width: 50%;
+}
+
+.fc button {
+    width: 50%;
+    background-color: #1C2229;
+    background-image: none;
+    color: #fff;
+    box-shadow: none;
+    line-height: 20px;
+    font-size: 20px;
+    text-shadow: none;
+}
+
+.fc button:hover {
+    background-color: #576574;
+}
+
+.fc button:active {
+    background-color: #8395a7;
+}
+
+.fc-button-group button {
+    border-radius: 0px 0px 0px 0px !important;
+}
+
+button.fc-Semaine-button.fc-button.fc-state-default {
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+button.fc-today-button.fc-button.fc-state-default.fc-corner-right {
+    width: 100%;
+}
+
+button.fc-today-button.fc-button.fc-state-default.fc-corner-right.fc-state-disabled {
+    width: 100%;
+}
+
+.fc .fc-button-group > * {
+    margin: 0 0 0 0px;
+}
+
+.fc-agenda-view .fc-day-grid {
+    display: none;
+}
+
+.fc-state-hover, .fc-state-down, .fc-state-active, .fc-state-disabled {
+    background-color: #fff;
+}
+
+th.fc-day-header.fc-widget-header.fc-thu.fc-today span {
+    line-height: 30px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.fc-view.fc-month-view.fc-basic-view table tbody tr td .fc-scroller {
+    height: calc(100vh - 207px) !important;
+}
+
+.fc-view.fc-month-view.fc-basic-view table tbody tr td div div .fc-row.fc-week.fc-widget-content {
+    min-height: calc((100vh - 207px) / 6) !important;
+}
+
+.fc-view.fc-agendaDay-view.fc-agenda-view table tbody tr td .fc-scroller {
+    height: calc(100vh - 211px) !important;
+}
+
+.fc-view.fc-agendaWeek-view.fc-agenda-view table tbody tr td .fc-scroller {
+    height: calc(100vh - 231px) !important;
+}
+
+.fc-view.fc-listWeek-view.fc-list-view.fc-widget-content .fc-scroller {
+    height: calc(100vh - 186px) !important;
+}
+
+.fc-unthemed .fc-divider, .fc-unthemed .fc-popover .fc-header, .fc-unthemed .fc-list-heading td {
+    background-color: #1B2129;
+}
+
+
+.fc-unthemed th,
+.fc-unthemed td,
+.fc-unthemed thead,
+.fc-unthemed tbody,
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-row,
+.fc-unthemed .fc-content,
+.fc-unthemed .fc-popover,
+.fc-unthemed .fc-list-view,
+.fc-unthemed .fc-list-heading td {
+    border-color: #000;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 20px;
+}
+
+.fc-ltr .fc-basic-view .fc-day-top .fc-day-number {
+    color: #fff;
+}
+
+.fc-unthemed td.fc-today {
+    background: #c8d6e5;
+}
+
+.fc-toolbar.fc-header-toolbar {
+    margin-bottom: 0px;
+    margin-top: 30px;
+}
+
+a[data-goto] {
+    color: #fff;
+}
+
+
+/*********************************************************************************\
+ *   PopUp                                                                       *
+\*********************************************************************************/
+
+
+/*************\
+ * CreeEvent *
+\*************/
+
+.ac-createEvent-popUp {
+    position: fixed;
+    z-index: 2;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.ac-createEvent-popUp-content {
+    position: relative;
+    margin: auto;
+    width: 80%;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    box-shadow: 3px 3px 15px 2px;
+}
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.ac-createEvent-popUp-header {
+    width: 100%;
+    height: 80px;
+    word-wrap: break-word;
+    padding: 0px;
+    background-color: #1C2229;
+    color: white;
+}
+
+.ac-createEvent-popUp-header-save {
+    color: white;
+    background-color: #1C2229;
+    outline: none;
+    font-size: 14px;
+    border: none;
+    float: right;
+    line-height: 20px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.ac-createEvent-popUp-header-save:hover {
+    background-color: #576574;
+}
+
+.ac-createEvent-popUp-header-save:active {
+    background-color: #8395a7;
+}
+
+.ac-createEvent-popUp-header-close {
+    color: white;
+    float: left;
+    cursor: pointer;
+    padding: 15px 0px 0px 15px;
+    font: normal normal normal 20px/1 FontAwesome;
+}
+
+.ac-createEvent-popUp-header-close:hover,
+.ac-createEvent-popUp-header-close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.ac-createEvent-popUp-header-title {
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    padding: 0px 10px;
+}
+
+.ac-createEvent-popUp-body {
+    background-color: #fff;
+    height: 260px;
+
+}
+
+.ac-createEvent-popUp-body-creneaux-title {
+    margin-bottom: 15px;
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+    cursor: default;
+}
+
+.ac-createEvent-popUp-body-creneaux {
+    width: 50%;
+    float: left;
+    padding: 10px;
+    border-right: 1px solid #000;
+    height: 100%;
+}
+
+.ac-createEvent-popUp-body-invitation {
+    width: 50%;
+    float: right;
+    height: 100%;
+    overflow-y: scroll;
+
+}
+
+.ac-createEvent-popUp-body-invitation-title {
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+    cursor: default;
+    padding-top: 10px;
+}
+
+.ac-createEvent-popUp-body-invitation-users {
+    cursor: default;
+    font-size: 21px;
+    background-color: #1C2229;
+    color: #FFF;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.ac-createEvent-popUp-body-invitation-groups {
+    cursor: default;
+    font-size: 21px;
+    background-color: #1C2229;
+    color: #FFF;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.ac-createEvent-popUp-body-creneaux-first {
+    display: flex;
+    height: 70px;
+    margin-top: 30px;
+}
+
+.ac-createEvent-popUp-body-creneaux-second {
+    display: flex;
+    height: 70px;
+}
+
+.ac-createEvent-popUp-body-creneaux-crenTxt {
+    display: inline-block;
+    border: none;
+    outline: none;
+    padding: 10px 10px;
+    font: normal normal normal 30px/1 FontAwesome;
+}
+
+.ac-createEvent-popUp-body-creneaux-dateEv {
+    font-size: 17px;
+    height: 50px;
+    padding-left: 65px;
+    background-color: #c8d6e5;
+    border: none;
+    box-shadow: 0px 0px 5px 1px;
+    margin: 0 40px;
+}
+
+.ac-createEvent-popUp-body-creneaux-hoursEv {
+    border: none;
+    outline: none;
+    font-size: 19px;
+    height: 50px;
+    box-shadow: 0px 0px 5px 1px;
+    background-color: #c8d6e5;
+    padding-left: 30px;
+    margin-left: 20px;
+}
+
+.ac-createEvent-popUp-body-description {
+    position: absolute;
+    width: 100%;
+    box-shadow: 2px 7px 12px 3px;
+}
+
+.ac-createEvent-popUp-body-description-input {
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    padding: 0px 10px;
+}
+
+.ac-createEvent-popUp-body-description-input::placeholder {
+    color: white;
+
+}
+
+
+/**************\
+ * CreeGroupe *
+\**************/
+
+
+.ac-createGroup-popUp{
+    position: fixed;
+    z-index: 2;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.ac-createGroup-popUp-content {
+    position: relative;
+    margin: auto;
+    width: 60%;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    box-shadow: 3px 3px 15px 2px;
+}
+
+.ac-createGroup-popUp-body {
+    background-color: #fff;
+    height: calc(60vh - 80px);
+    overflow-y: scroll;
+
+}
+
+.ac-createGroup-popUp-body-addTitle{
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+    cursor: default;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.ac-createGroup-popUp-body-item-name{
+    width: 25%;
+    text-align: center;
+    line-height: 40px;
+    box-shadow: 0px 0px 5px 1px;
+    background-color: #c8d6e5;
+    margin-left: 28px;
+    overflow-x: scroll;
+    cursor: default;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.ac-createGroup-popUp-body-item-lname{
+    width: 25%;
+    text-align: center;
+    line-height: 40px;
+    box-shadow: 0px 0px 5px 1px;
+    background-color: #c8d6e5;
+    margin-left: 45px;
+    overflow-x: scroll;
+    cursor: default;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.ac-createGroup-popUp-body-item-select{
+    height: 40px;
+    border: none;
+    box-shadow: 0px 0px 5px 1px;
+    background-color: #c8d6e5;
+    width: 25%;
+    margin-left: 45px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.ac-createGroup-popUp-body-columns{
+    display: flex;
+    width: 100%;
+    margin-left: 30px;
+}
+
+.ac-createGroup-popUp-body-ul{
+    background-color: #c8d6e5;
+    box-shadow: 0 0 5px 2px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.ac-createGroup-popUp-body-h2{
+    text-align: center;
+    line-height: 40px;
+    box-shadow: 5px 5px 3px 1px #000;
+    background-color: #1C2229;
+    margin: 10px 52px 0 0;
+    color: white;
+    width: 200px;
+    font-size: 23px;
+    cursor: default;
+}
+
+.ac-createGroup-popUp-body-invitation-users {
+    cursor: default;
+    font-size: 21px;
+    background-color: #1C2229;
+    color: #FFF;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.ac-createGroup-popUp-body-description {
+    position: absolute;
+    width: 100%;
+    box-shadow: 2px 7px 12px 3px;
+}
+
+.ac-createGroup-popUp-body-description-input {
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: #1C2229;
+    border: none;
+    outline: none;
+    height: 40px;
+    padding: 0px 10px;
+}
+
+.ac-createGroup-popUp-body-description-input::placeholder {
+    color: white;
+
+}
+
+
+/*************\
+ *   Fail    *
+\*************/
+
+
+.ac-popUpFail {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 200px;
+    width: 100%;
+}
+
+.ac-popUpFail-content {
+    position: relative;
+    margin: auto;
+    width: 250px;
+    box-shadow: 3px 3px 15px 2px;
+}
+
+.ac-popUpFail-header {
+    width: 100%;
+    height: 250px;
+    word-wrap: break-word;
+    padding: 0px;
+    background-color: #1D2329;
+    color: white;
+    border-radius: 3px;
+    padding: 30px;
+}
+
+.ac-popUpFail-header-text {
+    color: #fff;
+    text-align: center;
+    line-height: 70px;
+    font-size: 20px;
+}
+
+.ac-popUpFail-header-close {
+    color: white;
+    cursor: pointer;
+    display: block;
+    width: 150px;
+    margin: 30px auto 0px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    border-radius: 3px;
+    box-shadow: 4px 4px 21px 0px #000;
+}
+
+.ac-popUpFail-header-close:hover,
+.ac-popUpFail-header-close:focus {
+    text-decoration: none;
+    box-shadow: 4px 4px 20px -3px #000;
+    background-color: #409E83;
+}
+
+
+/**************\
+ *    Event   *
+\**************/
+
+
+.ac-popUpEvent {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 200px;
+    width: 100%;
+}
+
+.ac-popUpEvent-content {
+    position: relative;
+    margin: auto;
+    width: 250px;
+    box-shadow: 3px 3px 15px 2px;
+}
+
+.ac-popUpEvent-header {
+    width: 100%;
+    height: 250px;
+    word-wrap: break-word;
+    background-color: #1D2329;
+    color: white;
+    border-radius: 3px;
+    padding: 20px;
+}
+
+.ac-popUpEvent-header-text {
+    color: #fff;
+    text-align: center;
+    line-height: 70px;
+    font-size: 20px;
+}
+
+.ac-popUpEvent-header-close {
+    cursor: pointer;
+    width: 130px;
+    display: block;
+    margin: 40px auto 0px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    border-radius: 3px;
+    box-shadow: 4px 4px 20px -5px #000;
+}
+
+.ac-popUpEvent-header-close:hover,
+.ac-popUpEvent-header-close:focus {
+    text-decoration: none;
+    box-shadow: 4px 4px 20px -3px #000;
+    background-color: #409E83;
+}
+
+.ac-popUpEvent-header-item {
+    line-height: 20px;
+    text-align: center;
+    width: 50%;
+    display: inline-block;
+}
+
+.ac-popUpEvent-header-item-nom {
+    width: 100%;
+    line-height: 30px;
+    font-size: 20px;
+    border: 1px solid;
+    border-radius: 3px;
+    background-color: #8395A6;
+    margin-bottom: 30px;
+}
+
+.ac-popUpEvent-header-item-description {
+    width: 100%;
+    font-size: 14px;
+}
+
+/*********************************************************************************\
+ *   checkbox standar                                                               *
+\*********************************************************************************/
+
+
+.ac-container {
+    cursor: pointer;
+    font-size: 22px;
+    display: flex;
+    padding: 10px 0px;
+    word-break: break-all;
+    width: 100%;
+    justify-content: space-between;
+    line-height: 30px;
+}
+
+/*cacher checkbox par default */
+.ac-container input {
+    opacity: 0;
+    cursor: pointer;
+    order: 2;
+}
+
+/* custom checkbox */
+.ac-checkmark {
+    height: 30px;
+    width: 30px;
+    border: 3px solid #1C2229;
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+
+.ac-container:hover input ~ .ac-checkmark {
+    background-color: #1C2229;
+}
+
+/* checked, then background-color */
+.ac-container input:checked ~ .ac-checkmark {
+    background-color: #1C2229;
+}
+
+.ac-checkmark:after {
+    content: "";
+    display: none;
+}
+
+.ac-container input:checked ~ .ac-checkmark:after {
+    display: block;
+}
+
+.ac-container .ac-checkmark:after {
+    width: 6px;
+    height: 16px;
+    margin: 0px 0px 0px 7px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/*********************************************************************************\
+ *   checkbox nav                                                               *
+\*********************************************************************************/
+
+
+.ac-main-nav-showEv-container {
+    cursor: pointer;
+    font-size: 22px;
+    display: flex;
+    padding: 10px 0px;
+    word-break: break-all;
+    width: 100%;
+    justify-content: space-between;
+    line-height: 30px;
+}
+
+/*cacher checkbox par default */
+.ac-main-nav-showEv-container input {
+    opacity: 0;
+    cursor: pointer;
+    order: 2;
+}
+
+/* custom checkbox */
+.ac-main-nav-showEv-checkmark {
+    height: 30px;
+    width: 30px;
+    border: 3px solid #1C2229;
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+
+.ac-main-nav-showEv-container:hover input ~ .ac-main-nav-showEv-checkmark {
+    background-color: #1C2229;
+}
+
+/* checked, then background-color */
+.ac-main-nav-showEv-container input:checked ~ .ac-main-nav-showEv-checkmark {
+    background-color: #1C2229;
+}
+
+.ac-main-nav-showEv-checkmark:after {
+    content: "";
+    display: none;
+}
+
+.ac-main-nav-showEv-container input:checked ~ .ac-main-nav-showEv-checkmark:after {
+    display: block;
+}
+
+.ac-main-nav-showEv-container .ac-main-nav-showEv-checkmark:after {
+    width: 6px;
+    height: 16px;
+    margin: 0px 0px 0px 7px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/*********************************************************************************\
+ *   checkbox popup   CreeEvent                                                            *
+\*********************************************************************************/
+
+
+.ac-createEvent-popUp-checkbox-container {
+    cursor: pointer;
+    font-size: 22px;
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.ac-createEvent-popUp-checkbox-container span:nth-child(1),
+.ac-createEvent-popUp-checkbox-container span:nth-child(2) {
+}
+
+/*cacher checkbox par default */
+.ac-createEvent-popUp-checkbox-container input {
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* custom checkbox */
+.ac-createEvent-popUp-checkbox-container-checkmark {
+    height: 24px;
+    width: 24px;
+    border: 3px solid #1c2229;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.ac-createEvent-popUp-checkbox-container:hover input ~ .ac-createEvent-popUp-checkbox-container-checkmark {
+    background-color: #efefef;
+}
+
+/* checked, then background-color */
+.ac-createEvent-popUp-checkbox-container input:checked ~ .ac-createEvent-popUp-checkbox-container-checkmark {
+    background-color: #1c2229;
+}
+
+.ac-createEvent-popUp-checkbox-container-checkmark:after {
+    content: "";
+    display: none;
+}
+
+.ac-createEvent-popUp-checkbox-container input:checked ~ .ac-createEvent-popUp-checkbox-container-checkmark:after {
+    display: block;
+}
+
+.ac-createEvent-popUp-checkbox-container .ac-createEvent-popUp-checkbox-container-checkmark:after {
+    width: 5px;
+    height: 12px;
+    margin-left: 5px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.ac-createEvent-popUp-creneaux-checkbox-container {
+    cursor: pointer;
+    font-size: 23px;
+    display: flex;
+    margin-left: 85px;
+    word-break: break-all;
+    width: 220px;
+}
+
+/*cacher checkbox par default */
+.ac-createEvent-popUp-creneaux-checkbox-container input {
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* custom checkbox */
+.ac-createEvent-popUp-creneaux-checkbox-container-checkmark {
+    height: 24px;
+    width: 24px;
+    border: 3px solid #1c2229;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+.ac-createEvent-popUp-creneaux-checkbox-container:hover input ~ .ac-createEvent-popUp-creneaux-checkbox-container-checkmark {
+    background-color: #efefef;
+}
+
+/* checked, then background-color */
+.ac-createEvent-popUp-creneaux-checkbox-container input:checked ~ .ac-createEvent-popUp-creneaux-checkbox-container-checkmark {
+    background-color: #1c2229;
+}
+
+.ac-createEvent-popUp-creneaux-checkbox-container-checkmark:after {
+    content: "";
+    display: none;
+}
+
+.ac-createEvent-popUp-creneaux-checkbox-container input:checked ~ .ac-createEvent-popUp-creneaux-checkbox-container-checkmark:after {
+    display: block;
+}
+
+.ac-createEvent-popUp-creneaux-checkbox-container .ac-createEvent-popUp-creneaux-checkbox-container-checkmark:after {
+    width: 5px;
+    height: 12px;
+    margin-left: 5px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/*********************************************************************************\
+ *   checkbox popup  Cree Groupe                                                             *
+\*********************************************************************************/
+
+
+.ac-createGroup-popUp-checkbox-container {
+    cursor: pointer;
+    display: flex;
+    margin: 0px 0px 0px 5px;
+}
+
+/*cacher checkbox par default */
+.ac-createGroup-popUp-checkbox-container input {
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* custom checkbox */
+.ac-createGroup-popUp-checkbox-container-checkmark {
+    height: 40px;
+    min-width: 40px;
+    border: 3px solid #1c2229;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.ac-createGroup-popUp-checkbox-container:hover input ~ .ac-createGroup-popUp-checkbox-container-checkmark {
+    background-color: #efefef;
+}
+
+/* checked, then background-color */
+.ac-createGroup-popUp-checkbox-container input:checked ~ .ac-createGroup-popUp-checkbox-container-checkmark {
+    background-color: #1c2229;
+}
+
+.ac-createGroup-popUp-checkbox-container-checkmark:after {
+    content: "";
+    display: none;
+}
+
+.ac-createGroup-popUp-checkbox-container input:checked ~ .ac-createGroup-popUp-checkbox-container-checkmark:after {
+    display: block;
+}
+
+.ac-createGroup-popUp-checkbox-container .ac-createGroup-popUp-checkbox-container-checkmark:after {
+    width: 10px;
+    height: 23px;
+    margin-left: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/*********************************************************************************\
+ *   Footer                                                                      *
+\*********************************************************************************/
+
+
+/*************\
+ *   Main    *
+\*************/
+
+
+.ac-main-footer {
+    margin-top: auto;
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    box-shadow: inset 0px 0px 8px -2px #000;
+}
+
+.ac-main-footer-title {
+    text-align: center;
+    font-size: 14px;
+    color: #000;
+    width: 100%;
+    line-height: 20px;
+}
+
+
+/*********************************************************************************\
+ *   Responsive                                                                  *
+\*********************************************************************************/
+
+
+.responsive-nav-bar {
+    display: flex!important;
+}
+
+
+/*********************************************************************************\
+ *   Media screen                                                                *
+\*********************************************************************************/
+
+
+@media only screen and (max-width: 1150px) {
+    .ac-createEvent-popUp {
+        display: none !important;
+    }
+
+    .ac-createGroup-popUp {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .ac-home {
+        width: 600px;
+    }
+
+    .ac-header-home {
+        border-bottom: none;
+    }
+
+    .ac-main-footer {
+        border-top: none;
+    }
+
+    .ac-popUpFail-content {
+        width: 60%;
+    }
+}
+
+@media only screen and (min-width: 1150px) {
+
+    .ac-createEvent {
+        display: none !important;
+    }
+
+    .ac-createGroup {
+        display: none !important;
+    }
+
+    .ac-popUpFail-content {
+        width: 400px;
+    }
+
+    .ac-createEvent-body-item:hover input ~ .ac-createEvent-body-item-checkmark {
+        background-color: #1C2229;
+    }
+
+    .fc-scroller.fc-time-grid-container {
+        height: calc(100vh - 211px) !important;
+    }
+
+    .fc-view.fc-agendaWeek-view.fc-agenda-view table tbody tr td .fc-scroller {
+        height: calc(100vh - 211px) !important;
+    }
+
+    .ac-main-header {
+        justify-content: space-around;
+    }
+
+    .ac-listGroup-body {
+    }
+
+    .ac-listGroup-body-liste {
+        min-width: 600px;
+        max-width: 600px;
+        margin-top: 10px;
+        border: 2px solid #000;
+    }
+
+    .ac-listGroup-body-invitation {
+        margin: 0px auto;
+        display: flex;
+        justify-content: space-between;
+        min-width: 80%;
+    }
+
+    .ac-listGroup-body-block-item {
+        line-height: 50px;
+        height: 50px;
+    }
+
+    .ac-listGroup-body-invitation-item {
+        min-width: 350px;
+    }
+
+    .ac-listEvent-body-ul{
+        width: 30%;
+        margin: 0 auto;
+    }
+
+    .ac-createEvent-body-description-radio {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 100%;
+    }
+
+    .ac-createEvent-body-description-radio-item {
+        min-width: 250px;
+        width: calc(100% / 3);
+    }
+
+    .ac-createEvent-body-creneaux {
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    .ac-createEvent-body-description-radio-item {
+        margin: 10px auto;
+    }
+
+}
