@@ -16,19 +16,32 @@ if (empty($_POST) && empty($_GET)) {
     //connection
 
     if (isset($_POST["signin"])) {
-        if (user_signin(protect($_POST["pseudo"]), protect($_POST["password"]), $c, $encryption_key)) {
+        if (user_signin(protect($_POST["pseudo"]), protect($_POST["password"]), $c)) {
             header('Location: index.php');
         } else {
             $page = "erreur";
         }
     }
+    //incription
+    if (isset($_POST["signup_by_user"])) {
+        if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["Telephone"]) && !empty($_POST["Licence"])) {
+            if (user_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["Telephone"]), protect($_POST["Licence"]), $c)) {
+                $page = "subscribe_user_success";
+            } else {
+                $page = "subscribe_user_failed";
+            }
+        } else {
+            $page = "subscribe_user_failed";
+        }
+    }
 
     //verification de la connection de l'utilisateur
     if (isset($_SESSION['stat']) && isset($_SESSION['id_leader'])) {
+
         //incription
         if (isset($_POST["signup"])) {
             if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["Telephone"]) && !empty($_POST["Licence"])) {
-                if (user_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["Telephone"]), protect($_POST["Licence"]), $c, $encryption_key)) {
+                if (user_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["Telephone"]), protect($_POST["Licence"]), $c)) {
                     $id = $c->insert_id;
                     $role_list = get_roles_list($c);
                     $page = "role_selection";
@@ -39,23 +52,26 @@ if (empty($_POST) && empty($_GET)) {
                 $page = "erreur";
             }
         }
-        //incription
-        if (isset($_POST["signup_by_user"])) {
-            if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["Telephone"]) && !empty($_POST["Licence"])) {
-                if (user_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["Telephone"]), protect($_POST["Licence"]), $c, $encryption_key)) {
-                    $page = "subscribe_user_success";
+        if (isset($_POST["update_user"])) {
+            if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["Telephone"]) && !empty($_POST["Licence"])) {
+                if (user_update($_POST["update_user"],protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["Telephone"]), protect($_POST["Licence"]), $c)) {
+                    $id = $_POST["update_user"];
+                    $user_role_list = get_role_user_by_id($id, $c);
+                    var_dump($user_role_list); exit;
+                    $page = "role_update";
                 } else {
-                    $page = "subscribe_user_failed";
+                    $page = "erreur";
                 }
             } else {
-                $page = "subscribe_user_failed";
+                $page = "erreur";
             }
         }
+
 
         //incription parent
         if (isset($_POST["signup_parent"])) {
             if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["Telephone"])) {
-                if (parent_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["Telephone"]), $c, $encryption_key)) {
+                if (parent_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["Telephone"]), $c)) {
                     $id_parent = $c->insert_id;
                     $player_list = get_players_list($c);
 
@@ -72,7 +88,6 @@ if (empty($_POST) && empty($_GET)) {
             $sucess = true;
             //dirigeants
             if (isset($_POST["Leader"])) {
-                var_dump($_POST);
                 if (add_leader($_POST["role_selection"], $c)) {
                     if (isset($_POST["leader_role_list"])) {
                         if (!set_leader_role(get_leader_id_by_user_id($_POST["role_selection"], $c), $_POST['leader_role_list'], $c)) {
@@ -115,6 +130,11 @@ if (empty($_POST) && empty($_GET)) {
             }
 
 
+        }
+        //incription
+        if (isset($_POST["user_edit_form"])) {
+            $page = 'edit_user_form';
+            $user_info = get_info_user_by_id($_POST['user_id'], $c);
         }
         if (isset($_POST["children_selection"])) {
             if (isset($_POST["children_list"])) {

@@ -12,6 +12,10 @@ elseif ($page == "role_selection") {
     display_header_cal();
     display_role_selection($id, $role_list);
 }
+elseif ($page == "role_update") {
+    display_header_cal();
+    display_role_update_form($id, $role_list);
+}
 elseif ($page == "children_selection") {
     display_header_cal();
     display_children_selection($id_parent, $player_list);
@@ -58,7 +62,9 @@ elseif ($page == "userform") {
 elseif ($page == "edit_user") {
     display_user_edit($id_leader, $user_list);
 }
-
+elseif ($page == "edit_user_form") {
+    display_user_edit_form($user_info);
+}
 elseif ($page == "erreur404") {
     display_error404();
     display_footer_home();
@@ -69,6 +75,10 @@ elseif ($page == "erreur") {
 }
 elseif ($page == "erreur") {
     display_error();
+}
+else{
+    display_error404();
+    display_footer_home();
 }
 
 

@@ -1,9 +1,9 @@
 <?php
 //enregistre un parent dans la bdd
 //renvoie true en cas de succes ou false
-function parent_signup($nom, $prenom, $mail,$motDePasse, $telephone, $c, $encryption_key) {
+function parent_signup($nom, $prenom, $mail,$motDePasse, $telephone, $c) {
     //cryptage du password
-    $motDePasse = crypt($motDePasse,$encryption_key);
+    $motDePasse = encrypt($motDePasse);
     //insertion des valeurs dans la bdd
     $sql = ("INSERT INTO parents(nom, prenom, mail, motDePasse, telephone) VALUES('$nom', '$prenom', '$mail', '$motDePasse', '$telephone')");
     if(mysqli_query($c,$sql)){

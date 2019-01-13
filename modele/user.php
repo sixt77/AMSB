@@ -1,33 +1,38 @@
 <?php
-//script de connection pour les streamer
-//prend un pseudo et un mot de pass
+//script de connection pour les utilisateurs
 //renvoie les parametre dans la session
 //return true si elle réussi et false sinon
-function user_signin($pseudo, $password, $c, $encryption_key) {
+function user_signin($identifiant, $password, $c) {
 //récupération des compte streamer
 	//cryptage du password
-	$password = crypt($password,$encryption_key);
-	$sql = ("SELECT U.id, U.mail, D.id_dirigeants 
+	$sql = ("SELECT U.id, U.mail, D.id_dirigeants, U.motDePasse 
 FROM utilisateurs U  
 INNER JOIN dirigeants D ON U.id = D.id_utilisateurs 
-WHERE U.mail='$pseudo' AND U.motDePasse='$password'");
+WHERE U.mail='$identifiant'");
 	$result = mysqli_query($c,$sql);
 	//test des résultat
 	if($row = mysqli_fetch_row($result)){
-		if (isset($row[0]) && isset($row[2])) {
-			//attribution d'une session
-			$_SESSION['stat'] = "connect";
-			$_SESSION['id'] = $row[0];
-			$_SESSION['mail'] = $row[1];
-            $_SESSION['id_leader'] = $row[2];
-			return true;
-		}
-		else {
-			//attribution d'une session vide
-			unset ($_SESSION['stat']);
+         if(verify($password, $row[3])) {
+             if (isset($row[0]) && isset($row[2])) {
+                 //attribution d'une session
+                 $_SESSION['stat'] = "connect";
+                 $_SESSION['id'] = $row[0];
+                 $_SESSION['mail'] = $row[1];
+                 $_SESSION['id_leader'] = $row[2];
+                 return true;
+             } else {
+                 //attribution d'une session vide
+                 unset ($_SESSION['stat']);
 
-			return false;
-		}
+                 return false;
+             }
+         }
+         else {
+             //attribution d'une session vide
+             unset ($_SESSION['stat']);
+
+             return false;
+         }
 	}
 $result->close();
 }
@@ -35,9 +40,9 @@ $result->close();
 //script d'inscription pour les user 
 //ajoute dans la bdd les valeurs
 //renvoi true si la connection a fonctionné sinon false
-function user_signup($nom, $prenom, $mail,$motDePasse, $telephone, $licence, $c, $encryption_key) {
+function user_signup($nom, $prenom, $mail,$motDePasse, $telephone, $licence, $c) {
 	//cryptage du password
-    $motDePasse = crypt($motDePasse,$encryption_key);
+    $motDePasse = encrypt($motDePasse);
 	//insertion des valeurs dans la bdd
 	$sql = ("INSERT INTO utilisateurs(nom, prenom, mail, motDePasse, telephone, licence) VALUES('$nom', '$prenom', '$mail', '$motDePasse', '$telephone', '$licence')");
     if(mysqli_query($c,$sql)){
@@ -47,14 +52,46 @@ function user_signup($nom, $prenom, $mail,$motDePasse, $telephone, $licence, $c,
 		return false;
 	}
 }
+//met a jour les information d'un joueur
+//renvoi true si la connection a fonctionné sinon false
+function user_update($user_id, $nom, $prenom, $mail, $telephone, $licence, $c) {
+    //insertion des valeurs dans la bdd
+    $sql = ("UPDATE utilisateurs
+SET nom = '$nom', prenom = '$prenom', mail = '$mail', telephone = '$telephone', licence = '$licence'
+WHERE id = '$user_id'");
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
 
 function get_info_user_by_id($id, $c){
-    $sql = ("SELECT * FROM utilisateurs WHERE id ='$id'");
+    $sql = ("SELECT id, nom, prenom, mail, telephone, licence FROM utilisateurs WHERE id ='$id'");
     $result = mysqli_query($c,$sql);
     $user_info= array ();
     if($row = mysqli_fetch_row($result)){
         $user_info= $row;
+    }
+
+    return $user_info;
+}
+
+function get_role_user_by_id($id, $c){
+    $sql = ("SELECT count(U.id), D.id_dirigeants, O.id_otm, A.id_arbitre,B.id_benevole, J.id_joueur
+FROM utilisateurs U
+LEFT JOIN dirigeants D ON U.id = D.id_utilisateurs
+LEFT JOIN otm O ON U.id = O.id_utilisateurs
+LEFT JOIN arbitres A ON U.id = A.id_utilisateurs
+LEFT JOIN benevoles B ON U.id = B.id_utilisateurs
+LEFT JOIN joueurs J ON U.id = J.id_utilisateurs
+WHERE U.id ='$id'");
+    $result = mysqli_query($c,$sql);
+    $user_info= array ();
+    if($row = mysqli_fetch_row($result)){
+        $user_info = $row;
     }
     return $user_info;
 }

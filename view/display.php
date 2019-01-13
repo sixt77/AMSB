@@ -26,6 +26,11 @@ function display_role_selection($id, $role_list){
     require ("pages/role_selection.php");
 
 }
+function display_role_update_form($id, $role_list){
+
+    require ("pages/role_update.php");
+
+}
 function display_children_selection($id_parent, $player_list){
 
     require ("pages/children_selection.php");
@@ -58,12 +63,12 @@ function display_subscribe_parent_failed(){
 }
 function display_subscribe_user_success(){
 
-    require ("pages/subscribe_parent_success.php");
+    require ("pages/subscribe_user_success.php");
 
 }
 function display_subscribe_user_failed(){
 
-    require ("pages/subscribe_parent_failed.php");
+    require ("pages/subscribe_user_failed.php");
 
 }
 function display_signup_failed(){
@@ -79,6 +84,11 @@ function display_user_sub() {
 function display_user_edit($id_leader, $user_list) {
 
     require("pages/user_edit.php");
+
+}
+function display_user_edit_form($user_info) {
+
+    require("pages/user_edit_form.php");
 
 }
 function display_user_form() {

@@ -27,7 +27,7 @@
                         '.$user["nom"].' '.$user["prenom"].'
                     </td>
                     <td>
-                        <input type="checkbox" id="'.$i.'" name="children_list[]" value="'.$user['id'].'">
+                        <input type="radio" id="'.$i.'" name="user_id" value="'.$user['id'].'">
                     </td>
                 </tr>
             </table>
@@ -37,13 +37,12 @@
             
             ?>
 
-            <input type="hidden" name="id_user" value="">
             <div class="ac-home-sign-allBoutton">
                 <ul>
 
                     <li class="ac-home-sign-item-boutton-left">
-                        <button type="submit" class="ac-home-sign-item-boutton-log" name="children_selection"
-                                value="<?php echo $id_leader; ?>">
+                        <button type="submit" class="ac-home-sign-item-boutton-log" name="user_edit_form"
+                                value="">
                             Valider
                         </button>
                     </li>
