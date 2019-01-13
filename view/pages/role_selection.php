@@ -45,13 +45,12 @@ var_dump($id);
             <input type="checkbox" id="volunteerCheckbox" name="Volunteer" value="volunteer">
             joueur ?
             <input type="checkbox" id="playerCheckbox" name="Player" value="player">
-            <input type="hidden" name="id_user" value="<?php echo $id; ?>">
             <div class="ac-home-sign-allBoutton">
                 <ul>
 
                     <li class="ac-home-sign-item-boutton-left">
-                        <button type="submit" class="ac-home-sign-item-boutton-log" name="action"
-                                value="role_selection">
+                        <button type="submit" class="ac-home-sign-item-boutton-log" name="role_selection"
+                                value="<?php echo $id; ?>">
                             Valider
                         </button>
                     </li>

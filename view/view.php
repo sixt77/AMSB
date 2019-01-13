@@ -55,6 +55,9 @@ elseif ($page == "parentform") {
 elseif ($page == "userform") {
     display_user_form();
 }
+elseif ($page == "edit_user") {
+    display_user_edit($id_leader, $user_list);
+}
 
 elseif ($page == "erreur404") {
     display_error404();

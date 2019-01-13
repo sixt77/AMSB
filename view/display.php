@@ -76,6 +76,11 @@ function display_user_sub() {
     require("pages/user_sub.php");
 
 }
+function display_user_edit($id_leader, $user_list) {
+
+    require("pages/user_edit.php");
+
+}
 function display_user_form() {
 
     require("pages/user_form.php");

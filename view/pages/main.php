@@ -16,8 +16,13 @@
 
                 <li class="ac-home-sign-item-boutton-right">
                     <form action="index.php" method="post">
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="action" value="subform">
+                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="subform" value="">
                             ajout utilisateur
+                        </button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="edit_user" value="">
+                            modifier utilisateur
                         </button>
                     </form>
                 </li>

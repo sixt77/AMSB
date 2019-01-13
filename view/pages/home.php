@@ -38,7 +38,7 @@
                     <ul>
 
                         <li class="ac-home-sign-item-boutton-right">
-                            <button type="submit" class="ac-home-sign-item-boutton-log" id="savePopup"  name="action" value="signin">
+                            <button type="submit" class="ac-home-sign-item-boutton-log" id="savePopup"  name="signin" value="">
                                 connection
                             </button>
                         </li>

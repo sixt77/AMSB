@@ -4,7 +4,7 @@
 $page = "erreur404";
 if (empty($_POST) && empty($_GET)) {
 // Vérification si l'user est enregisté
-    if (isset($_SESSION['etat']) and $page != "connection_failed" and $page != "sub_failed") {
+    if (isset($_SESSION['stat']) ) {
 
         $page = "main";
     } else {
@@ -13,20 +13,20 @@ if (empty($_POST) && empty($_GET)) {
 } else {
 
 //script de connection et l'inscription
-    if (isset($_POST["action"])) {
-        if ($_POST["action"] == "signin") {
-            if (user_signin(protect($_POST["pseudo"]), protect($_POST["password"]), $c, $encryption_key)) {
-                header('Location: index.php');
-            } else {
-                $page = "erreur";
-            }
+    //connection
+
+    if (isset($_POST["signin"])) {
+        if (user_signin(protect($_POST["pseudo"]), protect($_POST["password"]), $c, $encryption_key)) {
+            header('Location: index.php');
+        } else {
+            $page = "erreur";
         }
     }
-    if (isset($_POST["action"]) && isset($_SESSION['etat']) && isset($_SESSION['id_dirigeants'])) {
-        //connection
 
+    //verification de la connection de l'utilisateur
+    if (isset($_SESSION['stat']) && isset($_SESSION['id_leader'])) {
         //incription
-        if ($_POST["action"] == "signup") {
+        if (isset($_POST["signup"])) {
             if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["Telephone"]) && !empty($_POST["Licence"])) {
                 if (user_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["Telephone"]), protect($_POST["Licence"]), $c, $encryption_key)) {
                     $id = $c->insert_id;
@@ -40,7 +40,7 @@ if (empty($_POST) && empty($_GET)) {
             }
         }
         //incription
-        if ($_POST["action"] == "signup_by_user") {
+        if (isset($_POST["signup_by_user"])) {
             if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["Telephone"]) && !empty($_POST["Licence"])) {
                 if (user_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["Telephone"]), protect($_POST["Licence"]), $c, $encryption_key)) {
                     $page = "subscribe_user_success";
@@ -53,7 +53,7 @@ if (empty($_POST) && empty($_GET)) {
         }
 
         //incription parent
-        if ($_POST["action"] == "signup_parent") {
+        if (isset($_POST["signup_parent"])) {
             if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["Telephone"])) {
                 if (parent_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["Telephone"]), $c, $encryption_key)) {
                     $id_parent = $c->insert_id;
@@ -68,14 +68,14 @@ if (empty($_POST) && empty($_GET)) {
             }
         }
         //ajout de rôle
-        if ($_POST["action"] == "role_selection") {
+        if (isset($_POST["role_selection"])) {
             $sucess = true;
             //dirigeants
-            if(isset($_POST["Leader"])){
-
-                if (add_leader($_POST["id_user"], $c)) {
-                    if(isset($_POST["leader_role_list"])){
-                        if(!set_leader_role(get_leader_id_by_user_id($_POST["id_user"], $c), $_POST['leader_role_list'], $c)){
+            if (isset($_POST["Leader"])) {
+                var_dump($_POST);
+                if (add_leader($_POST["role_selection"], $c)) {
+                    if (isset($_POST["leader_role_list"])) {
+                        if (!set_leader_role(get_leader_id_by_user_id($_POST["role_selection"], $c), $_POST['leader_role_list'], $c)) {
                             $sucess = false;
                         }
                     }
@@ -84,57 +84,64 @@ if (empty($_POST) && empty($_GET)) {
                 }
             }
             //OTM
-            if(isset($_POST["OTM"])){
-                if (!add_OTM($_POST["id_user"], $c)) {
+            if (isset($_POST["OTM"])) {
+                if (!add_OTM($_POST["role_selection"], $c)) {
                     $sucess = false;
                 }
             }
             //arbitres
-            if(isset($_POST["Arbiter"])){
-                if (!add_arbiter($_POST["id_user"], $c)) {
+            if (isset($_POST["Arbiter"])) {
+                if (!add_arbiter($_POST["role_selection"], $c)) {
                     $sucess = false;
                 }
             }
             //bénévoles
-            if(isset($_POST["Volunteer"])){
-                if (!add_volunteer($_POST["id_user"], $c)) {
+            if (isset($_POST["Volunteer"])) {
+                if (!add_volunteer($_POST["role_selection"], $c)) {
                     $sucess = false;
                 }
             }
             //joueur
-            if(isset($_POST["Player"])){
-                if (!add_player($_POST["id_user"], $c)) {
+            if (isset($_POST["Player"])) {
+                if (!add_player($_POST["role_selection"], $c)) {
                     $sucess = false;
                 }
             }
 
-            if($sucess ==  true){
+            if ($sucess == true) {
                 $page = "creation_success";
-            }else{
+            } else {
                 $page = "creation_failed";
             }
 
 
-
         }
-        if ($_POST["action"] == "children_selection") {
-            if(isset($_POST["children_list"])){
-                if(add_children($_POST["id_user"], $_POST['children_list'], $c)){
+        if (isset($_POST["children_selection"])) {
+            if (isset($_POST["children_list"])) {
+                if (add_children($_POST["id_user"], $_POST['children_list'], $c)) {
                     $page = "subscribe_parent_success";
-                }
-                else{
+                } else {
                     $page = "subscribe_parent_failed";
                 }
             }
 
         }
         //formulaire d'incription
-        if ($_POST["action"] == "subform") {
+        if (isset($_POST["subform"])) {
             $page = "user_sub";
         }
+        //formulaire d'incription
+        if (isset($_POST["edit_user"])) {
+            $page = "edit_user";
+            $user_list = get_users_list($c);
+            $id_leader = $_SESSION['id_leader'];
+        }
 
-
-        //affichage des page view
+        //déconnection
+        if (isset($_GET["logout"])) {
+            user_logout();
+            header('location: index.php');
+        }
     } else {
 
         //inscription parents
@@ -150,23 +157,9 @@ if (empty($_POST) && empty($_GET)) {
         if (isset($_GET["propos"])) {
             $page = "propos";
         }
-        if (isset($_SESSION['etat']) and $page != "connection_failed" and $page != "sub_failed") {
-            if (isset($_GET["create-event"])) {
-                $groups_list = get_groups_list($c);
-                $users_list = get_users_list($c);
-                $page = "create-event";
-            }
 
 
-            //formulaire de modification d'information
-            if (isset($_GET["infoform"])) {
-                $page = "update_info_form";
-            }
-            //déconnection
-            if (isset($_GET["logout"])) {
-                user_logout();
-                header('location: index.php');
-            }
-        }
+
+
     }
 }

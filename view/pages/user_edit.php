@@ -14,20 +14,20 @@
             <li class="ac-home-sign-item-inscrip">
 
                 <h2 class="ac-home-sign-item-h2">
-                    selectionnez vos enfants
+                    selectionnez un utilisateur a modifié
                 </h2>
             </li>
             <?php
             $i = 1;
-            foreach ($player_list as $player){
+            foreach ($user_list as $user){
             echo'
             <table>
                 <tr>
                     <td>
-                        '.$player["nom"].' '.$player["prenom"].'
+                        '.$user["nom"].' '.$user["prenom"].'
                     </td>
                     <td>
-                        <input type="checkbox" id="'.$i.'" name="children_list[]" value="'.$player['id_joueur'].'">
+                        <input type="checkbox" id="'.$i.'" name="children_list[]" value="'.$user['id'].'">
                     </td>
                 </tr>
             </table>
@@ -37,13 +37,13 @@
             
             ?>
 
-            <input type="hidden" name="id_user" value="<?php echo $id_parent; ?>">
+            <input type="hidden" name="id_user" value="">
             <div class="ac-home-sign-allBoutton">
                 <ul>
 
                     <li class="ac-home-sign-item-boutton-left">
                         <button type="submit" class="ac-home-sign-item-boutton-log" name="children_selection"
-                                value="">
+                                value="<?php echo $id_leader; ?>">
                             Valider
                         </button>
                     </li>

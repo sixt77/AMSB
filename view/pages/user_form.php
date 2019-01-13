@@ -46,7 +46,7 @@
                     <ul>
 
                         <li class="ac-home-sign-item-boutton-left">
-                            <button type="submit" class="ac-home-sign-item-boutton-log" name="action" value="signup_by_user">
+                            <button type="submit" class="ac-home-sign-item-boutton-log" name="signup_by_user" value="">
                                 Valider
                             </button>
                         </li>
