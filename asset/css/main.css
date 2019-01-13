@@ -184,7 +184,7 @@ input:placeholder-shown {
     height: 40px;
     width: 100%;
     min-width: 170px;
-    color: #fff;
+    color: #000000;
     cursor: pointer;
     background-color: transparent;
     box-shadow: 4px 4px 20px -4px #000;

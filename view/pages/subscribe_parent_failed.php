@@ -19,7 +19,7 @@
         </p>
 
 
-        <a href='index.php?licencié' class="ac-home-signin-continue">
+        <a href='index.php?parent' class="ac-home-signin-continue">
             Retour
         </a>
 

@@ -1,4 +1,5 @@
 <?php
+
 //direction de base
 $page = "erreur404";
 if (empty($_POST) && empty($_GET)) {
@@ -10,10 +11,9 @@ if (empty($_POST) && empty($_GET)) {
         $page = "home";
     }
 } else {
-//script de connection et l'inscription
 
+//script de connection et l'inscription
     if (isset($_POST["action"])) {
-        //connection
         if ($_POST["action"] == "signin") {
             if (user_signin(protect($_POST["pseudo"]), protect($_POST["password"]), $c, $encryption_key)) {
                 header('Location: index.php');
@@ -21,6 +21,10 @@ if (empty($_POST) && empty($_GET)) {
                 $page = "erreur";
             }
         }
+    }
+    if (isset($_POST["action"]) && isset($_SESSION['etat']) && isset($_SESSION['id_dirigeants'])) {
+        //connection
+
         //incription
         if ($_POST["action"] == "signup") {
             if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["Telephone"]) && !empty($_POST["Licence"])) {
@@ -124,14 +128,15 @@ if (empty($_POST) && empty($_GET)) {
             }
 
         }
+        //formulaire d'incription
+        if ($_POST["action"] == "subform") {
+            $page = "user_sub";
+        }
 
 
         //affichage des page view
     } else {
-        //formulaire d'incription
-        if (isset($_GET["subform"])) {
-            $page = "user_sub";
-        }
+
         //inscription parents
         if (isset($_GET["parent"])) {
             $page = "parentform";

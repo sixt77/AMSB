@@ -51,11 +51,7 @@
                             </button>
                         </li>
 
-                        <li class="ac-home-sign-item-boutton-right">
-                            <a href="index.php" class="ac-home-sign-item-boutton-sign">
-                                Connexion
-                            </a>
-                        </li>
+
 
                     </ul>
 

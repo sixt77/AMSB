@@ -15,9 +15,11 @@
             <ul>
 
                 <li class="ac-home-sign-item-boutton-right">
-                    <a href="index.php?subform" class="ac-home-sign-item-boutton-sign">
-                        Inscription d'un licencié
-                    </a>
+                    <form action="index.php" method="post">
+                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="action" value="subform">
+                            ajout utilisateur
+                        </button>
+                    </form>
                 </li>
 
 

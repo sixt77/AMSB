@@ -51,11 +51,18 @@
                             </button>
                         </li>
 
-                        <li class="ac-home-sign-item-boutton-right">
-                            <a href="index.php" class="ac-home-sign-item-boutton-sign">
-                                Connexion
-                            </a>
+
+
+                    </ul>
+                    <ul>
+
+                        <li class="ac-home-sign-item-boutton-left">
+                            <button type="submit" class="ac-home-sign-item-boutton-log" name="action" value="edit_user">
+                                Valider
+                            </button>
                         </li>
+
+
 
                     </ul>
 
