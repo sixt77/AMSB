@@ -21,7 +21,7 @@ function display_main(){
     require ("pages/main.php");
 
 }
-function display_role_selection($id){
+function display_role_selection($id, $role_list){
 
     require ("pages/role_selection.php");
 
@@ -29,6 +29,11 @@ function display_role_selection($id){
 function display_signin_failed(){
 
 	require ("pages/signin_failed.php");
+
+}
+function display_creation_success(){
+
+    require ("pages/creation_success.php");
 
 }
 function display_creation_failed(){

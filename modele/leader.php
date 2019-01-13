@@ -13,5 +13,14 @@ function add_leader($id_user, $c) {
 }
 
 
+//renvoie un id_leader par rapport a un id_utilisateur
+function get_leader_id_by_user_id($id_user, $c) {
+    $sql = ("SELECT id_dirigeants FROM dirigeants WHERE id_utilisateurs ='$id_user'");
+    $result = mysqli_query($c,$sql);
+    if($row = mysqli_fetch_row($result)){
+        $id_leader = $row[0];
+    }
+    return $id_leader;
+}
 
 ?>

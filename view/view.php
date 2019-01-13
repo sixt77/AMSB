@@ -10,14 +10,16 @@ elseif ($page == "main") {
 }
 elseif ($page == "role_selection") {
     display_header_cal();
-    display_role_selection($id);
+    display_role_selection($id, $role_list);
 }
 elseif ($page == "connection_failed") {
     display_home();
     display_footer_home();
     display_signin_failed();
 }
-
+elseif ($page == "creation_success") {
+    display_creation_success();
+}
 elseif ($page == "creation_failed") {
     display_creation_failed();
 }
@@ -29,6 +31,10 @@ elseif ($page == "sub_failed") {
 
 elseif ($page == "user_sub") {
     display_user_sub();
+}
+
+elseif ($page == "parentform") {
+    display_parent_sub();
 }
 
 elseif ($page == "erreur404") {

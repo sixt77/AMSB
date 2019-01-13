@@ -8,6 +8,14 @@ function display_user_sub() {
 
 }
 
+function display_parent_sub() {
+
+    require("pages/parent_sub.php");
+
+
+
+}
+
 
 //choix de la salle
 function display_hall_select($salles) {

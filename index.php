@@ -9,6 +9,8 @@ include("modele/OTM.php");
 include("modele/arbiter.php");
 include("modele/player.php");
 include("modele/volunteer.php");
+include("modele/role.php");
+include("modele/leader_role.php");
 include("controller/controller.php");
 include("view/display.php");
 include("view/display_user.php");

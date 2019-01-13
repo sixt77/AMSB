@@ -27,6 +27,7 @@ if (empty($_POST) && empty($_GET)) {
                 if (user_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["Telephone"]), protect($_POST["Licence"]), $c, $encryption_key)) {
                     $id = $c->insert_id;
                     $page = "role_selection";
+                    $role_list = get_roles_list($c);
                 } else {
                     $page = "erreur";
                 }
@@ -36,60 +37,67 @@ if (empty($_POST) && empty($_GET)) {
         }
         //ajout de rôle
         if ($_POST["action"] == "role_selection") {
+            $sucess = true;
             //dirigeants
             if(isset($_POST["Leader"])){
+
                 if (add_leader($_POST["id_user"], $c)) {
-                    header('Location: index.php');
+                    if(isset($_POST["leader_role_list"])){
+                        if(!set_leader_role(get_leader_id_by_user_id($_POST["id_user"], $c), $_POST['leader_role_list'], $c)){
+                            $sucess = false;
+                        }
+                    }
                 } else {
-                    $page = "erreur";
+                    $sucess = false;
                 }
             }
             //OTM
             if(isset($_POST["OTM"])){
-                if (add_OTM($_POST["id_user"], $c)) {
-                    header('Location: index.php');
-                } else {
-                    $page = "erreur";
+                if (!add_OTM($_POST["id_user"], $c)) {
+                    $sucess = false;
                 }
             }
             //arbitres
             if(isset($_POST["Arbiter"])){
-                if (add_arbiter($_POST["id_user"], $c)) {
-                    header('Location: index.php');
-                } else {
-                    $page = "erreur";
+                if (!add_arbiter($_POST["id_user"], $c)) {
+                    $sucess = false;
                 }
             }
             //bénévoles
             if(isset($_POST["Volunteer"])){
-                if (add_volunteer($_POST["id_user"], $c)) {
-                    header('Location: index.php');
-                } else {
-                    $page = "erreur";
+                if (!add_volunteer($_POST["id_user"], $c)) {
+                    $sucess = false;
                 }
             }
             //joueur
             if(isset($_POST["Player"])){
-                if (add_player($_POST["id_user"], $c)) {
-                    header('Location: index.php');
-                } else {
-                    $page = "erreur";
+                if (!add_player($_POST["id_user"], $c)) {
+                    $sucess = false;
                 }
             }
+
+            if($sucess ==  true){
+                $page = "creation_success";
+            }else{
+                $page = "creation_failed";
+            }
+
 
 
         }
 
 
         //affichage des page view
-    } elseif (isset($_POST["view"])) {
-
-
     } else {
         //formulaire d'incription
         if (isset($_GET["subform"])) {
             $page = "user_sub";
         }
+        //inscription parents
+        if (isset($_GET["parent"])) {
+            $page = "parentform";
+        }
+
 // Page A propos
         if (isset($_GET["propos"])) {
             $page = "propos";
