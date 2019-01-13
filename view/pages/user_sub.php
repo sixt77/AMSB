@@ -4,7 +4,7 @@
 
     <div class="ac-home">
 
-        <form action="index.php?ac=signup" method="post">
+        <form action="index.php" method="post">
 
             <ul>
 

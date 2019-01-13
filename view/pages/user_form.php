@@ -11,7 +11,7 @@
                 <li class="ac-home-sign-item-inscrip">
 
                     <h2 class="ac-home-sign-item-h2">
-                        inscription parent
+                        inscription licencié !
                     </h2>
 
 
@@ -38,12 +38,15 @@
                     <input class="ac-home-sign-item-input" type="text" placeholder='Téléphone' name='Telephone' required/>
                 </li>
 
+                <li class="ac-home-sign-item">
+                    <input class="ac-home-sign-item-input" type="text" placeholder='licence' name='Licence' required/>
+                </li>
 
                 <div class="ac-home-sign-allBoutton">
                     <ul>
 
                         <li class="ac-home-sign-item-boutton-left">
-                            <button type="submit" class="ac-home-sign-item-boutton-log" name="action" value="signup_parent">
+                            <button type="submit" class="ac-home-sign-item-boutton-log" name="action" value="signup_by_user">
                                 Valider
                             </button>
                         </li>

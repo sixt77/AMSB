@@ -9,7 +9,7 @@ var_dump($id);
 ?>
 <div class="ac-main">
 
-    <form action="index.php?ac=role_selection" method="post">
+    <form action="index.php" method="post">
 
         <ul>
 

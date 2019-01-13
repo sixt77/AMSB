@@ -11,6 +11,19 @@ function add_player($id_user, $c) {
     }
 }
 
-
+function get_players_list($c){
+    $sql = ("SELECT *
+FROM joueurs J
+INNER JOIN utilisateurs U ON J.id_utilisateurs = U.id");
+    $result = mysqli_query($c,$sql);
+    $players_list= array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $players_list[$loop]= $donnees;
+        $loop++;
+    }
+    return $players_list;
+}
 
 ?>
