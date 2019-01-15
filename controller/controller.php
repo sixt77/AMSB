@@ -4,7 +4,7 @@
 $page = "erreur404";
 if (empty($_POST) && empty($_GET)) {
 // Vérification si l'user est enregisté
-    if (isset($_SESSION['stat']) ) {
+    if (isset($_SESSION['stat'])) {
 
         $page = "main";
     } else {
@@ -54,10 +54,11 @@ if (empty($_POST) && empty($_GET)) {
         }
         if (isset($_POST["update_user"])) {
             if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["Telephone"]) && !empty($_POST["Licence"])) {
-                if (user_update($_POST["update_user"],protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["Telephone"]), protect($_POST["Licence"]), $c)) {
+                if (user_update($_POST["update_user"], protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["Telephone"]), protect($_POST["Licence"]), $c)) {
                     $id = $_POST["update_user"];
                     $user_role_list = get_role_user_by_id($id, $c);
-                    var_dump($user_role_list); exit;
+                    var_dump($user_role_list);
+                    exit;
                     $page = "role_update";
                 } else {
                     $page = "erreur";
@@ -162,24 +163,21 @@ if (empty($_POST) && empty($_GET)) {
             user_logout();
             header('location: index.php');
         }
-    } else {
+    }
 
-        //inscription parents
-        if (isset($_GET["parent"])) {
-            $page = "parentform";
-        }
-        //inscription utilisateurs
-        if (isset($_GET["licencié"])) {
-            $page = "userform";
-        }
+    //inscription parents
+    if (isset($_GET["parent"])) {
+        $page = "parentform";
+    }
+    //inscription utilisateurs
+    if (isset($_GET["licencié"])) {
+        $page = "userform";
+    }
 
 // Page A propos
-        if (isset($_GET["propos"])) {
-            $page = "propos";
-        }
-
-
-
-
+    if (isset($_GET["propos"])) {
+        $page = "propos";
     }
+
+
 }
