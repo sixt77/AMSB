@@ -20,3 +20,19 @@ function set_leader_role($id_leader, $leader_role_list, $c) {
         return false;
     }
 }
+
+//renvoie la liste des rôles administrateur avec un id administrateur
+function get_leader_role_leader_by_id($id, $c){
+    $sql = ("SELECT id_roles FROM dirigeants_roles DR
+WHERE DR.id_dirigeants ='$id'");
+    $result = mysqli_query($c,$sql);
+    $leader_rights = array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $leader_rights[$donnees['id_roles']] = true;
+        $loop++;
+    }
+
+    return $leader_rights;
+}

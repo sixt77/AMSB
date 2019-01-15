@@ -1,8 +1,10 @@
 <?php
-
 try {
-    //$c = mysqli_connect("127.0.0.1", "l2_gr3", "aBSf6RAY", "l2_gr3");
-    $c = mysqli_connect("localhost", "root", "", "amsb");
+    if($_SERVER['HTTP_HOST']=="os-vps418.infomaniak.ch"){
+        $c = mysqli_connect("localhost", "amsb1", "D9NEywPS", "amsb1");
+    }else{
+        $c = mysqli_connect("localhost", "root", "", "amsb");
+    }
 }
 
 catch (Exception $e) {

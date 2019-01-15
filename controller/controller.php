@@ -78,13 +78,18 @@ if (empty($_POST) && empty($_GET)) {
                 $page = "erreur";
             }
         }
+        //mise a jour d'un utilisateur
         if (isset($_POST["update_user"])) {
             if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["Telephone"]) && !empty($_POST["Licence"])) {
                 if (user_update($_POST["update_user"], protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["Telephone"]), protect($_POST["Licence"]), $c)) {
                     $id = $_POST["update_user"];
+                    $role_list = get_roles_list($c);
                     $user_role_list = get_role_user_by_id($id, $c);
-                    var_dump($user_role_list);
-                    exit;
+                    if(isset($user_role_list[1])) {
+                        $leader_role_list = get_leader_role_leader_by_id($user_role_list[1], $c);
+                    }else{
+                        $leader_role_list = null;
+                    }
                     $page = "role_update";
                 } else {
                     $page = "erreur";
@@ -93,7 +98,27 @@ if (empty($_POST) && empty($_GET)) {
                 $page = "erreur";
             }
         }
+        //mise a jour des droits d'un utilisateur
+        if (isset($_POST["update_user_right"])) {
+            $user_role_list = get_role_user_by_id($_POST["update_user_right"], $c);
 
+            //Leader
+            //ajout du role
+            if ($user_role_list[1] == null && isset($_POST["Leader"])) {
+                if (!add_leader($_POST["update_user_right"], $c)) {
+                    $sucess = false;
+                }
+            }
+            //suppression du role
+            if ($user_role_list[1] != null && !isset($_POST["Leader"])) {
+                if (!delete_leader($_POST["update_user_right"], $c)) {
+                    $sucess = false;
+                }
+            }
+            var_dump($_POST);
+            var_dump($user_role_list);
+            exit;
+        }
 
 
         //ajout de rôle
@@ -141,9 +166,55 @@ if (empty($_POST) && empty($_GET)) {
             } else {
                 $page = "creation_failed";
             }
-
-
         }
+
+        //modification de rôle
+        if (isset($_POST["role_update"])) {
+            $sucess = true;
+            //dirigeants
+            if (isset($_POST["Leader"])) {
+                if (add_leader($_POST["role_selection"], $c)) {
+                    if (isset($_POST["leader_role_list"])) {
+                        if (!set_leader_role(get_leader_id_by_user_id($_POST["role_selection"], $c), $_POST['leader_role_list'], $c)) {
+                            $sucess = false;
+                        }
+                    }
+                } else {
+                    $sucess = false;
+                }
+            }
+            //OTM
+            if (isset($_POST["OTM"])) {
+                if (!add_OTM($_POST["role_selection"], $c)) {
+                    $sucess = false;
+                }
+            }
+            //arbitres
+            if (isset($_POST["Arbiter"])) {
+                if (!add_arbiter($_POST["role_selection"], $c)) {
+                    $sucess = false;
+                }
+            }
+            //bénévoles
+            if (isset($_POST["Volunteer"])) {
+                if (!add_volunteer($_POST["role_selection"], $c)) {
+                    $sucess = false;
+                }
+            }
+            //joueur
+            if (isset($_POST["Player"])) {
+                if (!add_player($_POST["role_selection"], $c)) {
+                    $sucess = false;
+                }
+            }
+
+            if ($sucess == true) {
+                $page = "creation_success";
+            } else {
+                $page = "creation_failed";
+            }
+        }
+
         //incription
         if (isset($_POST["user_edit_form"])) {
             $page = 'edit_user_form';

@@ -12,6 +12,17 @@ function add_leader($id_user, $c) {
     }
 }
 
+//enleve le droit de leader a un utilisateur
+function delete_leader($id_user, $c) {
+    $sql = ("DELETE FROM `dirigeants` WHERE id_utilisateurs = '$id_user'");
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 
 //renvoie un id_leader par rapport a un id_utilisateur
 function get_leader_id_by_user_id($id_user, $c) {

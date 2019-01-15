@@ -26,7 +26,7 @@ function display_role_selection($id, $role_list){
     require ("pages/role_selection.php");
 
 }
-function display_role_update_form($id, $role_list){
+function display_role_update_form($id, $role_list, $user_role_list, $leader_role_list){
 
     require ("pages/role_update.php");
 

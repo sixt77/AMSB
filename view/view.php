@@ -14,7 +14,7 @@ elseif ($page == "role_selection") {
 }
 elseif ($page == "role_update") {
     display_header_cal();
-    display_role_update_form($id, $role_list);
+    display_role_update_form($id, $role_list, $user_role_list, $leader_role_list);
 }
 elseif ($page == "children_selection") {
     display_header_cal();
