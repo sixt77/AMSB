@@ -35,6 +35,32 @@ if (empty($_POST) && empty($_GET)) {
         }
     }
 
+    //incription parent personnelle
+    if (isset($_POST["signup_parent"])) {
+        if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["Telephone"])) {
+            if (parent_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["Telephone"]), $c)) {
+                $id_parent = $c->insert_id;
+                $player_list = get_players_list($c);
+
+                $page = "children_selection";
+            } else {
+                $page = "subscribe_parent_failed";
+            }
+        } else {
+            $page = "subscribe_parent_failed";
+        }
+    }
+
+    if (isset($_POST["children_selection"])) {
+        if (isset($_POST["children_list"])) {
+            if (add_children($_POST["id_user"], $_POST['children_list'], $c)) {
+                $page = "subscribe_parent_success";
+            } else {
+                $page = "subscribe_parent_failed";
+            }
+        }
+
+    }
     //verification de la connection de l'utilisateur
     if (isset($_SESSION['stat']) && isset($_SESSION['id_leader'])) {
 
@@ -69,21 +95,7 @@ if (empty($_POST) && empty($_GET)) {
         }
 
 
-        //incription parent
-        if (isset($_POST["signup_parent"])) {
-            if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["Telephone"])) {
-                if (parent_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["Telephone"]), $c)) {
-                    $id_parent = $c->insert_id;
-                    $player_list = get_players_list($c);
 
-                    $page = "children_selection";
-                } else {
-                    $page = "subscribe_parent_failed";
-                }
-            } else {
-                $page = "subscribe_parent_failed";
-            }
-        }
         //ajout de rôle
         if (isset($_POST["role_selection"])) {
             $sucess = true;
@@ -137,16 +149,7 @@ if (empty($_POST) && empty($_GET)) {
             $page = 'edit_user_form';
             $user_info = get_info_user_by_id($_POST['user_id'], $c);
         }
-        if (isset($_POST["children_selection"])) {
-            if (isset($_POST["children_list"])) {
-                if (add_children($_POST["id_user"], $_POST['children_list'], $c)) {
-                    $page = "subscribe_parent_success";
-                } else {
-                    $page = "subscribe_parent_failed";
-                }
-            }
 
-        }
         //formulaire d'incription
         if (isset($_POST["subform"])) {
             $page = "user_sub";

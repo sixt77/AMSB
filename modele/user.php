@@ -80,7 +80,7 @@ function get_info_user_by_id($id, $c){
 }
 
 function get_role_user_by_id($id, $c){
-    $sql = ("SELECT count(U.id), D.id_dirigeants, O.id_otm, A.id_arbitre,B.id_benevole, J.id_joueur
+    $sql = ("SELECT U.id, D.id_dirigeants, O.id_otm, A.id_arbitre,B.id_benevole, J.id_joueur
 FROM utilisateurs U
 LEFT JOIN dirigeants D ON U.id = D.id_utilisateurs
 LEFT JOIN otm O ON U.id = O.id_utilisateurs
