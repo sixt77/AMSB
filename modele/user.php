@@ -80,7 +80,7 @@ function get_info_user_by_id($id, $c){
 }
 
 function get_role_user_by_id($id, $c){
-    $sql = ("SELECT U.id, D.id_dirigeants, O.id_otm, A.id_arbitre,B.id_benevole, J.id_joueur, E.id_entraineurs
+    $sql = ("SELECT U.id, D.id_dirigeants, O.id_otm, A.id_arbitre,B.id_benevole, J.id_joueurs, E.id_entraineurs
 FROM utilisateurs U
 LEFT JOIN dirigeants D ON U.id = D.id_utilisateurs
 LEFT JOIN otm O ON U.id = O.id_utilisateurs
@@ -91,6 +91,7 @@ LEFT JOIN entraineurs E ON U.id = E.id_utilisateurs
 WHERE U.id ='$id'");
     $result = mysqli_query($c,$sql);
     $user_info= array ();
+
     if($row = mysqli_fetch_row($result)){
         $user_info = $row;
     }

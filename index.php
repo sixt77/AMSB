@@ -13,6 +13,7 @@ include("modele/role.php");
 include("modele/leader_role.php");
 include("modele/parent.php");
 include("modele/coach.php");
+include("modele/team.php");
 include("controller/controller.php");
 include("view/display.php");
 include("view/header.php");

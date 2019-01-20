@@ -97,6 +97,22 @@ function display_user_form() {
 
 }
 
+function display_create_team_form($player_list, $coach_list) {
+
+    require("pages/create_team_form.php");
+
+}
+function display_select_team($team_list) {
+
+    require("pages/select_team.php");
+
+}
+function display_edit_team_form($player_list, $coach_list, $team_info, $team_player_list) {
+
+    require("pages/edit_team_form.php");
+
+}
+;
 function display_parent_sub() {
 
     require("pages/parent_sub.php");

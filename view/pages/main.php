@@ -26,8 +26,13 @@
                         </button>
                     </form>
                     <form action="index.php" method="post">
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="create_team" value="">
+                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="create_team_form" value="">
                             creer une equipe
+                        </button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="select_team" value="">
+                            modifier une equipe
                         </button>
                     </form>
                 </li>

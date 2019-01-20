@@ -59,11 +59,22 @@ elseif ($page == "parentform") {
 elseif ($page == "userform") {
     display_user_form();
 }
+
 elseif ($page == "edit_user") {
     display_user_edit($id_leader, $user_list);
 }
 elseif ($page == "edit_user_form") {
     display_user_edit_form($user_info);
+}
+elseif ($page == "create_team_form") {
+    display_create_team_form($player_list, $coach_list);
+}
+elseif ($page == "select_team") {
+    display_select_team($team_list);
+}
+elseif ($page == "edit_team_form") {
+    display_edit_team_form($player_list, $coach_list, $team_info, $team_player_list);
+
 }
 elseif ($page == "erreur404") {
     display_error404();

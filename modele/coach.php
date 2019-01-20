@@ -28,14 +28,14 @@ function get_coach_list($c){
 FROM entraineurs C
 INNER JOIN utilisateurs U ON C.id_utilisateurs = U.id");
     $result = mysqli_query($c,$sql);
-    $players_list= array ();
+    $coach_list= array ();
     $loop = 0;
     while ($donnees = mysqli_fetch_assoc($result))
     {
-        $players_list[$loop]= $donnees;
+        $coach_list[$loop]= $donnees;
         $loop++;
     }
-    return $players_list;
+    return $coach_list;
 }
 
 ?>

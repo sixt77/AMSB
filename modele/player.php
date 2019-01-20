@@ -22,7 +22,7 @@ function delete_player($id_user, $c) {
     }
 }
 
-
+//retourne la liste des joueuers
 function get_players_list($c){
     $sql = ("SELECT *
 FROM joueurs J

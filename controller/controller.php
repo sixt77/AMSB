@@ -78,6 +78,59 @@ if (empty($_POST) && empty($_GET)) {
                 $page = "erreur";
             }
         }
+        //ajout de rôle
+        if (isset($_POST["role_selection"])) {
+            $sucess = true;
+            //dirigeants
+            if (isset($_POST["Leader"])) {
+                if (add_leader($_POST["role_selection"], $c)) {
+                    if (isset($_POST["leader_role_list"])) {
+                        if (!set_leader_role(get_leader_id_by_user_id($_POST["role_selection"], $c), $_POST['leader_role_list'], $c)) {
+                            $sucess = false;
+                        }
+                    }
+                } else {
+                    $sucess = false;
+                }
+            }
+            //OTM
+            if (isset($_POST["OTM"])) {
+                if (!add_OTM($_POST["role_selection"], $c)) {
+                    $sucess = false;
+                }
+            }
+            //arbitres
+            if (isset($_POST["Arbiter"])) {
+                if (!add_arbiter($_POST["role_selection"], $c)) {
+                    $sucess = false;
+                }
+            }
+            //bénévoles
+            if (isset($_POST["Volunteer"])) {
+                if (!add_volunteer($_POST["role_selection"], $c)) {
+                    $sucess = false;
+                }
+            }
+            //joueur
+            if (isset($_POST["Player"])) {
+                if (!add_player($_POST["role_selection"], $c)) {
+                    $sucess = false;
+                }
+            }
+            //coach
+            if (isset($_POST["Coach"])) {
+                if (!add_coach($_POST["role_selection"], $c)) {
+                    $sucess = false;
+                }
+            }
+
+            if ($sucess == true) {
+                $page = "creation_success";
+            } else {
+                $page = "creation_failed";
+            }
+        }
+
         //mise a jour d'un utilisateur
         if (isset($_POST["update_user"])) {
             if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["Telephone"]) && !empty($_POST["Licence"])) {
@@ -215,58 +268,7 @@ if (empty($_POST) && empty($_GET)) {
         }
 
 
-        //ajout de rôle
-        if (isset($_POST["role_selection"])) {
-            $sucess = true;
-            //dirigeants
-            if (isset($_POST["Leader"])) {
-                if (add_leader($_POST["role_selection"], $c)) {
-                    if (isset($_POST["leader_role_list"])) {
-                        if (!set_leader_role(get_leader_id_by_user_id($_POST["role_selection"], $c), $_POST['leader_role_list'], $c)) {
-                            $sucess = false;
-                        }
-                    }
-                } else {
-                    $sucess = false;
-                }
-            }
-            //OTM
-            if (isset($_POST["OTM"])) {
-                if (!add_OTM($_POST["role_selection"], $c)) {
-                    $sucess = false;
-                }
-            }
-            //arbitres
-            if (isset($_POST["Arbiter"])) {
-                if (!add_arbiter($_POST["role_selection"], $c)) {
-                    $sucess = false;
-                }
-            }
-            //bénévoles
-            if (isset($_POST["Volunteer"])) {
-                if (!add_volunteer($_POST["role_selection"], $c)) {
-                    $sucess = false;
-                }
-            }
-            //joueur
-            if (isset($_POST["Player"])) {
-                if (!add_player($_POST["role_selection"], $c)) {
-                    $sucess = false;
-                }
-            }
-            //coach
-            if (isset($_POST["Coach"])) {
-                if (!add_coach($_POST["role_selection"], $c)) {
-                    $sucess = false;
-                }
-            }
 
-            if ($sucess == true) {
-                $page = "creation_success";
-            } else {
-                $page = "creation_failed";
-            }
-        }
 
         //modification de rôle
         if (isset($_POST["role_update"])) {
@@ -313,6 +315,55 @@ if (empty($_POST) && empty($_GET)) {
             } else {
                 $page = "creation_failed";
             }
+        }
+
+        //formulaire creation equipe
+        if (isset($_POST["create_team_form"])) {
+            $page = 'create_team_form';
+            $player_list = get_players_list($c);
+            $coach_list = get_coach_list($c);
+        }
+        //creation equipe
+        if (isset($_POST["create_team"])) {
+            if (create_team($_POST['coach'], $_POST['nom'], $c)) {
+                $id_team = $c->insert_id;
+                if (add_player_team($_POST['player_list'], $id_team, $c)) {
+                    $page = "creation_success";
+                } else {
+                    $page = "creation_failed";
+                }
+                $page = "creation_success";
+            } else {
+                $page = "creation_failed";
+            }
+
+        }
+
+        //selection  d'équipe
+        if (isset($_POST["select_team"])) {
+            $page = 'select_team';
+            $team_list = get_team_list($c);
+        }
+        //formulaire de modification d'équipe
+        if (isset($_POST["update_team_form"])) {
+            $page = "edit_team_form";
+            $player_list = get_players_list($c);
+            $coach_list = get_coach_list($c);
+            $team_info = get_team_info_by_id($_POST['team'], $c);
+            $team_player_list = get_team_player_by_id($_POST['team'], $c);
+        }
+        //modification equipe
+        if (isset($_POST["update_team"])) {
+            if(update_team($_POST['update_team'], $_POST['coach'], $_POST['nom'], $c)){
+                if(delete_all_player_team($_POST['update_team'], $c) && add_player_team($_POST['player_list'], $_POST['update_team'], $c)){
+                    $page = "creation_success";
+                }else{
+                    $page = "creation_failed";
+                }
+            }else{
+                $page = "creation_failed";
+            }
+
         }
 
         //incription
