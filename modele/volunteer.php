@@ -11,6 +11,15 @@ function add_volunteer($id_user, $c) {
     }
 }
 
-
+//enleve le rôle de benevoles a un utilisateur
+function delete_volunteer($id_user, $c) {
+    $sql = ("DELETE FROM benevoles WHERE id_utilisateurs = '$id_user'");
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
 ?>

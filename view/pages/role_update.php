@@ -1,7 +1,3 @@
-<?php
-var_dump($user_role_list);
-var_dump($leader_role_list)
-?>
 <form id="moove-event" action="index.php" method="post">
     <input type='hidden' name='action' value='move-event'>
     <input type='hidden' name='id' id="id_event" value=''>
@@ -53,6 +49,8 @@ var_dump($leader_role_list)
             <input type="checkbox" id="volunteerCheckbox" name="Volunteer" value="volunteer" <?php if($user_role_list[4] != null)echo 'checked';?>>
             joueur ?
             <input type="checkbox" id="playerCheckbox" name="Player" value="player" <?php if($user_role_list[5] != null)echo 'checked';?>>
+            entraineurs ?
+            <input type="checkbox" id="coachCheckbox" name="Coach" value="coach" <?php if($user_role_list[6] != null)echo 'checked';?>>
             <div class="ac-home-sign-allBoutton">
                 <ul>
 

@@ -100,24 +100,118 @@ if (empty($_POST) && empty($_GET)) {
         }
         //mise a jour des droits d'un utilisateur
         if (isset($_POST["update_user_right"])) {
+            $sucess = true;
             $user_role_list = get_role_user_by_id($_POST["update_user_right"], $c);
 
             //Leader
+            //modification du role et des sous rôles
+            if (isset($_POST["Leader"])) {
+                //ajout du role
+                if ($user_role_list[1] == null && isset($_POST["Leader"])) {
+                    if (!add_leader($_POST["update_user_right"], $c)) {
+                        $sucess = false;
+                    }
+                }
+                //suppression de tout les sous role (modification = delete + create)
+                if (!delete_all_leader_role(get_leader_id_by_user_id($_POST["update_user_right"], $c), $c)) {
+                    $sucess = false;
+                }
+
+                //ajout des sous roles
+                if (isset($_POST["leader_role_list"])) {
+                    if (!set_leader_role(get_leader_id_by_user_id($_POST["update_user_right"], $c), $_POST['leader_role_list'], $c)) {
+                        $sucess = false;
+                    }
+                }
+            }else{
+                //suppression du rôle et des sous roles
+                if (!delete_all_leader_role(get_leader_id_by_user_id($_POST["update_user_right"], $c), $c)) {
+                    $sucess = false;
+                }
+                //suppression du role
+                if ($user_role_list[1] != null && !isset($_POST["Leader"])) {
+                    if (!delete_leader($_POST["update_user_right"], $c)) {
+                        $sucess = false;
+                    }
+                }
+            }
+
+            //OTM
             //ajout du role
-            if ($user_role_list[1] == null && isset($_POST["Leader"])) {
-                if (!add_leader($_POST["update_user_right"], $c)) {
+            if ($user_role_list[2] == null && isset($_POST["OTM"])) {
+                if (!add_OTM($_POST["update_user_right"], $c)) {
                     $sucess = false;
                 }
             }
             //suppression du role
-            if ($user_role_list[1] != null && !isset($_POST["Leader"])) {
-                if (!delete_leader($_POST["update_user_right"], $c)) {
+            if ($user_role_list[2] != null && !isset($_POST["OTM"])) {
+                if (!delete_OTM($_POST["update_user_right"], $c)) {
                     $sucess = false;
                 }
             }
-            var_dump($_POST);
-            var_dump($user_role_list);
-            exit;
+
+            //arbiter
+            //ajout du role
+            if ($user_role_list[3] == null && isset($_POST["Arbiter"])) {
+                if (!add_arbiter($_POST["update_user_right"], $c)) {
+                    $sucess = false;
+                }
+            }
+            //suppression du role
+            if ($user_role_list[3] != null && !isset($_POST["Arbiter"])) {
+                if (!delete_arbiter($_POST["update_user_right"], $c)) {
+                    $sucess = false;
+                }
+            }
+
+
+            //volunteer
+            //ajout du role
+            if ($user_role_list[4] == null && isset($_POST["Volunteer"])) {
+                if (!add_volunteer($_POST["update_user_right"], $c)) {
+                    $sucess = false;
+                }
+            }
+            //suppression du role
+            if ($user_role_list[4] != null && !isset($_POST["Volunteer"])) {
+                if (!delete_volunteer($_POST["update_user_right"], $c)) {
+                    $sucess = false;
+                }
+            }
+
+
+            //player
+            //ajout du role
+            if ($user_role_list[5] == null && isset($_POST["Player"])) {
+                if (!add_player($_POST["update_user_right"], $c)) {
+                    $sucess = false;
+                }
+            }
+            //suppression du role
+            if ($user_role_list[5] != null && !isset($_POST["Player"])) {
+                if (!delete_player($_POST["update_user_right"], $c)) {
+                    $sucess = false;
+                }
+            }
+
+            //coach
+            //ajout du role
+            if ($user_role_list[6] == null && isset($_POST["Coach"])) {
+                if (!add_coach($_POST["update_user_right"], $c)) {
+                    $sucess = false;
+                }
+            }
+            //suppression du role
+            if ($user_role_list[6] != null && !isset($_POST["Coach"])) {
+                if (!delete_coach($_POST["update_user_right"], $c)) {
+                    $sucess = false;
+                }
+            }
+            if ($sucess == true) {
+                $page = "creation_success";
+            } else {
+                $page = "creation_failed";
+            }
         }
 
 
@@ -157,6 +251,12 @@ if (empty($_POST) && empty($_GET)) {
             //joueur
             if (isset($_POST["Player"])) {
                 if (!add_player($_POST["role_selection"], $c)) {
+                    $sucess = false;
+                }
+            }
+            //coach
+            if (isset($_POST["Coach"])) {
+                if (!add_coach($_POST["role_selection"], $c)) {
                     $sucess = false;
                 }
             }

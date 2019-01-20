@@ -11,6 +11,19 @@ function set_leader_role($id_leader, $leader_role_list, $c) {
         $i++;
     }
 
+    //execution
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+//enleve tous les droits d'un administrateur
+//renvoie true ou false suivant si la requette fonctionne
+function delete_all_leader_role($id_leader, $c) {
+    $sql = ("DELETE FROM dirigeants_roles WHERE id_dirigeants ='$id_leader'");
 
     //execution
     if(mysqli_query($c,$sql)){

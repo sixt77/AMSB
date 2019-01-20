@@ -11,6 +11,16 @@ function add_arbiter($id_user, $c) {
     }
 }
 
+//enleve le rôle d'arbitre a un utilisateur
+function delete_arbiter($id_user, $c) {
+    $sql = ("DELETE FROM `arbitres` WHERE id_utilisateurs = '$id_user'");
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
 
 ?>

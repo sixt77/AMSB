@@ -13,6 +13,16 @@ function add_OTM($id_user, $c) {
     }
 }
 
+//enleve le rôle d'otm a un utilisateur
+function delete_OTM($id_user, $c) {
+    $sql = ("DELETE FROM otm WHERE id_utilisateurs = '$id_user'");
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
 
 ?>

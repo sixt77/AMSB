@@ -1,8 +1,8 @@
 <?php
 //fait devenir un licencié dirigeant
-function add_player($id_user, $c) {
+function add_coach($id_user, $c) {
     //insertion des valeurs dans la bdd
-    $sql = ("INSERT INTO joueurs(id_utilisateurs) VALUES('$id_user')");
+    $sql = ("INSERT INTO entraineurs(id_utilisateurs) VALUES('$id_user')");
     if(mysqli_query($c,$sql)){
         return true;
     }
@@ -12,8 +12,8 @@ function add_player($id_user, $c) {
 }
 
 //enleve le rôle de joueur a un utilisateur
-function delete_player($id_user, $c) {
-    $sql = ("DELETE FROM joueurs WHERE id_utilisateurs = '$id_user'");
+function delete_coach($id_user, $c) {
+    $sql = ("DELETE FROM entraineurs WHERE id_utilisateurs = '$id_user'");
     if(mysqli_query($c,$sql)){
         return true;
     }
@@ -23,10 +23,10 @@ function delete_player($id_user, $c) {
 }
 
 
-function get_players_list($c){
+function get_coach_list($c){
     $sql = ("SELECT *
-FROM joueurs J
-INNER JOIN utilisateurs U ON J.id_utilisateurs = U.id");
+FROM entraineurs C
+INNER JOIN utilisateurs U ON C.id_utilisateurs = U.id");
     $result = mysqli_query($c,$sql);
     $players_list= array ();
     $loop = 0;

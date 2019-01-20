@@ -43,6 +43,8 @@
             <input type="checkbox" id="volunteerCheckbox" name="Volunteer" value="volunteer">
             joueur ?
             <input type="checkbox" id="playerCheckbox" name="Player" value="player">
+            entraineur ?
+            <input type="checkbox" id="volunteerCheckbox" name="Coach" value="coach">
             <div class="ac-home-sign-allBoutton">
                 <ul>
 
