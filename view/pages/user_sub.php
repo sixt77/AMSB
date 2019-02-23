@@ -1,69 +1,101 @@
+<div class="amsb-container">
+
+    <div class="amsb-container-left">
+
+        <div class="amsb-container-item amsb-logo-minus">
+
+            <img class="amsb-logo-minus-img amsb-logo-img" src="asset/img/Logo_AMSB.png" alt="logo Aix Maurienne Savoie Basket">
+
+        </div>
+
+        <div class="amsb-container-item amsb-container-item-80">
+
+            <a href="index.php?subform" class="amsb-sign-item-link amsb-sign-item-button">
+                Inscription d'un licencié
+            </a>
+
+            <a href="index.php?subform" class="amsb-sign-item-link amsb-sign-item-button">
+                Inscription d'un licencié
+            </a>
+
+            <a href="index.php?subform" class="amsb-sign-item-link amsb-sign-item-button">
+                Inscription d'un licencié
+            </a>
+
+            <a href="index.php?subform" class="amsb-sign-item-link amsb-sign-item-button">
+                Inscription d'un licencié
+            </a>
+
+            <a href="index.php?subform" class="amsb-sign-item-link amsb-sign-item-button">
+                Inscription d'un licencié
+            </a>
 
 
-<div class="ac-home-container ac-home-signup">
+        </div>
 
-    <div class="ac-home">
+    </div>
 
-        <form action="index.php?ac=signup" method="post">
+    <div class="amsb-container-middle"></div>
 
-            <ul>
+    <div class="amsb-container-right">
 
-                <li class="ac-home-sign-item-inscrip">
+        <div class="amsb-container-item amsb-container-item-header">
 
-                    <h2 class="ac-home-sign-item-h2">
-                        ajoutez un licencié !
-                    </h2>
+            <a href="index.php" class="fa fa-arrow-circle-o-left amsb-container-header-item amsb-container-header-return"></a>
+
+            <a href="index.php?logout" type="submit" class="fa fa-power-off amsb-container-header-item amsb-container-header-logout"></a>
 
 
+        </div>
 
-                </li>
+        <div class="amsb-container-item">
 
-                <li class="ac-home-sign-item">
-                    <input type="text" class="ac-home-sign-item-input" name="nom" placeholder="Nom" required>
-                </li>
+            <form action="index.php?ac=signup" method="post">
 
-                <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" placeholder='Prenom' name='prenom' required/>
-                </li>
+                <ul>
 
-                <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" name='email' placeholder='Adresse e-mail' required/>
-                </li>
+                    <li class="amsb-sign-item amsb-sign-item-title">
 
-                <li class="ac-home-sign-item">
-                    <input type='password' class="ac-home-sign-item-input" name="motDePasse" placeholder="Mot de passe" required>
-                </li>
+                        <h2 class="amsb-sign-item-title-h2">
+                            Ajouter un licencié !
+                        </h2>
 
-                <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" placeholder='Téléphone' name='Telephone' required/>
-                </li>
+                    </li>
 
-                <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" placeholder='licence' name='Licence' required/>
-                </li>
+                    <li class="amsb-sign-item">
+                        <input type="text" class="amsb-sign-item-input" name="nom" placeholder="Nom" required>
+                    </li>
 
-                <div class="ac-home-sign-allBoutton">
-                    <ul>
+                    <li class="amsb-sign-item">
+                        <input class="amsb-sign-item-input" type="text" placeholder='Prenom' name='prenom' required/>
+                    </li>
 
-                        <li class="ac-home-sign-item-boutton-left">
-                            <button type="submit" class="ac-home-sign-item-boutton-log" name="action" value="signup">
-                                Valider
-                            </button>
-                        </li>
+                    <li class="amsb-sign-item">
+                        <input class="amsb-sign-item-input" type="text" name='email' placeholder='Adresse e-mail' required/>
+                    </li>
 
-                        <li class="ac-home-sign-item-boutton-right">
-                            <a href="index.php" class="ac-home-sign-item-boutton-sign">
-                                Connexion
-                            </a>
-                        </li>
+                    <li class="amsb-sign-item">
+                        <input type='password' class="amsb-sign-item-input" name="motDePasse" placeholder="Mot de passe" required>
+                    </li>
 
-                    </ul>
+                    <li class="amsb-sign-item">
+                        <input class="amsb-sign-item-input" type="text" placeholder='Téléphone' name='Telephone' required/>
+                    </li>
 
-                </div>
+                    <li class="amsb-sign-item">
+                        <input class="amsb-sign-item-input" type="text" placeholder='licence' name='Licence' required/>
+                    </li>
 
-            </ul>
+                    <li class="amsb-sign-item">
+                        <button type="submit" class="amsb-sign-item-button" name="action" value="signup">
+                            Valider
+                        </button>
+                    </li>
 
-        </form>
+                </ul>
+
+            </form>
+        </div>
 
     </div>
 

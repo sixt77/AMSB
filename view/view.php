@@ -2,19 +2,20 @@
 
 if ($page == "home") {
     display_home();
-    display_footer_home();
 }
+
 elseif ($page == "main") {
-    display_header_cal();
+    display_navigation();
     display_main();
 }
+
 elseif ($page == "role_selection") {
-    display_header_cal();
     display_role_selection($id);
 }
+
 elseif ($page == "connection_failed") {
     display_home();
-    display_footer_home();
+    display_footer_page();
     display_signin_failed();
 }
 
@@ -33,14 +34,14 @@ elseif ($page == "user_sub") {
 
 elseif ($page == "erreur404") {
     display_error404();
-    display_footer_home();
-}
-elseif ($page == "erreur") {
-    display_error();
-    display_footer_home();
-}
-elseif ($page == "erreur") {
-    display_error();
+    display_footer_page();
 }
 
+elseif ($page == "erreur") {
+    display_error();
+    display_footer_page();
+}
 
+elseif ($page == "erreur") {
+    display_error();
+}

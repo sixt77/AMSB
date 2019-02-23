@@ -1,59 +1,56 @@
-<div class="ac-home-header">
+<div class="display-flex">
 
-    <h1 class="ac-home-header-title">
-        Agenda Collaboratif
-    </h1>
+    <div class="amsb-container-left">
 
-</div>
+        <div class="amsb-container-item amsb-logo">
 
-<div class="ac-home-container ac-home-signin">
+            <img class="amsb-logo-img" src="asset/img/Logo_AMSB.png" alt="logo Aix Maurienne Savoie Basket">
 
-    <div class="ac-home">
+        </div>
 
-        <form action="index.php" method="post">
+    </div>
 
-            <ul>
+    <div class="amsb-container-right">
 
-                <li class="ac-home-sign-item-connec">
+        <div class="amsb-container-item">
 
-                    <h2 class="ac-home-sign-item-h2">
-                        Bienvenue
-                    </h2>
+            <form action="index.php" method="post">
 
-                    <p class="ac-home-sign-item-subtitle">
-                        Veuillez-vous connecter pour accéder à votre agenda.
-                    </p>
+                <ul>
 
-                </li>
+                    <li class="amsb-sign-item amsb-sign-item-title">
 
-                <li class="ac-home-sign-item">
-                    <input type="text" class="ac-home-sign-item-input" name="pseudo" placeholder="Login" required>
-                </li>
+                        <h2 class="amsb-sign-item-title-h2">
+                            Console Administrateur
+                        </h2>
 
-                <li class="ac-home-sign-item">
-                    <input type='password' class="ac-home-sign-item-input" name="password" placeholder="Password" required>
-                </li>
+                        <p class="amsb-sign-item-subtitle">
+                            Veuillez-vous connecter pour accéder à votre compte.
+                        </p>
 
-                <li class="ac-home-sign-allBoutton">
-                    <ul>
+                    </li>
 
-                        <li class="ac-home-sign-item-boutton-right">
-                            <button type="submit" class="ac-home-sign-item-boutton-log" id="savePopup"  name="action" value="signin">
-                                connection
-                            </button>
-                        </li>
+                    <li class="amsb-sign-item">
+                        <input type="text" class="amsb-sign-item-input" name="pseudo" placeholder="Login" required>
+                    </li>
 
+                    <li class="amsb-sign-item">
+                        <input type='password' class="amsb-sign-item-input" name="password" placeholder="Password" required>
+                    </li>
 
+                    <li class="amsb-sign-item">
+                        <button type="submit" class="amsb-sign-item-button" id="savePopup"  name="action" value="signin">
+                            Valider
+                        </button>
+                    </li>
 
+                </ul>
 
-                    </ul>
+            </form>
 
-                </li>
-
-            </ul>
-
-        </form>
+        </div>
 
     </div>
 
 </div>
+

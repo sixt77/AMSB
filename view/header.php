@@ -1,7 +1,7 @@
 <HTML>
 <head>
 
-    <title>Agenda Collaboratif</title>
+    <title>AMSB - Aix Maurienne Savoie Basket</title>
     <meta content="text/html" charset="utf-8"/>
     <meta name="viewport" content="width=device-width, user-scalable=no">
 
@@ -15,11 +15,8 @@
     <link href="asset/css/main.css"         rel="stylesheet" type="text/css" />
 
 
-
-
-
-
-
 </head>
 
 <body>
+
+    <div class="amsb-container">
