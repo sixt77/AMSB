@@ -25,7 +25,7 @@
 
             <?php
             $i = 0;
-            foreach ($role_list as $role) {
+            foreach ((array) $role_list as $role) {
                 if(isset($leader_role_list[$i+1])) {
                     echo '<div>
               <input type="checkbox" id="' . $i . '" name="leader_role_list[]" value="' . $role['id_role'] . '" checked>';

@@ -18,7 +18,7 @@
 
             <?php
             $i = 0;
-            foreach ($role_list as $role) {
+            foreach ((array) $role_list as $role) {
                 echo '<div>
               <input type="checkbox" id="'.$i.'" name="leader_role_list[]" value="'.$role['id_role'].'">
               <label for="scales">'.$role['nom'].'</label>

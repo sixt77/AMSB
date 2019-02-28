@@ -22,7 +22,7 @@
                 choix des coach :
                 <?php
                 $i = 1;
-                foreach ($coach_list as $coach){
+                foreach ((array) $coach_list as $coach){
                     echo'
             <table>
                 <tr>
@@ -49,7 +49,7 @@
                 choix des joueurs :
                 <?php
                 $i = 1;
-                foreach ($player_list as $player){
+                foreach ((array) $player_list as $player){
                     echo'
             <table>
                 <tr>

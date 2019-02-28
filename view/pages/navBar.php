@@ -78,7 +78,9 @@
 
                 <ul>
                     <li>
-                        Voir la liste
+                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="get_matchs_list" value="">
+                            voir la liste
+                        </button>
                     </li>
 
                     <li>

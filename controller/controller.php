@@ -321,7 +321,8 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 $page = 'create_match_form';
                 $team_list = get_team_list($c);
             }
-            //creation equipe
+
+            //creation match
             if (isset($_POST["create_match"])) {
                 $sucess = true;
                 if(!create_match(strtotime($_POST['date'])+(strtotime($_POST['time'])%86400), $c)){
@@ -358,8 +359,23 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                     }
                 }
 
-                var_dump($sucess);
-                exit;
+                if($sucess == true){
+                    $page = "creation_success";
+                }else{
+                    $page = "creation_failed";
+                }
+            }
+
+            //voire liste des matchs
+            if(isset($_POST["get_matchs_list"])) {
+                $match_list = get_all_matchs($c);
+                $loop = 0;
+                foreach ((array) $match_list as $match){
+                    $match_data[$loop]['match'] = get_matchs_info_by_id($match['id'], $c);
+                    $match_data[$loop]['team'] = get_team_by_match_id($match['id'], $c);
+                    $loop++;
+                }
+                $page = "display_match_list";
             }
 
             //formulaire creation equipe
@@ -415,6 +431,8 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 }
 
             }
+
+
 
             //incription
             if (isset($_POST["user_edit_form"])) {
@@ -511,7 +529,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
         if($_GET['action'] == "get_match_list") {
             $match_list = get_all_matchs($c);
             $loop = 0;
-            foreach ($match_list as $match){
+            foreach ((array) $match_list as $match){
                 $data[$loop]['match'] = get_matchs_info_by_id($match['id'], $c);
                 $data[$loop]['team'] = get_team_by_match_id($match['id'], $c);
                 $loop++;
@@ -523,12 +541,12 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
             }
 
         }
-        //recuperation listes match via un id user (uniquement les match joué par la/les équipes du joueurs)
+        //recuperation liste match via un id user (uniquement les match joué par la/les équipes du joueurs)
         if($_GET['action'] == "get_match_list_by_id_player") {
             if (isset($_GET["player_id"])) {
                 $match_list = get_matchs_by_player_id($_GET["player_id"], $c);
                 $loop = 0;
-                foreach ($match_list as $match){
+                foreach ((array) $match_list as $match){
                     $data[$loop]['match'] = get_matchs_info_by_id($match['id'], $c);
                     $data[$loop]['team'] = get_team_by_match_id($match['id'], $c);
                     $loop++;

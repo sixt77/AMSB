@@ -21,7 +21,7 @@
                 liste des equipes :
                 <?php
                 $i = 1;
-                foreach ($team_list as $team){
+                foreach ((array) $team_list as $team){
                     echo'
             <table>
                 <tr>

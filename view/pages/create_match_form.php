@@ -5,7 +5,7 @@
         <form action="index.php" method="post">
             <datalist id="team_list">
                 <?php
-                foreach ($team_list as $team){
+                foreach ((array) $team_list as $team){
                     echo'<option value="'.$team['nom'].'">';
                 }
 
