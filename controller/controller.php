@@ -368,8 +368,8 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
 
             //voire liste des matchs
             if(isset($_POST["get_matchs_list"])) {
-                $match_list = get_all_matchs($c);
                 $loop = 0;
+                $match_list = get_all_matchs($c);
                 foreach ((array) $match_list as $match){
                     $match_data[$loop]['match'] = get_matchs_info_by_id($match['id'], $c);
                     $match_data[$loop]['team'] = get_team_by_match_id($match['id'], $c);
@@ -525,10 +525,10 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 }
             }
         }
-        //recuperation listes match
+        //recuperation listes des match
         if($_GET['action'] == "get_match_list") {
-            $match_list = get_all_matchs($c);
             $loop = 0;
+            $match_list = get_all_matchs($c);
             foreach ((array) $match_list as $match){
                 $data[$loop]['match'] = get_matchs_info_by_id($match['id'], $c);
                 $data[$loop]['team'] = get_team_by_match_id($match['id'], $c);
@@ -544,8 +544,8 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
         //recuperation liste match via un id user (uniquement les match joué par la/les équipes du joueurs)
         if($_GET['action'] == "get_match_list_by_id_player") {
             if (isset($_GET["player_id"])) {
-                $match_list = get_matchs_by_player_id($_GET["player_id"], $c);
                 $loop = 0;
+                $match_list = get_matchs_by_player_id($_GET["player_id"], $c);
                 foreach ((array) $match_list as $match){
                     $data[$loop]['match'] = get_matchs_info_by_id($match['id'], $c);
                     $data[$loop]['team'] = get_team_by_match_id($match['id'], $c);

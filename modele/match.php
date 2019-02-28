@@ -49,7 +49,7 @@ WHERE JE.id_joueurs = '$player_id'");
     $loop = 0;
     while ($donnees = mysqli_fetch_assoc($result))
     {
-        $matchs_list[$loop]= $donnees;
+        $matchs_list[$loop] = $donnees;
         $loop++;
     }
     return $matchs_list;
@@ -60,14 +60,12 @@ function get_matchs_info_by_id($match_id, $c){
     $sql = ("SELECT * FROM matchs
 WHERE id = '$match_id'");
     $result = mysqli_query($c,$sql);
-    $matchs_list= array ();
-    $loop = 0;
+    $matchs_info= array ();
     while ($donnees = mysqli_fetch_assoc($result))
     {
-        $matchs_list[$loop]= $donnees;
-        $loop++;
+        $matchs_info = $donnees;
     }
-    return $matchs_list;
+    return $matchs_info;
 }
 
 
