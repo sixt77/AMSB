@@ -16,13 +16,13 @@ function parent_signup($nom, $prenom, $mail,$motDePasse, $telephone, $c) {
 
 //relie un parent avec des enfants
 //renvoie true ou false suivant si la requette fonctionne
-function add_children($id_leader, $leader_role_list, $c) {
+function add_children($id_joueurs, $id_parents, $c) {
     $i = 0;
     $sql = "INSERT INTO joueurs_parents (id_joueurs, id_parents, validation) VALUES ";
-    foreach ($leader_role_list as $role)
+    foreach ($id_joueurs as $joueur)
     {
         if ($i > 0) $sql .= ", ";
-        $sql .= "({$id_leader}, {$role}, 0)";
+        $sql .= "({$joueur}, {$id_parents}, 0)";
         $i++;
     }
 

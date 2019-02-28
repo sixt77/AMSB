@@ -96,7 +96,11 @@ function display_user_form() {
     require("pages/user_form.php");
 
 }
+function display_create_match_form($team_list) {
 
+    require("pages/create_match_form.php");
+
+}
 function display_create_team_form($player_list, $coach_list) {
 
     require("pages/create_team_form.php");

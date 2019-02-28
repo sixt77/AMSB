@@ -1,7 +1,7 @@
 <HTML>
 <head>
 
-    <title>Agenda Collaboratif</title>
+    <title>Amsb</title>
     <meta content="text/html" charset="utf-8"/>
     <meta name="viewport" content="width=device-width, user-scalable=no">
 
