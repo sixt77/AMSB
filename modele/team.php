@@ -152,7 +152,7 @@ function get_team_by_match_id($id_match, $c){
     $sql = ("SELECT E.id_equipes, E.nom, MEC.id_coachs
 FROM matchs_equipes_coachs MEC
 INNER JOIN equipes E ON MEC.id_equipes = E.id_equipes
-WHERE MEC.id_matchs = '9'");
+WHERE MEC.id_matchs = '$id_match'");
     $result = mysqli_query($c,$sql);
     $team_list= array ();
     $loop = 0;

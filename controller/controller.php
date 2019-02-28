@@ -5,7 +5,7 @@ $page = "erreur404";
 
 if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/AMSB/index.php" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/AMSB/" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/etu_info/amsb1/DEV/index.php" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/etu_info/amsb1/DEV/"){
     if (empty($_POST) && empty($_GET)) {
-    // Vérification si l'user est enregisté
+        // Vérification si l'user est enregisté
         if (isset($_SESSION['stat'])) {
             $page = "main";
         } else {
@@ -65,7 +65,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
         //verification de la connection de l'utilisateur
         if (isset($_SESSION['stat']) && isset($_SESSION['id_leader'])) {
 
-            //incription
+            //incription d'un licencé
             if (isset($_POST["signup"])) {
                 if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["Telephone"]) && !empty($_POST["Licence"])) {
                     if (user_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["Telephone"]), protect($_POST["Licence"]), $c)) {
@@ -508,6 +508,22 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
             }
         }
         //recuperation listes match
+        if($_GET['action'] == "get_match_list") {
+            $match_list = get_all_matchs($c);
+            $loop = 0;
+            foreach ($match_list as $match){
+                $data[$loop]['match'] = get_matchs_info_by_id($match['id'], $c);
+                $data[$loop]['team'] = get_team_by_match_id($match['id'], $c);
+                $loop++;
+            }
+            if(isset($data)){
+                write_json($data);
+            }else{
+                write_json(null);
+            }
+
+        }
+        //recuperation listes match via un id user (uniquement les match joué par la/les équipes du joueurs)
         if($_GET['action'] == "get_match_list_by_id_player") {
             if (isset($_GET["player_id"])) {
                 $match_list = get_matchs_by_player_id($_GET["player_id"], $c);
@@ -517,7 +533,12 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                     $data[$loop]['team'] = get_team_by_match_id($match['id'], $c);
                     $loop++;
                 }
-                write_json($data);
+                if(isset($data)){
+                    write_json($data);
+                }else{
+                    write_json(null);
+                }
+
             }
         }
         $page = "json";

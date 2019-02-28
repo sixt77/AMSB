@@ -86,7 +86,7 @@ function display_signup_failed(){
 
 function display_user_sub() {
 
-    require("pages/user_sub.php");
+    require("pages/user_sub_form.php");
 
 }
 
@@ -104,7 +104,7 @@ function display_user_edit_form($user_info) {
 
 function display_user_form() {
 
-    require("pages/user_form.php");
+    require("pages/user_sub_form_by_user.php");
 
 }
 
