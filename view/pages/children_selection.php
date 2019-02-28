@@ -17,6 +17,7 @@
                     selectionnez vos enfants
                 </h2>
             </li>
+
             <?php
             $i = 1;
             foreach ($player_list as $player){
@@ -27,7 +28,7 @@
                         '.$player["nom"].' '.$player["prenom"].'
                     </td>
                     <td>
-                        <input type="checkbox" id="'.$i.'" name="children_list[]" value="'.$player['id_joueur'].'">
+                        <input type="checkbox" id="'.$i.'" name="children_list[]" value="'.$player['id_joueurs'].'">
                     </td>
                 </tr>
             </table>

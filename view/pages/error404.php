@@ -1,7 +1,7 @@
 <div class="ac-home-header">
 
     <h1 class="ac-home-header-title">
-        Agenda Collaboratif
+        ASMB
     </h1>
 
 </div>
@@ -19,7 +19,7 @@
         </p>
 
 
-        <a href='index.php' class="ac-home-signin-continue">
+        <a href='/ASMB/index.php' class="ac-home-signin-continue">
             Retour
         </a>
 

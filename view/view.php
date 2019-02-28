@@ -66,6 +66,9 @@ elseif ($page == "edit_user") {
 elseif ($page == "edit_user_form") {
     display_user_edit_form($user_info);
 }
+elseif ($page == "create_match_form") {
+    display_create_match_form($team_list);
+}
 elseif ($page == "create_team_form") {
     display_create_team_form($player_list, $coach_list);
 }
@@ -86,6 +89,9 @@ elseif ($page == "erreur") {
 }
 elseif ($page == "erreur") {
     display_error();
+}
+elseif ($page == "json") {
+    //display_error();
 }
 else{
     display_error404();

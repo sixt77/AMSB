@@ -1,8 +1,21 @@
 <?php
-//fait devenir un licencié dirigeant
+//creer une equipe
 function create_team($id_coach, $nom, $c) {
     //insertion des valeurs dans la bdd
-    $sql = ("INSERT INTO equipes(id_coachs, nom) VALUES('$id_coach', '$nom')");
+    $sql = ("INSERT INTO equipes(id_coachs, nom, interne) VALUES('$id_coach', '$nom', true)");
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+//fait devenir un licencié dirigeant
+function create_external_team($nom, $c) {
+    //insertion des valeurs dans la bdd
+    $sql = ("INSERT INTO equipes(nom, id_coachs, interne) VALUES('$nom', 0, false)");
+
     if(mysqli_query($c,$sql)){
         return true;
     }
@@ -103,5 +116,54 @@ function get_team_player_by_id($id_team, $c){
 
     return $team_list;
 }
+//recherche dans une liste passé en paramètre un nom d'équipe, si elle en fait partie renvoie son id sinon renvoie false
+function search_team_id_by_name($name, $team_list){
+    $loop = 0;
+    $end = false;
+    while(!$end && isset($team_list[$loop])){
+        if($team_list[$loop]['nom']==$name){
+            $end = true;
+        }else{
+            $loop++;
+        }
+    }
+    if($end){
+        return $team_list[$loop]['id_equipes'];
+    }else{
+        return false;
+    }
+}
+//recupère le coach via un id team
+function get_coach_id_by_team_id($team_id, $c){
+    $sql = ("SELECT id_coachs FROM equipes WHERE id_equipes ='$team_id'");
+    $result = mysqli_query($c,$sql);
+    if($row = mysqli_fetch_row($result)){
+        $coach_id = $row[0];
+    }
+    if(isset($coach_id)){
+        return $coach_id;
+    }
+    else{
+        return null;
+    }
+}
+//recupère les équipes participant a un match via un id match
+function get_team_by_match_id($id_match, $c){
+    $sql = ("SELECT E.id_equipes, E.nom, MEC.id_coachs
+FROM matchs_equipes_coachs MEC
+INNER JOIN equipes E ON MEC.id_equipes = E.id_equipes
+WHERE MEC.id_matchs = '9'");
+    $result = mysqli_query($c,$sql);
+    $team_list= array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $team_list[$loop]= $donnees;
+        $loop++;
+    }
+
+    return $team_list;
+}
+
 
 ?>

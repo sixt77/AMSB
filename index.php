@@ -14,8 +14,14 @@ include("modele/leader_role.php");
 include("modele/parent.php");
 include("modele/coach.php");
 include("modele/team.php");
+include("modele/api.php");
+include("modele/match.php");
 include("controller/controller.php");
 include("view/display.php");
-include("view/header.php");
-include("view/view.php");
-include("view/footer.php");
+if($page != "json") {
+    include("view/header.php");
+    include("view/view.php");
+    include("view/footer.php");
+}else{
+    include("view/view.php");
+}

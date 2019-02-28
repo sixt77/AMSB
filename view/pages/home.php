@@ -1,7 +1,7 @@
 <div class="ac-home-header">
 
     <h1 class="ac-home-header-title">
-        Agenda Collaboratif
+        AMSB
     </h1>
 
 </div>
@@ -21,7 +21,7 @@
                     </h2>
 
                     <p class="ac-home-sign-item-subtitle">
-                        Veuillez-vous connecter pour accéder à votre agenda.
+                        Veuillez-vous connecter pour accéder à l'application.
                     </p>
 
                 </li>

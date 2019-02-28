@@ -1,15 +1,6 @@
 <div class="ac-main-header" id="mainHeader">
 
 
-
-
-
-    </div >
-
-
-
-
-
     <a href="index.php?logout" type="submit" class="fa fa-power-off ac-main-header-logout">
 
     </a>

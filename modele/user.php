@@ -37,6 +37,33 @@ WHERE U.mail='$identifiant'");
 $result->close();
 }
 
+//script de connection pour les utilisateurs depuis l'application
+//renvoie les parametre dans la session
+//return true si elle réussi et false sinon
+function user_signin_by_application($identifiant, $password, $c) {
+//récupération des compte streamer
+    //cryptage du password
+    $sql = ("SELECT U.id, U.mail, U.motDePasse 
+FROM utilisateurs U  
+WHERE U.mail='$identifiant'");
+    $result = mysqli_query($c,$sql);
+    //test des résultat
+    if($row = mysqli_fetch_row($result)){
+        if(verify($password, $row[2])) {
+            if (isset($row[0])) {
+                //renvoie de l'id utilisateur
+                return $row[0];
+            } else {
+                //renvoie null si l'utilisateur n'existe pas
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+}
+
 //script d'inscription pour les user 
 //ajoute dans la bdd les valeurs
 //renvoi true si la connection a fonctionné sinon false
