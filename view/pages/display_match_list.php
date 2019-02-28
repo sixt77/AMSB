@@ -14,7 +14,5 @@ foreach ((array) $match_data as $data){
     //afficher le nom de l'équipe 2 :
     echo $data['team'][1]['nom'];
 
-    //exemple d'utilisation d'un timestamp
-    //echo $data['date'];
-    //echo date('m/d/Y', 1299446702);
+
 }
