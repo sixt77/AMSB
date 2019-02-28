@@ -134,7 +134,7 @@ function display_edit_team_form($player_list, $coach_list, $team_info, $team_pla
 
 function display_parent_sub() {
 
-    require("pages/parent_sub.php");
+    require("pages/parent_sub_form.php");
 
 }
 
