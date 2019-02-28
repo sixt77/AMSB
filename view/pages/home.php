@@ -1,50 +1,50 @@
-<div class="ac-home-header">
+<div class="amsb-home-container">
+    <div class="amsb-home-header">
 
-    <h1 class="ac-home-header-title">
-        AMSB
-    </h1>
+        <h1 class="amsb-home-header-title">
+            Console Admin
+        </h1>
 
-</div>
+        <h2 class="amsb-home-header-title">
+            Aix Maurienne Savoie Basket
+        </h2>
 
-<div class="ac-home-container ac-home-signin">
+    </div>
 
-    <div class="ac-home">
+    <div class="amsb-home">
 
         <form action="index.php" method="post">
 
             <ul>
 
-                <li class="ac-home-sign-item-connec">
+                <li class="amsb-home-sign-item-title">
 
-                    <h2 class="ac-home-sign-item-h2">
+                    <h2 class="amsb-home-sign-item-h2">
                         Bienvenue
                     </h2>
 
-                    <p class="ac-home-sign-item-subtitle">
-                        Veuillez-vous connecter pour accéder à l'application.
+                    <p class="amsb-home-sign-item-subtitle">
+                        Veuillez-vous connecter pour accéder à votre agenda.
                     </p>
 
                 </li>
 
-                <li class="ac-home-sign-item">
-                    <input type="text" class="ac-home-sign-item-input" name="pseudo" placeholder="Login" required>
+                <li class="amsb-home-sign-item">
+                    <input type="text" class="amsb-item-input" name="pseudo" placeholder="Login" required>
                 </li>
 
-                <li class="ac-home-sign-item">
-                    <input type='password' class="ac-home-sign-item-input" name="password" placeholder="Password" required>
+                <li class="amsb-home-sign-item">
+                    <input type='password' class="amsb-item-input" name="password" placeholder="Password" required>
                 </li>
 
-                <li class="ac-home-sign-allBoutton">
+                <li class="amsb-button">
                     <ul>
 
-                        <li class="ac-home-sign-item-boutton-right">
-                            <button type="submit" class="ac-home-sign-item-boutton-log" id="savePopup"  name="signin" value="">
+                        <li class="amsb-home-sign-item-button-item">
+                            <button type="submit" class="amsb-button-confirm" id="savePopup"  name="signin" value="">
                                 connection
                             </button>
                         </li>
-
-
-
 
                     </ul>
 

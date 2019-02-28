@@ -1,58 +1,46 @@
+<div class="amsb-container-right">
 
-<div class="ac-home-container ac-home-signup">
-
-    <div class="ac-home">
+    <div class="amsb-container-right-item">
 
         <form action="index.php" method="post">
 
             <ul>
 
-                <li class="ac-home-sign-item-inscrip">
-
-                    <h2 class="ac-home-sign-item-h2">
-                        modifier un licencié !
+                <li class="amsb-form">
+                    <h2 class="amsb-form-item-title">
+                        Modifier un licencié !
                     </h2>
-
-
-
                 </li>
 
-                <li class="ac-home-sign-item">
-                    <input type="text" class="ac-home-sign-item-input" name="nom" placeholder="Nom" value="<?php echo $user_info[1]; ?>" required>
+                <li class="amsb-form">
+                    <input class="amsb-form-item" type="text" name="nom" placeholder="Nom" value="<?php echo $user_info[1]; ?>" required>
                 </li>
 
-                <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text"  name='prenom' placeholder='Prenom'  value="<?php echo $user_info[2]; ?>" required/>
+                <li class="amsb-form">
+                    <input class="amsb-form-item" type="text"  name='prenom' placeholder='Prenom'  value="<?php echo $user_info[2]; ?>" required/>
                 </li>
 
-                <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" name='email' placeholder='Adresse e-mail' value="<?php echo $user_info[3]; ?>" required/>
+                <li class="amsb-form">
+                    <input class="amsb-form-item" type="text" name='email' placeholder='Adresse e-mail' value="<?php echo $user_info[3]; ?>" required/>
                 </li>
 
-
-                <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" name='Telephone' placeholder='Téléphone' value="<?php echo $user_info[4]; ?>" required/>
+                <li class="amsb-form">
+                    <input class="amsb-form-item" type="password" name="motDePasse" placeholder="Mot de passe" required>
                 </li>
 
-                <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" name='Licence' placeholder='licence' value="<?php echo $user_info[5]; ?>" required/>
+                <li class="amsb-form">
+                    <input class="amsb-form-item" type="text" placeholder='Téléphone' name='Telephone' value="<?php echo $user_info[4]; ?>" required/>
                 </li>
 
-                <div class="ac-home-sign-allBoutton">
-                    <ul>
+                <li class="amsb-form">
+                    <input class="amsb-form-item" type="text" placeholder='licence' name='Licence' value="<?php echo $user_info[5]; ?>" required/>
+                </li>
 
-                        <li class="ac-home-sign-item-boutton-left">
-                            <button type="submit" class="ac-home-sign-item-boutton-log" name="update_user" value="<?php echo $user_info[0]; ?>">
-                                Valider
-                            </button>
-                        </li>
-
-
-
-                    </ul>
-
-
-                </div>
+                <li class="amsb-form">
+                    <button type="submit" class="amsb-button-confirm" name="signup" value="<?php echo $user_info[0]; ?>">
+                        Valider
+                    </button>
+                </li>
 
             </ul>
 

@@ -1,62 +1,46 @@
+<div class="amsb-container-right">
 
-
-<div class="ac-home-container ac-home-signup">
-
-    <div class="ac-home">
+    <div class="amsb-container-right-item">
 
         <form action="index.php" method="post">
 
             <ul>
 
-                <li class="ac-home-sign-item-inscrip">
-
-                    <h2 class="ac-home-sign-item-h2">
-                        ajoutez un licencié !
+                <li class="amsb-form">
+                    <h2 class="amsb-form-item-title">
+                        Ajouter un licencié !
                     </h2>
-
-
-
                 </li>
 
-                <li class="ac-home-sign-item">
-                    <input type="text" class="ac-home-sign-item-input" name="nom" placeholder="Nom" required>
+                <li class="amsb-form">
+                    <input class="amsb-form-item" type="text" name="nom" placeholder="Nom" required>
                 </li>
 
-                <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" placeholder='Prenom' name='prenom' required/>
+                <li class="amsb-form">
+                    <input class="amsb-form-item" type="text" placeholder='Prenom' name='prenom' required/>
                 </li>
 
-                <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" name='email' placeholder='Adresse e-mail' required/>
+                <li class="amsb-form">
+                    <input class="amsb-form-item" type="text" name='email' placeholder='Adresse e-mail' required/>
                 </li>
 
-                <li class="ac-home-sign-item">
-                    <input type='password' class="ac-home-sign-item-input" name="motDePasse" placeholder="Mot de passe" required>
+                <li class="amsb-form">
+                    <input class="amsb-form-item" type="password" name="motDePasse" placeholder="Mot de passe" required>
                 </li>
 
-                <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" placeholder='Téléphone' name='Telephone' required/>
+                <li class="amsb-form">
+                    <input class="amsb-form-item" type="text" placeholder='Téléphone' name='Telephone' required/>
                 </li>
 
-                <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" placeholder='licence' name='Licence' required/>
+                <li class="amsb-form">
+                    <input class="amsb-form-item" type="text" placeholder='licence' name='Licence' required/>
                 </li>
 
-                <div class="ac-home-sign-allBoutton">
-                    <ul>
-
-                        <li class="ac-home-sign-item-boutton-left">
-                            <button type="submit" class="ac-home-sign-item-boutton-log" name="signup" value="">
-                                Valider
-                            </button>
-                        </li>
-
-
-
-                    </ul>
-
-
-                </div>
+                <li class="amsb-form">
+                    <button type="submit" class="amsb-button-confirm" name="signup" value="">
+                        Valider
+                    </button>
+                </li>
 
             </ul>
 

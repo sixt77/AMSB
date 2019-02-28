@@ -1,10 +1,3 @@
-<form id="moove-event" action="index.php" method="post">
-    <input type='hidden' name='action' value='move-event'>
-    <input type='hidden' name='id' id="id_event" value=''>
-    <input type='hidden' name='start' id="start_event" value=''>
-    <input type='hidden' name='end' id="end_event" value=''>
-</form>
-
 <div class="ac-main">
 
     <form action="index.php" method="post">

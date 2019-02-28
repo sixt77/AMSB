@@ -1,7 +1,7 @@
 <div class="ac-home-header">
 
     <h1 class="ac-home-header-title">
-        ASMB
+        AMSB
     </h1>
 
 </div>
