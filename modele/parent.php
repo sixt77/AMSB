@@ -25,9 +25,6 @@ function add_children($id_joueurs, $id_parents, $c) {
         $sql .= "({$joueur}, {$id_parents}, 0)";
         $i++;
     }
-
-
-
     //execution
     if(mysqli_query($c,$sql)){
         return true;
@@ -37,5 +34,23 @@ function add_children($id_joueurs, $id_parents, $c) {
     }
 }
 
+
+//renvoie la listes des informations des parents du joueur
+function get_parent_info_by_player_id($player_id, $c){
+    $sql = ("SELECT * 
+FROM parents P
+INNER JOIN joueurs_parents JP ON P.id = JP.id_parents
+WHERE JP.id_joueurs = '$player_id'");
+    $result = mysqli_query($c,$sql);
+    $parent_list= array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $parent_list[$loop]= $donnees;
+        $loop++;
+    }
+
+    return $parent_list;
+}
 
 ?>

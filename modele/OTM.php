@@ -24,6 +24,22 @@ function delete_OTM($id_user, $c) {
     }
 }
 
+//recupère la liste des otms avec leurs info
+function get_otm_list($c){
+    $sql = ("SELECT *
+FROM utilisateurs U
+INNER JOIN otm O ON O.id_utilisateurs = U.id");
+    $result = mysqli_query($c,$sql);
+    $otm_list= array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $otm_list[$loop] = $donnees;
+        $loop++;
+    }
+    return $otm_list;
+}
+
 //recupère la liste des matchs, le nombre d'otm présent sur chaque
 function get_otm_number_on_all_match($c){
         $sql = ("SELECT M.id, COUNT(MO.id_otm) as nb_otm, M.date, M.lieux

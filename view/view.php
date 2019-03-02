@@ -89,6 +89,12 @@ elseif ($page == "create_match_form") {
     display_create_match_form($team_list);
 }
 
+elseif ($page == "match_selection_form") {
+    display_navBar();
+    display_match_selection_form($match_list, $get);
+}
+
+
 elseif ($page == "create_team_form") {
     display_navBar();
     display_create_team_form($player_list, $coach_list);

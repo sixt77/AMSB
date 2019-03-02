@@ -150,7 +150,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
                 $loop = 0;
                 $all_matchs = get_arbiter_number_on_all_match($c);
                 $match_list = get_matchs_by_arbiter_id($_GET['arbiter_id'], $c);
-                foreach ((array)$all_matchs as $match) {
+                foreach ((array) $all_matchs as $match) {
                     $data[$loop]['match'] = $match;
                     if (in_array($match['id'], $match_list)) {
                         $data[$loop]['match']['selected'] = true;
@@ -170,7 +170,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
         }
 
 
-        //permet a un OTM de s'inscire sur un match, renvoie true si la requette fonctionne, false sinon, et null si les informations ne sont pas suffisante
+        //permet a un arbitre de s'inscire sur un match, renvoie true si la requette fonctionne, false sinon, et null si les informations ne sont pas suffisante
         if ($_GET['action'] == "arbiter_subscribe_to_match") {
             if (isset($_GET["arbiter_id"]) && isset($_GET['match_id'])) {
                 if (arbiter_subscribe_to_match($_GET['match_id'], $_GET["arbiter_id"], $c)) {
@@ -186,7 +186,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
             }
         }
 
-        //permet a un OTM de se désinscire d'un match, renvoie true si la requette fonctionne, false sinon, et null si les informations ne sont pas suffisante
+        //permet a un arbitre de se désinscire d'un match, renvoie true si la requette fonctionne, false sinon, et null si les informations ne sont pas suffisante
         if ($_GET['action'] == "arbiter_unsubscribe_to_match") {
             if (isset($_GET["arbiter_id"]) && isset($_GET['match_id'])) {
                 if (arbiter_unsubscribe_to_match($_GET['match_id'], $_GET["arbiter_id"], $c)) {
@@ -202,6 +202,25 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
             }
         }
 
+        //permet a un coach d'acceder a liste des joueurs et leurs informations
+        if ($_GET['action'] == "get_player_list_by_match_id") {
+            if (isset($_GET["coach_id"]) && isset($_GET['match_id'])) {
+                $loop = 0;
+                $player_list = get_player_info_by_match_id($_GET['match_id'], $_GET['coach_id'], $c);
+                foreach ((array) $player_list as $player){
+                    $data[$loop] = $player;
+                    $data[$loop]['parent'] = get_parent_info_by_player_id($player['id_joueurs'], $c);
+                    $loop++;
+                }
+            }
+            if (isset($data)) {
+                write_json($data);
+            } else {
+                write_json(null);
+            }
+
+
+        }
 
         $page = "json";
     }

@@ -378,6 +378,17 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 $page = "display_match_list";
             }
 
+            //désignation d'otm sur un match
+            if (isset($_POST["designation_OTM_form"])) {
+                $match_list = get_otm_number_on_all_match($c);
+                $otm_list = get_otm_list($c);
+                $get = "otm_selection";
+                $page = "match_selection_form";
+            }
+
+            //désignation d'arbitres sur un match
+
+
             //formulaire creation equipe
             if (isset($_POST["create_team_form"])) {
                 $page = 'create_team_form';
