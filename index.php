@@ -17,6 +17,7 @@ include("modele/team.php");
 include("modele/api.php");
 include("modele/match.php");
 include("controller/controller.php");
+include("controller/api_controller.php");
 include("view/display.php");
 if($page != "json") {
     include("view/header.php");

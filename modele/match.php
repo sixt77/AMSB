@@ -1,8 +1,8 @@
 <?php
 //creer un match
-function create_match($date, $c) {
+function create_match($date, $lieux, $c) {
     //insertion des valeurs dans la bdd
-    $sql = ("INSERT INTO matchs(date) VALUES('$date')");
+    $sql = ("INSERT INTO matchs(date, lieux) VALUES('$date', '$lieux')");
     if(mysqli_query($c,$sql)){
         return true;
     }

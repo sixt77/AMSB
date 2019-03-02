@@ -28,13 +28,16 @@
 
                 </li>
                 <div class="select_team">
-                    <input list="team_list" name="team1" required>
-
+                    <input list="team_list" name="team1" placeholder="equipe 1" required>
                 </div>
+
                 <div class="select_team">
-                    <input list="team_list" name="team2" required>
-
+                    <input list="team_list" name="team2" placeholder="equipe 2" required>
                 </div>
+
+
+                <input type="text" name="lieux" placeholder="lieux" required>
+
 
 
                 <div class="ac-home-sign-allBoutton">

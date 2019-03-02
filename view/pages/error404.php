@@ -19,7 +19,7 @@
         </p>
 
 
-        <a href='/ASMB/index.php' class="ac-home-signin-continue">
+        <a href='/AMSB/index.php' class="ac-home-signin-continue">
             Retour
         </a>
 
