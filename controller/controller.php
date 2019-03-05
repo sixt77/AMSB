@@ -321,10 +321,11 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 $page = 'create_match_form';
                 $team_list = get_team_list($c);
             }
-            //creation equipe
+
+            //creation match
             if (isset($_POST["create_match"])) {
                 $sucess = true;
-                if(!create_match(strtotime($_POST['date'])+(strtotime($_POST['time'])%86400), $c)){
+                if(!create_match(strtotime($_POST['date'])+(strtotime($_POST['time'])%86400), $_POST['lieux'], $c)){
                     $sucess = false;
                 }
 
@@ -358,9 +359,35 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                     }
                 }
 
-                var_dump($sucess);
-                exit;
+                if($sucess == true){
+                    $page = "creation_success";
+                }else{
+                    $page = "creation_failed";
+                }
             }
+
+            //voire liste des matchs
+            if(isset($_POST["get_matchs_list"])) {
+                $loop = 0;
+                $match_list = get_all_matchs($c);
+                foreach ((array) $match_list as $match){
+                    $match_data[$loop]['match'] = get_matchs_info_by_id($match['id'], $c);
+                    $match_data[$loop]['team'] = get_team_by_match_id($match['id'], $c);
+                    $loop++;
+                }
+                $page = "display_match_list";
+            }
+
+            //désignation d'otm sur un match
+            if (isset($_POST["designation_OTM_form"])) {
+                $match_list = get_otm_number_on_all_match($c);
+                $otm_list = get_otm_list($c);
+                $get = "otm_selection";
+                $page = "match_selection_form";
+            }
+
+            //désignation d'arbitres sur un match
+
 
             //formulaire creation equipe
             if (isset($_POST["create_team_form"])) {
@@ -416,6 +443,8 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
 
             }
 
+
+
             //incription
             if (isset($_POST["user_edit_form"])) {
                 $page = 'edit_user_form';
@@ -455,95 +484,4 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
         }
 
     }
-}else{
-    if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/AMSB/index.php/api" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/etu_info/amsb1/DEV/index.php/api" ){
-        //verification des paramètres  GET
-        //fonction d'identification
-        header("Access-Control-Allow-Origin: *");
-        if($_GET['action'] == "login") {
-            if (isset($_GET["login"]) && isset($_GET["password"])) {
-                $user_id = user_signin_by_application($_GET["login"], $_GET["password"], $c);
-                if ($user_id != false) {
-                    $user_info = get_info_user_by_id($user_id, $c);
-                    //renvoie les données en JSON
-                    $data = [
-                        'user_id' => $user_info[0],
-                        'user_nom_famille' => $user_info[1],
-                        'user_prenom' => $user_info[2],
-                        'user_email' => $user_info[3],
-                        'user_telephone' => $user_info[4],
-                        'user_licence' => $user_info[5],
-                    ];
-                    write_json($data);
-                } else {
-                    $data = [
-                        'user_info' => null
-                    ];
-                    write_json($data);
-                }
-            }
-        }
-        //recupération des rôles d'un utilisateur
-        if($_GET['action'] == "get_user_info") {
-            if (isset($_GET["user_id"])) {
-                if ($_GET["user_id"] != false) {
-                    $user_role = get_role_user_by_id($_GET["user_id"], $c);
-                    //renvoie les données en JSON
-                    $data = [
-                        'utilisateur' => $user_role[0],
-                        'dirigeant' => $user_role[1],
-                        'otm' => $user_role[2],
-                        'arbitre' => $user_role[3],
-                        'benevole' => $user_role[4],
-                        'joueur' => $user_role[5],
-                        'entraineur' => $user_role[6],
-                    ];
-                    write_json($data);
-                } else {
-                    $data = [
-                        'user_info' => null
-                    ];
-                    write_json($data);
-                }
-            }
-        }
-        //recuperation listes match
-        if($_GET['action'] == "get_match_list") {
-            $match_list = get_all_matchs($c);
-            $loop = 0;
-            foreach ($match_list as $match){
-                $data[$loop]['match'] = get_matchs_info_by_id($match['id'], $c);
-                $data[$loop]['team'] = get_team_by_match_id($match['id'], $c);
-                $loop++;
-            }
-            if(isset($data)){
-                write_json($data);
-            }else{
-                write_json(null);
-            }
-
-        }
-        //recuperation listes match via un id user (uniquement les match joué par la/les équipes du joueurs)
-        if($_GET['action'] == "get_match_list_by_id_player") {
-            if (isset($_GET["player_id"])) {
-                $match_list = get_matchs_by_player_id($_GET["player_id"], $c);
-                $loop = 0;
-                foreach ($match_list as $match){
-                    $data[$loop]['match'] = get_matchs_info_by_id($match['id'], $c);
-                    $data[$loop]['team'] = get_team_by_match_id($match['id'], $c);
-                    $loop++;
-                }
-                if(isset($data)){
-                    write_json($data);
-                }else{
-                    write_json(null);
-                }
-
-            }
-        }
-        $page = "json";
-    }else{
-        $page = "erreur404";
-    }
-
 }

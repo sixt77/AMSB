@@ -37,9 +37,8 @@
                     }else{
                         echo'<span class="amsb-display-item-radio">
                             <input class="amsb-display-item-radio-item" type="radio" id="'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'">
-                        </span>';
-                    }
-                    echo '</li>';
+                        </span>
+                    </li>';
 
                     $i++;
                 }

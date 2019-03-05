@@ -108,9 +108,21 @@ function display_user_form() {
 
 }
 
+function display_create_match_list($match_data) {
+
+    require("pages/display_match_list.php");
+
+}
+
 function display_create_match_form($team_list) {
 
     require("pages/create_match_form.php");
+
+}
+
+function display_match_selection_form($match_list, $get) {
+
+    require("pages/match_selection.php");
 
 }
 

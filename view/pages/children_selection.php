@@ -20,7 +20,7 @@
 
             <?php
             $i = 1;
-            foreach ($player_list as $player){
+            foreach ((array) $player_list as $player){
             echo'
             <table>
                 <tr>

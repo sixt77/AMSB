@@ -78,7 +78,9 @@
 
                 <ul>
                     <li>
-                        Voir la liste
+                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="get_matchs_list" value="">
+                            voir la liste
+                        </button>
                     </li>
 
                     <li>
@@ -89,6 +91,17 @@
 
                     <li>
                         Modifier
+                    </li>
+
+                    <li>
+                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="designation_OTM_form" value="">
+                            designation OTM
+                        </button>
+                    </li>
+                    <li>
+                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="designation_arbiter_form" value="">
+                            designation arbitres
+                        </button>
                     </li>
                 </ul>
             </li>

@@ -24,26 +24,20 @@
                 <?php
 
                 $i = 0;
-                foreach ($role_list as $role) {
+                foreach ((array) $role_list as $role) {
+                    echo '<li class="amsb-display-item">
+                            <span class="amsb-display-item-text">
+                                '.$role['nom'].'
+                            </span>
+                            <span class="amsb-display-item-radio">';
                     if(isset($leader_role_list[$i+1])) {
-                        echo '<li class="amsb-display-item">
-                            <span class="amsb-display-item-text">
-                                '.$role['nom'].'
-                            </span>
-                            <span class="amsb-display-item-radio">
-                                <input class="amsb-display-item-radio-item" type="checkbox" id="' . $i . '" name="leader_role_list[]" value="' . $role['id_role'] . '" checked>
-                            </span>
-                        </li>';
+                        echo '<input class="amsb-display-item-radio-item" type="checkbox" id="' . $i . '" name="leader_role_list[]" value="' . $role['id_role'] . '" checked>';
                     }else{
-                        echo '<li class="amsb-display-item">
-                            <span class="amsb-display-item-text">
-                                '.$role['nom'].'
-                            </span>
-                            <span class="amsb-display-item-radio">
-                                <input class="amsb-display-item-radio-item" type="checkbox" id="' . $i . '" name="leader_role_list[]" value="' . $role['id_role'] . '" >
-                            </span>
-                        </li>';
+                        echo '<input class="amsb-display-item-radio-item" type="checkbox" id="' . $i . '" name="leader_role_list[]" value="' . $role['id_role'] . '" >';
                     }
+
+                    echo '</span>
+                        </li>';
                     $i++;
                 }
 
@@ -99,7 +93,6 @@
                         Valider
                     </button>
                 </li>
-
 
             </ul>
 

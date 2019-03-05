@@ -6,7 +6,7 @@
 
             <datalist id="team_list">
                 <?php
-                foreach ($team_list as $team){
+                foreach ((array) $team_list as $team){
                     echo'<option value="'.$team['nom'].'">';
                 }
 
@@ -30,11 +30,15 @@
                 </li>
 
                 <li class="amsb-form">
-                    <input list="team_list" name="team1" required>
+                    <input list="team_list" name="team1" placeholder="equipe 1" required>
                 </li>
 
                 <li class="amsb-form">
-                    <input list="team_list" name="team2" required>
+                    <input list="team_list" name="team2" placeholder="equipe 2" required>
+                </li>
+
+                <li class="amsb-form">
+                    <input type="text" name="lieux" placeholder="lieux" required>
                 </li>
 
                 <li class="amsb-form amsb-button-300px">

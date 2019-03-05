@@ -38,4 +38,22 @@ INNER JOIN utilisateurs U ON C.id_utilisateurs = U.id");
     return $coach_list;
 }
 
+function get_player_info_by_match_id($match_id, $coach_id, $c){
+    $sql = ("SELECT U.id, U.nom, U.prenom, U.telephone, U.licence, U.mail, J.id_joueurs
+FROM matchs_equipes_coachs MEC
+INNER JOIN joueurs_equipes JE ON MEC.id_equipes = JE.id_equipes
+INNER JOIN joueurs J ON J.id_joueurs = JE.id_joueurs
+INNER JOIN utilisateurs U ON J.id_utilisateurs = U.id
+WHERE MEC.id_coachs = '$coach_id' AND MEC.id_matchs = '$match_id'");
+    $result = mysqli_query($c,$sql);
+    $coach_list= array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $coach_list[$loop]= $donnees;
+        $loop++;
+    }
+    return $coach_list;
+}
+
 ?>

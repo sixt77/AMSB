@@ -81,10 +81,22 @@ elseif ($page == "edit_user_form") {
     display_navBar();
     display_user_edit_form($user_info);
 }
+
+elseif ($page == "display_match_list") {
+    display_navBar();
+    display_create_match_list($match_data);
+}
+
 elseif ($page == "create_match_form") {
     display_navBar();
     display_create_match_form($team_list);
 }
+
+elseif ($page == "match_selection_form") {
+    display_navBar();
+    display_match_selection_form($match_list, $get);
+}
+
 
 elseif ($page == "create_team_form") {
     display_navBar();
