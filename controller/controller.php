@@ -378,15 +378,80 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 $page = "display_match_list";
             }
 
-            //désignation d'otm sur un match
+            //désignation d'otm sur un match (choix du match)
             if (isset($_POST["designation_OTM_form"])) {
                 $match_list = get_otm_number_on_all_match($c);
-                $otm_list = get_otm_list($c);
                 $get = "otm_selection";
                 $page = "match_selection_form";
             }
 
-            //désignation d'arbitres sur un match
+            //désignation d'otm sur un match (désignation des otms)
+            if (isset($_POST["otm_selection"])) {
+                $match_id = $_POST['match_id'];
+                $otm_list = get_otm_list($c);
+                $otm_sub_list =  get_OTM_by_match_id($_POST['match_id'], $c);
+                $get = "designation_OTM";
+                $page = "otm_selection_form";
+            }
+
+            //désignation d'otm sur un match (enregistrement des données)
+            if (isset($_POST["designation_OTM"])) {
+                $sucess = true;
+                if(!Delete_all_otm_from_match($_POST['designation_OTM'], $c)){
+                    $sucess = false;
+                }
+                if(isset($_POST['otm_list'])) {
+                    foreach ((array)$_POST['otm_list'] as $otm) {
+                        if (!OTM_subscribe_to_match($_POST['designation_OTM'], $otm, $c)) {
+                            $sucess = false;
+                        }
+                    }
+                }
+                if($sucess){
+                    $page = "creation_success";
+                }else{
+                    $page = "creation_failed";
+                }
+            }
+
+
+            //désignation d'arbitre sur un match (choix du match)
+            if (isset($_POST["designation_arbiter_form"])) {
+                $match_list = get_arbiter_number_on_all_match($c);
+                $get = "arbiter_selection";
+                $page = "match_selection_form";
+            }
+
+            //désignation d'arbitre sur un match (désignation des arbitres)
+            if (isset($_POST["arbiter_selection"])) {
+                $match_id = $_POST['match_id'];
+                $arbiter_list = get_arbiter_list($c);
+                $arbiter_sub_list =  get_arbiter_by_match_id($_POST['match_id'], $c);
+                $get = "designation_arbiter";
+                $page = "arbiter_selection_form";
+            }
+
+            //désignation d'otm sur un match (enregistrement des données)
+            if (isset($_POST["designation_arbiter"])) {
+                var_dump($_POST);
+                exit;
+                $sucess = true;
+                if(!Delete_all_arbiter_from_match($_POST['designation_arbiter'], $c)){
+                    $sucess = false;
+                }
+                if(isset($_POST['otm_list'])) {
+                    foreach ((array)$_POST['arbiter_list'] as $otm) {
+                        if (!arbiter_subscribe_to_match($_POST['designation_arbiter'], $otm, $c)) {
+                            $sucess = false;
+                        }
+                    }
+                }
+                if($sucess){
+                    $page = "creation_success";
+                }else{
+                    $page = "creation_failed";
+                }
+            }
 
 
             //formulaire creation equipe

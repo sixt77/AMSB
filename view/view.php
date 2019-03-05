@@ -94,6 +94,15 @@ elseif ($page == "match_selection_form") {
     display_match_selection_form($match_list, $get);
 }
 
+elseif ($page == "otm_selection_form") {
+    display_navBar();
+    display_otm_selection_form($otm_list, $otm_sub_list, $get, $match_id);
+}
+
+elseif ($page == "arbiter_selection_form") {
+    display_navBar();
+    display_arbiter_selection_form($arbiter_list, $arbiter_sub_list, $get, $match_id);
+}
 
 elseif ($page == "create_team_form") {
     display_navBar();

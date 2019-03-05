@@ -73,6 +73,21 @@ WHERE id_otm = '$id_otm'");
     return $matchs_list;
 }
 
+//recupère la liste des otm présent sur un match
+function get_OTM_by_match_id($id_match, $c){
+    $sql = ("SELECT id_otm FROM matchs_otm WHERE id_matchs = '$id_match' ");
+    $result = mysqli_query($c,$sql);
+    $otm_list= array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $otm_list[$loop] = $donnees['id_otm'];
+        $loop++;
+    }
+    return $otm_list;
+}
+
+
 //permet a un otm de s'inscire sur un match
 function OTM_subscribe_to_match($id_match, $id_otm, $c){
     $sql = ("INSERT INTO matchs_otm (id_matchs, id_otm)
@@ -98,6 +113,18 @@ function OTM_unsubscribe_to_match($id_match, $id_otm, $c){
         return false;
     }
 }
+
+//permet d'enlever tous les otms d'un match
+function Delete_all_otm_from_match($id_match, $c){
+    $sql = ("DELETE FROM matchs_otm WHERE id_matchs = '$id_match'");
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 
 
 ?>

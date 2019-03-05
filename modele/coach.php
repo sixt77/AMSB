@@ -22,7 +22,7 @@ function delete_coach($id_user, $c) {
     }
 }
 
-
+//retourne la liste des matchs
 function get_coach_list($c){
     $sql = ("SELECT *
 FROM entraineurs C
@@ -38,6 +38,7 @@ INNER JOIN utilisateurs U ON C.id_utilisateurs = U.id");
     return $coach_list;
 }
 
+//retourne la liste des joueurs avec leurs info présent a un match
 function get_player_info_by_match_id($match_id, $coach_id, $c){
     $sql = ("SELECT U.id, U.nom, U.prenom, U.telephone, U.licence, U.mail, J.id_joueurs
 FROM matchs_equipes_coachs MEC
@@ -54,6 +55,24 @@ WHERE MEC.id_coachs = '$coach_id' AND MEC.id_matchs = '$match_id'");
         $loop++;
     }
     return $coach_list;
+}
+
+
+//recupère la liste des match et leurs infos ou le coach est présent
+function get_matchs_by_coach_id($id_coach, $c){
+    $sql = ("SELECT M.id, M.date, M.lieux 
+FROM matchs_equipes_coachs MEC
+INNER JOIN matchs M ON M.id = MEC.id_matchs
+WHERE id_coachs = '$id_coach'");
+    $result = mysqli_query($c,$sql);
+    $matchs_list= array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $matchs_list[$loop] = $donnees;
+        $loop++;
+    }
+    return $matchs_list;
 }
 
 ?>

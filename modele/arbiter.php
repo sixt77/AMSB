@@ -81,4 +81,45 @@ function arbiter_unsubscribe_to_match($id_match, $id_arbitres, $c){
     }
 }
 
+//recupère la liste des arbitres avec leurs info
+function get_arbiter_list($c){
+    $sql = ("SELECT *
+FROM utilisateurs U
+INNER JOIN arbitres A ON A.id_utilisateurs = U.id");
+    $result = mysqli_query($c,$sql);
+    $otm_list= array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $otm_list[$loop] = $donnees;
+        $loop++;
+    }
+    return $otm_list;
+}
+
+//recupère la liste des arbitres présent sur un match
+function get_arbiter_by_match_id($id_match, $c){
+    $sql = ("SELECT id_otm FROM matchs_otm WHERE id_matchs = '$id_match' ");
+    $result = mysqli_query($c,$sql);
+    $otm_list= array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $otm_list[$loop] = $donnees['id_otm'];
+        $loop++;
+    }
+    return $otm_list;
+}
+
+//permet d'enlever tous les arbitres d'un match
+function Delete_all_arbiter_from_match($id_match, $c){
+    $sql = ("DELETE FROM matchs_arbiters WHERE id_matchs = '$id_match'");
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 ?>

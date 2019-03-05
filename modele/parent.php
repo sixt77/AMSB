@@ -37,7 +37,7 @@ function add_children($id_joueurs, $id_parents, $c) {
 
 //renvoie la listes des informations des parents du joueur
 function get_parent_info_by_player_id($player_id, $c){
-    $sql = ("SELECT * 
+    $sql = ("SELECT P.id, P.nom, P.prenom, P.telephone, P.mail 
 FROM parents P
 INNER JOIN joueurs_parents JP ON P.id = JP.id_parents
 WHERE JP.id_joueurs = '$player_id'");

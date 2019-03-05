@@ -126,6 +126,19 @@ function display_match_selection_form($match_list, $get) {
 
 }
 
+function display_otm_selection_form($otm_list, $otm_sub_list, $get, $match_id) {
+
+    require("pages/otm_selection.php");
+
+}
+
+function display_arbiter_selection_form($arbiter_list, $arbiter_sub_list, $get, $match_id) {
+
+    require("pages/arbiter_selection.php");
+
+}
+
+
 function display_create_team_form($player_list, $coach_list) {
 
     require("pages/create_team_form.php");
