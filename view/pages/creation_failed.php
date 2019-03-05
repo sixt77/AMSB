@@ -1,27 +1,34 @@
-<div class="ac-home-header">
+<div class="amsb-container-right">
 
-    <h1 class="ac-home-header-title">
-        Agenda Collaboratif
-    </h1>
+    <div class="amsb-container-right-item">
 
-</div>
+        <div class="amsb-home-header">
 
-<div class="ac-home-container ac-home-signin">
+            <h1 class="amsb-home-header-title">
+                Console Admin
+            </h1>
 
-    <div class="ac-home">
+            <h2 class="amsb-home-header-title">
+                Aix Maurienne Savoie Basket
+            </h2>
 
-        <p class="ac-home-signin-text">
-            creation échoué !
-        </p>
+        </div>
 
-        <p class="ac-home-signin-text">
+        <div class="amsb-home">
 
-        </p>
+            <p class="amsb-error-text">
+                Création Echoué !
+            </p>
 
+            <div class="amsb-button">
+                <a href='index.php'>
+                    <button class="amsb-button-confirm">
+                        Retour
+                    </button>
+                </a>
+            </div>
 
-        <a href='index.php' class="ac-home-signin-continue">
-            Retour
-        </a>
+        </div>
 
     </div>
 

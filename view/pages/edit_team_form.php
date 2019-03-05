@@ -1,93 +1,87 @@
-<div class="ac-home-container ac-home-signup">
+<div class="amsb-container-right">
 
-    <div class="ac-home">
+    <div class="amsb-container-right-item">
 
         <form action="index.php" method="post">
 
             <ul>
 
-                <li class="ac-home-sign-item-inscrip">
-
-                    <h2 class="ac-home-sign-item-h2">
-                        modification d'équipe !
+                <li class="amsb-form">
+                    <h2 class="amsb-form-item-title">
+                        Modification d'équipe !
                     </h2>
-
-
-
                 </li>
 
-                <li class="ac-home-sign-item">
-                    <input type="text" class="ac-home-sign-item-input" name="nom" placeholder="Nom" value="<?php echo $team_info[2]; ?>" >
+                <li class="amsb-form">
+                    <input class="amsb-form-item" type="text" name="nom" placeholder="Nom" value="<?php echo $team_info[2]; ?>" required>
                 </li>
-                choix des coach :
+
+                <li class="amsb-form">
+                    <h2 class="amsb-form-item-title">
+                        Choix du Coach :
+                    </h2>
+                </li>
+
                 <?php
+
                 $i = 1;
-                foreach ($coach_list as $coach){
-                    echo'
-            <table>
-                <tr>
-                    <td>
-                        '.$coach["nom"].' '.$coach["prenom"].'
-                    </td>
-                    <td>';
+                foreach ((array) $coach_list as $coach){
+                    echo'<li class="amsb-display-item">
+                        <span class="amsb-display-item-text">
+                            '.$coach["nom"].' '.$coach["prenom"].'
+                        </span>';
                     if($coach['id_entraineurs'] == $team_info[1]){
-                        echo'<input type="radio" id="'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'" checked>';
+                        echo'<span class="amsb-display-item-radio">
+                            <input class="amsb-display-item-radio-item" type="radio" id="'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'" checked>
+                        </span>';
                     }else{
-                        echo'<input type="radio" id="'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'">';
+                        echo'<span class="amsb-display-item-radio">
+                            <input class="amsb-display-item-radio-item" type="radio" id="'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'">
+                        </span>';
                     }
+                    echo '</li>';
 
-                    echo'</td>
-                </tr>
-            </table>
-            ';
                     $i++;
                 }
 
                 ?>
 
+                <li class="amsb-form">
+                    <h2 class="amsb-form-item-title">
+                        Choix des Joueurs :
+                    </h2>
+                </li>
 
-                choix des joueurs :
                 <?php
+
                 $i = 1;
-                foreach ($player_list as $player){
-                    echo'
-            <table>
-                <tr>
-                    <td>
-                        '.$player["nom"].' '.$player["prenom"].'
-                    </td>
-                    <td>
-                    ';
+                foreach ((array) $player_list as $player){
+                    echo'<li class="amsb-display-item">
+                        <span class="amsb-display-item-text">
+                            '.$player["nom"].' '.$player["prenom"].'
+                        </span>';
                     if(in_array($player['id_joueurs'], $team_player_list)){
-                        echo'<input type="checkbox" id="'.$i.'" name="player_list[]" value="'.$player['id_joueurs'].'" checked>';
+                        echo'<span class="amsb-display-item-radio">
+                            <input class="amsb-display-item-radio-item" type="checkbox" id="'.$i.'" name="player_list[]" value="'.$player['id_joueurs'].'" checked>
+                        </span>';
                     }else{
-                        echo'<input type="checkbox" id="'.$i.'" name="player_list[]" value="'.$player['id_joueurs'].'">';
+                        echo'<span class="amsb-display-item-radio">
+                            <input class="amsb-display-item-radio-item" type="checkbox" id="'.$i.'" name="player_list[]" value="'.$player['id_joueurs'].'">
+                        </span>';
                     }
 
-                    echo'
-                        
-                    </td>
-                </tr>
-            </table>
-            ';
+                    echo'</li>';
+
                     $i++;
                 }
+
                 ?>
 
-                <div class="ac-home-sign-allBoutton">
-                    <ul>
-
-                        <li class="ac-home-sign-item-boutton-left">
-                            <button type="submit" class="ac-home-sign-item-boutton-log" name="update_team" value="<?php echo $team_info[0]; ?>">
-                                Valider
-                            </button>
-                        </li>
-
-
-
-                    </ul>
-
-                </div>
+                <li class="amsb-form">
+                    <button type="submit" class="amsb-button-confirm" name="update_team" value="<?php echo $team_info[0]; ?>">
+                        Valider
+                    </button>
+                </li>
 
             </ul>
 

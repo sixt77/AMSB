@@ -25,10 +25,6 @@
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-form-item" type="password" name="motDePasse" placeholder="Mot de passe" required>
-                </li>
-
-                <li class="amsb-form">
                     <input class="amsb-form-item" type="text" placeholder='Téléphone' name='Telephone' value="<?php echo $user_info[4]; ?>" required/>
                 </li>
 
@@ -37,7 +33,7 @@
                 </li>
 
                 <li class="amsb-form">
-                    <button type="submit" class="amsb-button-confirm" name="signup" value="<?php echo $user_info[0]; ?>">
+                    <button type="submit" class="amsb-button-confirm" name="update_user" value="<?php echo $user_info[0]; ?>">
                         Valider
                     </button>
                 </li>

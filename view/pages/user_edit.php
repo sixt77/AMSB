@@ -12,7 +12,7 @@
 
                 <?php
                 $i = 1;
-                foreach ($user_list as $user){
+                foreach ((array) $user_list as $user){
                 echo'
                     <li class="amsb-display-item">
                         <span class="amsb-display-item-text">
