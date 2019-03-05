@@ -1,76 +1,103 @@
-<form id="moove-event" action="index.php" method="post">
-    <input type='hidden' name='action' value='move-event'>
-    <input type='hidden' name='id' id="id_event" value=''>
-    <input type='hidden' name='start' id="start_event" value=''>
-    <input type='hidden' name='end' id="end_event" value=''>
-</form>
+<div class="amsb-container-right">
 
-<div class="ac-main">
+    <div class="amsb-container-right-item">
 
-    <form action="index.php" method="post">
+        <form action="index.php" method="post">
 
-        <ul>
+            <ul>
 
-            <li class="ac-home-sign-item-inscrip">
+                <li class="amsb-form">
+                    <h2 class="amsb-form-item-title">
+                        Séléctionnez les rôles
+                    </h2>
+                </li>
 
-                <h2 class="ac-home-sign-item-h2">
-                    selectionnez les rôles
-                </h2>
+                <li class="amsb-display-item">
+                    <span class="amsb-display-item-text">
+                        Dirigeant
+                    </span>
+                    <span class="amsb-display-item-radio">
+                        <input class="amsb-display-item-radio-item" type="checkbox" id="leaderCheckbox" name="Leader" value="dirigeant" <?php if($user_role_list[1] != null)echo 'checked';?>>
+                    </span>
+                </li>
 
+                <?php
 
-            </li>
+                $i = 0;
+                foreach ((array) $role_list as $role) {
+                    echo '<li class="amsb-display-item">
+                            <span class="amsb-display-item-text">
+                                '.$role['nom'].'
+                            </span>
+                            <span class="amsb-display-item-radio">';
+                    if(isset($leader_role_list[$i+1])) {
+                        echo '<input class="amsb-display-item-radio-item" type="checkbox" id="' . $i . '" name="leader_role_list[]" value="' . $role['id_role'] . '" checked>';
+                    }else{
+                        echo '<input class="amsb-display-item-radio-item" type="checkbox" id="' . $i . '" name="leader_role_list[]" value="' . $role['id_role'] . '" >';
+                    }
 
-            dirigeant ?
-            <input type="checkbox" id="leaderCheckbox" name="Leader" value="dirigeant" <?php if($user_role_list[1] != null)echo 'checked';?>>
-
-            <?php
-            $i = 0;
-            foreach ((array) $role_list as $role) {
-                if(isset($leader_role_list[$i+1])) {
-                    echo '<div>
-              <input type="checkbox" id="' . $i . '" name="leader_role_list[]" value="' . $role['id_role'] . '" checked>';
-                }else{
-                    echo '<div>
-              <input type="checkbox" id="' . $i . '" name="leader_role_list[]" value="' . $role['id_role'] . '" >';
+                    echo '</span>
+                        </li>';
+                    $i++;
                 }
-                echo'
-              <label for="scales">'.$role['nom'].'</label>
-              </div>';
-                $i++;
-            }
 
-            ?>
+                ?>
 
-            OTM ?
-            <input type="checkbox" id="OTMCheckbox" name="OTM" value="otm" <?php if($user_role_list[2] != null)echo 'checked';?>>
-            arbitre ?
-            <input type="checkbox" id="arbiterCheckbox" name="Arbiter" value="arbitre" <?php if($user_role_list[3] != null)echo 'checked';?>>
-            benevole ?
-            <input type="checkbox" id="volunteerCheckbox" name="Volunteer" value="volunteer" <?php if($user_role_list[4] != null)echo 'checked';?>>
-            joueur ?
-            <input type="checkbox" id="playerCheckbox" name="Player" value="player" <?php if($user_role_list[5] != null)echo 'checked';?>>
-            entraineurs ?
-            <input type="checkbox" id="coachCheckbox" name="Coach" value="coach" <?php if($user_role_list[6] != null)echo 'checked';?>>
-            <div class="ac-home-sign-allBoutton">
-                <ul>
+                <li class="amsb-display-item">
+                    <span class="amsb-display-item-text">
+                        OTM
+                    </span>
+                    <span class="amsb-display-item-radio">
+                        <input class="amsb-display-item-radio-item" type="checkbox" id="OTMCheckbox" name="OTM" value="otm" <?php if($user_role_list[2] != null)echo 'checked';?>>
+                    </span>
+                </li>
 
-                    <li class="ac-home-sign-item-boutton-left">
-                        <button type="submit" class="ac-home-sign-item-boutton-log" name="update_user_right"
-                                value="<?php echo $id; ?>">
-                            Valider
-                        </button>
-                    </li>
+                <li class="amsb-display-item">
+                    <span class="amsb-display-item-text">
+                        Arbitre
+                    </span>
+                    <span class="amsb-display-item-radio">
+                        <input class="amsb-display-item-radio-item" type="checkbox" id="arbiterCheckbox" name="Arbiter" value="arbitre" <?php if($user_role_list[3] != null)echo 'checked';?>>
+                    </span>
+                </li>
 
+                <li class="amsb-display-item">
+                    <span class="amsb-display-item-text">
+                        Benevole
+                    </span>
+                    <span class="amsb-display-item-radio">
+                        <input class="amsb-display-item-radio-item" type="checkbox" id="volunteerCheckbox" name="Volunteer" value="volunteer" <?php if($user_role_list[4] != null)echo 'checked';?>>
+                    </span>
+                </li>
 
-                </ul>
+                <li class="amsb-display-item">
+                    <span class="amsb-display-item-text">
+                        Joueur
+                    </span>
+                    <span class="amsb-display-item-radio">
+                        <input class="amsb-display-item-radio-item" type="checkbox" id="playerCheckbox" name="Player" value="player" <?php if($user_role_list[5] != null)echo 'checked';?>>
+                    </span>
+                </li>
 
-            </div>
+                <li class="amsb-display-item">
+                    <span class="amsb-display-item-text">
+                        Entraineur
+                    </span>
+                    <span class="amsb-display-item-radio">
+                        <input class="amsb-display-item-radio-item" type="checkbox" id="volunteerCheckbox" name="Coach" value="coach" <?php if($user_role_list[6] != null)echo 'checked';?>>
+                    </span>
+                </li>
 
-        </ul>
+                <li class="amsb-form">
+                    <button type="submit" class="amsb-button-confirm" name="update_user_right" value="<?php echo $id; ?>">
+                        Valider
+                    </button>
+                </li>
 
-    </form>
+            </ul>
 
+        </form>
 
-    <div class="ac-fontGris" id="fondGris"></div>
+    </div>
 
 </div>

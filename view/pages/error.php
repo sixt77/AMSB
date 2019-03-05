@@ -1,22 +1,29 @@
-<div class="ac-home-header">
+<div class="amsb-home-container">
+    <div class="amsb-home-header">
 
-    <h1 class="ac-home-header-title">
-        AMSB
-    </h1>
+        <h1 class="amsb-home-header-title">
+            Console Admin
+        </h1>
 
-</div>
+        <h2 class="amsb-home-header-title">
+            Aix Maurienne Savoie Basket
+        </h2>
 
-<div class="ac-home-container ac-home-signin">
+    </div>
 
-    <div class="ac-home">
+    <div class="amsb-home">
 
-        <p class="ac-home-signin-text">
-            Erreur !
+        <p class="amsb-error-text">
+            Une erreur est survenue !
         </p>
 
-        <a href='index.php' class="ac-home-signin-continue">
-            Retour
-        </a>
+        <div class="amsb-button">
+            <a href='index.php'>
+                <button class="amsb-button-confirm">
+                    Retour
+                </button>
+            </a>
+        </div>
 
     </div>
 

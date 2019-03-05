@@ -1,83 +1,74 @@
+<div class="amsb-container-right">
 
-
-<div class="ac-home-container ac-home-signup">
-
-    <div class="ac-home">
+    <div class="amsb-container-right-item">
 
         <form action="index.php" method="post">
 
             <ul>
 
-                <li class="ac-home-sign-item-inscrip">
-
-                    <h2 class="ac-home-sign-item-h2">
-                        creation d'équipe !
+                <li class="amsb-form">
+                    <h2 class="amsb-form-item-title">
+                        Création d'équipe !
                     </h2>
-
-
-
                 </li>
 
-                <li class="ac-home-sign-item">
-                    <input type="text" class="ac-home-sign-item-input" name="nom" placeholder="Nom" required>
+                <li class="amsb-form">
+                    <input class="amsb-form-item" type="text" name="nom" placeholder="Nom" required>
                 </li>
-                choix des coach :
+
+                <li class="amsb-form">
+                    <h2 class="amsb-form-item-title">
+                        Choix du Coach :
+                    </h2>
+                </li>
+
                 <?php
+
                 $i = 1;
                 foreach ((array) $coach_list as $coach){
-                    echo'
-            <table>
-                <tr>
-                    <td>
-                        '.$coach["nom"].' '.$coach["prenom"].'
-                    </td>
-                    <td>
-                        <input type="radio" id="'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'">
-                    </td>
-                </tr>
-            </table>
-            ';
+                    echo'<li class="amsb-display-item">
+                        <span class="amsb-display-item-text">
+                            '.$coach["nom"].' '.$coach["prenom"].'
+                        </span>
+                        <span class="amsb-display-item-radio">
+                            <input class="amsb-display-item-radio-item" type="radio" id="'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'">
+                        </span>
+                    </li>';
+
                     $i++;
                 }
 
                 ?>
 
+                <li class="amsb-form">
+                    <h2 class="amsb-form-item-title">
+                        Choix des Joueurs :
+                    </h2>
+                </li>
 
-                choix des joueurs :
                 <?php
+
                 $i = 1;
                 foreach ((array) $player_list as $player){
-                    echo'
-            <table>
-                <tr>
-                    <td>
-                        '.$player["nom"].' '.$player["prenom"].'
-                    </td>
-                    <td>
-                        <input type="checkbox" id="'.$i.'" name="player_list[]" value="'.$player['id_joueurs'].'">
-                    </td>
-                </tr>
-            </table>
-            ';
+                    echo'<li class="amsb-display-item">
+                        <span class="amsb-display-item-text">
+                            '.$player["nom"].' '.$player["prenom"].'
+                        </span>
+                        <span class="amsb-display-item-radio">
+                            <input class="amsb-display-item-radio-item" type="checkbox" id="'.$i.'" name="player_list[]" value="'.$player['id_joueurs'].'">
+                        </span>
+                    </li>';
+
                     $i++;
                 }
 
                 ?>
 
-                <div class="ac-home-sign-allBoutton">
-                    <ul>
-
-                        <li class="ac-home-sign-item-boutton-left">
-                            <button type="submit" class="ac-home-sign-item-boutton-log" name="create_team" value="">
-                                Valider
-                            </button>
-                        </li>
-
-
-
-                    </ul>
-
-                </div>
+                <li class="amsb-form">
+                    <button type="submit" class="amsb-button-confirm" name="create_team" value="">
+                        Valider
+                    </button>
+                </li>
 
             </ul>
 

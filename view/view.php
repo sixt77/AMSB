@@ -15,6 +15,7 @@ elseif ($page == "role_selection") {
 }
 
 elseif ($page == "role_update") {
+    display_navBar();
     display_role_update_form($id, $role_list, $user_role_list, $leader_role_list);
 }
 
@@ -28,10 +29,12 @@ elseif ($page == "connection_failed") {
 }
 
 elseif ($page == "creation_success") {
+    display_navBar();
     display_creation_success();
 }
 
 elseif ($page == "creation_failed") {
+    display_navBar();
     display_creation_failed();
 }
 
@@ -115,16 +118,13 @@ elseif ($page == "select_team") {
 }
 
 elseif ($page == "edit_team_form") {
+    display_navBar();
     display_edit_team_form($player_list, $coach_list, $team_info, $team_player_list);
 
 }
 
 elseif ($page == "erreur404") {
     display_error404();
-}
-
-elseif ($page == "erreur") {
-    display_error();
 }
 
 elseif ($page == "erreur") {
