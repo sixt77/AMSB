@@ -29,16 +29,15 @@
                     echo'<li class="amsb-display-item">
                         <span class="amsb-display-item-text">
                             '.$coach["nom"].' '.$coach["prenom"].'
-                        </span>';
-                    if($coach['id_entraineurs'] == $team_info[1]){
-                        echo'<span class="amsb-display-item-radio">
-                            <input class="amsb-display-item-radio-item" type="radio" id="'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'" checked>
-                        </span>';
-                    }else{
-                        echo'<span class="amsb-display-item-radio">
-                            <input class="amsb-display-item-radio-item" type="radio" id="'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'">
                         </span>
-                    </li>';
+                        <span class="amsb-display-item-radio">';
+                    if($coach['id_entraineurs'] == $team_info[1]){
+                        echo'<input class="amsb-display-item-radio-item" type="radio" id="'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'" checked>';
+                    }else{
+                        echo'<input class="amsb-display-item-radio-item" type="radio" id="'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'">';
+                    }
+                        echo '</span>
+                        </li>';
 
                     $i++;
                 }
@@ -58,18 +57,16 @@
                     echo'<li class="amsb-display-item">
                         <span class="amsb-display-item-text">
                             '.$player["nom"].' '.$player["prenom"].'
-                        </span>';
+                        </span>
+                        <span class="amsb-display-item-radio">';
                     if(in_array($player['id_joueurs'], $team_player_list)){
-                        echo'<span class="amsb-display-item-radio">
-                            <input class="amsb-display-item-radio-item" type="checkbox" id="'.$i.'" name="player_list[]" value="'.$player['id_joueurs'].'" checked>
-                        </span>';
+                        echo'<input class="amsb-display-item-radio-item" type="checkbox" id="'.$i.'" name="player_list[]" value="'.$player['id_joueurs'].'" checked>';
                     }else{
-                        echo'<span class="amsb-display-item-radio">
-                            <input class="amsb-display-item-radio-item" type="checkbox" id="'.$i.'" name="player_list[]" value="'.$player['id_joueurs'].'">
-                        </span>';
+                        echo'<input class="amsb-display-item-radio-item" type="checkbox" id="'.$i.'" name="player_list[]" value="'.$player['id_joueurs'].'">';
                     }
 
-                    echo'</li>';
+                    echo '</span>
+                        </li>';
 
                     $i++;
                 }
@@ -87,5 +84,4 @@
         </form>
 
     </div>
-
 </div>
