@@ -220,16 +220,30 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
             }
         }
 
-        //permet a un coach d'acceder a liste des joueurs et leurs informations
+        //permet a un coach d'acceder a liste des joueurs et leurs informations générique
         if ($_GET['action'] == "get_player_list_by_match_id") {
             if (isset($_GET["coach_id"]) && isset($_GET['match_id'])) {
                 $loop = 0;
                 $player_list = get_player_info_by_match_id($_GET['match_id'], $_GET['coach_id'], $c);
                 foreach ((array) $player_list as $player){
                     $data[$loop] = $player;
-                    $data[$loop]['parent'] = get_parent_info_by_player_id($player['id_joueurs'], $c);
                     $loop++;
                 }
+            }
+            if (isset($data)) {
+                write_json($data);
+            } else {
+                write_json(null);
+            }
+
+
+        }
+
+        //permet a un coach d'acceder a la liste précise des infos d'un joueurs
+        if ($_GET['action'] == "get_player_profile") {
+            if (isset($_GET["player_id"])) {
+                $data = get_player_profile($_GET["player_id"], $c);
+                $data['parent'] = get_parent_info_by_player_id($data['id_joueurs'], $c);
             }
             if (isset($data)) {
                 write_json($data);

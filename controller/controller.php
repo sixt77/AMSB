@@ -433,8 +433,6 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
 
             //désignation d'otm sur un match (enregistrement des données)
             if (isset($_POST["designation_arbiter"])) {
-                var_dump($_POST);
-                exit;
                 $sucess = true;
                 if(!Delete_all_arbiter_from_match($_POST['designation_arbiter'], $c)){
                     $sucess = false;
