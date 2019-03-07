@@ -1,21 +1,47 @@
-<?php
+<div class="amsb-container-right">
 
-foreach ((array) $match_data as $data){
+    <div class="amsb-container-right-item">
 
-    //afficher l'id du match :
-    echo $data['match']['id'];
+        <?php
 
-    //afficher la date :
-    echo date('d/m/Y',$data['match']['date']);
+        foreach ((array) $match_data as $data){
 
-    //afficher le lieux
-    echo $data['match']['lieux'];
+            echo '<ul>';
 
-    //afficher le nom de l'équipe 1 :
-    echo $data['team'][0]['nom'];
+            echo '<li class="amsb-display-item">';
 
-    //afficher le nom de l'équipe 2 :
-    echo $data['team'][1]['nom'];
+            //afficher l'id du match :
+            echo $data['match']['id'];
 
+            echo '</li>';
+            echo '<li class="amsb-display-item">';
 
-}
+            //afficher la date :
+            echo date('d/m/Y',$data['match']['date']);
+
+            echo '</li>';
+            echo '<li class="amsb-display-item">';
+
+            //afficher le lieux
+            echo $data['match']['lieux'];
+
+            echo '</li>';
+            echo '<li class="amsb-display-item">';
+
+            //afficher le nom de l'équipe 1 :
+            echo $data['team'][0]['nom'];
+
+            echo '</li>';
+            echo '<li class="amsb-display-item">';
+
+            //afficher le nom de l'équipe 2 :
+            echo $data['team'][1]['nom'];
+
+            echo '</li>';
+
+        }
+        ?>
+
+    </div>
+
+</div>
