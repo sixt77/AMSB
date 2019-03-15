@@ -10,104 +10,113 @@
                 AMSB
             </h2>
 
-
         </div>
 
-        <h3>
-            Aix Maurienne Savoie Basket
-        </h3>
+        <a href="index.php?logout" type="submit" class="fa fa-power-off"></a>
+
 
     </div>
 
-    <form action="index.php" method="post">
-        <ul>
-            <li>
-                <h3>
-                    Licencier
-                </h3>
+    <div class="amsb-navBar-main">
 
-                <ul>
-                    <li>
-                        Voir la liste
-                    </li>
+        <form action="index.php" method="post">
 
-                    <li>
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="subform" value="">
-                            Ajouter
-                        </button>
-                    </li>
+            <ul>
+                <li>
+                </li>
 
-                    <li>
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="edit_user" value="">
+                <li>
+                    <h3>
+                        Licencier
+                    </h3>
+
+                    <ul>
+                        <li>
+                            Voir la liste
+                        </li>
+
+                        <li>
+                            <button type="submit" class="ac-home-sign-item-boutton-log"  name="subform" value="">
+                                Ajouter
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="submit" class="ac-home-sign-item-boutton-log"  name="edit_user" value="">
+                                Modifier
+                            </button>
+                        </li>
+
+                        <li>
+                            Importer
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <h3>
+                        Equipe
+                    </h3>
+
+                    <ul>
+                        <li>
+                            Voir la liste
+                        </li>
+
+                        <li>
+                            <button type="submit" class="ac-home-sign-item-boutton-log"  name="create_team_form" value="">
+                                Ajouter
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="submit" class="ac-home-sign-item-boutton-log"  name="select_team" value="">
+                                Modifier
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <h3>
+                        Match
+                    </h3>
+
+                    <ul>
+                        <li>
+                            <button type="submit" name="get_matchs_list" value="">
+                                Voir la liste
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="submit" name="create_match_form" value="">
+                                Ajouter
+                            </button>
+                        </li>
+
+                        <li>
                             Modifier
-                        </button>
-                    </li>
+                        </li>
 
-                    <li>
-                        Importer
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <h3>
-                    Equipe
-                </h3>
+                        <li>
+                            <button type="submit" name="designation_OTM_form" value="">
+                                Désignation des OTM
+                            </button>
+                        </li>
 
-                <ul>
-                    <li>
-                        Voir la liste
-                    </li>
+                        <li>
+                            <button type="submit" name="designation_arbiter_form" value="">
+                                Désignation des arbitres
+                            </button>
+                        </li>
+                    </ul>
+                </li>
 
-                    <li>
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="create_team_form" value="">
-                            Ajouter
-                        </button>
-                    </li>
+            </ul>
 
-                    <li>
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="select_team" value="">
-                            Modifier
-                        </button>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <h3>
-                    Match
-                </h3>
+        </form>
 
-                <ul>
-                    <li>
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="get_matchs_list" value="">
-                            voir la liste
-                        </button>
-                    </li>
+    </div>
 
-                    <li>
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="create_match_form" value="">
-                            Ajouter
-                        </button>
-                    </li>
-
-                    <li>
-                        Modifier
-                    </li>
-
-                    <li>
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="designation_OTM_form" value="">
-                            designation OTM
-                        </button>
-                    </li>
-                    <li>
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="designation_arbiter_form" value="">
-                            designation arbitres
-                        </button>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </form>
-    <a href="index.php?logout" type="submit" class="fa fa-power-off ac-main-header-logout">
-
-    </a>
 </div>

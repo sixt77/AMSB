@@ -27,7 +27,7 @@
                 foreach ((array) $role_list as $role) {
                     echo '<li class="amsb-display-item">
                             <span class="amsb-display-item-text">
-                                '.$role['nom'].'
+                                - '.$role['nom'].'
                             </span>
                             <span class="amsb-display-item-radio">';
                     if(isset($leader_role_list[$i+1])) {
