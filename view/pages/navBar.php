@@ -27,7 +27,7 @@
 
                 <li>
                     <h3>
-                        Licencier
+                        Licencié
                     </h3>
 
                     <ul>

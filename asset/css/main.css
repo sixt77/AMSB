@@ -21,7 +21,7 @@
 body {
     font-family: 'Roboto', 'PT Sans', sans-serif;
     background-size: cover;
-    background: #fff;
+    background-color: #f1f1f1;
     font-size: 15px;
     height: 100vh;
     display: flex;
@@ -49,33 +49,54 @@ a {
     text-align: center;
 }
 
+
+
+/*********************************************************************************\
+ *   Logo                                                                        *
+\*********************************************************************************/
+
+
+.amsb-home-logo {
+    width: 100%;
+}
+
+.amsb-navBar-header-logoTitle {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 10px;
+}
+
+.amsb-navBar-header-logoTitle h2 {
+    line-height: 80px;
+    font-size: 26px;
+    color: #FFF;
+}
+
+
 /*********************************************************************************\
  *   Container                                                                   *
 \*********************************************************************************/
 
 
-
 .amsb-home-container {
-    width: 400px;
-    height: 400px;
-    margin: 150px auto 0;
-    background-color: bisque;
-    box-shadow: 0 -2px 20px 0 #000;
-    border-radius: 10px;
-    padding: 20px 30px;
+    width: 320px;
+    margin: 0 auto;
+    padding: 5% 0 0;
 }
 
 .amsb-container-right {
     width: 100%;
     padding: 25px;
-    overflow-y: scroll;
-    border: 2px solid;
-    border-left: 0;
 }
 
 .amsb-container-right-item {
-    width: 400px;
-    margin: 50px auto 0;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.amsb-container-right-item form ul {
+    overflow-y: scroll;
+    height: calc(100% - 100px);
 }
 
 
@@ -109,7 +130,11 @@ a {
 
 
 .amsb-home {
-
+    margin-top: 20px;
+    margin-left: 0;
+    padding: 30px 25px 70px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.13);
 }
 
 .amsb-home-sign-item {
@@ -142,14 +167,17 @@ a {
 }
 
 .amsb-item-input {
+    font-size: 24px;
     width: 100%;
-    height: 30px;
-    border: 0;
+    padding: 3px;
+    margin: 2px 6px 16px 0;
+    border: 1px solid #ddd;
+    color: #32373c;
 }
 
 .amsb-item-input:focus {
-    outline: none;
-    border-bottom: 1px solid #fff;
+    border-color: #5b9dd9;
+    box-shadow: 0 0 2px rgba(30,140,190,.8);
 }
 
 .amsb-button {
@@ -164,29 +192,36 @@ a {
 }
 
 .amsb-button-confirm {
-    border-color: transparent;
-    border-radius: 20px;
-    text-transform: uppercase;
+    border: 1px solid;
+    border-color: #D5211D;
+    border-radius: 3px;
     font-family: "PT Sans", sans-serif;
-    font-weight: 700;
-    font-size: 17px;
-    padding: 0 20px;
-    margin-bottom: 10px;
-    line-height: 40px;
-    height: 40px;
-    width: 100%;
-    min-width: 170px;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 5px 14px;
+    margin-top: 5px;
     color: #FFF;
+    float: right;
     cursor: pointer;
-    background-color: #F12023;
-    box-shadow: 4px 4px 20px -4px #000;
-    -webkit-transition: background-color .25s ease-in-out;
+    background-color: #f73f3f;
+    /* -webkit-transition: background-color .25s ease-in-out; */
     -moz-transition: background-color .25s ease-in-out;
-    transition: background-color .25s ease-in-out;
+    /* transition: background-color .25s ease-in-out; */
+    text-shadow: 0 -1px 1px #D52114, 1px 0 1px #D52114, 0 1px 1px #D52114, -1px 0 1px #D52114;
+    box-shadow: 0 1px 0 #D52114;
 }
 
 .amsb-button-confirm:hover {
-    background-color: #f120238a;
+    background-color: #f73f3fcc;
+}
+
+.amsb-button-confirm:active {
+    background-color: #d25959;
+    border-color: #D5211D;
+    box-shadow: inset 0 2px 0 #D5211D;
+    -webkit-transform: translateY(1px);
+    -ms-transform: translateY(1px);
+    transform: translateY(1px);
 }
 
 
@@ -198,18 +233,17 @@ a {
 .amsb-navBar {
     min-width: 240px;
     height: 100%;
+    border-right: 2px solid;
 }
 
 .amsb-navBar-header {
     background-color: #F12023;
-    border: 2px solid;
     border-bottom: 0;
 }
 
 .amsb-navBar-main {
     background-color: #000;
-    height: calc(100% - 192px);
-    border: 2px solid;
+    height: calc(100% - 190px);
     border-top: 0;
     overflow-y: scroll;
 }
@@ -251,7 +285,8 @@ a {
     line-height: 35px;
     font-size: 18px;
     background-color: white;
-    text-align: center;
+    text-align: left;
+    /* padding-left: 15px; */
 }
 
 .amsb-navBar ul li ul li button {
@@ -263,6 +298,8 @@ a {
     margin: 0;
     border: 0;
     cursor: pointer;
+    text-align: left;
+    padding-left: 15px;
 }
 
 .amsb-navBar ul li ul li button:hover {
@@ -280,18 +317,6 @@ a {
     width: 80px;
 }
 
-.amsb-navBar-header-logoTitle {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px 10px;
-}
-
-.amsb-navBar-header-logoTitle h2 {
-    line-height: 80px;
-    font-size: 26px;
-    color: #FFF;
-}
-
 .amsb-navBar-header h3 {
     font-size: 12px;
 }
@@ -306,7 +331,7 @@ a {
     height: 50px;
     text-align: center;
     line-height: 50px;
-    margin: 30px auto;
+    margin: 20px auto;
 }
 
 .amsb-form-item {
@@ -338,28 +363,63 @@ a {
 
 .amsb-display-item {
     height: 40px;
-    padding: 0 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 1px solid;
+    margin-bottom: 5px;
 }
 
 .amsb-display-item-text {
-    width: 80%;
-    line-height: 40px;
-    padding: 0 20px;
+    line-height: 30px;
+    padding-left: 20px;
 }
 
 .amsb-display-item-radio {
     width: 40px;
-    padding: 0 11px;
+    height: 40px;
+    border-left: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .amsb-display-item-radio-item {
-    width: 40px;
-    height: 40px;
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    background-color: #9E9E9E;
     margin: 0;
+    border-radius: 50%;
     cursor: pointer;
+    outline: none;
+    position: relative;
+}
+
+.amsb-display-item-radio-item:checked:before {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    content: '✔';
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.amsb-display-item-radio-item:after {
+    /* border-radius: 50%; */
+}
+
+.amsb-display-item-radio-item:checked:after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #40e0d0;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
 }
 
 /*********************************************************************************\
