@@ -1,4 +1,4 @@
-<div class="amsb-home-container">
+<div id="home" class="amsb-home-container">
 
     <img class="amsb-home-logo" src="asset/img/logo_amsb.png" alt="logo">
 
@@ -21,12 +21,8 @@
             </p>
 
             <p>
-                <button type="submit" class="amsb-button-confirm" id="savePopup"  name="signin" value="">
-                    Log In
-                </button>
+                <button type="submit" class="amsb-button-log" id="savePopup"  name="signin" value="">Log In</button>
             </p>
-
-
 
         </form>
 
