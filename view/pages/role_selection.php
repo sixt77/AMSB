@@ -84,9 +84,10 @@
                 </li>
 
                 <li class="amsb-form">
-                    <button type="submit" class="amsb-button-confirm" name="role_selection">
+                    <button type="submit" class="amsb-button-confirm" name="role_selection" value="<?php echo$id; ?>">
                         Valider
                     </button>
+
                 </li>
 
             </ul>

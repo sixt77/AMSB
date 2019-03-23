@@ -34,6 +34,7 @@ function get_all_matchs($c){
         $matchs_list[$loop]= $donnees;
         $loop++;
     }
+
     return $matchs_list;
 }
 

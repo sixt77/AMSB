@@ -15,4 +15,5 @@ function verify($password_entered, $password_stored) {
 function protect($value){
     return stripslashes(strip_tags($value));
 }
+
 ?>

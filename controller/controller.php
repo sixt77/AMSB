@@ -3,7 +3,7 @@
 //direction de base
 $page = "erreur404";
 
-if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/AMSB/index.php" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/AMSB/" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/etu_info/amsb1/DEV/index.php" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/etu_info/amsb1/DEV/"){
+if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/AMSB/index.php" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/AMSB/" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/etu_info/amsb1/PROD/index.php" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/etu_info/amsb1/PROD/"){
     if (empty($_POST) && empty($_GET)) {
         // Vérification si l'user est enregisté
         if (isset($_SESSION['stat'])) {
@@ -100,24 +100,28 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                         $sucess = false;
                     }
                 }
+
                 //arbitres
                 if (isset($_POST["Arbiter"])) {
                     if (!add_arbiter($_POST["role_selection"], $c)) {
                         $sucess = false;
                     }
                 }
+
                 //bénévoles
                 if (isset($_POST["Volunteer"])) {
                     if (!add_volunteer($_POST["role_selection"], $c)) {
                         $sucess = false;
                     }
                 }
+
                 //joueur
                 if (isset($_POST["Player"])) {
                     if (!add_player($_POST["role_selection"], $c)) {
                         $sucess = false;
                     }
                 }
+
                 //coach
                 if (isset($_POST["Coach"])) {
                     if (!add_coach($_POST["role_selection"], $c)) {
@@ -332,6 +336,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 $id_match = $c->insert_id;
 
                 $team_list =  get_team_list($c);
+
                 //ajout team1
                 if(search_team_id_by_name($_POST['team1'], $team_list) != false){
                     if(!add_team_to_match($id_match, search_team_id_by_name($_POST['team1'], $team_list), get_coach_id_by_team_id(search_team_id_by_name($_POST['team1'], $team_list),$c), $c)){
@@ -370,6 +375,8 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
             if(isset($_POST["get_matchs_list"])) {
                 $loop = 0;
                 $match_list = get_all_matchs($c);
+
+                $match_data = null;
                 foreach ((array) $match_list as $match){
                     $match_data[$loop]['match'] = get_matchs_info_by_id($match['id'], $c);
                     $match_data[$loop]['team'] = get_team_by_match_id($match['id'], $c);
@@ -437,9 +444,9 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 if(!Delete_all_arbiter_from_match($_POST['designation_arbiter'], $c)){
                     $sucess = false;
                 }
-                if(isset($_POST['otm_list'])) {
-                    foreach ((array)$_POST['arbiter_list'] as $otm) {
-                        if (!arbiter_subscribe_to_match($_POST['designation_arbiter'], $otm, $c)) {
+                if(isset($_POST['arbiter_list'])) {
+                    foreach ((array)$_POST['arbiter_list'] as $arbitre) {
+                        if (!arbiter_subscribe_to_match($_POST['designation_arbiter'], $arbitre, $c)) {
                             $sucess = false;
                         }
                     }
@@ -482,7 +489,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
             //selection  d'équipe
             if (isset($_POST["select_team"])) {
                 $page = 'select_team';
-                $team_list = get_team_list($c);
+                $team_list = get_internal_team_list($c);
             }
             //formulaire de modification d'équipe
             if (isset($_POST["update_team_form"])) {

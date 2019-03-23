@@ -3,7 +3,6 @@
     <div class="amsb-container-right-item">
 
         <?php
-
         foreach ((array) $match_data as $data){
 
             echo '<ul>';

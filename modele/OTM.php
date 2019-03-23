@@ -90,11 +90,8 @@ function get_OTM_by_match_id($id_match, $c){
 
 //permet a un otm de s'inscire sur un match
 function OTM_subscribe_to_match($id_match, $id_otm, $c){
-    $sql = ("INSERT INTO matchs_otm (id_matchs, id_otm)
-SELECT * FROM (SELECT '$id_match', '$id_otm') AS tmp
-WHERE NOT EXISTS (
-    SELECT id_matchs FROM matchs_otm WHERE id_matchs = '$id_match' AND id_otm = '$id_otm' 
-) LIMIT 1;");
+    OTM_unsubscribe_to_match($id_match, $id_otm, $c);
+    $sql = ("INSERT INTO matchs_otm (id_matchs, id_otm) VALUES ('$id_match', '$id_otm')");
     if(mysqli_query($c,$sql)){
         return true;
     }

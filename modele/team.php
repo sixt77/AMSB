@@ -87,6 +87,21 @@ function get_team_list($c){
     return $team_list;
 }
 
+//retourne les équipes du clubs (interne)
+function get_internal_team_list($c){
+    $sql = ("SELECT * FROM equipes WHERE interne ='1'");
+    $result = mysqli_query($c,$sql);
+    $team_list= array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $team_list[$loop]= $donnees;
+        $loop++;
+    }
+    return $team_list;
+}
+
+
 //retourne toutes les informations d'une équipe
 function get_team_info_by_id($id_team, $c){
     $sql = ("SELECT * FROM equipes WHERE id_equipes ='$id_team'");
