@@ -31,7 +31,7 @@
                             '.$coach["nom"].' '.$coach["prenom"].'
                         </span>
                         <span class="amsb-display-item-radio">
-                            <input class="amsb-display-item-radio-item" type="radio" id="'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'">
+                            <input class="amsb-display-item-radio-item" type="radio" id="coach_id_'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'">
                         </span>
                     </li>';
 
@@ -55,7 +55,7 @@
                             '.$player["nom"].' '.$player["prenom"].'
                         </span>
                         <span class="amsb-display-item-radio">
-                            <input class="amsb-display-item-radio-item" type="checkbox" id="'.$i.'" name="player_list[]" value="'.$player['id_joueurs'].'">
+                            <input class="amsb-display-item-radio-item" type="checkbox" id="player_list_'.$i.'" name="player_list[]" value="'.$player['id_joueurs'].'">
                         </span>
                     </li>';
 

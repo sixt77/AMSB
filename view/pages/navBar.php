@@ -1,4 +1,4 @@
-<div class="amsb-navBar">
+<div id="navBar" class="amsb-navBar">
 
     <div class="amsb-navBar-header">
 
@@ -6,108 +6,94 @@
 
             <img class="amsb-navBar-img" src="asset/img/logo_amsb.png" alt="">
 
-            <h2>
-                AMSB
-            </h2>
-
+            <h2>AMSB</h2>
 
         </div>
 
-        <h3>
-            Aix Maurienne Savoie Basket
-        </h3>
+        <a href="index.php?logout" type="submit">
+            <i class="fas fa-power-off"></i>
+        </a>
 
     </div>
 
-    <form action="index.php" method="post">
-        <ul>
-            <li>
-                <h3>
-                    Licencier
-                </h3>
+    <div class="amsb-navBar-main">
+
+        <form action="index.php" method="post">
+
+            <div id="navBar_licencier">
+
+                <h3>Licencier</h3>
 
                 <ul>
                     <li>
-                        Voir la liste
+                        <button>Voir la liste</button>
                     </li>
 
                     <li>
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="subform" value="">
-                            Ajouter
-                        </button>
+                        <button type="submit" name="subform" value="">Ajouter</button>
                     </li>
 
                     <li>
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="edit_user" value="">
-                            Modifier
-                        </button>
+                        <button type="submit" name="edit_user" value="">Modifier</button>
                     </li>
 
                     <li>
-                        Importer
+                        <button>Importer</button>
                     </li>
                 </ul>
-            </li>
-            <li>
-                <h3>
-                    Equipe
-                </h3>
+
+            </div>
+
+            <div id="navBar_equipe">
+
+                <h3>Equipe</h3>
 
                 <ul>
                     <li>
-                        Voir la liste
+                        <button>Voir la liste</button>
                     </li>
 
                     <li>
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="create_team_form" value="">
-                            Ajouter
-                        </button>
+                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="create_team_form" value="">Ajouter</button>
                     </li>
 
                     <li>
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="select_team" value="">
-                            Modifier
-                        </button>
+                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="select_team" value="">Modifier</button>
                     </li>
                 </ul>
-            </li>
-            <li>
-                <h3>
-                    Match
-                </h3>
+
+            </div>
+
+            <div id="navBar_match">
+
+                <h3>Match</h3>
 
                 <ul>
                     <li>
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="get_matchs_list" value="">
-                            voir la liste
-                        </button>
+                        <button type="submit" name="get_matchs_list" value="">Voir la liste</button>
                     </li>
 
                     <li>
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="create_match_form" value="">
-                            Ajouter
-                        </button>
+                        <button type="submit" name="create_match_form" value="">Ajouter</button>
                     </li>
 
                     <li>
-                        Modifier
+                        <button>Modifier</button>
                     </li>
 
                     <li>
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="designation_OTM_form" value="">
-                            designation OTM
-                        </button>
+                        <button type="submit" name="designation_OTM_form" value="">Désignation des OTM</button>
                     </li>
+
                     <li>
-                        <button type="submit" class="ac-home-sign-item-boutton-log"  name="designation_arbiter_form" value="">
-                            designation arbitres
-                        </button>
+                        <button type="submit" name="designation_arbiter_form" value="">Désignation des arbitres</button>
                     </li>
                 </ul>
-            </li>
-        </ul>
-    </form>
-    <a href="index.php?logout" type="submit" class="fa fa-power-off ac-main-header-logout">
 
-    </a>
+            </div>
+
+        </form>
+
+    </div>
+
 </div>
