@@ -22,7 +22,7 @@ function delete_coach($id_user, $c) {
     }
 }
 
-//retourne la liste des matchs
+
 function get_coach_list($c){
     $sql = ("SELECT *
 FROM entraineurs C
@@ -38,9 +38,8 @@ INNER JOIN utilisateurs U ON C.id_utilisateurs = U.id");
     return $coach_list;
 }
 
-//retourne la liste des joueurs avec leurs info principales présent a un match
 function get_player_info_by_match_id($match_id, $coach_id, $c){
-    $sql = ("SELECT U.id, U.nom, U.prenom, J.id_joueurs
+    $sql = ("SELECT U.id, U.nom, U.prenom, U.telephone, U.licence, U.mail, J.id_joueurs
 FROM matchs_equipes_coachs MEC
 INNER JOIN joueurs_equipes JE ON MEC.id_equipes = JE.id_equipes
 INNER JOIN joueurs J ON J.id_joueurs = JE.id_joueurs
@@ -57,33 +56,17 @@ WHERE MEC.id_coachs = '$coach_id' AND MEC.id_matchs = '$match_id'");
     return $coach_list;
 }
 
-//retourne les toutes les infos d'un joueurs (joueur + parents)
-function get_player_profile($id_player, $c){
-    $sql = ("SELECT U.id, U.nom, U.prenom, U.mail, U.telephone, U.licence, J.id_joueurs
-FROM utilisateurs U
-INNER JOIN joueurs J ON J.id_utilisateurs = U.id 
-WHERE U.id = '$id_player'");
-    $result = mysqli_query($c,$sql);
-    $player_info = array ();
-    while ($donnees = mysqli_fetch_assoc($result))
-    {
-        $player_info= $donnees;
-    }
-    return $player_info;
-}
-
-//recupère la liste des match et leurs infos ou le coach est présent
-function get_matchs_by_coach_id($id_coach, $c){
-    $sql = ("SELECT M.id, M.date, M.lieux 
-FROM matchs_equipes_coachs MEC
-INNER JOIN matchs M ON M.id = MEC.id_matchs
-WHERE id_coachs = '$id_coach'");
+//recupère la liste des match ou l'arbitre est présent
+function get_matchs_by_coach_id($id_coachs, $c){
+    $sql = ("SELECT id_matchs
+FROM matchs_equipes_coachs
+WHERE id_arbitres = '$id_coachs'");
     $result = mysqli_query($c,$sql);
     $matchs_list= array ();
     $loop = 0;
     while ($donnees = mysqli_fetch_assoc($result))
     {
-        $matchs_list[$loop] = $donnees;
+        $matchs_list[$loop] = $donnees['id_matchs'];
         $loop++;
     }
     return $matchs_list;
