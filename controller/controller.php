@@ -2,7 +2,6 @@
 
 //direction de base
 $page = "erreur404";
-
 if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/AMSB/index.php" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/AMSB/" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/etu_info/amsb1/PROD/index.php" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/etu_info/amsb1/PROD/"){
     if (empty($_POST) && empty($_GET)) {
         // Vérification si l'user est enregisté
@@ -18,6 +17,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
 
         if (isset($_POST["signin"])) {
             if (user_signin(protect($_POST["pseudo"]), protect($_POST["password"]), $c)) {
+
                 header('Location: index.php');
             } else {
                 $page = "erreur";
@@ -458,6 +458,11 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 }
             }
 
+            //affichage liste utilisateur
+            if (isset($_POST["users_list"])) {
+                $page = 'display_users_list';
+                $users_list = get_users_list($c);
+            }
 
             //formulaire creation equipe
             if (isset($_POST["create_team_form"])) {
@@ -538,6 +543,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 header('location: index.php');
             }
         }
+
 
         //inscription parents
         if (isset($_GET["parent"])) {

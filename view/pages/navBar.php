@@ -26,7 +26,7 @@
 
                 <ul>
                     <li>
-                        <button>Voir la liste</button>
+                        <button type="submit" name="users_list" value="">liste des utilisateurs</button>
                     </li>
 
                     <li>

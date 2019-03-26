@@ -9,6 +9,7 @@ elseif ($page == "main") {
     display_main();
 }
 
+
 elseif ($page == "role_selection") {
     display_navBar();
     display_role_selection($id, $role_list);
@@ -121,6 +122,11 @@ elseif ($page == "edit_team_form") {
     display_navBar();
     display_edit_team_form($player_list, $coach_list, $team_info, $team_player_list);
 
+}
+
+elseif ($page == "display_users_list") {
+    display_navBar();
+    display_users_list($users_list);
 }
 
 elseif ($page == "erreur404") {

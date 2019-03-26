@@ -157,6 +157,12 @@ function display_edit_team_form($player_list, $coach_list, $team_info, $team_pla
 
 }
 
+function display_users_list($users_list) {
+
+    require("pages/display_users_list.php");
+
+}
+
 function display_parent_sub() {
 
     require("pages/parent_sub_form.php");
