@@ -16,6 +16,7 @@ include("modele/coach.php");
 include("modele/team.php");
 include("modele/api.php");
 include("modele/match.php");
+include("modele/image.php");
 include("controller/controller.php");
 include("controller/api_controller.php");
 include("view/display.php");

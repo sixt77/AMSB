@@ -1,38 +1,32 @@
 <div class="amsb-container-right">
-
+    <?php
+    //var_dump($users_list);
+    ?>
     <div class="amsb-container-right-item">
         <script>
-            function create_element($tag, $id, $class, $onclick, $html){
-                var item = document.createElement($tag);
-                if($id != "" && $id != undefined)item.setAttribute("id", $id);
-                if($class != "" && $class != undefined)item.setAttribute("class", $class);
-                if($onclick != "" && $onclick != undefined)item.setAttribute( "onclick", $onclick);
-                if($html != "" && $html != undefined)item.innerHTML =$html;
-                return item;
-            }
-        </script>
-        <script>
             <?php
+
             $i = 0;
             echo"var items = [";
             foreach ((array) $users_list as $user){
                 if($i == 0){
-                    echo"['".$user["nom"]."','".$user["prenom"]."']";
+                    echo"['".$user["nom"]."','".$user["prenom"]."','".$user["mail"]."','".$user["telephone"]."','".$user["licence"]."','".$user["sex"]."','".$user["categorie"]."','".$user["surclassage"]."']";
                 }else{
-                    echo",['".$user["nom"]."','".$user["prenom"]."']";
+                    echo",['".$user["nom"]."','".$user["prenom"]."','".$user["mail"]."','".$user["telephone"]."','".$user["licence"]."','".$user["sex"]."','".$user["categorie"]."','".$user["surclassage"]."']";
                 }
                 $i++;
             }
             echo"];";
-            echo"console.log(items);";
+
 
             ?>
+            $( document ).ready(function() {
+                display_js_array(items, 'user_field');
+            });
         </script>
-        <script>
-            for (var i in items) {
-                console.log(items[i]);
-            }
-        </script>
+
+        <input type="text" onchange="sort_element(this.value, items, '1', 'user_field')">
+
         <div id="user_field" class="user_list"></div>
     </div>
 

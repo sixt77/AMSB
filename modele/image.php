@@ -1,98 +1,47 @@
 <?php
-function updload_iamge($_POST){
-    var_dump($_POST);
-// Constantes
-    define('TARGET', '/files/');    // Repertoire cible
-    define('MAX_SIZE', 100000);    // Taille max en octets du fichier
-    define('WIDTH_MAX', 800);    // Largeur max de l'image en pixels
-    define('HEIGHT_MAX', 800);    // Hauteur max de l'image en pixels
+function upload_image($name)
+{
 
-// Tableaux de donnees
-    $tabExt = array('jpg','gif','png','jpeg');    // Extensions autorisees
-    $infosImg = array();
-
-// Variables
-    $extension = '';
-    $message = '';
-    $nomImage = '';
-
-    /************************************************************
-     * Creation du repertoire cible si inexistant
-     *************************************************************/
-    if( !is_dir(TARGET) ) {
-        if( !mkdir(TARGET, 0755) ) {
-            exit('Erreur : le répertoire cible ne peut-être créé ! Vérifiez que vous diposiez des droits suffisants pour le faire ou créez le manuellement !');
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+    $uploadOk = 1;
+    $return = true;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+// Check if image file is a actual image or fake image
+    if (isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        if ($check == false) {
+            $return = "le fichier n'est pas une image";
+            $uploadOk = 0;
         }
     }
 
-    /************************************************************
-     * Script d'upload
-     *************************************************************/
-    if(!empty($_POST))
-    {
-        // On verifie si le champ est rempli
-        if( !empty($_FILES['fichier']['name']) )
-        {
-            // Recuperation de l'extension du fichier
-            $extension  = pathinfo($_FILES['fichier']['name'], PATHINFO_EXTENSION);
 
-            // On verifie l'extension du fichier
-            if(in_array(strtolower($extension),$tabExt))
-            {
-                // On recupere les dimensions du fichier
-                $infosImg = getimagesize($_FILES['fichier']['tmp_name']);
+// Check file size
+    if ($_FILES["image"]["size"] > 5000000) {
+        $return = "le fichier est trop volumineux.";
+        $uploadOk = 0;
 
-                // On verifie le type de l'image
-                if($infosImg[2] >= 1 && $infosImg[2] <= 14)
-                {
-                    // On verifie les dimensions et taille de l'image
-                    if(($infosImg[0] <= WIDTH_MAX) && ($infosImg[1] <= HEIGHT_MAX) && (filesize($_FILES['fichier']['tmp_name']) <= MAX_SIZE))
-                    {
-                        // Parcours du tableau d'erreurs
-                        if(isset($_FILES['fichier']['error'])
-                            && UPLOAD_ERR_OK === $_FILES['fichier']['error'])
-                        {
-                            // On renomme le fichier
-                            $nomImage = md5(uniqid()) .'.'. $extension;
+    }
 
-                            // Si c'est OK, on teste l'upload
-                            if(move_uploaded_file($_FILES['fichier']['tmp_name'], TARGET.$nomImage))
-                            {
-                                $message = 'Upload réussi !';
-                            }
-                            else
-                            {
-                                // Sinon on affiche une erreur systeme
-                                $message = 'Problème lors de l\'upload !';
-                            }
-                        }
-                        else
-                        {
-                            $message = 'Une erreur interne a empêché l\'uplaod de l\'image';
-                        }
-                    }
-                    else
-                    {
-                        // Sinon erreur sur les dimensions et taille de l'image
-                        $message = 'Erreur dans les dimensions de l\'image !';
-                    }
-                }
-                else
-                {
-                    // Sinon erreur sur le type de l'image
-                    $message = 'Le fichier à uploader n\'est pas une image !';
-                }
-            }
-            else
-            {
-                // Sinon on affiche une erreur pour l'extension
-                $message = 'L\'extension du fichier est incorrecte !';
-            }
+// Allow certain file formats
+    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif") {
+        $return = "seuls les formats : jpeg, png, jpeg, gif sont acceptés";
+        $uploadOk = 0;
+    }
+
+// Check if $uploadOk is set to 0 by an error
+    if ($uploadOk != 0) {
+// if everything is ok, try to upload file
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_dir.$name.".".$imageFileType)) {
+            return true;
+        } else {
+            return "erreur de transfert";
         }
-        else
-        {
-            // Sinon on affiche une erreur pour le champ vide
-            $message = 'Veuillez remplir le formulaire svp !';
-        }
+
+    }else{
+        return $return;
     }
 }
+?>

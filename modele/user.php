@@ -67,11 +67,11 @@ WHERE U.mail='$identifiant'");
 //script d'inscription pour les user 
 //ajoute dans la bdd les valeurs
 //renvoi true si la connection a fonctionné sinon false
-function user_signup($nom, $prenom, $mail,$motDePasse, $telephone, $licence, $c) {
+function user_signup($nom, $prenom, $mail,$motDePasse, $telephone, $licence, $sex, $categorie, $surclassage, $c) {
 	//cryptage du password
     $motDePasse = encrypt($motDePasse);
-	//insertion des valeurs dans la bdd
-	$sql = ("INSERT INTO utilisateurs(nom, prenom, mail, motDePasse, telephone, licence) VALUES('$nom', '$prenom', '$mail', '$motDePasse', '$telephone', '$licence')");
+    //insertion des valeurs dans la bdd
+    $sql = ("INSERT INTO utilisateurs(nom, prenom, mail, motDePasse, telephone, licence, sex, categorie, surclassage) VALUES('$nom', '$prenom', '$mail', '$motDePasse', '$telephone', '$licence', '$sex', 'categorie', '$surclassage')");
     if(mysqli_query($c,$sql)){
 		return true;
 	}

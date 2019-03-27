@@ -64,14 +64,20 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
         }
         //verification de la connection de l'utilisateur
         if (isset($_SESSION['stat']) && isset($_SESSION['id_leader'])) {
-
             //incription d'un licencé
             if (isset($_POST["signup"])) {
-                if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["Telephone"]) && !empty($_POST["Licence"])) {
-                    if (user_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["Telephone"]), protect($_POST["Licence"]), $c)) {
+                if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["telephone"]) && !empty($_POST["licence"]) && !empty($_POST["sex"])) {
+                    if (user_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["telephone"]), protect($_POST["licence"]), protect($_POST["sex"]), protect($_POST["categorie"]), protect($_POST["surclassage"]), $c)) {
                         $id = $c->insert_id;
-                        $role_list = get_roles_list($c);
-                        $page = "role_selection";
+                        if(isset($_FILES)){
+                            $message = upload_image($id);
+                            if($message !== true){
+                                $page = "erreur_message";
+                            }else{
+                                $role_list = get_roles_list($c);
+                                $page = "role_selection";
+                            }
+                        }
                     } else {
                         $page = "erreur";
                     }
@@ -375,7 +381,6 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
             if(isset($_POST["get_matchs_list"])) {
                 $loop = 0;
                 $match_list = get_all_matchs($c);
-
                 $match_data = null;
                 foreach ((array) $match_list as $match){
                     $match_data[$loop]['match'] = get_matchs_info_by_id($match['id'], $c);

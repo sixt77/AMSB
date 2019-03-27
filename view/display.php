@@ -180,3 +180,10 @@ function display_error(){
     require ("pages/error.php");
 
 }
+
+
+function display_error_message($message){
+
+    require ("pages/error_message.php");
+
+}

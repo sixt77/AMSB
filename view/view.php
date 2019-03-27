@@ -137,6 +137,10 @@ elseif ($page == "erreur") {
     display_error();
 }
 
+elseif ($page == "erreur_message") {
+    display_error_message($message);
+}
+
 elseif ($page == "json") {
     //display_error();
 }

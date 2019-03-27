@@ -464,3 +464,9 @@ a {
     display: inline-block;
     font-size: 20px;
 }
+.user_value{
+    float: left;
+}
+.user_list{
+    width: 600px;
+}
