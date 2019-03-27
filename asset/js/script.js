@@ -7,7 +7,7 @@ function create_element($tag, $id, $class, $onclick, $html){
     return item;
 }
 
-function sort_element(str, array, index, id) {
+function sort_element(str, array) {
     var j = 0;
     var array2 = new Array();
     for(var i in array){
@@ -16,25 +16,20 @@ function sort_element(str, array, index, id) {
             j++;
         }
     }
-    display_js_array(array2, id);
+    console.log(array2);
+    hide_class("user_div");
+    for(var i in array2){
+        show_id('user_'+array2[i][0]);
+    }
 
 }
 
-function display_js_array(array, id) {
-    var classe ="user_value";
-    remove_class(classe);
-    for (var i in array) {
-        document.getElementById(id).appendChild(create_element("DIV","user_"+i, classe, "", array[i][1]));
-        document.getElementById('user_'+i).appendChild(create_element("P","", classe, "", "nom : "));
-        document.getElementById('user_'+i).appendChild(create_element("P","", classe, "", array[i][1]));
-        document.getElementById('user_'+i).appendChild(create_element("P","", classe, "", array[i][2]));
-        document.getElementById('user_'+i).appendChild(create_element("P","", classe, "", array[i][3]));
-        document.getElementById('user_'+i).appendChild(create_element("P","", classe, "", array[i][4]));
-        document.getElementById('user_'+i).appendChild(create_element("P","", classe, "", array[i][5]));
-        document.getElementById('user_'+i).appendChild(create_element("P","", classe, "", array[i][6]));
+function hide_class($class) {
+    $( "."+$class+"" ).hide();
+}
 
-    }
-
+function show_id($id) {
+    $( "#"+$id+"" ).show();
 }
 
 function remove_class($class) {
