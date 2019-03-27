@@ -43,12 +43,41 @@ a {
 
 }
 
+.fileContainer {
+    overflow: hidden;
+    position: relative;
+    height: 36px;
+    color: #757575;
+    text-align: center;
+    line-height: 36px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+}
+
+.fileContainer:hover {
+    background-color: #dddddd94;
+}
+
+.fileContainer [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+}
+
+
 .amsb-error-text {
     margin: 80px 30px;
     font-size: 25px;
     text-align: center;
 }
-
 
 
 /*********************************************************************************\
@@ -89,7 +118,7 @@ a {
 
 .amsb-container-right {
     width: 100%;
-    padding: 50px 10px;
+    padding: 50px;
     background-color: #f0f0f094;
     border: 1px solid;
     border-left: none;
@@ -97,14 +126,7 @@ a {
 
 .amsb-container-right-item {
     margin: 0 auto;
-    max-width: 900px;
-}
-
-.amsb-container-right-item form {
-    overflow-y: scroll;
-    height: calc(100% - 160px);
-    width: 500px;
-    margin: 0 auto;
+    max-width: 1000px;
 }
 
 
@@ -136,13 +158,17 @@ a {
     cursor: default;
 }
 
-
 .amsb-home {
     margin-top: 20px;
     margin-left: 0;
-    padding: 30px 25px 75px;
+    padding: 30px 25px 50px;
     background: #fff;
     box-shadow: 0 1px 3px rgba(0,0,0,.13);
+}
+
+.amsb-home form {
+    display: flex;
+    flex-direction: column;
 }
 
 .amsb-home-sign-item {
@@ -179,7 +205,6 @@ a {
     width: 100%;
     height: 36px;
     padding: 3px 6px;
-    margin: 2px 0 16px;
     border: 1px solid #ddd;
     color: #32373c;
 }
@@ -191,36 +216,30 @@ a {
 
 .amsb-button {
     display: inline-block;
-    width: 100%;
     padding: 10px 40px;
     margin-top: 30px;
 }
 
-.amsb-button-300px {
-    width: 300px;
-}
-
-.amsb-button-log {
+.amsb-button,.amsb-button-log {
+    margin: 20px auto 0;
     border: 1px solid #D5211D;
     border-radius: 3px;
     font-family: "Roboto";
     font-size: 16px;
+    width: 80px;
     padding: 5px 15px;
-    margin-top: 12px;
     color: #FFF;
-    float: right;
     cursor: pointer;
     background-color: #f73f3f;
-
     text-shadow: 0 -1px 1px #D52114, 1px 0 1px #D52114, 0 1px 1px #D52114, -1px 0 1px #D52114;
     box-shadow: 0 1px 0 #D52114;
 }
 
-.amsb-button-log:hover {
+.amsb-button:hover,.amsb-button-log:hover {
     background-color: #f73f3fcc;
 }
 
-.amsb-button-log:active {
+.amsb-button:active,.amsb-button-log:active {
     background-color: #d25959;
     border-color: #D5211D;
     box-shadow: inset 0 2px 0 #D5211D;
@@ -301,7 +320,6 @@ a {
     font-size: 18px;
     padding: 0 0 0 10px;
     margin: 0;
-    border: 0;
     cursor: pointer;
     text-align: left;
     background-color: #000;
@@ -340,8 +358,55 @@ a {
 \*********************************************************************************/
 
 
-.amsb-form {
+.amsb-container-right-item form ul {
+    overflow-y: scroll;
+    max-height: calc(100vh - 280px);
+    max-width: 600px;
+    width: 70%;
+    margin: 0 auto;
+    box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    padding: 30px 20px;
+}
 
+.amsb-form-user_edit ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    max-width: 900px !important;
+    width: 100% !important;
+}
+
+.amsb-form-user_edit {
+    max-width: 900px !important;
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.amsb-form-user_sub_form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.amsb-form {
+    margin-bottom: 15px;
+}
+
+.amsb-form span {
+    padding-left: 5px;
+    margin-bottom: 5px;
+    display: block;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.amsb-form input[type="button"] {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
 }
 
 .amsb-form label {
@@ -350,16 +415,21 @@ a {
     width: 100%;
     z-index: 10;
     background-color: #fff;
+    cursor: pointer;
+}
+
+.amsb-form label:hover {
+    background-color: #dddddd94;
 }
 
 .amsb-form label:after {
     position: absolute;
     right: 0;
-    top: 0px;
+    top: 0;
     width: 36px;
     height: 36px;
-    line-height: 34px;
-    content: "∨";
+    line-height: 32px;
+    content: "v";
     text-align: center;
     color: #714BB9;
     font-size: 26px;
@@ -367,24 +437,27 @@ a {
     z-index: -1;
 }
 
-.amsb-form select {
+.fileContainer:after {
+    display: none;
+}
+
+.amsb-form label select,.amsb-form label input[type="file"] {
     font-size: 24px;
     width: 100%;
-    margin: 2px 0 16px;
     border: 1px solid #ddd;
     color: #32373c;
     height: 36px;
-    -webkit-appearance: none;
     display: block;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    cursor: pointer;
     border-radius: 0;
-    padding: 0px 36px 0px 8px;
+    padding: 0 36px 0 8px;
     background: transparent;
 }
 
-.amsb-form select option {
+.amsb-form label select option {
     background-color: #fff;
     width: 50%;
     height: 34px;
@@ -392,7 +465,6 @@ a {
     text-align: center;
     padding: 3px;
 }
-
 
 .amsb-form-item {
     width: 100%;
@@ -406,7 +478,7 @@ a {
     text-transform: uppercase;
     height: 50px;
     line-height: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     text-align: left;
     font-size: 26px;
 }
@@ -422,12 +494,18 @@ a {
 }
 
 .amsb-display-item {
-    height: 40px;
+    height: 80px;
     display: flex;
-    justify-content: space-between;
+    width: 270px;
     align-items: center;
     border: 1px solid;
     margin-bottom: 5px;
+}
+
+.amsb-display-item label {
+    height: 80px;
+    width: 270px;
+    cursor: pointer;
 }
 
 .amsb-display-item-text {
@@ -446,6 +524,8 @@ a {
 
 .amsb-display-item-radio-item {
     -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     width: 30px;
     height: 30px;
     background-color: #9E9E9E;
@@ -456,13 +536,26 @@ a {
     position: relative;
 }
 
-.amsb-display-item-radio-item:checked:before {
-    height: 30px;
-    width: 30px;
+.amsb-display-item-radio-item:checked::before {
+    height: 40px;
+    width: 40px;
+    content: '';
     position: absolute;
-
     display: inline-block;
-    font-size: 20px;
+    font-size: 26.66667px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.amsb-display-item-radio-item:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #40e0d0;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
 }
 .user_value{
     float: left;

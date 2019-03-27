@@ -2,25 +2,21 @@
 
     <div class="amsb-container-right-item">
 
+        <h2 class="amsb-form-item-title">
+            Création d'équipe !
+        </h2>
+
         <form action="index.php" method="post">
 
+            <div class="amsb-form">
+                <input class="amsb-form-item" type="text" name="nom" placeholder="Nom" required>
+            </div>
+
+            <h2 class="amsb-form-item-title">
+                Choix du Coach :
+            </h2>
+
             <ul>
-
-                <li class="amsb-form">
-                    <h2 class="amsb-form-item-title">
-                        Création d'équipe !
-                    </h2>
-                </li>
-
-                <li class="amsb-form">
-                    <input class="amsb-form-item" type="text" name="nom" placeholder="Nom" required>
-                </li>
-
-                <li class="amsb-form">
-                    <h2 class="amsb-form-item-title">
-                        Choix du Coach :
-                    </h2>
-                </li>
 
                 <?php
 
@@ -40,11 +36,13 @@
 
                 ?>
 
-                <li class="amsb-form">
-                    <h2 class="amsb-form-item-title">
-                        Choix des Joueurs :
-                    </h2>
-                </li>
+            </ul>
+
+            <h2 class="amsb-form-item-title">
+                Choix des Joueurs :
+            </h2>
+
+            <ul>
 
                 <?php
 
@@ -64,13 +62,9 @@
 
                 ?>
 
-                <li class="amsb-form">
-                    <button type="submit" class="amsb-button-confirm" name="create_team" value="">
-                        Valider
-                    </button>
-                </li>
-
             </ul>
+
+            <button type="submit" class="amsb-button" name="create_team" value="">Valider</button>
 
         </form>
 

@@ -22,18 +22,17 @@
                 </li>
 
                 <?php
-                $i = 0;
 
+                $i = 0;
                 foreach ((array) $role_list as $role) {
-                    echo '
-                    <li class="amsb-display-item">
-                        <span class="amsb-display-item-text">
-                            - '.$role['nom'].'
-                        </span>
-                        <span class="amsb-display-item-radio">
-                            <input class="amsb-display-item-radio-item" type="checkbox" id="'.$i.'" name="leader_role_list[]" value="'.$role['id_role'].'">
-                        </span>
-                    </li>';
+                    echo '<li class="amsb-display-item">
+                            <span class="amsb-display-item-text">
+                                - '.$role['nom'].'
+                            </span>
+                            <span class="amsb-display-item-radio">
+                                <input class="amsb-display-item-radio-item" type="checkbox" id="'.$i.'" name="leader_role_list[]" value="'.$role['id_role'].'">
+                            </span>
+                        </li>';
                     $i++;
                 }
                 ?>

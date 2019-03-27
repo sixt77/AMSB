@@ -2,7 +2,9 @@
 
     <div class="amsb-container-right-item">
 
-        <form action="index.php" method="post">
+        <h2 class="amsb-form-item-title">Création de match !</h2>
+
+        <form class="amsb-form-user_sub_form" action="index.php" method="post">
 
             <datalist id="team_list">
                 <?php
@@ -16,38 +18,28 @@
             <ul>
 
                 <li class="amsb-form">
-                    <h2 class="amsb-form-item-title">
-                        Création de match !
-                    </h2>
+                    <input class="amsb-item-input" type="date" name="date" required>
                 </li>
 
                 <li class="amsb-form">
-                    <input type="date" name="date" required>
+                    <input class="amsb-item-input" type="time" name="time" required>
                 </li>
 
                 <li class="amsb-form">
-                    <input type="time" name="time" required>
+                    <input class="amsb-item-input" list="team_list" name="team1" placeholder="equipe 1" required>
                 </li>
 
                 <li class="amsb-form">
-                    <input list="team_list" name="team1" placeholder="equipe 1" required>
+                    <input class="amsb-item-input" list="team_list" name="team2" placeholder="equipe 2" required>
                 </li>
 
                 <li class="amsb-form">
-                    <input list="team_list" name="team2" placeholder="equipe 2" required>
-                </li>
-
-                <li class="amsb-form">
-                    <input type="text" name="lieux" placeholder="lieux" required>
-                </li>
-
-                <li class="amsb-form amsb-button-300px">
-                    <button type="submit" class="amsb-button-confirm" name="create_match" value="">
-                        Valider
-                    </button>
+                    <input class="amsb-item-input" type="text" name="lieux" placeholder="lieux" required>
                 </li>
 
             </ul>
+
+            <button type="submit" class="amsb-button" name="create_match" value="">Valider</button>
 
         </form>
 

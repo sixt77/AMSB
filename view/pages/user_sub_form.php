@@ -1,25 +1,24 @@
 <div id="user_sub_form" class="amsb-container-right">
-
     <div class="amsb-container-right-item">
-
         <h2 class="amsb-form-item-title">Ajouter un licencier !</h2>
 
-        <form action="index.php" method="post"  enctype="multipart/form-data">
-
+        <form class="amsb-form-user_sub_form" action="index.php" method="post" enctype="multipart/form-data">
             <ul>
-
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="text" name="nom" placeholder="Nom" required>
+                    <span>Nom :</span>
+                    <input class="amsb-item-input" type="text" name="nom" required>
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="text" name='prenom' placeholder='Prenom' required/>
+                    <span>Prénom :</span>
+                    <input class="amsb-item-input" type="text" name='prenom' required/>
                 </li>
 
                 <li class="amsb-form">
-                    <label for="select_sex">
-                        <select id="select_sex" name="sex">
-                            <option value="">Sex :</option>
+                    <span>Sexe :</span>
+                    <label for="select_sexe">
+                        <select id="select_sexe" name="sexe">
+                            <option value="" disabled selected>Sexe :</option>
                             <option value="Homme">Homme</option>
                             <option value="Femme">Femme</option>
                         </select>
@@ -27,67 +26,61 @@
                 </li>
 
                 <li class="amsb-form">
+                    <span>Date de naissance :</span>
                     <input class="amsb-item-input" type="date" name='dateDeNaissance' required/>
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="text" name='icence' placeholder='Licence' required/>
+                    <span>Adresse E-mail :</span>
+                    <input class="amsb-item-input" type="text" name='email' required/>
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="text" name='email' placeholder='Adresse e-mail' required/>
+                    <span>Mot de passe :</span>
+                    <input class="amsb-item-input" type="password" name="motDePasse" required>
                 </li>
 
                 <li class="amsb-form">
-                    Le dirigeant ne peux pas mettre le mot de passe du Licencier Techniquement /!\
-                    <input class="amsb-item-input" type="password" name="motDePasse" placeholder="Mot de passe"
-                           required>
+                    <span>Téléphone :</span>
+                    <input class="amsb-item-input" type="text" name='telephone' required/>
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="text" name='telephone' placeholder='Téléphone' required/>
+                    <span>N° de licence :</span>
+                    <input class="amsb-item-input" type="text" name='licence' required/>
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="text" name='licence' placeholder='Licence' required/>
+                    <span>Photo de la licence</span>
+                    <label class="fileContainer">
+                        Cliquez ici pour télécharger la photo !
+                        <input type="file"/>
+                    </label>
                 </li>
 
                 <li class="amsb-form">
-                    Pouvoir importer la photo
+                    <span>Catégorie :</span>
+                    <label for="categorie_select">
+                        <select id="categorie_select" name="categorie">
+                            <option value="masculin">U9</option>
+                            <option value="feminin">U11</option>
+                            <option value="masculin">U13</option>
+                            <option value="feminin">U15</option>
+                            <option value="masculin">U17</option>
+                            <option value="feminin">U18</option>
+                            <option value="masculin">U20</option>
+                            <option value="feminin">Snior</option>
+                        </select>
+                    </label>
                 </li>
 
                 <li class="amsb-form">
-                    Catégorie
-                </li>
-
-                <li class="amsb-form">
-                    <input class="amsb-item-input" type="file" name='image' required/>
-                </li>
-
-
-                <li class="amsb-form">
-                    <select name="categorie">
-                        <option value="masculin">U9</option>
-                        <option value="feminin">U11</option>
-                        <option value="masculin">U13</option>
-                        <option value="feminin">U15</option>
-                        <option value="masculin">U17</option>
-                        <option value="feminin">U18</option>
-                        <option value="masculin">U20</option>
-                        <option value="feminin">Snior</option>
-                    </select>
-                </li>
-
-                <li class="amsb-form">
-                    surclassé ?
+                    <span>Surclassé ?</span>
                     <input class="amsb-item-input" type="checkbox" name='surclassage'/>
                 </li>
             </ul>
 
-            <button type="submit" class="amsb-button-log" name="signup" value="">Valider</button>
-
+            <button type="submit" class="amsb-button" name="signup" value="">Valider</button>
         </form>
-
     </div>
-
 </div>

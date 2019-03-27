@@ -144,8 +144,8 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
 
             //mise a jour d'un utilisateur
             if (isset($_POST["update_user"])) {
-                if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["Telephone"]) && !empty($_POST["Licence"])) {
-                    if (user_update($_POST["update_user"], protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["Telephone"]), protect($_POST["Licence"]), $c)) {
+                if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["telephone"]) && !empty($_POST["licence"])) {
+                    if (user_update($_POST["update_user"], protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["telephone"]), protect($_POST["licence"]), $c)) {
                         $id = $_POST["update_user"];
                         $role_list = get_roles_list($c);
                         $user_role_list = get_role_user_by_id($id, $c);
