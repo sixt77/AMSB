@@ -66,18 +66,17 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
         if (isset($_SESSION['stat']) && isset($_SESSION['id_leader'])) {
             //incription d'un licencé
             if (isset($_POST["signup"])) {
-                if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["telephone"]) && !empty($_POST["licence"]) && !empty($_POST["sex"])) {
-                    if (user_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["telephone"]), protect($_POST["licence"]), protect($_POST["sex"]), protect($_POST["categorie"]), protect($_POST["surclassage"]), $c)) {
+                if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["telephone"]) && !empty($_POST["licence"]) && !empty($_POST["sexe"])) {
+                    if (user_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["telephone"]), protect($_POST["licence"]), protect($_POST["sexe"]), protect($_POST["categorie"]), protect($_POST["surclassage"]), $c)) {
                         $id = $c->insert_id;
-                        if(isset($_FILES)){
+                        if(($_FILES['image']['size']>0)){
                             $message = upload_image($id);
                             if($message !== true){
                                 $page = "erreur_message";
-                            }else{
-                                $role_list = get_roles_list($c);
-                                $page = "role_selection";
                             }
                         }
+                        $role_list = get_roles_list($c);
+                        $page = "role_selection";
                     } else {
                         $page = "erreur";
                     }

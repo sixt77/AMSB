@@ -246,6 +246,35 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
             }
         }
 
+        //permet de recupérer les notifications match d'un joueurs et les infos de ce match
+        if ($_GET['action'] == "get_player_notification") {
+            if (isset($_GET["user_id"])) {
+                $match_list = get_notification_list($_GET['user_id'], $c);
+                if (isset($match_list)) {
+                    write_json($match_list);
+                } else {
+                    write_json(null);
+                }
+            }
+        }
+
+        //permet de valider une notification avec un id user
+        if ($_GET['action'] == "valider_notification") {
+            if (isset($_GET["notification_id"])) {
+                if($match_list = valid_notification($_GET['notification_id'], $c)){
+                    $data =true;
+                }else{
+                    $data = false;
+                }
+                if (isset($data)) {
+                    write_json($data);
+                } else {
+                    write_json(null);
+                }
+            }
+        }
+
+
         $page = "json";
     }
 }

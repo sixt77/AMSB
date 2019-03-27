@@ -54,7 +54,7 @@
                     <span>Photo de la licence</span>
                     <label class="fileContainer">
                         Cliquez ici pour télécharger la photo !
-                        <input type="file"/>
+                        <input type="file" name="image">
                     </label>
                 </li>
 
