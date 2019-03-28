@@ -27,7 +27,7 @@
 
                 <li class="amsb-form">
                     <span>Date de naissance :</span>
-                    <input class="amsb-item-input" type="date" name='dateDeNaissance' onchange="verif_date(this.valueAsNumber, 'parent_form')" required/>
+                    <input class="amsb-item-input" id="input_birth_day" type="date" name='dateDeNaissance' onchange="verif_date(this.valueAsNumber, 'parent_form')" required/>
                 </li>
 
                 <li class="amsb-form">
@@ -79,8 +79,13 @@
                     <span>Surclassé ?</span>
                     <input class="amsb-item-input" type="checkbox" name='surclassage'/>
                 </li>
+                <li class="amsb-form">
+                    <span>ajout parent :</span>
+                    <input class="amsb-item-input" type="button" onclick="add_parent_form('parent_form', count_class('parent_form'))">
+                </li>
+                <div id="parent_form"></div>
             </ul>
-            <div id="parent_form"></div>
+
             <button type="submit" class="amsb-button" name="signup" value="">Valider</button>
         </form>
     </div>

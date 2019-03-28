@@ -6,12 +6,23 @@ function create_element($tag, $id, $class, $onclick, $html){
     if($html != "" && $html != undefined)item.innerHTML =$html;
     return item;
 }
-function create_input($type, $id, $class, $placeholder){
+function create_input($type, $id, $class, $name, $required){
     var item = document.createElement("input");
     item.type = $type;
     if($id != "" && $id != undefined)item.setAttribute("id", $id);
     if($class != "" && $class != undefined)item.setAttribute("class", $class);
-    if($value != "" && $value != undefined)item.setAttribute("placeholder", $placeholder);
+    if($name != "" && $name != undefined)item.setAttribute("name", $name);
+    if($required != "" && $required != undefined)item.setAttribute("required", 'required');
+    return item;
+}
+
+function create_button($id, $class, $value, $onclick){
+    var item = document.createElement("input");
+    item.type = "button";
+    if($id != "" && $id != undefined)item.setAttribute("id", $id);
+    if($class != "" && $class != undefined)item.setAttribute("class", $class);
+    if($onclick != "" && $onclick != undefined)item.setAttribute( "onclick", $onclick);
+    if($value != "" && $value != undefined)item.value = $value;
     return item;
 }
 
@@ -73,6 +84,11 @@ function remove_class($class) {
     $( "."+$class+"" ).remove();
 }
 
+function remove_id($id) {
+    $( "#"+$id+"" ).remove();
+}
+
+
 function count_class($class){
     return $( "."+$class+"" ).length;
 }
@@ -87,14 +103,58 @@ function isMajor(date) {
 }
 
 function add_parent_form(id, incr) {
-    document.getElementById(id).appendChild(create_element(DIV, "form_"+incr, "parent_form", "", ""));
-    document.getElementById("form_"+incr).appendChild(create_element(DIV, "", "parent_form", "", ""));
-    document.getElementById("form_"+incr).appendChild(create_input("tex", "", "nom",))
+    //ajout nom
+    document.getElementById(id).appendChild(create_element("LI", "form_last_name"+incr, "parent_form amsb-form", "", "parent "+incr+" :"));
+    document.getElementById("form_last_name"+incr).appendChild(create_element("span", "", "", "", "nom :"));
+    document.getElementById("form_last_name"+incr).appendChild(create_element("label", "form_label_"+incr, "", "", ""));
+    document.getElementById("form_last_name"+incr).appendChild(create_input("text", "", "amsb-item-input","parent"+incr+"_last_name", "required"));
 
+    //ajout prénom
+    document.getElementById(id).appendChild(create_element("LI", "form_first_name"+incr, "amsb-form", "", ""));
+    document.getElementById("form_first_name"+incr).appendChild(create_element("span", "", "", "", "prenom :"));
+    document.getElementById("form_first_name"+incr).appendChild(create_element("label", "form_label_"+incr, "", "", ""));
+    document.getElementById("form_first_name"+incr).appendChild(create_input("text", "", "amsb-item-input","parent"+incr+"_first_name", "required"));
+
+    //ajout email
+    document.getElementById(id).appendChild(create_element("LI", "form_mail"+incr, "amsb-form", "", ""));
+    document.getElementById("form_mail"+incr).appendChild(create_element("span", "", "", "", "email :"));
+    document.getElementById("form_mail"+incr).appendChild(create_element("label", "form_label_"+incr, "", "", ""));
+    document.getElementById("form_mail"+incr).appendChild(create_input("text", "", "amsb-item-input","parent"+incr+"_mail", "required"))
+
+    //ajout mdp
+    document.getElementById(id).appendChild(create_element("LI", "form_password"+incr, "amsb-form", "", ""));
+    document.getElementById("form_password"+incr).appendChild(create_element("span", "", "", "", "mot de passe :"));
+    document.getElementById("form_password"+incr).appendChild(create_element("label", "form_label_"+incr, "", "", ""));
+    document.getElementById("form_password"+incr).appendChild(create_input("text", "", "amsb-item-input","parent"+incr+"_password", "required"));
+
+    //ajout telephone
+    document.getElementById(id).appendChild(create_element("LI", "form_phone"+incr, "amsb-form", "", ""));
+    document.getElementById("form_phone"+incr).appendChild(create_element("span", "", "", "", "telephone :"));
+    document.getElementById("form_phone"+incr).appendChild(create_element("label", "form_label_"+incr, "", "", ""));
+    document.getElementById("form_phone"+incr).appendChild(create_input("text", "", "amsb-item-input","parent"+incr+"_phone", "required"));
+
+    //suppression formulaire
+    document.getElementById(id).appendChild(create_element("LI", "form_delete_button"+incr, "amsb-form", "", ""));
+    document.getElementById("form_phone"+incr).appendChild(create_button("button", "amsb-item-input", "X","delete_parent_form(document.getElementById('input_birth_day').valueAsNumber,"+incr+");"));
+
+
+}
+
+function delete_parent_form(date, incr){
+    if(isMajor(date)===true || count_class("parent_form")>1){
+        remove_id("form_last_name"+incr);
+        remove_id("form_first_name"+incr);
+        remove_id("form_mail"+incr);
+        remove_id("form_password"+incr);
+        remove_id("form_phone"+incr);
+        remove_id("form_delete_button"+incr);
+    }else{
+        alert('il faut au moins un parent pour un licencier mineur')
+    }
 }
 
 function verif_date(date, id) {
     if(!isMajor(date) && count_class("parent_form")===0){
-        console.log('creer form');
+        add_parent_form(id, count_class("parent_form")+1);
     }
 }
