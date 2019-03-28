@@ -145,11 +145,12 @@ function add_parent_form(id, incr) {
 
 function delete_parent_form(date){
     if(isMajor(date)===true || count_class("parent_form")>1){
-        remove_id("form_last_name"+count_class("parent_form"));
-        remove_id("form_first_name"+count_class("parent_form"));
-        remove_id("form_mail"+count_class("parent_form"));
-        remove_id("form_password"+count_class("parent_form"));
-        remove_id("form_phone"+count_class("parent_form"));
+        nbclass = count_class("parent_form");
+        remove_id("form_last_name"+nbclass);
+        remove_id("form_first_name"+nbclass);
+        remove_id("form_mail"+nbclass);
+        remove_id("form_password"+nbclass);
+        remove_id("form_phone"+nbclass);
         if(count_class("parent_form")===0){
             remove_id("form_delete_button");
         }

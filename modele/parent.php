@@ -34,6 +34,20 @@ function add_children($id_joueurs, $id_parents, $c) {
     }
 }
 
+//relie un parent avec des enfants
+//renvoie true ou false suivant si la requette fonctionne
+function add_one_children($id_joueurs, $id_parents, $c) {
+    $i = 0;
+    $sql = "INSERT INTO `joueurs_parents`(`id_joueurs`, `id_parents`, `validation`) VALUES ('$id_joueurs','$id_parents','1')";
+    //execution
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 
 //renvoie la listes des informations des parents du joueur
 function get_parent_info_by_player_id($player_id, $c){

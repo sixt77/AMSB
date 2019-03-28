@@ -71,8 +71,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                     if(!isset($_POST['surclassage'])){
                         $_POST["surclassage"] = false;
                     }
-                    var_dump($_POST);
-                    exit;
+
                     if (user_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["telephone"]), protect($_POST["licence"]), protect($_POST["sexe"]), protect($_POST["categorie"]), protect($_POST["surclassage"]), $c)) {
                         $id = $c->insert_id;
                         if(($_FILES['image']['size']>0)){
@@ -81,6 +80,16 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                                 $page = "erreur_message";
                             }
                         }
+                        $i = 1;
+
+                        while(isset($_POST['parent'.$i.'_last_name']) && isset($_POST['parent'.$i.'_first_name']) && isset($_POST['parent'.$i.'_mail']) && isset($_POST['parent'.$i.'_password']) && isset($_POST['parent'.$i.'_phone'])){
+                            parent_signup(protect($_POST['parent'.$i.'_last_name']), protect($_POST['parent'.$i.'_first_name']), protect($_POST['parent'.$i.'_mail']), protect($_POST['parent'.$i.'_password']), protect($_POST['parent'.$i.'_phone']), $c);
+                            $id_parent = $c->insert_id;
+                            add_one_children($id, $id_parent, $c);
+                            $i++;
+                        }
+                        var_dump($_POST);
+                        exit;
                         $role_list = get_roles_list($c);
                         $page = "role_selection";
                     } else {
