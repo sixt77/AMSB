@@ -1,56 +1,67 @@
 <div id="display_match_list" class="amsb-container-right">
     <div class="amsb-container-right-item">
 
-        <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, this.value, items, 'user_div')" placeholder="Recherche..">
+        <h2 class="amsb-form-item-title">Liste des matchs</h2>
 
+        <div class="amsb-display">
+            <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, this.value, items, 'user_div')" placeholder="Recherche..">
 
-        <?php
-        foreach ((array) $match_data as $data){
+            <select id="categorie_select" name="categorie" onchange="sort_element_by_categorie(this.value, document.getElementById('surclassage').checked, document.getElementById('search_bar').value, items, 'user_div')">
+                <option value="all">toutes</option>
+                <option value="U9">U9</option>
+                <option value="U11">U11</option>
+                <option value="U13">U13</option>
+                <option value="U15">U15</option>
+                <option value="U17">U17</option>
+                <option value="U18">U18</option>
+                <option value="U20">U20</option>
+                <option value="Senior">Senior</option>
+            </select>
 
-            echo '<ul>';
+            <ul id="reference_display" class="user_div_reference">
+                <li>Equipe 1</li>
+                <li>Equipe 2</li>
+                <li>Lieu</li>
+                <li>Date</li>
+            </ul>
 
-            echo '<li class="amsb-display-item">';
+            <div class="amsb-display-scroll">
+                <?php
 
-            //afficher l'id du match :
-            echo $data['match']['id'];
+                foreach ((array) $match_data as $data){
 
-            echo '</li>';
-            echo '<li class="amsb-display-item">';
+                    echo '<ul class="user_div">';
+                    //afficher le nom de l'équipe 1 :
+                    if (isset($data['team'][0])){
+                        echo '<li>';
+                        echo $data['team'][0]['nom'];
+                        echo '</li>';
+                    }
+                    //afficher le nom de l'équipe 2 :
+                    if (isset($data['team'][1])){
+                        echo '<li>';
+                        echo $data['team'][1]['nom'];
+                        echo '</li>';
+                    }
 
-            //afficher la date :
-            echo date('d/m/Y',$data['match']['date']);
+                    //afficher le lieux
+                    echo '<li>';
+                    echo $data['match']['lieux'];
+                    echo '</li>';
 
-            echo '</li>';
-            echo '<li class="amsb-display-item">';
+                    //afficher la date :
+                    echo '<li>';
+                    echo date('d/m/Y',$data['match']['date']);
+                    echo '</li>';
 
-            //afficher le lieux
-            echo $data['match']['lieux'];
+                    echo '</ul>';
 
-            echo '</li>';
+                }
+                ?>
 
+            </div>
 
-            //afficher le nom de l'équipe 1 :
-            if (isset($data['team'][0])){
-                echo '<li class="amsb-display-item">';
-                echo $data['team'][0]['nom'];
-                echo '</li>';
-            }
-
-
-
-
-
-            //afficher le nom de l'équipe 2 :
-            if (isset($data['team'][1])){
-                echo '<li class="amsb-display-item">';
-                echo $data['team'][1]['nom'];
-                echo '</li>';
-            }
-
-
-
-        }
-        ?>
+        </div>
 
     </div>
 

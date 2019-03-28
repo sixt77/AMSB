@@ -32,6 +32,10 @@ a {
     color: #000;
 }
 
+label {
+    cursor: pointer;
+}
+
 @supports (pointer-events: none) and
       ((-webkit-appearance: none) or
       (-moz-appearance: none) or
@@ -361,7 +365,12 @@ a {
 \*********************************************************************************/
 
 
-.amsb-container-right-item form ul {
+#form_list_team li {
+    width: 100%;
+    text-align: center;
+}
+
+.amsb-form-user_sub_form ul {
     overflow-y: scroll;
     max-height: calc(100vh - 280px);
     max-width: 600px;
@@ -508,7 +517,8 @@ a {
 }
 
 .amsb-form-item-title-h3 {
-    font-size: 18;
+    font-size: 18px;
+    margin-bottom: 30px;
 }
 
 
@@ -527,7 +537,7 @@ a {
 
 .amsb-display-scroll {
     overflow: scroll;
-    max-height: calc(100vh - 264px);
+    max-height: calc(100vh - 400px);
 
 }
 
@@ -549,7 +559,7 @@ a {
 }
 
 .amsb-display li {
-    width: calc(100%/7);
+    width: 100%;
 }
 
 .amsb-display-item {
@@ -585,7 +595,7 @@ a {
 .amsb-display-item-text {
     line-height: 40px;
     padding-left: 20px;
-    width: 85%;
+    width: 85% !important;
     font-size: 14px;
 }
 
@@ -662,12 +672,13 @@ a {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid #dddddd;
 }
 
-.user_div li {
+.user_div li, .user_div label li {
     line-height: 25px;
-    border-bottom: 1px solid #dddddd;
     font-size: 12px;
+    padding-left: 15px;
 }
 
 
@@ -680,6 +691,5 @@ a {
 
 .user_div_reference li {
     font-size: 18px;
-    width: calc(100%/7);
     padding-left: 10px;
 }
