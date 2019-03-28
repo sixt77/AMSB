@@ -84,6 +84,7 @@
                     <input class="amsb-item-input" type="button" onclick="add_parent_form('parent_form', count_class('parent_form')+1)">
                 </li>
                 <div id="parent_form"></div>
+                <div id="parent_form_delete_button"></div>
             </ul>
 
             <button type="submit" class="amsb-button" name="signup" value="">Valider</button>
