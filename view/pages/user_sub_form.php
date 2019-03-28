@@ -64,14 +64,14 @@
                     <span>Catégorie :</span>
                     <label for="categorie_select">
                         <select id="categorie_select" name="categorie">
-                            <option value="masculin">U9</option>
-                            <option value="feminin">U11</option>
-                            <option value="masculin">U13</option>
-                            <option value="feminin">U15</option>
-                            <option value="masculin">U17</option>
-                            <option value="feminin">U18</option>
-                            <option value="masculin">U20</option>
-                            <option value="feminin">Snior</option>
+                            <option value="U9">U9</option>
+                            <option value="U11">U11</option>
+                            <option value="U13">U13</option>
+                            <option value="U15">U15</option>
+                            <option value="U17">U17</option>
+                            <option value="U18">U18</option>
+                            <option value="U20">U20</option>
+                            <option value="Senior">Senior</option>
                         </select>
                     </label>
                 </li>
