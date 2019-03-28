@@ -490,7 +490,34 @@ a {
 
 
 .amsb-display {
+    overflow-y: scroll;
+    max-height: calc(100vh - 100px);
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    padding: 30px 20px;
+}
 
+.amsb-display-searchBar {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    -webkit-appearance: none;
+    border: 1px solid #ddd;
+    padding: 5px 5px;
+    border-radius: 3px;
+    line-height: 24px;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.amsb-display-searchBar:focus {
+    width: 100%;
+}
+
+.amsb-display li {
+    width: calc(100%/7);
 }
 
 .amsb-display-item {
@@ -562,4 +589,29 @@ a {
 }
 .user_list{
     width: 600px;
+}
+
+.user_div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user_div li {
+    line-height: 25px;
+    border-bottom: 1px solid #dddddd;
+}
+
+
+.user_div_reference {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.user_div_reference li {
+    font-size: 18px;
+    width: calc(100%/7);
+    padding-left: 10px;
 }
