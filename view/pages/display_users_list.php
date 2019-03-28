@@ -24,7 +24,7 @@
 
 
         <div  class="amsb-display">
-            <input type="text" class="amsb-display-searchBar" onchange="sort_element(this.value, items)" placeholder="Recherche..">
+            <input type="text" class="amsb-display-searchBar" onchange="sort_element(this.value, items, 'user_div')" placeholder="Recherche..">
 
             <ul id="reference_display" class="user_div_reference">
                 <li>Nom</li>

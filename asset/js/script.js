@@ -11,7 +11,7 @@ function sort_element(str, array, id) {
     var j = 0;
     var array2 = new Array();
     for(var i in array){
-        if(array[i][1].includes(str)||array[i][2].includes(str)||array[i][3].includes(str)||array[i][4].includes(str)){
+        if(array[i][1].toLowerCase().includes(str.toLowerCase())||array[i][2].toLowerCase().includes(str.toLowerCase())||array[i][3].toLowerCase().includes(str.toLowerCase())||array[i][4].toLowerCase().includes(str.toLowerCase())||array[i][5].toLowerCase().includes(str.toLowerCase())||array[i][6].toLowerCase().includes(str.toLowerCase())||array[i][7].toLowerCase().includes(str.toLowerCase())){
             array2[j] = array[i];
             j++;
         }
