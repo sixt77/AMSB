@@ -1,5 +1,6 @@
 <div id="display_users_list" class="amsb-container-right">
     <div class="amsb-container-right-item">
+
         <script>
             <?php
 
@@ -19,6 +20,7 @@
             ?>
         </script>
 
+        <h2 class="amsb-form-item-title">Liste des licenciers</h2>
 
         <div  class="amsb-display">
             <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, this.value, items, 'user_div')" placeholder="Recherche..">
