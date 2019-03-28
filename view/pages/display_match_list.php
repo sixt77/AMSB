@@ -25,18 +25,27 @@
             echo $data['match']['lieux'];
 
             echo '</li>';
-            echo '<li class="amsb-display-item">';
+
 
             //afficher le nom de l'équipe 1 :
-            echo $data['team'][0]['nom'];
+            if (isset($data['team'][0])){
+                echo '<li class="amsb-display-item">';
+                echo $data['team'][0]['nom'];
+                echo '</li>';
+            }
 
-            echo '</li>';
-            echo '<li class="amsb-display-item">';
+
+
+
 
             //afficher le nom de l'équipe 2 :
-            echo $data['team'][1]['nom'];
+            if (isset($data['team'][1])){
+                echo '<li class="amsb-display-item">';
+                echo $data['team'][1]['nom'];
+                echo '</li>';
+            }
 
-            echo '</li>';
+
 
         }
         ?>

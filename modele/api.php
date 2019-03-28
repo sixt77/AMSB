@@ -3,7 +3,6 @@
 
 
 function write_json($data) {
-    var_dump($data);
 //format the data
     header("Access-Control-Allow-Origin: *");
     $formattedData = json_encode($data);

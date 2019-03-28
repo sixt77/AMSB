@@ -22,7 +22,7 @@
             ?>
         </script>
 
-        <input type="text" onchange="sort_element(this.value, items)">
+        <input type="text" onchange="sort_element(this.value, items, 'user_div')">
         <?php
         foreach ((array) $users_list as $user){
             echo'<div id="user_'.$user['id'].'" class="user_div">';
@@ -38,7 +38,7 @@
             $i++;
         }
         ?>
-        <div id="user_field" class="user_list"></div>
+
     </div>
 
 </div>

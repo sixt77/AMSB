@@ -60,7 +60,7 @@ WHERE MEC.id_coachs = '$coach_id' AND MEC.id_matchs = '$match_id'");
 function get_matchs_by_coach_id($id_coachs, $c){
     $sql = ("SELECT id_matchs
 FROM matchs_equipes_coachs
-WHERE id_arbitres = '$id_coachs'");
+WHERE id_coachs = '$id_coachs'");
     $result = mysqli_query($c,$sql);
     $matchs_list= array ();
     $loop = 0;

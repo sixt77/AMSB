@@ -27,7 +27,9 @@
 
                 <li class="amsb-form">
                     <span>Date de naissance :</span>
-                    <input class="amsb-item-input" type="date" name='dateDeNaissance' required/>
+                    <input class="amsb-item-input" type="date" name='dateDeNaissance' onchange="isMajor(this.valueAsNumber)" {
+
+                    }" required/>
                 </li>
 
                 <li class="amsb-form">

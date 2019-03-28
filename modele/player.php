@@ -38,4 +38,17 @@ INNER JOIN utilisateurs U ON J.id_utilisateurs = U.id");
     return $players_list;
 }
 
+//retourne les info précise d'un joueur
+function get_player_profil($player_id, $c){
+    $sql = ("SELECT * FROM utilisateurs");
+    $result = mysqli_query($c,$sql);
+    $users_info= array ();
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $users_info= $donnees;
+    }
+    return $users_info;
+}
+
+
 ?>

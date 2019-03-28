@@ -7,7 +7,7 @@ function create_element($tag, $id, $class, $onclick, $html){
     return item;
 }
 
-function sort_element(str, array) {
+function sort_element(str, array, id) {
     var j = 0;
     var array2 = new Array();
     for(var i in array){
@@ -17,7 +17,7 @@ function sort_element(str, array) {
         }
     }
     console.log(array2);
-    hide_class("user_div");
+    hide_class(id);
     for(var i in array2){
         show_id('user_'+array2[i][0]);
     }
@@ -34,4 +34,15 @@ function show_id($id) {
 
 function remove_class($class) {
     $( "."+$class+"" ).remove();
+}
+
+function isMajor(date) {
+    console.log(date);
+    if((Date.now()-567993600)> date){
+        console.log('majeur');
+    }else{
+        console.log('mineur');
+    }
+
+
 }
