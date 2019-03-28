@@ -64,9 +64,13 @@ function sort_element_by_categorie(cat, surclassage, str, array, id) {
             }
         }
     }
+
     array2 = sort_element(str, array2);
+    console.log('ok');
+    console.log(array2);
     hide_class(id);
     for(var i in array2){
+        console.log('user_'+array2[i][0]);
         show_id('user_'+array2[i][0]);
     }
 

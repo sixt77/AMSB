@@ -1,3 +1,22 @@
+<script>
+    <?php
+
+    $i = 0;
+    echo"var items = [";
+    foreach ((array) $user_list as $user){
+        if($i == 0){
+            echo"['".$user["id"]."','".$user["nom"]."','".$user["prenom"]."','".$user["mail"]."','".$user["telephone"]."','".$user["licence"]."','".$user["sex"]."','".$user["categorie"]."','".$user["surclassage"]."']";
+        }else{
+            echo",['".$user["id"]."','".$user["nom"]."','".$user["prenom"]."','".$user["mail"]."','".$user["telephone"]."','".$user["licence"]."','".$user["sex"]."','".$user["categorie"]."','".$user["surclassage"]."']";
+        }
+        $i++;
+    }
+    echo"];";
+
+
+    ?>
+    console.log(items);
+</script>
 <div id="user_edit" class="amsb-container-right">
     <div class="amsb-container-right-item">
         <h2 class="amsb-form-item-title">Selectionnez un licencier à modifier</h2>
@@ -29,27 +48,24 @@
             <form action="index.php" method="post">
                 <div class="amsb-display-scroll">
                     <?php
-                    $i = 1;
+                    $i==1;
                     foreach ((array) $user_list as $user){
-                        echo'<ul>
-                                <label class="user_div" for="user_id_'.$i.'">
-                                    <li>'.$user["nom"].'</li>
-                                    <li>'.$user['prenom'].'</li>
-                                    <li>'.$user['mail'].'</li>
-                                    <li>'.$user['telephone'].'</li>
-                                    <li>'.$user['licence'].'</li>
-                                    <li>'.$user['sex'].'</li>
-                                    <li>'.$user['categorie'].'</li>';
-                                        if ($i == 1) {
-                                            echo '<input type="radio" id="user_id_'.$i.'" name="user_id" value="'.$user['id'].'" checked>';
-                                        } else {
-                                            echo '<input type="radio" id="user_id_'.$i.'" name="user_id" value="'.$user['id'].'">';
-                                        }
-                        echo '</label>
-                            </ul>';
+                        echo'<ul id="user_'.$user['id'].'" class="user_div">';
+                        echo'<li>'.$user['nom'].'</li>';
+                        echo'<li>'.$user['prenom'].'</li>';
+                        echo'<li>'.$user['mail'].'</li>';
+                        echo'<li>'.$user['telephone'].'</li>';
+                        echo'<li>'.$user['licence'].'</li>';
+                        echo'<li>'.$user['sex'].'</li>';
+                        echo'<li>'.$user['categorie'].'</li>';
+                        if ($i == 1) {
+                            echo '<input type="radio" id="user_id_'.$i.'" name="user_id" value="'.$user['id'].'" checked>';
+                        } else {
+                            echo '<input type="radio" id="user_id_'.$i.'" name="user_id" value="'.$user['id'].'">';
+                        }
+                        echo'</ul>';
                         $i++;
                     }
-
                     ?>
 
                 </div>
