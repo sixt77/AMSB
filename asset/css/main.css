@@ -43,6 +43,10 @@ a {
 
 }
 
+.margin-auto {
+    margin: 0 auto;
+}
+
 .fileContainer {
     overflow: hidden;
     position: relative;
@@ -166,6 +170,10 @@ a {
     box-shadow: 0 1px 3px rgba(0,0,0,.13);
 }
 
+#home label {
+    margin-bottom: 10px;
+}
+
 .amsb-home form {
     display: flex;
     flex-direction: column;
@@ -214,12 +222,6 @@ a {
     box-shadow: 0 0 2px rgba(30,140,190,.8);
 }
 
-.amsb-button {
-    display: inline-block;
-    padding: 10px 40px;
-    margin-top: 30px;
-}
-
 .amsb-button,.amsb-button-log {
     margin: 20px auto 0;
     border: 1px solid #D5211D;
@@ -227,6 +229,7 @@ a {
     font-family: "Roboto";
     font-size: 16px;
     width: 80px;
+    display: block;
     padding: 5px 15px;
     color: #FFF;
     cursor: pointer;
@@ -368,17 +371,23 @@ a {
     padding: 30px 20px;
 }
 
+.amsb-form-coach ul,.amsb-form-joueur ul {
+    width: 90% !important;
+    max-height: calc(100vh - 380px) !important;
+
+}
+
 .amsb-form-user_edit ul {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    max-width: 900px !important;
+    max-width: 1000px !important;
     width: 100% !important;
 }
 
 .amsb-form-user_edit {
-    max-width: 900px !important;
+    max-width: 1000px !important;
     width: 100% !important;
     display: flex;
     flex-direction: column;
@@ -393,6 +402,21 @@ a {
 
 .amsb-form {
     margin-bottom: 15px;
+}
+
+.amsb-form-coach {
+    width: 50%;
+    float: left;
+}
+
+.amsb-form-joueur {
+    width: 50%;
+    float: right;
+}
+
+.amsb-form-coach-joueur {
+    display: flex;
+    flex-direction: row;
 }
 
 .amsb-form span {
@@ -478,9 +502,13 @@ a {
     text-transform: uppercase;
     height: 50px;
     line-height: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     text-align: left;
     font-size: 26px;
+}
+
+.amsb-form-item-title-h3 {
+    font-size: 18;
 }
 
 
@@ -490,13 +518,17 @@ a {
 
 
 .amsb-display {
-    overflow-y: scroll;
-    max-height: calc(100vh - 100px);
     max-width: 1000px;
     width: 100%;
     margin: 0 auto;
     box-shadow: 0 1px 3px rgba(0,0,0,.13);
     padding: 30px 20px;
+}
+
+.amsb-display-scroll {
+    overflow: scroll;
+    max-height: calc(100vh - 264px);
+
 }
 
 .amsb-display-searchBar {
@@ -521,23 +553,46 @@ a {
 }
 
 .amsb-display-item {
-    height: 80px;
+    height: 40px;
     display: flex;
-    width: 270px;
+    max-width: 100%;
     align-items: center;
     border: 1px solid;
-    margin-bottom: 5px;
+    margin: 0 auto 10px;
+}
+
+.amsb-display-item-role {
+    margin-bottom: 30px;
 }
 
 .amsb-display-item label {
-    height: 80px;
-    width: 270px;
+    height: 40px;
+    width: 300px;
     cursor: pointer;
+    margin: 0 auto;
+}
+
+.amsb-display-item label span {height: 40px;line-height: 40px;display: flex;flex-direction: row;width: 45%;float: left;padding-left: 10px;}
+
+.amsb-display-item label input {
+    float: right;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    width: 10%;
 }
 
 .amsb-display-item-text {
-    line-height: 30px;
+    line-height: 40px;
     padding-left: 20px;
+    width: 85%;
+    font-size: 14px;
+}
+
+.amsb-display-item-roleDirigeant-text {
+    line-height: 40px;
+    padding-left: 30px;
+    width: 85% !important;
 }
 
 .amsb-display-item-radio {
@@ -550,6 +605,7 @@ a {
 }
 
 .amsb-display-item-radio-item {
+    /*
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -561,20 +617,30 @@ a {
     cursor: pointer;
     outline: none;
     position: relative;
+    */
+    float: right;
+    display: flex;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    height: 40px;
 }
 
 .amsb-display-item-radio-item:checked::before {
+    /*
     height: 40px;
     width: 40px;
     content: '';
     position: absolute;
     display: inline-block;
-    font-size: 26.66667px;
+    font-size: 26px;
     text-align: center;
     line-height: 40px;
+    */
 }
 
 .amsb-display-item-radio-item:checked::after {
+    /*
     -webkit-animation: click-wave 0.65s;
     -moz-animation: click-wave 0.65s;
     animation: click-wave 0.65s;
@@ -583,6 +649,7 @@ a {
     display: block;
     position: relative;
     z-index: 100;
+    */
 }
 .user_value{
     float: left;
@@ -600,6 +667,7 @@ a {
 .user_div li {
     line-height: 25px;
     border-bottom: 1px solid #dddddd;
+    font-size: 12px;
 }
 
 

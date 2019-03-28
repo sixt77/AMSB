@@ -1,6 +1,8 @@
-<div class="amsb-container-right">
-
+<div id="display_match_list" class="amsb-container-right">
     <div class="amsb-container-right-item">
+
+        <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, this.value, items, 'user_div')" placeholder="Recherche..">
+
 
         <?php
         foreach ((array) $match_data as $data){

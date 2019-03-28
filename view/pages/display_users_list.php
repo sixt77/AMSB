@@ -1,7 +1,4 @@
-<div class="amsb-container-right">
-    <?php
-    //var_dump($users_list);
-    ?>
+<div id="display_users_list" class="amsb-container-right">
     <div class="amsb-container-right-item">
         <script>
             <?php
@@ -46,6 +43,9 @@
                 <li>Sexe</li>
                 <li>Catégorie</li>
             </ul>
+
+            <div class="amsb-display-scroll">
+
         <?php
         foreach ((array) $users_list as $user){
             echo'<ul id="user_'.$user['id'].'" class="user_div">';
@@ -61,6 +61,7 @@
             $i++;
         }
         ?>
+            </div>
 
         </div>
     </div>

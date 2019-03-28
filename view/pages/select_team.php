@@ -2,45 +2,36 @@
 
     <div class="amsb-container-right-item">
 
-        <h2 class="amsb-form-item-title">
-            Modification d'équipe !
-        </h2>
+        <h2 class="amsb-form-item-title">Modification d'équipe !</h2>
+
+        <h3 class="amsb-form-item-title-h3">Liste des équipes :</h3>
 
         <form action="index.php" method="post">
 
             <ul>
-                <li class="amsb-form">
-                    <h2 class="amsb-form-item-title">
-                        Liste des équipes :
-                    </h2>
-                </li>
-
-
                 <?php
                 $i = 1;
                 foreach ((array) $team_list as $team){
                     echo'
                     <li class="amsb-display-item">
-                        <span class="amsb-display-item-text">
-                            '.$team["nom"].'
-                        </span>
-                        <span class="amsb-display-item-radio">
-                            <input class="amsb-display-item-radio-item" type="radio" id="'.$i.'" name="team" value="'.$team['id_equipes'].'">
-                        </span>
-                    </li>
-                ';
+                        <label for="'.$i.'">
+                            <span class="amsb-display-item-text">'.$team["nom"].'</span>';
+                            if ($i == 1) {
+                                echo '<input class="amsb-display-item-radio-item" type="radio" id="'.$i.'" name="team" value="'.$team['id_equipes'].'" checked>';
+                            } else {
+                                echo '<input class="amsb-display-item-radio-item" type="radio" id="'.$i.'" name="team" value="'.$team['id_equipes'].'">';
+                            }
+                            echo '</label>
+                    </li>';
                     $i++;
                 }
 
                 ?>
 
-                <li class="amsb-form">
-                    <button type="submit" class="amsb-button-confirm" name="update_team_form" value="">
-                        Valider
-                    </button>
-                </li>
 
             </ul>
+
+            <button type="submit" class="amsb-button" name="update_team_form" value="">Valider</button>
 
         </form>
 

@@ -1,96 +1,78 @@
-<div class="amsb-container-right">
-
+<div id="role_selction" class="amsb-container-right">
     <div class="amsb-container-right-item">
+        <h2 class="amsb-form-item-title">Séléctionnez les rôles</h2>
 
-        <form action="index.php" method="post">
-
+        <form class="amsb-form-user_sub_form" action="index.php" method="post">
             <ul>
+                <li class="amsb-display-item margin-auto">
+                    <label for="leaderCheckbox">
+                        <span class="amsb-display-item-text">Dirigeant</span>
 
-                <li class="amsb-form">
-                    <h2 class="amsb-form-item-title">
-                        Séléctionnez les rôles
-                    </h2>
-                </li>
-
-                <li class="amsb-display-item">
-                    <span class="amsb-display-item-text">
-                        Dirigeant
-                    </span>
-                    <span class="amsb-display-item-radio">
                         <input class="amsb-display-item-radio-item" type="checkbox" id="leaderCheckbox" name="Leader" value="dirigeant">
-                    </span>
+                    </label>
                 </li>
+
+                <div class="amsb-display-item-roleDirigeant">
 
                 <?php
 
                 $i = 0;
                 foreach ((array) $role_list as $role) {
-                    echo '<li class="amsb-display-item">
-                            <span class="amsb-display-item-text">
-                                - '.$role['nom'].'
-                            </span>
-                            <span class="amsb-display-item-radio">
+                    echo '<li class="amsb-display-item margin-auto">
+                            <label for="'.$i.'">
+                            <span class="amsb-display-item-roleDirigeant-text">- '.$role['nom'].'</span>
                                 <input class="amsb-display-item-radio-item" type="checkbox" id="'.$i.'" name="leader_role_list[]" value="'.$role['id_role'].'">
                             </span>
+                            </label>
                         </li>';
                     $i++;
                 }
                 ?>
 
-                <li class="amsb-display-item">
-                    <span class="amsb-display-item-text">
-                        OTM
-                    </span>
-                    <span class="amsb-display-item-radio">
+                </div>
+
+                <li class="amsb-display-item margin-auto">
+                    <label for="OTMCheckbox">
+                        <span class="amsb-display-item-text">OTM</span>
+
                         <input class="amsb-display-item-radio-item" type="checkbox" id="OTMCheckbox" name="OTM" value="otm">
-                    </span>
+                    </label>
                 </li>
 
-                <li class="amsb-display-item">
-                    <span class="amsb-display-item-text">
-                        Arbitre
-                    </span>
-                    <span class="amsb-display-item-radio">
+                <li class="amsb-display-item margin-auto">
+                    <label for="arbiterCheckbox">
+                        <span class="amsb-display-item-text">Arbitre</span>
+
                         <input class="amsb-display-item-radio-item" type="checkbox" id="arbiterCheckbox" name="Arbiter" value="arbitre">
-                    </span>
+                    </label>
                 </li>
 
-                <li class="amsb-display-item">
-                    <span class="amsb-display-item-text">
-                        Benevole
-                    </span>
-                    <span class="amsb-display-item-radio">
+                <li class="amsb-display-item margin-auto">
+                    <label for="volunteerCheckbox">
+                        <span class="amsb-display-item-text">Bénévole</span>
+
                         <input class="amsb-display-item-radio-item" type="checkbox" id="volunteerCheckbox" name="Volunteer" value="volunteer">
-                    </span>
+                    </label>
                 </li>
 
-                <li class="amsb-display-item">
-                    <span class="amsb-display-item-text">
-                        Joueur
-                    </span>
-                    <span class="amsb-display-item-radio">
-                        <input class="amsb-display-item-radio-item" type="checkbox" id="playerCheckbox" name="Player" value="player">
-                    </span>
+                <li class="amsb-display-item margin-auto">
+                    <label for="playerCheckbox">
+                        <span class="amsb-display-item-text">Joueur</span>
+
+                        <input class="amsb-display-item-radio-item" type="checkbox" id="playerCheckbox" name="Player" value="player" checked>
+                    </label>
                 </li>
 
-                <li class="amsb-display-item">
-                    <span class="amsb-display-item-text">
-                        Entraineur
-                    </span>
-                    <span class="amsb-display-item-radio">
-                        <input class="amsb-display-item-radio-item" type="checkbox" id="volunteerCheckbox" name="Coach" value="coach">
-                    </span>
+                <li class="amsb-display-item margin-auto">
+                    <label for="coachCheckbox">
+                        <span class="amsb-display-item-text">Entraineur</span>
+
+                        <input class="amsb-display-item-radio-item" type="checkbox" id="coachCheckbox" name="Coach" value="coach">
+                    </label>
                 </li>
-
-                <li class="amsb-form">
-                    <button type="submit" class="amsb-button-confirm" name="role_selection" value="<?php echo$id; ?>">
-                        Valider
-                    </button>
-
-                </li>
-
             </ul>
 
+            <button type="submit" class="amsb-button" name="role_selection" value="<?php echo$id; ?>">Valider</button>
         </form>
 
     </div>

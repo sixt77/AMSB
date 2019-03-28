@@ -1,4 +1,4 @@
-<div class="amsb-container-right">
+<div id="create_match_form" class="amsb-container-right">
 
     <div class="amsb-container-right-item">
 
@@ -16,6 +16,7 @@
             </datalist>
 
             <ul>
+
 
                 <li class="amsb-form">
                     <input class="amsb-item-input" type="date" name="date" required>

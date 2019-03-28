@@ -5,27 +5,30 @@
         <form class="amsb-form-user_sub_form" action="index.php" method="post">
             <ul>
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="text" name="nom" placeholder="Nom" value="<?php echo $user_info[1]; ?>" required>
+                    <span>Nom :</span>
+                    <input class="amsb-item-input" type="text" name="nom" value="<?php echo $user_info[1]; ?>" required>
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="text"  name='prenom' placeholder='Prenom'  value="<?php echo $user_info[2]; ?>" required/>
+                    <span>Prénom :</span>
+                    <input class="amsb-item-input" type="text" name='prenom' value="<?php echo $user_info[2]; ?>" required/>
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="text" name='email' placeholder='Adresse e-mail' value="<?php echo $user_info[3]; ?>" required/>
+                    <span>Adresse E-mail :</span>
+                    <input class="amsb-item-input" type="text" name='email' value="<?php echo $user_info[3]; ?>" required/>
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="text" placeholder='téléphone' name='telephone' value="<?php echo $user_info[4]; ?>" required/>
+                    <span>Téléphone :</span>
+                    <input class="amsb-item-input" type="text" name='telephone' value="<?php echo $user_info[4]; ?>" required/>
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="text" placeholder='licence' name='licence' value="<?php echo $user_info[5]; ?>" required/>
+                    <span>N° de licence :</span>
+                    <input class="amsb-item-input" type="text" name='licence' value="<?php echo $user_info[5]; ?>" required/>
                 </li>
 
-                <li class="amsb-form">
-                </li>
             </ul>
 
             <button type="submit" class="amsb-button" name="update_user" value="<?php echo $user_info[0]; ?>">Valider</button>
