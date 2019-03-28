@@ -27,9 +27,7 @@
 
                 <li class="amsb-form">
                     <span>Date de naissance :</span>
-                    <input class="amsb-item-input" type="date" name='dateDeNaissance' onchange="isMajor(this.valueAsNumber)" {
-
-                    }" required/>
+                    <input class="amsb-item-input" type="date" name='dateDeNaissance' onchange="verif_date(this.valueAsNumber, 'parent_form')" required/>
                 </li>
 
                 <li class="amsb-form">
@@ -82,7 +80,7 @@
                     <input class="amsb-item-input" type="checkbox" name='surclassage'/>
                 </li>
             </ul>
-
+            <div id="parent_form"></div>
             <button type="submit" class="amsb-button" name="signup" value="">Valider</button>
         </form>
     </div>

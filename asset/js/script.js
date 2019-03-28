@@ -6,6 +6,15 @@ function create_element($tag, $id, $class, $onclick, $html){
     if($html != "" && $html != undefined)item.innerHTML =$html;
     return item;
 }
+function create_input($type, $id, $class, $placeholder){
+    var item = document.createElement("input");
+    item.type = $type;
+    if($id != "" && $id != undefined)item.setAttribute("id", $id);
+    if($class != "" && $class != undefined)item.setAttribute("class", $class);
+    if($value != "" && $value != undefined)item.setAttribute("placeholder", $placeholder);
+    return item;
+}
+
 
 function sort_element(str, array) {
     var j = 0;
@@ -44,7 +53,6 @@ function sort_element_by_categorie(cat, surclassage, str, array, id) {
             }
         }
     }
-    console.log(array2);
     array2 = sort_element(str, array2);
     hide_class(id);
     for(var i in array2){
@@ -65,13 +73,28 @@ function remove_class($class) {
     $( "."+$class+"" ).remove();
 }
 
+function count_class($class){
+    return $( "."+$class+"" ).length;
+}
+
+
 function isMajor(date) {
-    console.log(date);
-    if((Date.now()-567993600)> date){
-        console.log('majeur');
+    if(Math.floor(Date.now() / 1000)-567993600 > date/1000){
+        return true;
     }else{
-        console.log('mineur');
+        return false;
     }
+}
 
+function add_parent_form(id, incr) {
+    document.getElementById(id).appendChild(create_element(DIV, "form_"+incr, "parent_form", "", ""));
+    document.getElementById("form_"+incr).appendChild(create_element(DIV, "", "parent_form", "", ""));
+    document.getElementById("form_"+incr).appendChild(create_input("tex", "", "nom",))
 
+}
+
+function verif_date(date, id) {
+    if(!isMajor(date) && count_class("parent_form")===0){
+        console.log('creer form');
+    }
 }
