@@ -71,8 +71,6 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                     if(!isset($_POST['surclassage'])){
                         $_POST["surclassage"] = false;
                     }
-                    var_dump($_POST);
-                    exit;
                     if (user_signup(protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["motDePasse"]), protect($_POST["telephone"]), protect($_POST["licence"]), protect($_POST["sexe"]), protect($_POST["categorie"]), protect($_POST["surclassage"]), $c)) {
                         $id = $c->insert_id;
                         if(($_FILES['image']['size']>0)){
