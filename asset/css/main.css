@@ -370,6 +370,10 @@ label {
     text-align: center;
 }
 
+#create_team_form {
+    overflow-y: scroll;
+}
+
 .amsb-form-user_sub_form ul {
     overflow-y: scroll;
     max-height: calc(100vh - 280px);
@@ -381,7 +385,7 @@ label {
 }
 
 .amsb-form-coach ul,.amsb-form-joueur ul {
-    width: 90% !important;
+    width: 100% !important;
     max-height: calc(100vh - 380px) !important;
 
 }
@@ -414,18 +418,16 @@ label {
 }
 
 .amsb-form-coach {
-    width: 50%;
-    float: left;
+    width: 100%;
 }
 
 .amsb-form-joueur {
-    width: 50%;
-    float: right;
+    width: 100%;
 }
 
 .amsb-form-coach-joueur {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .amsb-form span {
@@ -577,7 +579,7 @@ label {
 
 .amsb-display-item label {
     height: 40px;
-    width: 300px;
+    width: 100%;
     cursor: pointer;
     margin: 0 auto;
 }
