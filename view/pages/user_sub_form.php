@@ -64,6 +64,7 @@
                     <span>Catégorie :</span>
                     <label for="categorie_select">
                         <select id="categorie_select" name="categorie">
+                            <option value="all">acucune</option>
                             <option value="U9">U9</option>
                             <option value="U11">U11</option>
                             <option value="U13">U13</option>

@@ -71,7 +71,7 @@ function user_signup($nom, $prenom, $mail,$motDePasse, $telephone, $licence, $se
 	//cryptage du password
     $motDePasse = encrypt($motDePasse);
     //insertion des valeurs dans la bdd
-    $sql = ("INSERT INTO utilisateurs(nom, prenom, mail, motDePasse, telephone, licence, sex, categorie, surclassage) VALUES('$nom', '$prenom', '$mail', '$motDePasse', '$telephone', '$licence', '$sex', 'categorie', '$surclassage')");
+    $sql = ("INSERT INTO utilisateurs(nom, prenom, mail, motDePasse, telephone, licence, sex, categorie, surclassage) VALUES('$nom', '$prenom', '$mail', '$motDePasse', '$telephone', '$licence', '$sex', '$categorie', '$surclassage')");
 	if(mysqli_query($c,$sql)){
 		return true;
 	}
