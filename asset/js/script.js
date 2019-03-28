@@ -134,20 +134,25 @@ function add_parent_form(id, incr) {
     document.getElementById("form_phone"+incr).appendChild(create_input("text", "", "amsb-item-input","parent"+incr+"_phone", "required"));
 
     //suppression formulaire
-    document.getElementById(id).appendChild(create_element("LI", "form_delete_button"+incr, "amsb-form", "", ""));
-    document.getElementById("form_phone"+incr).appendChild(create_button("button", "amsb-item-input", "X","delete_parent_form(document.getElementById('input_birth_day').valueAsNumber,"+incr+");"));
+    if(count_class("parent_form")===1){
+        document.getElementById("parent_form_delete_button").appendChild(create_element("LI", "form_delete_button", "amsb-form", "", ""));
+        document.getElementById("form_delete_button").appendChild(create_button("button", "amsb-item-input", "X","delete_parent_form(document.getElementById('input_birth_day').valueAsNumber);"));
+
+    }
 
 
 }
 
-function delete_parent_form(date, incr){
+function delete_parent_form(date){
     if(isMajor(date)===true || count_class("parent_form")>1){
-        remove_id("form_last_name"+incr);
-        remove_id("form_first_name"+incr);
-        remove_id("form_mail"+incr);
-        remove_id("form_password"+incr);
-        remove_id("form_phone"+incr);
-        remove_id("form_delete_button"+incr);
+        remove_id("form_last_name"+count_class("parent_form"));
+        remove_id("form_first_name"+count_class("parent_form"));
+        remove_id("form_mail"+count_class("parent_form"));
+        remove_id("form_password"+count_class("parent_form"));
+        remove_id("form_phone"+count_class("parent_form"));
+        if(count_class("parent_form")===0){
+            remove_id("form_delete_button");
+        }
     }else{
         alert('il faut au moins un parent pour un licencier mineur')
     }
