@@ -88,8 +88,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                             add_one_children($id, $id_parent, $c);
                             $i++;
                         }
-                        var_dump($_POST);
-                        exit;
+
                         $role_list = get_roles_list($c);
                         $page = "role_selection";
                     } else {
