@@ -39,6 +39,23 @@ function sort_element(str, array) {
     return array2;
 }
 
+function sort_team(str, array, classe) {
+    var j = 0;
+    var array2 = new Array();
+    for(var i in array){
+        if(array[i][1].toLowerCase().includes(str.toLowerCase())){
+            array2[j] = array[i];
+            j++;
+        }
+    }
+    hide_class(classe);
+    for(var i in array2){
+        console.log('team_id_'+array2[i][0]);
+        show_id('team_id_'+array2[i][0]);
+    }
+}
+
+
 function sort_element_by_categorie(cat, surclassage, str, array, id) {
     var j = 0;
 
@@ -66,7 +83,6 @@ function sort_element_by_categorie(cat, surclassage, str, array, id) {
     }
 
     array2 = sort_element(str, array2);
-    console.log('ok');
     console.log(array2);
     hide_class(id);
     for(var i in array2){
@@ -75,6 +91,23 @@ function sort_element_by_categorie(cat, surclassage, str, array, id) {
     }
 
 }
+
+function sort_match(str, array, classe) {
+    var j = 0;
+    console.log(array);
+    var array2 = new Array();
+    for(var i in array){
+        if(array[i][1].toLowerCase().includes(str.toLowerCase())||array[i][2].toLowerCase().includes(str.toLowerCase())||array[i][3].toLowerCase().includes(str.toLowerCase())){
+            array2[j] = array[i];
+            j++;
+        }
+    }
+    hide_class(classe);
+    for(var i in array2){
+        show_id('match_'+array2[i][0]);
+    }
+}
+
 
 function hide_class($class) {
     $( "."+$class+"" ).hide();

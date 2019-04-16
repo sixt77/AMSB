@@ -1,22 +1,38 @@
 <div id="display_match_list" class="amsb-container-right">
+
+    <script>
+        <?php
+
+        $i = 0;
+        echo"var items = [";
+        foreach ((array) $match_data as $match){
+            if(!isset($match['team']['0'])){
+                $match['team']['0']['nom']=null;
+            }
+            if(!isset($match['team']['1'])){
+                $match['team']['1']['nom']=null;
+            }
+            if($i == 0){
+                echo"['".$match['match']["id"]."','".$match['match']["lieux"]."','".$match["team"]['0']['nom']."','".$match["team"]['1']['nom']."']";
+            }else{
+                echo",['".$match['match']["id"]."','".$match['match']["lieux"]."','".$match["team"]['0']['nom']."','".$match["team"]['1']['nom']."']";
+            }
+            $i++;
+        }
+        echo"];";
+
+        ?>
+
+    </script>
+
     <div class="amsb-container-right-item">
 
         <h2 class="amsb-form-item-title">Liste des matchs</h2>
 
         <div class="amsb-display">
-            <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, this.value, items, 'user_div')" placeholder="Recherche..">
+            <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_match(this.value, items, 'match_div')" placeholder="Recherche..">
 
-            <select id="categorie_select" name="categorie" onchange="sort_element_by_categorie(this.value, document.getElementById('surclassage').checked, document.getElementById('search_bar').value, items, 'user_div')">
-                <option value="all">toutes</option>
-                <option value="U9">U9</option>
-                <option value="U11">U11</option>
-                <option value="U13">U13</option>
-                <option value="U15">U15</option>
-                <option value="U17">U17</option>
-                <option value="U18">U18</option>
-                <option value="U20">U20</option>
-                <option value="Senior">Senior</option>
-            </select>
+
 
             <ul id="reference_display" class="user_div_reference">
                 <li>Equipe 1</li>
@@ -30,7 +46,7 @@
 
                 foreach ((array) $match_data as $data){
 
-                    echo '<ul class="user_div">';
+                    echo '<ul class="match_div user_div" id="match_'.$data['match']['id'].'">';
                     //afficher le nom de l'équipe 1 :
                     if (isset($data['team'][0])){
                         echo '<li>';

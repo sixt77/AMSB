@@ -1,6 +1,24 @@
 <div id="create_team_form" class="amsb-container-right">
-    <div class="amsb-container-right-item">
 
+    <div class="amsb-container-right-item">
+        <script>
+            <?php
+
+            $i = 0;
+            echo"var items = [";
+            foreach ((array) $player_list as $player){
+                if($i == 0){
+                    echo"['".$player["id"]."','".$player["nom"]."','".$player["prenom"]."','".$player["mail"]."','".$player["telephone"]."','".$player["licence"]."','".$player["sex"]."','".$player["categorie"]."','".$player["surclassage"]."']";
+                }else{
+                    echo",['".$player["id"]."','".$player["nom"]."','".$player["prenom"]."','".$player["mail"]."','".$player["telephone"]."','".$player["licence"]."','".$player["sex"]."','".$player["categorie"]."','".$player["surclassage"]."']";
+                }
+                $i++;
+            }
+            echo"];";
+
+
+            ?>
+        </script>
         <h2 class="amsb-form-item-title">Création d'équipe !</h2>
 
         <form action="index.php" method="post">
@@ -77,7 +95,7 @@
                         $i = 1;
                         foreach ((array) $player_list as $player){
                             echo'<ul>
-                                <label class="user_div" for="player_list_'.$i.'">
+                                <label class="user_div" id="user_'.$player['id'].'" for="player_list_'.$i.'">
                                     <li>'.$player["nom"].'</li>
                                     <li>'.$player['prenom'].'</li>
                                     <li>'.$player['mail'].'</li>
