@@ -1,4 +1,4 @@
-<div class="amsb-container-right">
+<div id="select_team" class="amsb-container-right">
     <script>
         <?php
 
@@ -24,30 +24,32 @@
         <h3 class="amsb-form-item-title-h3">Liste des équipes :</h3>
 
         <div  class="amsb-display">
-            <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_team(this.value, items, 'team_div')" placeholder="Recherche..">
+            <input style="width: 100%;float: none;" type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_team(this.value, items, 'team_div')" placeholder="Recherche..">
 
             <form id="form_list_team" action="index.php" method="post">
-                <div class="amsb-display-scroll">
-                        <?php
-                        $i = 1;
-                        foreach ((array) $team_list as $team){
-                            echo'<ul id="team_id_'.$team['id_equipes'].'" class="team_div">
-                                    <label for="team_id_'.$team['id_equipes'].'" class="user_div">
-                                    
-                                    <li>'.$team['nom'].'</li>';
-                            if ($i == 1) {
-                                echo '<input type="radio" id="team_id_'.$i.'" name="team" value="'.$team['id_equipes'].'" checked>';
-                            } else {
-                                echo '<input type="radio" id="team_id_'.$i.'" name="team" value="'.$team['id_equipes'].'">';
-                            }
-                            echo'</label>
-                                </ul>';
+                <div class="amsb-display-scroll" style="width: 500px;margin: auto;">
 
+                <?php
+                $i = 1;
+                foreach ((array) $team_list as $team){
+                    echo'<li class="amsb-display-item">
+                            <label for="team_id_'.$i.'" class="user_div">';
+                    if ($i == 1) {
+                        echo '<input class="input-none-displayList" type="radio" id="team_id_'.$i.'" name="team" value="'.$team['id_equipes'].'" checked>';
+                    } else {
+                        echo '<input class="input-none-displayList" type="radio" id="team_id_'.$i.'" name="team" value="'.$team['id_equipes'].'">';
+                    }
+                    echo '<span class="amsb-display-item-text">'
+                                    .$team['nom'].'
+                            </span>
+                        </label>
+                     </li>';
 
-                            $i++;
-                        }
+                    $i++;
+                }
 
-                        ?>
+                ?>
+
                 </div>
 
                 <button type="submit" class="amsb-button" name="update_team_form" value="">Valider</button>

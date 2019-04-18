@@ -413,24 +413,8 @@ label {
 
 .amsb-form-coach ul,.amsb-form-joueur ul {
     width: 100% !important;
-    max-height: calc(100vh - 380px) !important;
+    max-height: calc(100vh - 500px) !important;
     overflow-y: scroll;
-}
-
-.amsb-form-joueur label {
-    width: 100% !important;
-    max-height: calc(100vh - 380px) !important;
-    overflow-y: scroll;
-}
-
-.amsb-form-joueur label input + ul {
-    background-color: #5b9dd9;
-    display: flex;
-    flex-direction: row;
-}
-
-.amsb-form-joueur label input:checked + ul {
-    background-color: #000055;
 }
 
 .amsb-form-user_edit ul {
@@ -457,12 +441,13 @@ label {
 }
 
 .amsb-form {
-    margin-bottom: 15px;
+    width: 500px;
+    margin: auto;
 }
 
 .amsb-form-coach {
     width: 100%;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .amsb-form-joueur {
@@ -607,7 +592,7 @@ label {
 
 .amsb-display-label {
     position: relative;
-    height: 42px;
+    height: 40px;
     display: block;
     width: 150px;
     float: right;
@@ -635,6 +620,7 @@ label {
     margin: 0;
     padding: 0;
     border: none;
+    position: absolute;
 }
 
 .amsb-display-surclasse:checked + .amsb-display-surclasseText {
@@ -668,6 +654,7 @@ label {
 .amsb-display-item label input:checked + span {
     background-color: #F12024;
     color: #fff;
+    text-align: center;
 }
 
 .amsb-display-item-text {
@@ -676,7 +663,7 @@ label {
     width: 100%;
     float: left;
     display: block;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .amsb-display-item-roleDirigeant-text {
@@ -819,18 +806,30 @@ label {
 }
 
 .amsb-addParent {
-    width: 100%;
+    margin: 20px auto 0;
+    width: 400px !important;
+    float: none;
 }
 
 .amsb-addParentText {
     width: 100%;
-    line-height: 40px;
+    line-height: 40px !important;
     height: 40px;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 20px !important;
     color: #757575;
+    margin: 0 !important;
 }
 
 #parent_form {
-    margin-top: 165px;
+    margin-top: 15px;
+}
+
+.width-100-4 {
+    width: calc(100% / 4);
+}
+
+#form_delete_button {
+    margin-top: 15px;
+    width: 400px;
 }

@@ -58,7 +58,7 @@
                     </label>
                 </li>
 
-                <li class="amsb-form" style="width: 40%; float:left;">
+                <li class="amsb-form">
                     <span>Catégorie :</span>
                     <label for="categorie_select">
                         <select id="categorie_select" name="categorie">
@@ -75,19 +75,25 @@
                     </label>
                 </li>
 
-                <label class="amsb-display-label" for="surclassage" style="margin-top: 30px;">
+                <label class="amsb-display-label" for="surclassage" style="position: initial;float: none;margin: 30px auto 0;">
                     <input class="amsb-display-surclasse" type="checkbox" id="surclassage" name="surclassage" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, document.getElementById('search_bar').value, items, 'user_div')">
                     <span class="amsb-display-surclasseText">Surclassé</span>
                 </label>
 
-                <label class="amsb-display-label amsb-addParent" for="addParent">
-                    <input id="addParent" class="amsb-display-surclasse" type="button" onclick="add_parent_form('parent_form', count_class('parent_form')+1)" placeholder="Ajout parent :">
-                    <span class="amsb-display-surclasseText amsb-addParentText">Ajouter un parent</span>
-                </label>
+                <li class="amsb-form">
+                    <label class="amsb-display-label amsb-addParent" for="addParent">
+                        <input id="addParent" class="amsb-display-surclasse" type="button" onclick="add_parent_form('parent_form', count_class('parent_form')+1)" placeholder="Ajout parent :">
+                        <span class="amsb-display-surclasseText amsb-addParentText">Ajouter un parent</span>
+                    </label>
+                </li>
 
-                <div id="parent_form"></div>
+                <li class="amsb-form">
+                    <div id="parent_form"></div>
+                </li>
 
-                <div id="parent_form_delete_button"></div>
+                <li class="amsb-form">
+                    <div id="parent_form_delete_button"></div>
+                </li>
             </ul>
 
             <button type="submit" class="amsb-button" name="signup" value="">Valider</button>
