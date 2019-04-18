@@ -54,16 +54,24 @@ label {
 .fileContainer {
     overflow: hidden;
     position: relative;
-    height: 36px;
+    height: 40px;
     color: #757575;
     text-align: center;
-    line-height: 36px;
+    line-height: 40px;
     font-size: 18px;
     border: 1px solid #ddd;
 }
 
 .fileContainer:hover {
     background-color: #dddddd94;
+}
+
+.fileContainer input[type=file]:focus {
+    background-color: #292424d9;
+    color: #fff;}
+
+.fileContainer::after {
+    display: none;
 }
 
 .fileContainer [type=file] {
@@ -78,11 +86,13 @@ label {
     right: 0;
     text-align: right;
     top: 0;
+    background-color: #292424d9;
+    color: #fff;
 }
 
 
 .amsb-error-text {
-    margin: 80px 30px;
+    margin: 110px 30px 80px;
     font-size: 25px;
     text-align: center;
 }
@@ -125,8 +135,8 @@ label {
 }
 
 .amsb-container-right {
-    width: 100%;
-    padding: 50px;
+    width: calc(100% - 240px);
+    padding: 25px 30px;
     background-color: #f0f0f094;
     border: 1px solid;
     border-left: none;
@@ -134,7 +144,7 @@ label {
 
 .amsb-container-right-item {
     margin: 0 auto;
-    max-width: 1000px;
+    max-width: 1100px;
 }
 
 
@@ -215,15 +225,22 @@ label {
 .amsb-item-input {
     font-size: 24px;
     width: 100%;
-    height: 36px;
+    height: 40px;
     padding: 3px 6px;
     border: 1px solid #ddd;
     color: #32373c;
+    border-radius: 5px;
 }
 
 .amsb-item-input:focus {
     border-color: #5b9dd9;
     box-shadow: 0 0 2px rgba(30,140,190,.8);
+}
+
+.amsb-a-button {
+    margin: 0 auto 100px;
+    width: 80px;
+    display: block;
 }
 
 .amsb-button,.amsb-button-log {
@@ -365,29 +382,55 @@ label {
 \*********************************************************************************/
 
 
+#form_delete_button #button {
+
+}
+
+#form_delete_button #button:hover {
+    background-color: #dddddd94;
+    cursor: pointer;
+}
+
 #form_list_team li {
     width: 100%;
     text-align: center;
 }
 
-#create_team_form {
+#create_team_form, #edit_team_form {
     overflow-y: scroll;
+    height: calc(100vh - 0px);
 }
 
 .amsb-form-user_sub_form ul {
     overflow-y: scroll;
-    max-height: calc(100vh - 280px);
-    max-width: 600px;
-    width: 70%;
+    max-height: calc(100vh - 200px);
+    max-width: 1100px;
+    width: 100%;
     margin: 0 auto;
     box-shadow: 0 1px 3px rgba(0,0,0,.13);
-    padding: 30px 20px;
+    padding: 30px 50px;
 }
 
 .amsb-form-coach ul,.amsb-form-joueur ul {
     width: 100% !important;
     max-height: calc(100vh - 380px) !important;
+    overflow-y: scroll;
+}
 
+.amsb-form-joueur label {
+    width: 100% !important;
+    max-height: calc(100vh - 380px) !important;
+    overflow-y: scroll;
+}
+
+.amsb-form-joueur label input + ul {
+    background-color: #5b9dd9;
+    display: flex;
+    flex-direction: row;
+}
+
+.amsb-form-joueur label input:checked + ul {
+    background-color: #000055;
 }
 
 .amsb-form-user_edit ul {
@@ -419,6 +462,7 @@ label {
 
 .amsb-form-coach {
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .amsb-form-joueur {
@@ -432,7 +476,7 @@ label {
 
 .amsb-form span {
     padding-left: 5px;
-    margin-bottom: 5px;
+    margin: 10px 0 5px;
     display: block;
     font-size: 14px;
     line-height: 16px;
@@ -451,29 +495,11 @@ label {
     z-index: 10;
     background-color: #fff;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .amsb-form label:hover {
     background-color: #dddddd94;
-}
-
-.amsb-form label:after {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 36px;
-    height: 36px;
-    line-height: 32px;
-    content: "v";
-    text-align: center;
-    color: #714BB9;
-    font-size: 26px;
-    border-left: 1px solid #ddd;
-    z-index: -1;
-}
-
-.fileContainer:after {
-    display: none;
 }
 
 .amsb-form label select,.amsb-form label input[type="file"] {
@@ -481,15 +507,19 @@ label {
     width: 100%;
     border: 1px solid #ddd;
     color: #32373c;
-    height: 36px;
+    height: 40px;
     display: block;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     cursor: pointer;
-    border-radius: 0;
-    padding: 0 36px 0 8px;
-    background: transparent;
+    border-radius: 5px;
+    padding: 0 20px 0 20px;
+    background: #fff;
+}
+
+.amsb-form label select:hover {
+    background-color: #dddddd94;
 }
 
 .amsb-form label select option {
@@ -510,7 +540,6 @@ label {
 }
 
 .amsb-form-item-title {
-    text-transform: uppercase;
     height: 50px;
     line-height: 50px;
     margin-bottom: 30px;
@@ -524,52 +553,100 @@ label {
 }
 
 
+
 /*********************************************************************************\
  *   Display                                                                        *
 \*********************************************************************************/
 
 
 .amsb-display {
-    max-width: 1000px;
+    max-width: 1100px;
     width: 100%;
     margin: 0 auto;
     box-shadow: 0 1px 3px rgba(0,0,0,.13);
-    padding: 30px 20px;
+    padding: 25px 15px;
+    position: relative;
 }
 
 .amsb-display-scroll {
     overflow: scroll;
-    max-height: calc(100vh - 400px);
-
+    max-height: calc(100vh - 350px);
 }
 
 .amsb-display-searchBar {
-    width: 130px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+    width: calc(100% - 330px);
     -webkit-appearance: none;
     border: 1px solid #ddd;
-    padding: 5px 5px;
-    border-radius: 3px;
-    line-height: 24px;
+    padding: 5px 5px 5px 15px;
+    border-radius: 5px;
+    line-height: 30px;
     margin-bottom: 15px;
     font-size: 18px;
+    float: left;
 }
 
 .amsb-display-searchBar:focus {
-    width: 100%;
 }
 
-.amsb-display li {
-    width: 100%;
+.amsb-display-categorieSelect {
+    font-size: 18px;
+    width: 150px;
+    border: 1px solid #ddd;
+    color: #32373c;
+    height: 42px;
+    display: block;
+    float: left;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    border-radius: 0 !important;
+    padding: 0 36px 0 8px;
+    background: #fff;
+    margin: 0 15px 15px 15px;
+}
+
+.amsb-display-label {
+    position: relative;
+    height: 42px;
+    display: block;
+    width: 150px;
+    float: right;
+}
+
+.amsb-display-surclasseText:hover {
+    background-color: #dddddd94;
+}
+
+.amsb-display-surclasseText {
+    height: 42px;
+    line-height: 42px;
+    width: 150px;
+    display: block;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.amsb-display-surclasse {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.amsb-display-surclasse:checked + .amsb-display-surclasseText {
+    background-color: #F12024;
+    color: #fff;
 }
 
 .amsb-display-item {
     height: 40px;
     display: flex;
-    max-width: 100%;
+    width: 300px;
     align-items: center;
-    border: 1px solid;
     margin: 0 auto 10px;
 }
 
@@ -578,33 +655,38 @@ label {
 }
 
 .amsb-display-item label {
-    height: 40px;
     width: 100%;
     cursor: pointer;
-    margin: 0 auto;
 }
 
-.amsb-display-item label span {height: 40px;line-height: 40px;display: flex;flex-direction: row;width: 45%;float: left;padding-left: 10px;}
+.amsb-display-item label input + span {
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+}
 
-.amsb-display-item label input {
-    float: right;
-    margin: 0;
-    padding: 0;
-    height: 40px;
-    width: 10%;
+.amsb-display-item label input:checked + span {
+    background-color: #F12024;
+    color: #fff;
 }
 
 .amsb-display-item-text {
     line-height: 40px;
     padding-left: 20px;
-    width: 85% !important;
+    width: 100%;
+    float: left;
+    display: block;
     font-size: 14px;
 }
 
 .amsb-display-item-roleDirigeant-text {
     line-height: 40px;
     padding-left: 30px;
-    width: 85% !important;
+    text-transform: capitalize;
+    width: 100%;
+    float: left;
+    display: block;
+    font-size: 14px;
 }
 
 .amsb-display-item-radio {
@@ -630,16 +712,12 @@ label {
     outline: none;
     position: relative;
     */
-    float: right;
-    display: flex;
-    font-size: 20px;
+    -webkit-appearance: none;
     margin: 0;
-    padding: 0;
-    height: 40px;
 }
 
 .amsb-display-item-radio-item:checked::before {
-    /*
+
     height: 40px;
     width: 40px;
     content: '';
@@ -648,7 +726,7 @@ label {
     font-size: 26px;
     text-align: center;
     line-height: 40px;
-    */
+
 }
 
 .amsb-display-item-radio-item:checked::after {
@@ -677,21 +755,82 @@ label {
     border-bottom: 1px solid #dddddd;
 }
 
-.user_div li, .user_div label li {
-    line-height: 25px;
-    font-size: 12px;
-    padding-left: 15px;
+.user_div ul {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
 }
 
+.user_div input + ul {
+}
+
+.user_div input:checked + ul {
+    background-color: #F12024;
+    color: #fff;
+}
+
+.user_div li, .user_div label li {
+    line-height: 25px;
+    font-size: 14px;
+    padding-left: 5px;
+}
+
+.input-none-displayList {
+    display: none;
+}
 
 .user_div_reference {
     display: flex;
     width: 100%;
-    justify-content: space-around;
     margin-bottom: 15px;
 }
 
 .user_div_reference li {
     font-size: 18px;
-    padding-left: 10px;
+    line-height: 36px;
+}
+
+.user_div_reference li:nth-child(1), .user_div li:nth-child(1) {
+    width: calc((100% - 380px)/3);
+}
+
+.user_div_reference li:nth-child(2), .user_div li:nth-child(2) {
+    width: calc((100% - 380px)/3);
+}
+
+.user_div_reference li:nth-child(3), .user_div li:nth-child(3) {
+    width: calc((100% - 380px)/3);
+}
+
+.user_div_reference li:nth-child(4), .user_div li:nth-child(4) {
+    width: 110px;
+}
+
+.user_div_reference li:nth-child(5), .user_div li:nth-child(5) {
+    width: 110px;
+}
+
+.user_div_reference li:nth-child(6), .user_div li:nth-child(6) {
+    width: 80px;
+}
+
+.user_div_reference li:nth-child(7), .user_div li:nth-child(7) {
+    width: 90px;
+}
+
+.amsb-addParent {
+    width: 100%;
+}
+
+.amsb-addParentText {
+    width: 100%;
+    line-height: 40px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #757575;
+}
+
+#parent_form {
+    margin-top: 165px;
 }

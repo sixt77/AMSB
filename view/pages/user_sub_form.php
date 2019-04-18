@@ -1,6 +1,6 @@
 <div id="user_sub_form" class="amsb-container-right">
     <div class="amsb-container-right-item">
-        <h2 class="amsb-form-item-title">Ajouter un licencier !</h2>
+        <h2 class="amsb-form-item-title">Ajouter un licencié !</h2>
 
         <form class="amsb-form-user_sub_form" action="index.php" method="post" enctype="multipart/form-data">
             <ul>
@@ -58,11 +58,11 @@
                     </label>
                 </li>
 
-                <li class="amsb-form">
+                <li class="amsb-form" style="width: 40%; float:left;">
                     <span>Catégorie :</span>
                     <label for="categorie_select">
                         <select id="categorie_select" name="categorie">
-                            <option value="all">acucune</option>
+                            <option value="all">Aucune</option>
                             <option value="U9">U9</option>
                             <option value="U11">U11</option>
                             <option value="U13">U13</option>
@@ -75,15 +75,18 @@
                     </label>
                 </li>
 
-                <li class="amsb-form">
-                    <span>Surclassé ?</span>
-                    <input class="amsb-item-input" type="checkbox" name='surclassage'/>
-                </li>
-                <li class="amsb-form">
-                    <span>ajout parent :</span>
-                    <input class="amsb-item-input" type="button" onclick="add_parent_form('parent_form', count_class('parent_form')+1)">
-                </li>
+                <label class="amsb-display-label" for="surclassage" style="margin-top: 30px;">
+                    <input class="amsb-display-surclasse" type="checkbox" id="surclassage" name="surclassage" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, document.getElementById('search_bar').value, items, 'user_div')">
+                    <span class="amsb-display-surclasseText">Surclassé</span>
+                </label>
+
+                <label class="amsb-display-label amsb-addParent" for="addParent">
+                    <input id="addParent" class="amsb-display-surclasse" type="button" onclick="add_parent_form('parent_form', count_class('parent_form')+1)" placeholder="Ajout parent :">
+                    <span class="amsb-display-surclasseText amsb-addParentText">Ajouter un parent</span>
+                </label>
+
                 <div id="parent_form"></div>
+
                 <div id="parent_form_delete_button"></div>
             </ul>
 

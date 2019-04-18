@@ -20,13 +20,13 @@
             ?>
         </script>
 
-        <h2 class="amsb-form-item-title">Liste des licenciers</h2>
+        <h2 class="amsb-form-item-title">Liste des licenciés</h2>
 
         <div  class="amsb-display">
             <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, this.value, items, 'user_div')" placeholder="Recherche..">
 
-            <select id="categorie_select" name="categorie" onchange="sort_element_by_categorie(this.value, document.getElementById('surclassage').checked, document.getElementById('search_bar').value, items, 'user_div')">
-                <option value="all">toutes</option>
+            <select class="amsb-display-categorieSelect" id="categorie_select" name="categorie" onchange="sort_element_by_categorie(this.value, document.getElementById('surclassage').checked, document.getElementById('search_bar').value, items, 'user_div')">
+                <option value="all">Toutes</option>
                 <option value="U9">U9</option>
                 <option value="U11">U11</option>
                 <option value="U13">U13</option>
@@ -37,35 +37,39 @@
                 <option value="Senior">Senior</option>
             </select>
 
-            <input type="checkbox" id="surclassage" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, document.getElementById('search_bar').value, items, 'user_div')">
+            <label class="amsb-display-label" for="surclassage">
+                <input class="amsb-display-surclasse" type="checkbox" id="surclassage" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, document.getElementById('search_bar').value, items, 'user_div')">
+                <span class="amsb-display-surclasseText">Surclassé</span>
+            </label>
 
             <ul id="reference_display" class="user_div_reference">
                 <li>Nom</li>
                 <li>Prénom</li>
                 <li>Email</li>
                 <li>Téléphone</li>
-                <li>N° de licence</li>
+                <li>Licence</li>
                 <li>Sexe</li>
                 <li>Catégorie</li>
             </ul>
 
             <div class="amsb-display-scroll">
 
-        <?php
-        foreach ((array) $users_list as $user){
-            echo'<ul id="user_'.$user['id'].'" class="user_div">';
-            echo'<li>'.$user['nom'].'</li>';
-            echo'<li>'.$user['prenom'].'</li>';
-            echo'<li>'.$user['mail'].'</li>';
-            echo'<li>'.$user['telephone'].'</li>';
-            echo'<li>'.$user['licence'].'</li>';
-            echo'<li>'.$user['sex'].'</li>';
-            echo'<li>'.$user['categorie'].'</li>';
-            echo'</ul>';
+                <?php
+                foreach ((array) $users_list as $user){
+                    echo'<ul id="user_'.$user['id'].'" class="user_div">';
+                    echo'<li>'.$user['nom'].'</li>';
+                    echo'<li>'.$user['prenom'].'</li>';
+                    echo'<li>'.$user['mail'].'</li>';
+                    echo'<li>'.$user['telephone'].'</li>';
+                    echo'<li>'.$user['licence'].'</li>';
+                    echo'<li>'.$user['sex'].'</li>';
+                    echo'<li>'.$user['categorie'].'</li>';
+                    echo'</ul>';
 
-            $i++;
-        }
-        ?>
+                    $i++;
+                }
+                ?>
+
             </div>
 
         </div>

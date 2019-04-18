@@ -38,16 +38,16 @@
                         $i = 1;
                         foreach ((array) $coach_list as $coach){
                             echo'<li class="amsb-display-item">
-                                    <label for="coach_id_'.$i.'">
-                                        <span class="amsb-display-item-text">
-                                            '.$coach["nom"].' '.$coach["prenom"].'
-                                        </span>';
+                                    <label for="coach_id_'.$i.'">';
                                 if ($i == 1){
-                                    echo '<input type="radio" id="coach_id_'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'" required>';
+                                    echo '<input class="input-none-displayList" type="radio" id="coach_id_'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'" checked>';
                                 } else {
-                                    echo '<input type="radio" id="coach_id_' . $i . '" name="coach" value="' . $coach['id_entraineurs'] . '">';
+                                    echo '<input class="input-none-displayList" type="radio" id="coach_id_' . $i . '" name="coach" value="' . $coach['id_entraineurs'] . '">';
                                 }
-                            echo'</label>
+                            echo'<span class="amsb-display-item-text">
+                                            '.$coach["nom"].' '.$coach["prenom"].'
+                                 </span>
+                                 </label>
                              </li>';
 
                             $i++;
@@ -55,6 +55,7 @@
 
                         ?>
                     </ul>
+
                 </div>
 
                 <div class="amsb-form-joueur">
@@ -94,8 +95,11 @@
 
                         $i = 1;
                         foreach ((array) $player_list as $player){
-                            echo'<ul>
+                            echo'
                                 <label class="user_div" id="user_'.$player['id'].'" for="player_list_'.$i.'">
+                                <input class="input-none-displayList" type="checkbox" id="player_list_'.$i.'" name="player_list[]" value="'.$player['id_joueurs'].'">
+                                <ul>
+                                
                                     <li>'.$player["nom"].'</li>
                                     <li>'.$player['prenom'].'</li>
                                     <li>'.$player['mail'].'</li>
@@ -103,9 +107,8 @@
                                     <li>'.$player['licence'].'</li>
                                     <li>'.$player['sex'].'</li>
                                     <li>'.$player['categorie'].'</li>
-                                    <input type="checkbox" id="player_list_'.$i.'" name="player_list[]" value="'.$player['id_joueurs'].'">
-                                </label>
-                            </ul>';
+                                </ul></label>
+                            ';
 
                             $i++;
                         }
