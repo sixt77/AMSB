@@ -280,6 +280,42 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
             }
         }
 
+        //permet d'obtenir l'id sujet en fonction d'un id match et d'un role
+        if ($_GET['action'] == "get_subject_id") {
+            if (isset($_GET["match_id"]) && isset($_GET["role"])) {
+                $id_subject = find_id_subject_by_role($_GET['match_id'], $_GET["role"], $c);
+                if(isset($id_subject)) {
+                    write_json($id_subject);
+                }else{
+                    write_json(null);
+                }
+            }
+        }
+
+        //permet d'obtenir la liste des sujet en fonction d'un id sujet
+        if ($_GET['action'] == "get_message_list") {
+            if (isset($_GET["subject_id"]) && isset($_GET["limit"])) {
+                $message_list = view_message($_GET['subject_id'], $_GET['limit'], $c);
+                if(isset($message_list)) {
+                    write_json($message_list);
+                }else{
+                    write_json(null);
+                }
+            }
+        }
+
+
+        //permet d'envoyer un message
+        if ($_GET['action'] == "send_message") {
+            if (isset($_GET["subject_id"]) && isset($_GET["user_id"]) && isset($_GET["date"]) && isset($_GET["content"])) {
+                if(send_message($_GET["subject_id"], $_GET["user_id"], $_GET["date"], $_GET["content"], $c)) {
+                    write_json(true);
+                }else{
+                    write_json(null);
+                }
+            }
+        }
+
 
         $page = "json";
     }
