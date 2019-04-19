@@ -1,10 +1,8 @@
-<div class="amsb-container-right">
+<div id="arbiter_selection" class="amsb-container-right">
 
     <div class="amsb-container-right-item">
 
-        <h2 class="amsb-form-item-title">
-            Selectionnez des otms a affecter a ce match
-        </h2>
+        <h2 class="amsb-form-item-title">Séléctionnez des otms à affecter à ce match</h2>
 
         <form action="index.php" method="post">
 
@@ -35,13 +33,9 @@
 
                 ?>
 
-                <li class="amsb-form">
-                    <button type="submit" class="amsb-button-confirm" name="<?php echo$get;?>" value="<?php echo$match_id;?>">
-                        Valider
-                    </button>
-                </li>
-
             </ul>
+
+            <button type="submit" class="amsb-button-confirm" name="<?php echo$get;?>" value="<?php echo$match_id;?>">Valider</button>
 
         </form>
 

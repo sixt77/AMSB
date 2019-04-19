@@ -49,27 +49,17 @@
                     echo '<ul class="match_div user_div" id="match_'.$data['match']['id'].'">';
                     //afficher le nom de l'équipe 1 :
                     if (isset($data['team'][0])){
-                        echo '<li>';
-                        echo $data['team'][0]['nom'];
-                        echo '</li>';
+                        echo '<li>'.$data['team'][0]['nom'].'</li>';
                     }
                     //afficher le nom de l'équipe 2 :
                     if (isset($data['team'][1])){
-                        echo '<li>';
-                        echo $data['team'][1]['nom'];
-                        echo '</li>';
+                        echo '<li>'.$data['team'][1]['nom'].'</li>';
                     }
-
                     //afficher le lieux
-                    echo '<li>';
-                    echo $data['match']['lieux'];
-                    echo '</li>';
+                    echo '<li>'.$data['match']['lieux'].'</li>';
 
                     //afficher la date :
-                    echo '<li>';
-                    echo date('d/m/Y',$data['match']['date']);
-                    echo '</li>';
-
+                    echo '<li>'.date('d/m/Y',$data['match']['date']).'</li>';
                     echo '</ul>';
 
                 }

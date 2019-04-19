@@ -6,48 +6,47 @@
             <ul>
                 <li class="amsb-display-item margin-auto">
                     <label for="leaderCheckbox">
+                        <input class="amsb-display-item-radio-item" type="checkbox" id="leaderCheckbox" name="Leader" value="dirigeant">
                         <span class="amsb-display-item-text">Dirigeant</span>
 
-                        <input class="amsb-display-item-radio-item" type="checkbox" id="leaderCheckbox" name="Leader" value="dirigeant">
                     </label>
                 </li>
 
-                <div class="amsb-display-item-roleDirigeant">
+                <li class="amsb-display-item-roleDirigeant">
 
                 <?php
 
                 $i = 0;
                 foreach ((array) $role_list as $role) {
-                    echo '<li class="amsb-display-item margin-auto">
+                    echo '<li class="amsb-display-item ">
                             <label for="'.$i.'">
-                            <span class="amsb-display-item-roleDirigeant-text">- '.$role['nom'].'</span>
                                 <input class="amsb-display-item-radio-item" type="checkbox" id="'.$i.'" name="leader_role_list[]" value="'.$role['id_role'].'">
-                            </span>
+                                <span class="amsb-display-item-roleDirigeant-text">- '.$role['nom'].'</span>
                             </label>
                         </li>';
                     $i++;
                 }
                 ?>
 
-                </div>
+                </li>
 
-                <li class="amsb-display-item margin-auto">
+                <li class="amsb-display-item ">
                     <label for="OTMCheckbox">
+                        <input class="amsb-display-item-radio-item" type="checkbox" id="OTMCheckbox" name="OTM" value="otm">
                         <span class="amsb-display-item-text">OTM</span>
 
-                        <input class="amsb-display-item-radio-item" type="checkbox" id="OTMCheckbox" name="OTM" value="otm">
                     </label>
                 </li>
 
-                <li class="amsb-display-item margin-auto">
+                <li class="amsb-display-item ">
                     <label for="arbiterCheckbox">
+                        <input class="amsb-display-item-radio-item" type="checkbox" id="arbiterCheckbox" name="Arbiter" value="arbitre">
                         <span class="amsb-display-item-text">Arbitre</span>
 
-                        <input class="amsb-display-item-radio-item" type="checkbox" id="arbiterCheckbox" name="Arbiter" value="arbitre">
                     </label>
                 </li>
 
-                <li class="amsb-display-item margin-auto">
+                <li class="amsb-display-item ">
                     <label for="volunteerCheckbox">
                         <span class="amsb-display-item-text">Bénévole</span>
 
@@ -55,7 +54,7 @@
                     </label>
                 </li>
 
-                <li class="amsb-display-item margin-auto">
+                <li class="amsb-display-item ">
                     <label for="playerCheckbox">
                         <span class="amsb-display-item-text">Joueur</span>
 
@@ -63,7 +62,7 @@
                     </label>
                 </li>
 
-                <li class="amsb-display-item margin-auto">
+                <li class="amsb-display-item ">
                     <label for="coachCheckbox">
                         <span class="amsb-display-item-text">Entraineur</span>
 

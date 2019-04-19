@@ -11,7 +11,7 @@
     <div class="amsb-navBar-main">
         <form action="index.php" method="post">
             <div id="navBar_licencier">
-                <h3>Licencier</h3>
+                <h3>Licencié</h3>
                 <ul>
                     <li>
                         <button type="submit" name="users_list" value="">Voir la liste</button>
@@ -28,7 +28,7 @@
                 </ul>
             </div>
             <div id="navBar_equipe">
-                <h3>Equipe</h3>
+                <h3>équipe</h3>
                 <ul>
                     <li>
                         <button>Voir la liste</button>
