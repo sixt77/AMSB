@@ -19,6 +19,7 @@ include("modele/match.php");
 include("modele/image.php");
 include("modele/notification.php");
 include("modele/chat.php");
+include("modele/match_list.php");
 include("controller/controller.php");
 include("controller/api_controller.php");
 include("view/display.php");

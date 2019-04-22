@@ -67,6 +67,19 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
             }
 
         }
+
+        //recuperation listes des coachs
+        if ($_GET['action'] == "get_coach_list") {
+            $loop = 0;
+            $data = get_coach_list($c);
+            if (isset($data)) {
+                write_json($data);
+            } else {
+                write_json(null);
+            }
+
+        }
+
         //recuperation liste match via un id user (uniquement les match joué par la/les équipes du joueurs)
         if ($_GET['action'] == "get_match_list_by_id_player") {
             if (isset($_GET["player_id"])) {
@@ -279,6 +292,68 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
                 }
             }
         }
+
+        if ($_GET['action'] == "create_player_list") {
+            $i=1;
+            $data = true;
+            if (isset($_GET["player_id1"]) && isset($_GET["match_id"]) && isset($_GET["coach_id"])) {
+                while (isset($_GET["player_id".$i])){
+                    if(!create_match_list($_GET["coach_id"], $_GET["match_id"],$_GET["player_id".$i], $c)){
+                       $data = false;
+                    }
+                    $i++;
+                }
+                if (isset($data)) {
+                    write_json($data);
+                } else {
+                    write_json(null);
+                }
+            }
+        }
+
+        if ($_GET['action'] == "send_switch_coach_request") {
+            if (isset($_GET["id_demandeur"]) && isset($_GET["id_receveur"]) && isset($_GET["id_match"])) {
+                if(send_coach_switch_request($_GET["id_demandeur"], $_GET["id_receveur"], $_GET["id_match"], $c)){
+                    $data = true;
+                }else{
+                    $data = false;
+                }
+                if (isset($data)) {
+                    write_json($data);
+                } else {
+                    write_json(null);
+                }
+            }
+        }
+
+        if ($_GET['action'] == "valid_switch_coach_request") {
+            if (isset($_GET["id_request"]) && isset($_GET["id_coach1"]) && isset($_GET["id_coach2"]) && isset($_GET["id_match"])) {
+                if(switch_coach_match_list($_GET["id_coach1"], $_GET["id_coach2"], $_GET["id_match"], $c)){
+                    if(valid_coach_switch_request($_GET["id_request"], $c)){
+                        $data = true;
+                    }else{
+                        $data = false;
+                    }
+                }else{
+                    $data = false;
+                }
+
+                if (isset($data)) {
+                    write_json($data);
+                } else {
+                    write_json(null);
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+        ///////////////////////////////////CHAT///////////////////////////////////////
 
         //permet d'obtenir l'id sujet en fonction d'un id match et d'un role
         if ($_GET['action'] == "get_subject_id") {
