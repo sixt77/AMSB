@@ -138,6 +138,11 @@ function display_arbiter_selection_form($arbiter_list, $arbiter_sub_list, $get, 
 
 }
 
+function display_team_list($team_list) {
+
+    require("pages/display_team_list.php");
+
+}
 
 function display_create_team_form($player_list, $coach_list) {
 
@@ -180,7 +185,6 @@ function display_error(){
     require ("pages/error.php");
 
 }
-
 
 function display_error_message($message){
 

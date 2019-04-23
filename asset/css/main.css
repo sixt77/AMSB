@@ -393,7 +393,6 @@ label {
 
 #form_list_team li {
     width: 100%;
-    text-align: center;
 }
 
 #create_team_form, #edit_team_form {
@@ -499,7 +498,7 @@ label {
     appearance: none;
     cursor: pointer;
     border-radius: 5px;
-    padding: 0 20px 0 20px;
+    padding: 0 20px 0 15px;
     background: #fff;
 }
 
@@ -549,13 +548,13 @@ label {
     width: 100%;
     margin: 0 auto;
     box-shadow: 0 1px 3px rgba(0,0,0,.13);
-    padding: 25px 15px;
+    padding: 25px 25px;
     position: relative;
 }
 
 .amsb-display-scroll {
     overflow: scroll;
-    max-height: calc(100vh - 350px);
+    height: calc(100vh - 350px);
 }
 
 .amsb-display-searchBar {
@@ -649,12 +648,22 @@ label {
     background-color: #fff;
     color: #000;
     border-radius: 5px;
+
+    -webkit-transition: background-color .25s ease-in-out, color .25s ease-in-out, padding-left .25s ease-in-out;
+    -moz-transition: background-color .25s ease-in-out, color .25s ease-in-out, padding-left .25s ease-in-out;
+    -o-transition: background-color .25s ease-in-out, color .25s ease-in-out, padding-left .25s ease-in-out;
+    transition: background-color .25s ease-in-out, color .25s ease-in-out, padding-left .25s ease-in-out;
 }
 
 .amsb-display-item label input:checked + span {
     background-color: #F12024;
     color: #fff;
-    text-align: center;
+    padding-left: 50px;
+
+    -webkit-transition: background-color .25s ease-in-out, color .25s ease-in-out, padding-left .25s ease-in-out;
+    -moz-transition: background-color .25s ease-in-out, color .25s ease-in-out, padding-left .25s ease-in-out;
+    -o-transition: background-color .25s ease-in-out, color .25s ease-in-out, padding-left .25s ease-in-out;
+    transition: background-color .25s ease-in-out, color .25s ease-in-out, padding-left .25s ease-in-out;
 }
 
 .amsb-display-item-text {
@@ -664,6 +673,9 @@ label {
     float: left;
     display: block;
     font-size: 18px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
 }
 
 .amsb-display-item-roleDirigeant-text {
@@ -686,20 +698,9 @@ label {
 }
 
 .amsb-display-item-radio-item {
-    /*
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 30px;
-    height: 30px;
-    background-color: #9E9E9E;
-    margin: 0;
-    border-radius: 50%;
-    cursor: pointer;
-    outline: none;
-    position: relative;
-    */
-    -webkit-appearance: none;
     margin: 0;
 }
 
@@ -716,21 +717,10 @@ label {
 
 }
 
-.amsb-display-item-radio-item:checked::after {
-    /*
-    -webkit-animation: click-wave 0.65s;
-    -moz-animation: click-wave 0.65s;
-    animation: click-wave 0.65s;
-    background: #40e0d0;
-    content: '';
-    display: block;
-    position: relative;
-    z-index: 100;
-    */
-}
 .user_value{
     float: left;
 }
+
 .user_list{
     width: 600px;
 }
@@ -749,11 +739,20 @@ label {
 }
 
 .user_div input + ul {
+    -webkit-transition: background-color .25s ease-in-out, color .25s ease-in-out;
+    -moz-transition: background-color .25s ease-in-out, color .25s ease-in-out;
+    -o-transition: background-color .25s ease-in-out, color .25s ease-in-out;
+    transition: background-color .25s ease-in-out, color .25s ease-in-out;
 }
 
 .user_div input:checked + ul {
     background-color: #F12024;
     color: #fff;
+
+    -webkit-transition: background-color .25s ease-in-out, color .25s ease-in-out;
+    -moz-transition: background-color .25s ease-in-out, color .25s ease-in-out;
+    -o-transition: background-color .25s ease-in-out, color .25s ease-in-out;
+    transition: background-color .25s ease-in-out, color .25s ease-in-out;
 }
 
 .user_div li, .user_div label li {
@@ -833,3 +832,38 @@ label {
     margin-top: 15px;
     width: 400px;
 }
+
+#display_match_list .amsb-display-searchBar {
+    width: 100%;
+    float: none;
+}
+
+#display_match_list .user_div_reference li,
+#display_match_list .user_div li {
+    width: calc(100% / 4);
+}
+
+#create_match_form #team1 {
+    width: 50%;
+    float: left;
+}
+
+#create_match_form #team2 {
+    width: 50%;
+    float: right;
+}
+
+#create_match_form li {
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+#match_selection .user_div_reference li,
+#match_selection .user_div li {
+    width: calc(100% / 3);
+}
+
+#match_selection .amsb-display-searchBar {
+    width: calc(100% - 180px);
+}
+

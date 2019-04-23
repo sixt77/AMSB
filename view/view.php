@@ -108,6 +108,11 @@ elseif ($page == "arbiter_selection_form") {
     display_arbiter_selection_form($arbiter_list, $arbiter_sub_list, $get, $match_id);
 }
 
+elseif ($page == "display_team_list") {
+    display_navBar();
+    display_team_list($team_list);
+}
+
 elseif ($page == "create_team_form") {
     display_navBar();
     display_create_team_form($player_list, $coach_list);
