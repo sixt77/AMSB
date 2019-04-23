@@ -68,6 +68,20 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
 
         }
 
+        //recuperation listes des match
+        if ($_GET['action'] == "get_match_info_by_id") {
+            if(isset($_GET['match_id'])){
+                $data['match'] = get_matchs_info_by_id($_GET['match_id'], $c);
+                $data['team'] = get_team_by_match_id($_GET['match_id'], $c);
+            }
+            if (isset($data)) {
+                write_json($data);
+            } else {
+                write_json(null);
+            }
+
+        }
+
         //recuperation listes des coachs
         if ($_GET['action'] == "get_coach_list") {
             $loop = 0;
@@ -297,12 +311,26 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
             $i=1;
             $data = true;
             if (isset($_GET["player_id1"]) && isset($_GET["match_id"]) && isset($_GET["coach_id"])) {
+                delete_match_list($_GET["coach_id"], $_GET["match_id"], $c);
                 while (isset($_GET["player_id".$i])){
                     if(!create_match_list($_GET["coach_id"], $_GET["match_id"],$_GET["player_id".$i], $c)){
-                       $data = false;
+                        $data = false;
                     }
                     $i++;
                 }
+                if (isset($data)) {
+                    write_json($data);
+                } else {
+                    write_json(null);
+                }
+            }
+        }
+
+        if ($_GET['action'] == "get_player_list") {
+            $i=1;
+            $data = true;
+            if (isset($_GET["match_id"]) && isset($_GET["coach_id"])) {
+                $data = get_player_match_list($_GET["coach_id"], $_GET["match_id"], $c);
                 if (isset($data)) {
                     write_json($data);
                 } else {

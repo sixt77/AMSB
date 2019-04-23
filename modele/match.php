@@ -41,7 +41,7 @@ function get_all_matchs($c){
 
 //recupère la liste des id de match via un id joueur
 function get_matchs_by_player_id($player_id, $c){
-    $sql = ("SELECT M.id FROM joueurs_equipes JE 
+    $sql = ("SELECT DISTINCT M.id FROM joueurs_equipes JE 
 INNER JOIN matchs_equipes_coachs MEC ON JE.id_equipes = MEC.id_equipes 
 INNER JOIN matchs M ON MEC.id_matchs = M.id 
 WHERE JE.id_joueurs = '$player_id'");
