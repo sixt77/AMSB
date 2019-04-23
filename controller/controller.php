@@ -482,6 +482,12 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 $users_list = get_users_list($c);
             }
 
+            //affichage liste team
+            if (isset($_POST["team_list"])) {
+                $page = 'display_team_list';
+                $team_list = get_team_list($c);
+            }
+
             //formulaire creation equipe
             if (isset($_POST["create_team_form"])) {
                 $page = 'create_team_form';

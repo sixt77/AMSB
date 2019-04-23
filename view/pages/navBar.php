@@ -22,16 +22,13 @@
                     <li>
                         <button type="submit" name="edit_user" value="">Modifier</button>
                     </li>
-                    <li>
-                        <button>Importer</button>
-                    </li>
                 </ul>
             </div>
             <div id="navBar_equipe">
                 <h3>équipe</h3>
                 <ul>
                     <li>
-                        <button>Voir la liste</button>
+                        <button type="submit" name="team_list" value="">Voir la liste</button>
                     </li>
                     <li>
                         <button type="submit" name="create_team_form" value="">Ajouter</button>

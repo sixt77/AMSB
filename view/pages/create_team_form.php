@@ -1,6 +1,6 @@
 <div id="create_team_form" class="amsb-container-right">
-
     <div class="amsb-container-right-item">
+
         <script>
             <?php
 
@@ -19,6 +19,7 @@
 
             ?>
         </script>
+
         <h2 class="amsb-form-item-title">Création d'équipe !</h2>
 
         <form action="index.php" method="post">
@@ -98,20 +99,19 @@
 
                         $i = 1;
                         foreach ((array) $player_list as $player){
-                            echo'
-                                <label class="user_div" id="user_'.$player['id'].'" for="player_list_'.$i.'">
-                                <input class="input-none-displayList" type="checkbox" id="player_list_'.$i.'" name="player_list[]" value="'.$player['id_joueurs'].'">
-                                <ul>
-                                
-                                    <li>'.$player["nom"].'</li>
-                                    <li>'.$player['prenom'].'</li>
-                                    <li>'.$player['mail'].'</li>
-                                    <li>'.$player['telephone'].'</li>
-                                    <li>'.$player['licence'].'</li>
-                                    <li>'.$player['sex'].'</li>
-                                    <li>'.$player['categorie'].'</li>
-                                </ul></label>
-                            ';
+                            echo'<label class="user_div" id="user_'.$player['id'].'" for="player_list_'.$i.'">
+                                    <input class="input-none-displayList" type="checkbox" id="player_list_'.$i.'" name="player_list[]" value="'.$player['id_joueurs'].'">
+                                    <ul>
+                                    
+                                        <li>'.$player["nom"].'</li>
+                                        <li>'.$player['prenom'].'</li>
+                                        <li>'.$player['mail'].'</li>
+                                        <li>'.$player['telephone'].'</li>
+                                        <li>'.$player['licence'].'</li>
+                                        <li>'.$player['sex'].'</li>
+                                        <li>'.$player['categorie'].'</li>
+                                    </ul>
+                                </label>';
 
                             $i++;
                         }

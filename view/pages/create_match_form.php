@@ -27,15 +27,29 @@
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" list="team_list" name="team1" placeholder="equipe 1" required>
+                    <input id="team1" class="amsb-item-input" list="team_list" name="team1" placeholder="Equipe 1" required>
+                    <input id="team2" class="amsb-item-input" list="team_list" name="team2" placeholder="Equipe 2" required>
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" list="team_list" name="team2" placeholder="equipe 2" required>
+                    <label for="categorie_select">
+                        <select id="categorie_select" name="categorie">
+                            <option value="Catégorie" selected disabled>Catégorie</option>
+                            <option value="all">Aucune</option>
+                            <option value="U9">U9</option>
+                            <option value="U11">U11</option>
+                            <option value="U13">U13</option>
+                            <option value="U15">U15</option>
+                            <option value="U17">U17</option>
+                            <option value="U18">U18</option>
+                            <option value="U20">U20</option>
+                            <option value="Senior">Senior</option>
+                        </select>
+                    </label>
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="text" name="lieux" placeholder="lieux" required>
+                    <input class="amsb-item-input" type="text" name="lieux" placeholder="Lieux" required>
                 </li>
 
             </ul>
