@@ -72,4 +72,28 @@ WHERE id_coachs = '$id_coachs'");
     return $matchs_list;
 }
 
+//permet de demander un changement de coach
+function send_coach_switch_request($id_coach1, $id_coach2, $id_matchs, $c){
+    //insertion des valeurs dans la bdd
+    $sql = ("INSERT INTO changement_coachs(id_demandeur, id_receveur, id_matchs, etat) VALUES('$id_coach1', '$id_coach2', '$id_matchs', 'false')");
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+//permet de valider un changement de coach
+function valid_coach_switch_request($id_notification, $c){
+    //insertion des valeurs dans la bdd
+    $sql = ("UPDATE changement_coachs SET etat='true' WHERE id='$id_notification' ");
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 ?>

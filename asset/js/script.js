@@ -58,7 +58,6 @@ function sort_team(str, array, classe) {
 
 function sort_element_by_categorie(cat, surclassage, str, array, id) {
     var j = 0;
-
     var categorie = ["U9", "U11", "U13", "U15",  "U17",   "U18",  "U20",  "Senior"];
     var array2 = new Array();
     if(cat ==="all"){
