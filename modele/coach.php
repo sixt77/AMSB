@@ -84,6 +84,21 @@ function send_coach_switch_request($id_coach1, $id_coach2, $id_matchs, $c){
     }
 }
 
+//permet de recuperer les demande de changement
+function get_coach_switch_request_list($id_coach, $c){
+    $sql = ("SELECT * FROM `changement_coachs` WHERE `id_receveur` = '$id_coach'");
+    $result = mysqli_query($c,$sql);
+    $notification_list = array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $notification_list[$loop]= $donnees;
+        $loop++;
+    }
+    return $notification_list;
+}
+
+
 //permet de valider un changement de coach
 function valid_coach_switch_request($id_notification, $c){
     //insertion des valeurs dans la bdd
