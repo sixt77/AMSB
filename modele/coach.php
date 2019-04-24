@@ -39,7 +39,7 @@ INNER JOIN utilisateurs U ON C.id_utilisateurs = U.id");
 }
 
 function get_player_info_by_match_id($match_id, $coach_id, $c){
-    $sql = ("SELECT U.id, U.nom, U.prenom, U.telephone, U.licence, U.mail, J.id_joueurs
+    $sql = ("SELECT DISTINCT U.id, U.nom, U.prenom, U.telephone, U.licence, U.mail, J.id_joueurs
 FROM matchs_equipes_coachs MEC
 INNER JOIN joueurs_equipes JE ON MEC.id_equipes = JE.id_equipes
 INNER JOIN joueurs J ON J.id_joueurs = JE.id_joueurs
@@ -58,7 +58,7 @@ WHERE MEC.id_coachs = '$coach_id' AND MEC.id_matchs = '$match_id'");
 
 //recupère la liste des match ou l'arbitre est présent
 function get_matchs_by_coach_id($id_coachs, $c){
-    $sql = ("SELECT id_matchs
+    $sql = ("SELECT DISTINCT id_matchs
 FROM matchs_equipes_coachs
 WHERE id_coachs = '$id_coachs'");
     $result = mysqli_query($c,$sql);
@@ -83,6 +83,21 @@ function send_coach_switch_request($id_coach1, $id_coach2, $id_matchs, $c){
         return false;
     }
 }
+
+//permet de recuperer les demande de changement
+function get_coach_switch_request_list($id_coach, $c){
+    $sql = ("SELECT * FROM `changement_coachs` WHERE `id_receveur` = '$id_coach'");
+    $result = mysqli_query($c,$sql);
+    $notification_list = array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $notification_list[$loop]= $donnees;
+        $loop++;
+    }
+    return $notification_list;
+}
+
 
 //permet de valider un changement de coach
 function valid_coach_switch_request($id_notification, $c){

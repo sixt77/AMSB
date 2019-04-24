@@ -531,6 +531,9 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
             //modification equipe
             if (isset($_POST["update_team"])) {
                 if (update_team($_POST['update_team'], $_POST['coach'], $_POST['nom'], $c)) {
+                    if(!isset($_POST['player_list'])){
+                        $_POST['player_list'] = null;
+                    }
                     if (delete_all_player_team($_POST['update_team'], $c) && add_player_team($_POST['player_list'], $_POST['update_team'], $c)) {
                         $page = "creation_success";
                     } else {

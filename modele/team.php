@@ -44,7 +44,7 @@ WHERE id_equipes = '$id_team'");
 function add_player_team($player_list, $id_team, $c) {
     $i = 0;
     $sql = "INSERT INTO joueurs_equipes (id_joueurs, id_equipes) VALUES ";
-    foreach ($player_list as $player)
+    foreach ((array)$player_list as $player)
     {
         if ($i > 0) $sql .= ", ";
         $sql .= "({$player_list[$i]}, {$id_team})";

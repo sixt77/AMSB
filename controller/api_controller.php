@@ -3,7 +3,6 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
     if (parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/AMSB/index.php/api" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/etu_info/amsb1/DEV/index.php/api") {
         //verification des paramètres  GET
         //fonction d'identification
-        header("Access-Control-Allow-Origin: *");
         if ($_GET['action'] == "login") {
             if (isset($_GET["login"]) && isset($_GET["password"])) {
                 $user_id = user_signin_by_application($_GET["login"], $_GET["password"], $c);
@@ -12,7 +11,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
                     //renvoie les données en JSON
                     $data = [
                         'user_id' => $user_info[0],
-                        'user_nom_famille' => $user_info[1],
+                        'user_nom_familleget_match_list' => $user_info[1],
                         'user_prenom' => $user_info[2],
                         'user_email' => $user_info[3],
                         'user_telephone' => $user_info[4],
@@ -51,6 +50,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
                 }
             }
         }
+
         //recuperation listes des match
         if ($_GET['action'] == "get_match_list") {
             $loop = 0;
@@ -59,6 +59,20 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
                 $data[$loop]['match'] = get_matchs_info_by_id($match['id'], $c);
                 $data[$loop]['team'] = get_team_by_match_id($match['id'], $c);
                 $loop++;
+            }
+            if (isset($data)) {
+                write_json($data);
+            } else {
+                write_json(null);
+            }
+
+        }
+
+        //recuperation listes des match
+        if ($_GET['action'] == "get_match_info_by_id") {
+            if(isset($_GET['match_id'])){
+                $data['match'] = get_matchs_info_by_id($_GET['match_id'], $c);
+                $data['team'] = get_team_by_match_id($_GET['match_id'], $c);
             }
             if (isset($data)) {
                 write_json($data);
@@ -297,12 +311,26 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
             $i=1;
             $data = true;
             if (isset($_GET["player_id1"]) && isset($_GET["match_id"]) && isset($_GET["coach_id"])) {
+                delete_match_list($_GET["coach_id"], $_GET["match_id"], $c);
                 while (isset($_GET["player_id".$i])){
                     if(!create_match_list($_GET["coach_id"], $_GET["match_id"],$_GET["player_id".$i], $c)){
-                       $data = false;
+                        $data = false;
                     }
                     $i++;
                 }
+                if (isset($data)) {
+                    write_json($data);
+                } else {
+                    write_json(null);
+                }
+            }
+        }
+
+        if ($_GET['action'] == "get_player_list") {
+            $i=1;
+            $data = true;
+            if (isset($_GET["match_id"]) && isset($_GET["coach_id"])) {
+                $data = get_player_match_list($_GET["coach_id"], $_GET["match_id"], $c);
                 if (isset($data)) {
                     write_json($data);
                 } else {
@@ -318,6 +346,18 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
                 }else{
                     $data = false;
                 }
+                if (isset($data)) {
+                    write_json($data);
+                } else {
+                    write_json(null);
+                }
+            }
+        }
+
+        if ($_GET['action'] == "get_switch_coach_request") {
+            if (isset($_GET["id_coach"])) {
+                $data = get_coach_switch_request_list($_GET['id_coach'], $c);
+
                 if (isset($data)) {
                     write_json($data);
                 } else {
