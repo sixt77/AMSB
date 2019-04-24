@@ -92,7 +92,7 @@ label {
 
 
 .amsb-error-text {
-    margin: 110px 30px 80px;
+    margin: 20px 30px 30px;
     font-size: 25px;
     text-align: center;
 }
@@ -179,7 +179,7 @@ label {
 .amsb-home {
     margin-top: 20px;
     margin-left: 0;
-    padding: 30px 25px 50px;
+    padding: 30px 25px;
     background: #fff;
     box-shadow: 0 1px 3px rgba(0,0,0,.13);
 }
@@ -238,7 +238,7 @@ label {
 }
 
 .amsb-a-button {
-    margin: 0 auto 100px;
+    margin: 0 auto;
     width: 80px;
     display: block;
 }
@@ -524,7 +524,6 @@ label {
 }
 
 .amsb-form-item-title {
-    height: 50px;
     line-height: 50px;
     margin-bottom: 30px;
     text-align: left;
@@ -867,3 +866,15 @@ label {
     width: calc(100% - 180px);
 }
 
+#arbiter_selection ul,
+#otm_selection ul {
+    height: calc(100vh - 250px);
+    overflow: scroll;
+}
+
+#creation_success,
+#creation_failed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
