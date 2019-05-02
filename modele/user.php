@@ -4,37 +4,37 @@
 //return true si elle réussi et false sinon
 function user_signin($identifiant, $password, $c) {
 //récupération des compte streamer
-	//cryptage du password
-	$sql = ("SELECT U.id, U.mail, D.id_dirigeants, U.motDePasse 
+    //cryptage du password
+    $sql = ("SELECT U.id, U.mail, D.id_dirigeants, U.motDePasse 
 FROM utilisateurs U  
 INNER JOIN dirigeants D ON U.id = D.id_utilisateurs 
 WHERE U.mail='$identifiant'");
-	$result = mysqli_query($c,$sql);
-	//test des résultat
-	if($row = mysqli_fetch_row($result)){
-         if(verify($password, $row[3])) {
-             if (isset($row[0]) && isset($row[2])) {
-                 //attribution d'une session
-                 $_SESSION['stat'] = "connect";
-                 $_SESSION['id'] = $row[0];
-                 $_SESSION['mail'] = $row[1];
-                 $_SESSION['id_leader'] = $row[2];
-                 return true;
-             } else {
-                 //attribution d'une session vide
-                 unset ($_SESSION['stat']);
+    $result = mysqli_query($c,$sql);
+    //test des résultat
+    if($row = mysqli_fetch_row($result)){
+        if(verify($password, $row[3])) {
+            if (isset($row[0]) && isset($row[2])) {
+                //attribution d'une session
+                $_SESSION['stat'] = "connect";
+                $_SESSION['id'] = $row[0];
+                $_SESSION['mail'] = $row[1];
+                $_SESSION['id_leader'] = $row[2];
+                return true;
+            } else {
+                //attribution d'une session vide
+                unset ($_SESSION['stat']);
 
-                 return false;
-             }
-         }
-         else {
-             //attribution d'une session vide
-             unset ($_SESSION['stat']);
+                return false;
+            }
+        }
+        else {
+            //attribution d'une session vide
+            unset ($_SESSION['stat']);
 
-             return false;
-         }
-	}
-$result->close();
+            return false;
+        }
+    }
+    $result->close();
 }
 
 //script de connection pour les utilisateurs depuis l'application
@@ -68,23 +68,23 @@ WHERE U.mail='$identifiant'");
 //ajoute dans la bdd les valeurs
 //renvoi true si la connection a fonctionné sinon false
 function user_signup($nom, $prenom, $mail,$motDePasse, $telephone, $licence, $sex, $categorie, $surclassage, $c) {
-	//cryptage du password
+    //cryptage du password
     $motDePasse = encrypt($motDePasse);
     //insertion des valeurs dans la bdd
     $sql = ("INSERT INTO utilisateurs(nom, prenom, mail, motDePasse, telephone, licence, sex, categorie, surclassage) VALUES('$nom', '$prenom', '$mail', '$motDePasse', '$telephone', '$licence', '$sex', '$categorie', '$surclassage')");
-	if(mysqli_query($c,$sql)){
-		return true;
-	}
-	else{
-		return false;
-	}
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 //met a jour les information d'un joueur
 //renvoi true si la connection a fonctionné sinon false
-function user_update($user_id, $nom, $prenom, $mail, $telephone, $licence, $c) {
+function user_update($user_id, $nom, $prenom, $mail, $telephone, $licence, $sex, $categorie, $surclassage, $c) {
     //insertion des valeurs dans la bdd
     $sql = ("UPDATE utilisateurs
-SET nom = '$nom', prenom = '$prenom', mail = '$mail', telephone = '$telephone', licence = '$licence'
+SET nom = '$nom', prenom = '$prenom', mail = '$mail', telephone = '$telephone', licence = '$licence', sex = '$sex', categorie = '$categorie', surclassage = '$surclassage'
 WHERE id = '$user_id'");
     if(mysqli_query($c,$sql)){
         return true;
@@ -96,7 +96,7 @@ WHERE id = '$user_id'");
 
 
 function get_info_user_by_id($id, $c){
-    $sql = ("SELECT id, nom, prenom, mail, telephone, licence FROM utilisateurs WHERE id ='$id'");
+    $sql = ("SELECT id, nom, prenom, mail, telephone, licence, sex, categorie, surclassage FROM utilisateurs WHERE id ='$id'");
     $result = mysqli_query($c,$sql);
     $user_info= array ();
     if($row = mysqli_fetch_row($result)){
@@ -140,6 +140,6 @@ function get_users_list($c){
 
 
 function user_logout() {
-	$_SESSION = array();
-	unset ($_SESSION['etat']);
+    $_SESSION = array();
+    unset ($_SESSION['etat']);
 }

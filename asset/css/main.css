@@ -92,7 +92,7 @@ label {
 
 
 .amsb-error-text {
-    margin: 110px 30px 80px;
+    margin: 20px 30px 30px;
     font-size: 25px;
     text-align: center;
 }
@@ -113,7 +113,7 @@ label {
     display: flex;
     justify-content: space-around;
     padding: 20px 10px;
-    border-bottom: 4px solid #000;
+    border-bottom: 1px solid #000;
 }
 
 .amsb-navBar-header-logoTitle h2 {
@@ -179,7 +179,7 @@ label {
 .amsb-home {
     margin-top: 20px;
     margin-left: 0;
-    padding: 30px 25px 50px;
+    padding: 30px 25px;
     background: #fff;
     box-shadow: 0 1px 3px rgba(0,0,0,.13);
 }
@@ -238,18 +238,19 @@ label {
 }
 
 .amsb-a-button {
-    margin: 0 auto 100px;
+    margin: 0 auto;
     width: 80px;
     display: block;
 }
 
-.amsb-button,.amsb-button-log {
+.amsb-button,
+.amsb-button-log {
     margin: 20px auto 0;
     border: 1px solid #D5211D;
     border-radius: 3px;
     font-family: "Roboto";
-    font-size: 16px;
-    width: 80px;
+    font-size: 20px;
+    width: 90px;
     display: block;
     padding: 5px 15px;
     color: #FFF;
@@ -259,11 +260,13 @@ label {
     box-shadow: 0 1px 0 #D52114;
 }
 
-.amsb-button:hover,.amsb-button-log:hover {
+.amsb-button:hover,
+.amsb-button-log:hover {
     background-color: #f73f3fcc;
 }
 
-.amsb-button:active,.amsb-button-log:active {
+.amsb-button:active,
+.amsb-button-log:active {
     background-color: #d25959;
     border-color: #D5211D;
     box-shadow: inset 0 2px 0 #D5211D;
@@ -288,12 +291,12 @@ label {
 .amsb-navBar-header {
     background-color: #F12023;
     border-bottom: 0;
-    border-bottom: 4px solid #000;
+    border-bottom: 1px solid #000;
 }
 
 .amsb-navBar-main {
     background-color: #000;
-    height: calc(100% - 178px);
+    height: calc(100% - 172px);
     border-top: 0;
     overflow-y: scroll;
     scroll-padding: 10px;
@@ -310,7 +313,7 @@ label {
 }
 
 .amsb-navBar-header a:hover {
-    background-color: #f73f3fcc;
+    background-color: #F12023;
 }
 
 .amsb-navBar-header a:active {
@@ -354,7 +357,7 @@ label {
 }
 
 .amsb-navBar div ul li button:hover {
-    background-color: #f73f3fcc;
+    background-color: #F12023;
     box-shadow: inset 0 2px 0 #D5211D;
     border: none;
 }
@@ -524,7 +527,6 @@ label {
 }
 
 .amsb-form-item-title {
-    height: 50px;
     line-height: 50px;
     margin-bottom: 30px;
     text-align: left;
@@ -867,3 +869,15 @@ label {
     width: calc(100% - 180px);
 }
 
+#arbiter_selection ul,
+#otm_selection ul {
+    height: calc(100vh - 250px);
+    overflow: scroll;
+}
+
+#creation_success,
+#creation_failed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

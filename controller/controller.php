@@ -157,8 +157,12 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
 
             //mise a jour d'un utilisateur
             if (isset($_POST["update_user"])) {
-                if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["telephone"]) && !empty($_POST["licence"])) {
-                    if (user_update($_POST["update_user"], protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["telephone"]), protect($_POST["licence"]), $c)) {
+                if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["telephone"]) && !empty($_POST["licence"]) && !empty($_POST["sexe"]) && !empty($_POST["categorie"])) {
+                    if (!isset($_POST["surclassage"]))
+                    {
+                        $_POST["surclassage"] = "0";
+                    }
+                    if (user_update($_POST["update_user"], protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["telephone"]), protect($_POST["licence"]), protect($_POST["sexe"]), protect($_POST["categorie"]), $_POST["surclassage"], $c)) {
                         $id = $_POST["update_user"];
                         $role_list = get_roles_list($c);
                         $user_role_list = get_role_user_by_id($id, $c);
@@ -175,6 +179,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                     $page = "erreur";
                 }
             }
+
             //mise a jour des droits d'un utilisateur
             if (isset($_POST["update_user_right"])) {
                 $sucess = true;
@@ -482,12 +487,6 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 $users_list = get_users_list($c);
             }
 
-            //affichage liste team
-            if (isset($_POST["team_list"])) {
-                $page = 'display_team_list';
-                $team_list = get_team_list($c);
-            }
-
             //formulaire creation equipe
             if (isset($_POST["create_team_form"])) {
                 $page = 'create_team_form';
@@ -531,9 +530,6 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
             //modification equipe
             if (isset($_POST["update_team"])) {
                 if (update_team($_POST['update_team'], $_POST['coach'], $_POST['nom'], $c)) {
-                    if(!isset($_POST['player_list'])){
-                        $_POST['player_list'] = null;
-                    }
                     if (delete_all_player_team($_POST['update_team'], $c) && add_player_team($_POST['player_list'], $_POST['update_team'], $c)) {
                         $page = "creation_success";
                     } else {

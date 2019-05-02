@@ -10,7 +10,6 @@
             <ul id="reference_display" class="user_div_reference">
                 <li>Date</li>
                 <li>Lieu</li>
-                <li>Catégorie</li>
                 <?php
                 if(isset($_POST["designation_OTM_form"])) {
                     echo '<li>Nombre d\'OTM</li>';
@@ -57,8 +56,8 @@
                                     <li>'.$match["nb_arbitres"].'</li>
                                 </ul>
                             </label>';
-                            $i++;
                         }
+                        $i++;
                     }
 
                     ?>
