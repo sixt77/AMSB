@@ -38,13 +38,13 @@ INNER JOIN utilisateurs U ON C.id_utilisateurs = U.id");
     return $coach_list;
 }
 
-function get_player_info_by_match_id($match_id, $coach_id, $c){
+function get_player_info_by_match_id($match_id, $c){
     $sql = ("SELECT DISTINCT U.id, U.nom, U.prenom, U.telephone, U.licence, U.mail, J.id_joueurs
 FROM matchs_equipes_coachs MEC
 INNER JOIN joueurs_equipes JE ON MEC.id_equipes = JE.id_equipes
 INNER JOIN joueurs J ON J.id_joueurs = JE.id_joueurs
 INNER JOIN utilisateurs U ON J.id_utilisateurs = U.id
-WHERE MEC.id_coachs = '$coach_id' AND MEC.id_matchs = '$match_id'");
+WHERE MEC.id_matchs = '$match_id'");
     $result = mysqli_query($c,$sql);
     $coach_list= array ();
     $loop = 0;
@@ -58,8 +58,22 @@ WHERE MEC.id_coachs = '$coach_id' AND MEC.id_matchs = '$match_id'");
 
 //recupère la liste des match ou l'arbitre est présent
 function get_matchs_by_coach_id($id_coachs, $c){
+    $sql = ("SELECT DISTINCT id_matchs FROM matchs_equipes_coachs WHERE id_coachs = '$id_coachs' AND id_matchs NOT IN(SELECT id_matchs FROM liste_matchs WHERE id_coachs != '$id_coachs')");
+    $result = mysqli_query($c,$sql);
+    $matchs_list= array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $matchs_list[$loop] = $donnees['id_matchs'];
+        $loop++;
+    }
+    return $matchs_list;
+}
+
+//recupère la liste des match ou l'arbitre est présent
+function get_list_matchs_by_coach_id($id_coachs, $c){
     $sql = ("SELECT DISTINCT id_matchs
-FROM matchs_equipes_coachs
+FROM liste_matchs
 WHERE id_coachs = '$id_coachs'");
     $result = mysqli_query($c,$sql);
     $matchs_list= array ();
@@ -86,7 +100,7 @@ function send_coach_switch_request($id_coach1, $id_coach2, $id_matchs, $c){
 
 //permet de recuperer les demande de changement
 function get_coach_switch_request_list($id_coach, $c){
-    $sql = ("SELECT * FROM `changement_coachs` WHERE `id_receveur` = '$id_coach'");
+    $sql = ("SELECT * FROM `changement_coachs` WHERE `id_receveur` = '$id_coach' AND etat = 'false'");
     $result = mysqli_query($c,$sql);
     $notification_list = array ();
     $loop = 0;

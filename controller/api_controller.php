@@ -230,10 +230,30 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
         }
 
         //permet a un coach d'acceder a la liste de ses match
-        if ($_GET['action'] == "get_match_list_by_id_coach") {
+        if ($_GET['action'] == "get_match_by_id_coach") {
             if (isset($_GET["coach_id"])) {
                 $loop = 0;
                 $match_list = get_matchs_by_coach_id($_GET['coach_id'], $c);
+                $match = get_list_matchs_by_coach_id($_GET['coach_id'], $c);
+                $match_list = array_unique(array_merge($match_list,$match));
+                foreach ((array)$match_list as $match) {
+                    $data[$loop]['match'] = get_matchs_info_by_id($match, $c);
+                    $data[$loop]['team'] = get_team_by_match_id($match, $c);
+                    $loop++;
+                }
+                if (isset($data)) {
+                    write_json($data);
+                } else {
+                    write_json(null);
+                }
+            }
+        }
+
+        //permet a un coach d'acceder a la liste de ses match
+        if ($_GET['action'] == "get_match_list_by_id_coach") {
+            if (isset($_GET["coach_id"])) {
+                $loop = 0;
+                $match_list = get_list_matchs_by_coach_id($_GET['coach_id'], $c);
                 foreach ((array)$match_list as $match) {
                     $data[$loop]['match'] = get_matchs_info_by_id($match, $c);
                     $data[$loop]['team'] = get_team_by_match_id($match, $c);
@@ -252,7 +272,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
         if ($_GET['action'] == "get_player_list_by_match_id") {
             if (isset($_GET["match_id"]) && isset($_GET["coach_id"])) {
                 $loop = 0;
-                $player_list = get_player_info_by_match_id($_GET['match_id'], $_GET["coach_id"], $c);
+                $player_list = get_player_info_by_match_id($_GET['match_id'], $c);
                 foreach ((array) $player_list as $player) {
                     $data[$loop] = $player;
                     $loop++;

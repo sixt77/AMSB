@@ -38,7 +38,6 @@ FROM message M
 INNER JOIN utilisateurs U ON U.id = M.id_auteur
 WHERE M.id_sujets = '$id_subject'
 LIMIT $limit");
-
     $result = mysqli_query($c,$sql);
     $message_list = array ();
     $loop = 0;
@@ -47,5 +46,9 @@ LIMIT $limit");
         $message_list[$loop] = $donnees;
         $loop++;
     }
-    return $message_list;
+    if($loop > 0) {
+        return $message_list;
+    }else{
+        return null;
+    }
 }
