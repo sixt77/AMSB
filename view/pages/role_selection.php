@@ -48,25 +48,22 @@
 
                 <li class="amsb-display-item ">
                     <label for="volunteerCheckbox">
-                        <span class="amsb-display-item-text">Bénévole</span>
-
                         <input class="amsb-display-item-radio-item" type="checkbox" id="volunteerCheckbox" name="Volunteer" value="volunteer">
+                        <span class="amsb-display-item-text">Bénévole</span>
                     </label>
                 </li>
 
                 <li class="amsb-display-item ">
                     <label for="playerCheckbox">
-                        <span class="amsb-display-item-text">Joueur</span>
-
                         <input class="amsb-display-item-radio-item" type="checkbox" id="playerCheckbox" name="Player" value="player" checked>
+                        <span class="amsb-display-item-text">Joueur</span>
                     </label>
                 </li>
 
                 <li class="amsb-display-item ">
                     <label for="coachCheckbox">
-                        <span class="amsb-display-item-text">Entraineur</span>
-
                         <input class="amsb-display-item-radio-item" type="checkbox" id="coachCheckbox" name="Coach" value="coach">
+                        <span class="amsb-display-item-text">Entraineur</span>
                     </label>
                 </li>
             </ul>

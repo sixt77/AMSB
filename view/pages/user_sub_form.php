@@ -70,9 +70,6 @@
                     <label for="addImg" class="fileContainer">Cliquez ici pour télécharger la photo !</label>
                 </li>
 
-                <input id="f02" type="file" placeholder="Add profile picture" />
-                <label for="f02">Add profile picture</label>
-
                 <li class="amsb-form">
                     <span>Catégorie :</span>
                     <label for="categorie_select">
