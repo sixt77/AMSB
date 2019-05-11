@@ -1,5 +1,4 @@
 <?php
-
 if ($page == "home") {
     display_home();
 }
@@ -133,6 +132,7 @@ elseif ($page == "display_users_list") {
     display_navBar();
     display_users_list($users_list);
 }
+
 
 elseif ($page == "erreur404") {
     display_error404();

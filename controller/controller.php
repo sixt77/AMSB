@@ -2,7 +2,6 @@
 
 //direction de base
 $page = "erreur404";
-
 if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/AMSB/index.php" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/AMSB/" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/etu_info/amsb1/DEV/index.php" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/etu_info/amsb1/PROD/index.php" || parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/etu_info/amsb1/PROD/"|| parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == "/etu_info/amsb1/DEV/"){
     if (empty($_POST) && empty($_GET)) {
         // Vérification si l'user est enregisté
@@ -543,6 +542,8 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
 
 
 
+
+
             //incription
             if (isset($_POST["user_edit_form"])) {
                 $page = 'edit_user_form';
@@ -559,6 +560,8 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 $user_list = get_users_list($c);
                 $id_leader = $_SESSION['id_leader'];
             }
+
+
 
             //déconnection
             if (isset($_GET["logout"])) {

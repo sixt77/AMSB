@@ -174,6 +174,8 @@ function display_parent_sub() {
 
 }
 
+
+
 function display_error404(){
 
     require ("pages/error404.php");

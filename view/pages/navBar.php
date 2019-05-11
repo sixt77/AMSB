@@ -58,6 +58,17 @@
                     </li>
                 </ul>
             </div>
+            <div id="navBar_match">
+                <h3>notifications</h3>
+                <ul>
+                    <li>
+                        <a href="https://console.firebase.google.com/u/0/project/test-notif-604ae/notification">
+                            gestion des notifications
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
         </form>
     </div>
 </div>
