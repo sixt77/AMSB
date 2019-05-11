@@ -107,6 +107,46 @@ function sort_match(str, array, classe) {
     }
 }
 
+function select_cat(date, id) {
+    //date du jours
+    date = new Date(date);
+    var currentDate = new Date();
+    //creation des date intervales
+    var U9 = new Date((currentDate.getFullYear()-9), 5, 31);
+    var U11 = new Date(currentDate.getFullYear()-11, 5, 31);
+    var U13 = new Date(currentDate.getFullYear()-13, 5, 31);
+    var U15 = new Date(currentDate.getFullYear()-15, 5, 31);
+    var U17 = new Date(currentDate.getFullYear()-17, 5, 31);
+    var U18 = new Date(currentDate.getFullYear()-18, 5, 31);
+    var U20 = new Date(currentDate.getFullYear()-20, 5, 31);
+    if(date <= currentDate && date >= U9){
+        console.log("U9");
+        document.getElementById(id).value = "U9";
+    } else if(date < U9 && date >= U11){
+        console.log("U11");
+        document.getElementById(id).value = "U11";
+    } else if(date < U11 && date >= U13){
+        console.log("U13");
+        document.getElementById(id).value = "U13";
+    } else if(date < U13 && date >= U15){
+        console.log("U15");
+        document.getElementById(id).value = "U15";
+    } else if(date < U15 && date >= U17){
+        console.log("U17");
+        document.getElementById(id).value = "U17";
+    }else if(date < U17 && date >= U18){
+        console.log("U18");
+        document.getElementById(id).value = "U18";
+    }else if(date < U18 && date >= U20){
+        console.log("U20");
+        document.getElementById(id).value = "U20";
+    }else if(date < U20){
+        console.log("SENIOR");
+        document.getElementById(id).value = "Senior";
+    }
+
+
+}
 
 function hide_class($class) {
     $( "."+$class+"" ).hide();

@@ -41,7 +41,7 @@
 
                 <li class="amsb-form">
                     <span>Date de naissance :</span>
-                    <input class="amsb-item-input" id="input_birth_day" type="date" name='dateDeNaissance' onchange="verif_date(this.valueAsNumber, 'parent_form')" required/>
+                    <input class="amsb-item-input" id="input_birth_day" type="date" name='dateDeNaissance' onchange="verif_date(this.valueAsNumber, 'parent_form'), select_cat(this.valueAsDate, 'categorie_select')" required/>
                 </li>
 
                 <li class="amsb-form">
