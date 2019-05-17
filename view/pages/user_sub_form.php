@@ -1,18 +1,5 @@
 <div id="user_sub_form" class="amsb-container-right">
 
-    <script>
-        $("[type=file]").on("change", function(){
-            // Name of file and placeholder
-            var file = this.files[0].name;
-            var dflt = $(this).attr("placeholder");
-            if($(this).val()  === false){
-                $(this).next().text(file);
-            } else {
-                $(this).next().text(dflt);
-            }
-        });
-    </script>
-
     <div class="amsb-container-right-item">
         <h2 class="amsb-form-item-title">Ajouter un licencié !</h2>
 
@@ -67,7 +54,8 @@
                 <li class="amsb-form">
                     <span>Photo de la licence</span>
                     <input class="input-none-displayList" id="addImg" type="file" name="image" placeholder="Cliquez ici pour télécharger la photo !">
-                    <label for="addImg" class="fileContainer">Cliquez ici pour télécharger la photo !</label>
+                    <label id="img" for="addImg" class="fileContainer">Cliquez ici pour télécharger la photo !</label>
+                    <img id="imgView" src="" alt="" style="max-width: 500px;margin-top: 10px;">
                 </li>
 
                 <li class="amsb-form">
@@ -112,3 +100,10 @@
         </form>
     </div>
 </div>
+
+<script type="text/javascript">
+    document.querySelector('input[type="file"]').addEventListener('change', function(evt) {
+        document.getElementById('img').innerHTML = evt.target.files[0].name;
+        document.getElementById('imgView').src = URL.createObjectURL(evt.target.files[0]);
+    });
+</script>
