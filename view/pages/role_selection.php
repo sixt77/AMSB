@@ -4,31 +4,30 @@
 
         <form class="amsb-form-user_sub_form" action="index.php" method="post">
             <ul>
-                <li class="amsb-display-item margin-auto">
-                    <label for="leaderCheckbox">
-                        <input class="amsb-display-item-radio-item" type="checkbox" id="leaderCheckbox" name="Leader" value="dirigeant">
-                        <span class="amsb-display-item-text">Dirigeant</span>
+                <div class="amsb-display-item-roleDirigeant">
 
-                    </label>
-                </li>
+                    <li class="amsb-display-item">
+                        <label for="leaderCheckbox">
+                            <input class="amsb-display-item-radio-item" type="checkbox" id="leaderCheckbox" name="Leader" value="dirigeant">
+                            <span class="amsb-display-item-text">Dirigeant</span>
+                        </label>
+                    </li>
 
-                <li class="amsb-display-item-roleDirigeant">
+                    <?php
 
-                <?php
+                    $i = 0;
+                    foreach ((array) $role_list as $role) {
+                        echo '<li class="amsb-display-item ">
+                                <label for="'.$i.'">
+                                    <input class="amsb-display-item-radio-item" type="checkbox" id="'.$i.'" name="leader_role_list[]" value="'.$role['id_role'].'">
+                                    <span class="amsb-display-item-roleDirigeant-text">- '.$role['nom'].'</span>
+                                </label>
+                            </li>';
+                        $i++;
+                    }
+                    ?>
 
-                $i = 0;
-                foreach ((array) $role_list as $role) {
-                    echo '<li class="amsb-display-item ">
-                            <label for="'.$i.'">
-                                <input class="amsb-display-item-radio-item" type="checkbox" id="'.$i.'" name="leader_role_list[]" value="'.$role['id_role'].'">
-                                <span class="amsb-display-item-roleDirigeant-text">- '.$role['nom'].'</span>
-                            </label>
-                        </li>';
-                    $i++;
-                }
-                ?>
-
-                </li>
+                </div>
 
                 <li class="amsb-display-item ">
                     <label for="OTMCheckbox">

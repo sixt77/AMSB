@@ -4,33 +4,33 @@
 
         <form class="amsb-form-user_sub_form" action="index.php" method="post">
             <ul>
-                <li class="amsb-display-item ">
-                    <label for="leaderCheckbox">
-                        <input class="amsb-display-item-radio-item" type="checkbox" id="leaderCheckbox" name="Leader" value="dirigeant" <?php if($user_role_list[1] != null)echo 'checked';?>>
-                        <span class="amsb-display-item-text">Dirigeant</span>
-                    </label>
-                </li>
-
                 <div class="amsb-display-item-roleDirigeant">
 
-                <?php
+                    <li class="amsb-display-item ">
+                        <label for="leaderCheckbox">
+                            <input class="amsb-display-item-radio-item" type="checkbox" id="leaderCheckbox" name="Leader" value="dirigeant" <?php if($user_role_list[1] != null)echo 'checked';?>>
+                            <span class="amsb-display-item-text">Dirigeant</span>
+                        </label>
+                    </li>
 
-                $i = 0;
-                foreach ((array) $role_list as $role) {
-                    echo '<li class="amsb-display-item ">
-                            <label for="'.$i.'">';
-                    if(isset($leader_role_list[$i+1])) {
-                        echo '<input class="amsb-display-item-radio-item" type="checkbox" id="' . $i . '" name="leader_role_list[]" value="' . $role['id_role'] . '" checked>';
-                    }else{
-                        echo '<input class="amsb-display-item-radio-item" type="checkbox" id="' . $i . '" name="leader_role_list[]" value="' . $role['id_role'] . '" >';
+                    <?php
+
+                    $i = 0;
+                    foreach ((array) $role_list as $role) {
+                        echo '<li class="amsb-display-item ">
+                                <label for="'.$i.'">';
+                        if(isset($leader_role_list[$i+1])) {
+                            echo '<input class="amsb-display-item-radio-item" type="checkbox" id="' . $i . '" name="leader_role_list[]" value="' . $role['id_role'] . '" checked>';
+                        }else{
+                            echo '<input class="amsb-display-item-radio-item" type="checkbox" id="' . $i . '" name="leader_role_list[]" value="' . $role['id_role'] . '" >';
+                        }
+                        echo '    <span class="amsb-display-item-roleDirigeant-text">'.$role['nom'].'</span>
+                                </label>
+                            </li>';
+                        $i++;
                     }
-                    echo '    <span class="amsb-display-item-roleDirigeant-text">'.$role['nom'].'</span>
-                            </label>
-                        </li>';
-                    $i++;
-                }
 
-                ?>
+                    ?>
 
                 </div>
 

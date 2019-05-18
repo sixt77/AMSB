@@ -29,71 +29,70 @@
                 <input class="amsb-item-input" type="text" name="nom" required>
             </div>
 
-            <div class="amsb-form-coach-joueur">
-                <div class="amsb-form-coach">
-                    <h2 class="amsb-form-item-title">Choix du Coach :</h2>
+            <div class="amsb-form-coach">
+                <h2 class="amsb-form-item-title">Choix du Coach :</h2>
 
-                    <ul>
-                        <?php
+                <ul>
+                    <?php
 
-                        $i = 1;
-                        foreach ((array) $coach_list as $coach){
-                            echo'<li class="amsb-display-item">
+                    $i = 1;
+                    foreach ((array) $coach_list as $coach){
+                        echo'<li class="amsb-display-item">
                                     <label for="coach_id_'.$i.'">';
-                                if ($i == 1){
-                                    echo '<input class="input-none-displayList" type="radio" id="coach_id_'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'" checked>';
-                                } else {
-                                    echo '<input class="input-none-displayList" type="radio" id="coach_id_' . $i . '" name="coach" value="' . $coach['id_entraineurs'] . '">';
-                                }
-                            echo'<span class="amsb-display-item-text">
+                        if ($i == 1){
+                            echo '<input class="input-none-displayList" type="radio" id="coach_id_'.$i.'" name="coach" value="'.$coach['id_entraineurs'].'" checked>';
+                        } else {
+                            echo '<input class="input-none-displayList" type="radio" id="coach_id_' . $i . '" name="coach" value="' . $coach['id_entraineurs'] . '">';
+                        }
+                        echo'<span class="amsb-display-item-text">
                                             '.$coach["nom"].' '.$coach["prenom"].'
                                     </span>
                                  </label>
                              </li>';
 
-                            $i++;
-                        }
+                        $i++;
+                    }
 
-                        ?>
+                    ?>
+                </ul>
+
+            </div>
+
+            <div class="amsb-form-joueur">
+
+                <h2 class="amsb-form-item-title">Choix des Joueurs :</h2>
+
+                <div  class="amsb-display">
+                    <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, this.value, items, 'user_div')" placeholder="Recherche..">
+
+                    <select class="amsb-display-categorieSelect" id="categorie_select" name="categorie" onchange="sort_element_by_categorie(this.value, document.getElementById('surclassage').checked, document.getElementById('search_bar').value, items, 'user_div')">
+                        <option value="all">toutes</option>
+                        <option value="U9">U9</option>
+                        <option value="U11">U11</option>
+                        <option value="U13">U13</option>
+                        <option value="U15">U15</option>
+                        <option value="U17">U17</option>
+                        <option value="U18">U18</option>
+                        <option value="U20">U20</option>
+                        <option value="Senior">Senior</option>
+                    </select>
+
+                    <label class="amsb-display-label" for="surclassage">
+                        <input class="amsb-display-surclasse" type="checkbox" id="surclassage" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, document.getElementById('search_bar').value, items, 'user_div')">
+                        <span class="amsb-display-surclasseText">Surclassé</span>
+                    </label>
+
+                    <ul id="reference_display" class="user_div_reference">
+                        <li>Nom</li>
+                        <li>Prénom</li>
+                        <li>Email</li>
+                        <li>Téléphone</li>
+                        <li>Licence</li>
+                        <li>Sexe</li>
+                        <li>Catégorie</li>
                     </ul>
 
-                </div>
-
-                <div class="amsb-form-joueur">
-
-                    <h2 class="amsb-form-item-title">Choix des Joueurs :</h2>
-
-                    <div  class="amsb-display">
-                        <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, this.value, items, 'user_div')" placeholder="Recherche..">
-
-                        <select class="amsb-display-categorieSelect" id="categorie_select" name="categorie" onchange="sort_element_by_categorie(this.value, document.getElementById('surclassage').checked, document.getElementById('search_bar').value, items, 'user_div')">
-                            <option value="all">Toutes</option>
-                            <option value="U9">U9</option>
-                            <option value="U11">U11</option>
-                            <option value="U13">U13</option>
-                            <option value="U15">U15</option>
-                            <option value="U17">U17</option>
-                            <option value="U18">U18</option>
-                            <option value="U20">U20</option>
-                            <option value="Senior">Senior</option>
-                        </select>
-
-                        <label class="amsb-display-label" for="surclassage">
-                            <input class="amsb-display-surclasse" type="checkbox" id="surclassage" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, document.getElementById('search_bar').value, items, 'user_div')">
-                            <span class="amsb-display-surclasseText">Surclassé</span>
-                        </label>
-
-                        <ul id="reference_display" class="user_div_reference">
-                            <li>Nom</li>
-                            <li>Prénom</li>
-                            <li>Email</li>
-                            <li>Téléphone</li>
-                            <li>Licence</li>
-                            <li>Sexe</li>
-                            <li>Catégorie</li>
-                        </ul>
-
-                        <div class="amsb-display-scroll">
+                    <div class="amsb-display-scroll">
 
                         <?php
 
@@ -117,7 +116,6 @@
                         }
 
                         ?>
-                        </div>
                     </div>
                 </div>
             </div>
