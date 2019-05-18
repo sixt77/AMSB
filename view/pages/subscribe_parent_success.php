@@ -1,7 +1,7 @@
 <div class="ac-home-header">
 
     <h1 class="ac-home-header-title">
-        Agenda Collaboratif
+        Console d'administration
     </h1>
 
 </div>
@@ -11,7 +11,7 @@
     <div class="ac-home">
 
         <p class="ac-home-signin-text">
-            incription réussi connectez vous a l'application mobile pour suivre vos enfant !
+            Succès de l'inscription! Connectez-vous à l'application mobile pour suivre vos enfants !
         </p>
 
         <p class="ac-home-signin-text">

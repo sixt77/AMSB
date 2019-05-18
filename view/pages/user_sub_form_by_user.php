@@ -23,11 +23,11 @@
                 </li>
 
                 <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" placeholder='Prenom' name='prenom' required/>
+                    <input class="ac-home-sign-item-input" type="text" placeholder='Prénom' name='prenom' required/>
                 </li>
 
                 <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" name='email' placeholder='Adresse e-mail' required/>
+                    <input class="ac-home-sign-item-input" type="text" name='email' placeholder='Adresse mail' required/>
                 </li>
 
                 <li class="ac-home-sign-item">
@@ -39,7 +39,7 @@
                 </li>
 
                 <li class="ac-home-sign-item">
-                    <input class="ac-home-sign-item-input" type="text" placeholder='licence' name='Licence' required/>
+                    <input class="ac-home-sign-item-input" type="text" placeholder='Licence' name='Licence' required/>
                 </li>
 
                 <div class="ac-home-sign-allBoutton">

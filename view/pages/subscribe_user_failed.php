@@ -1,7 +1,7 @@
 <div class="ac-home-header">
 
     <h1 class="ac-home-header-title">
-        Agenda Collaboratif
+        Console d'administration
     </h1>
 
 </div>
@@ -11,7 +11,7 @@
     <div class="ac-home">
 
         <p class="ac-home-signin-text">
-            l'incription a échoué, veuillez réésayer !
+            Echec de l'inscription, veuillez réessayer !
         </p>
 
         <p class="ac-home-signin-text">

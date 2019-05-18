@@ -2,7 +2,7 @@
     <div class="amsb-home-header">
 
         <h1 class="amsb-home-header-title">
-            Console Admin
+            Console d'administration
         </h1>
 
         <h2 class="amsb-home-header-title">

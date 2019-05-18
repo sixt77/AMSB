@@ -31,7 +31,7 @@
 
             <div class="amsb-form-coach-joueur">
                 <div class="amsb-form-coach">
-                    <h2 class="amsb-form-item-title">Choix du Coach :</h2>
+                    <h2 class="amsb-form-item-title">Choix du coach :</h2>
 
                     <ul>
                         <?php
@@ -60,7 +60,7 @@
 
                 <div class="amsb-form-joueur">
 
-                    <h2 class="amsb-form-item-title">Choix des Joueurs :</h2>
+                    <h2 class="amsb-form-item-title">Choix des joueurs :</h2>
 
                     <div  class="amsb-display">
                         <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, this.value, items, 'user_div')" placeholder="Recherche..">

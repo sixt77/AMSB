@@ -14,7 +14,7 @@
             <li class="ac-home-sign-item-inscrip">
 
                 <h2 class="ac-home-sign-item-h2">
-                    selectionnez vos enfants
+                    Sélectionnez vos enfants
                 </h2>
             </li>
 

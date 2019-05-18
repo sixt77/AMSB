@@ -89,7 +89,7 @@
 
                 <label class="amsb-display-label" for="surclassage" style="position: initial;float: none;margin: 30px auto 0;">
                     <input class="amsb-display-surclasse" type="checkbox" id="surclassage" name="surclassage" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, document.getElementById('search_bar').value, items, 'user_div')">
-                    <span class="amsb-display-surclasseText">Surclassé</span>
+                    <span class="amsb-display-surclasseText">Surclasser</span>
                 </label>
 
                 <li class="amsb-form">

@@ -141,7 +141,7 @@
                         ?>
                     >
 
-                    <span class="amsb-display-surclasseText">Surclassé</span>
+                    <span class="amsb-display-surclasseText">Surclasser</span>
                 </label>
 
             </ul>

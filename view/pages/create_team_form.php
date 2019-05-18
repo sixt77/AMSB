@@ -67,7 +67,7 @@
                         <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, this.value, items, 'user_div')" placeholder="Recherche..">
 
                         <select class="amsb-display-categorieSelect" id="categorie_select" name="categorie" onchange="sort_element_by_categorie(this.value, document.getElementById('surclassage').checked, document.getElementById('search_bar').value, items, 'user_div')">
-                            <option value="all">toutes</option>
+                            <option value="all">Toutes</option>
                             <option value="U9">U9</option>
                             <option value="U11">U11</option>
                             <option value="U13">U13</option>

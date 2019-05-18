@@ -5,11 +5,11 @@
         <div class="ac-popUpFail-header">
 
             <p class="ac-popUpFail-header-text">
-                Connection refusée !
+                Connexion refusée !
             </p>
 
             <p class="ac-popUpFail-header-text">
-                Identifiant ou mot de passe incorrect !
+                Identifiant et/ou mot de passe incorrect(s) !
             </p>
 
             <div class="ac-popUpFail-header-close" id="closeFail">

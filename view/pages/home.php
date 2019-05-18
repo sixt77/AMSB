@@ -4,12 +4,12 @@
     <div class="amsb-home">
         <form action="index.php" method="post">
             <label for="user_login">
-                Login
+                Adresse mail
                 <input type="text" class="amsb-item-input" id="user_login" name="pseudo" required>
             </label>
 
             <label for="user_pass">
-                Password
+                Mot de passe
                 <input type='password' class="amsb-item-input" id="user_pass" name="password" required>
             </label>
 
