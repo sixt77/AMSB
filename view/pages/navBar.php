@@ -25,7 +25,9 @@
         }
     }
 </script>
-
+<?php
+var_dump($leader_role_array);
+?>
 <div id="navBar" class="amsb-navBar" style="">
     <a href="index.php">
         <i class="fas fa-home icon-home"></i>
