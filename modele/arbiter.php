@@ -27,7 +27,7 @@ function get_arbiter_number_on_all_match($c){
     $sql = ("SELECT M.id, COUNT(MA.id_arbitres) as nb_arbitres, M.date, M.lieux
 FROM matchs M
 LEFT JOIN matchs_arbitres MA ON MA.id_matchs = M.id
-GROUP BY M.id");
+GROUP BY M.id  ORDER BY M.date DESC");
     $result = mysqli_query($c,$sql);
     $matchs_list= array ();
     $loop = 0;
