@@ -4,18 +4,18 @@ if ($page == "home") {
 }
 
 elseif ($page == "main") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_main();
 }
 
 
 elseif ($page == "role_selection") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_role_selection($id, $role_list);
 }
 
 elseif ($page == "role_update") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_role_update_form($id, $role_list, $user_role_list, $leader_role_list);
 }
 
@@ -29,12 +29,12 @@ elseif ($page == "connection_failed") {
 }
 
 elseif ($page == "creation_success") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_creation_success();
 }
 
 elseif ($page == "creation_failed") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_creation_failed();
 }
 
@@ -60,7 +60,7 @@ elseif ($page == "sub_failed") {
 }
 
 elseif ($page == "user_sub") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_user_sub();
 }
 
@@ -73,63 +73,63 @@ elseif ($page == "userform") {
 }
 
 elseif ($page == "edit_user") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_user_edit($id_leader, $user_list);
 }
 
 elseif ($page == "edit_user_form") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_user_edit_form($user_info);
 }
 
 elseif ($page == "display_match_list") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_create_match_list($match_data);
 }
 
 elseif ($page == "create_match_form") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_create_match_form($team_list);
 }
 
 elseif ($page == "match_selection_form") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_match_selection_form($match_list, $get);
 }
 
 elseif ($page == "otm_selection_form") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_otm_selection_form($otm_list, $otm_sub_list, $get, $match_id);
 }
 
 elseif ($page == "arbiter_selection_form") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_arbiter_selection_form($arbiter_list, $arbiter_sub_list, $get, $match_id);
 }
 
 elseif ($page == "display_team_list") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_team_list($team_list);
 }
 
 elseif ($page == "create_team_form") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_create_team_form($player_list, $coach_list);
 }
 
 elseif ($page == "select_team") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_select_team($team_list);
 }
 
 elseif ($page == "edit_team_form") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_edit_team_form($player_list, $coach_list, $team_info, $team_player_list);
 
 }
 
 elseif ($page == "display_users_list") {
-    display_navBar();
+    display_navBar($leader_role_array);
     display_users_list($users_list);
 }
 

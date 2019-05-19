@@ -6,7 +6,7 @@ function display_home(){
 
 }
 
-function display_navBar(){
+function display_navBar($leader_role_list){
 
     require ("pages/navBar.php");
 

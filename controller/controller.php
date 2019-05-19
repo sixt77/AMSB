@@ -6,6 +6,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
     if (empty($_POST) && empty($_GET)) {
         // Vérification si l'user est enregisté
         if (isset($_SESSION['stat'])) {
+            $leader_role_array = get_leader_role_leader_by_id($_SESSION['id_leader'], $c);
             $page = "main";
         } else {
             $page = "home";
@@ -64,6 +65,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
         }
         //verification de la connection de l'utilisateur
         if (isset($_SESSION['stat']) && isset($_SESSION['id_leader'])) {
+            $leader_role_array = get_leader_role_leader_by_id($_SESSION['id_leader'], $c);
             //incription d'un licencé
             if (isset($_POST["signup"])) {
                 if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["motDePasse"]) && !empty($_POST["telephone"]) && !empty($_POST["licence"]) && !empty($_POST["sexe"])) {
