@@ -58,7 +58,7 @@ WHERE MEC.id_matchs = '$match_id' ");
 
 //recupère la liste des match ou l'arbitre est présent
 function get_matchs_by_coach_id($id_coachs, $c){
-    $sql = ("SELECT DISTINCT id_matchs FROM matchs_equipes_coachs WHERE id_coachs = '$id_coachs' AND id_matchs NOT IN(SELECT id_matchs FROM liste_matchs WHERE id_coachs != '$id_coachs')  ORDER BY date DESC");
+    $sql = ("SELECT DISTINCT id_matchs FROM matchs_equipes_coachs WHERE id_coachs = '$id_coachs' AND id_matchs NOT IN(SELECT id_matchs FROM liste_matchs WHERE id_coachs != '$id_coachs')");
     $result = mysqli_query($c,$sql);
     $matchs_list= array ();
     $loop = 0;
