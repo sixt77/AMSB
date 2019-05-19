@@ -36,7 +36,7 @@
                             echo '<li class="amsb-display-item ">
                                     <label for="'.$i.'">
                                         <input class="amsb-display-item-radio-item" type="checkbox" id="'.$i.'" name="leader_role_list[]" value="'.$role['id_role'].'">
-                                        <span class="amsb-display-item-roleDirigeant-text">- '.$role['nom'].'</span>
+                                        <span class="amsb-display-item-roleDirigeant-text">'.$role['nom'].'</span>
                                     </label>
                                 </li>';
                             $i++;
@@ -92,3 +92,13 @@
     </div>
 
 </div>
+
+<script>
+    var checkboxDirig = document.getElementById("leaderCheckbox");
+    var divSousRole = document.getElementById("sous_role");
+    if (checkboxDirig.checked === true) {
+        divSousRole.style.display = "block";
+    } else {
+        divSousRole.style.display = "none";
+    }
+</script>

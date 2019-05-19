@@ -95,3 +95,13 @@
     </div>
 
 </div>
+
+<script>
+    var checkboxDirig = document.getElementById("leaderCheckbox");
+    var divSousRole = document.getElementById("sous_role");
+    if (checkboxDirig.checked === true) {
+        divSousRole.style.display = "block";
+    } else {
+        divSousRole.style.display = "none";
+    }
+</script>
