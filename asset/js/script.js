@@ -306,3 +306,23 @@ function followRoad() {
 function afficheButtunRole($role) {
 
 }
+
+function afficheDivSousRole() {
+
+    var checkboxDirig       = document.getElementById("leaderCheckbox");
+    var divSousRole         = document.getElementById("sous_role");
+    var gestionUtilisateur  = document.getElementById("0");
+    var gestionEquipe       = document.getElementById("1");
+    var gestionMatch        = document.getElementById("2");
+    var gestionNotification = document.getElementById("3");
+
+    if (checkboxDirig.checked === true) {
+        divSousRole.style.display = "block";
+    } else {
+        divSousRole.style.display = "none";
+        gestionUtilisateur.checked = false;
+        gestionEquipe.checked = false;
+        gestionMatch.checked = false;
+        gestionNotification.checked = false;
+    }
+}
