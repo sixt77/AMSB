@@ -13,9 +13,9 @@
                 $match['team']['1']['nom']=null;
             }
             if($i == 0){
-                echo"['".$match['match']["id"]."','".$match['match']["lieux"]."','".$match["team"]['0']['nom']."','".$match["team"]['1']['nom']."']";
+                echo"['".$match['match']["id"]."','".$match['match']["lieux"]."','".$match["team"]['0']['nom']."','".$match["team"]['1']['nom']."','".$match["match"]['date']."']";
             }else{
-                echo",['".$match['match']["id"]."','".$match['match']["lieux"]."','".$match["team"]['0']['nom']."','".$match["team"]['1']['nom']."']";
+                echo",['".$match['match']["id"]."','".$match['match']["lieux"]."','".$match["team"]['0']['nom']."','".$match["team"]['1']['nom']."','".$match["match"]['date']."']";
             }
             $i++;
         }
@@ -24,11 +24,28 @@
         ?>
 
     </script>
+    <script>
+        //génération des intervals pour le trie
+        date1 = new Date();
+        date2 = new Date();
+        date3 = new Date();
+        date4 = new Date();
+        date5 = new Date();
+        //affectation des intervals
+        date2.setMonth(date2.getMonth()-1); //moi précédent
+        date3.setMonth(date3.getMonth()+1); //moi suivant
+        date4.setFullYear(date4.getFullYear()-1); //anneé suivante
+        date5.setFullYear(date5.getFullYear()+1); //anneé suivante
 
+
+    </script>
     <div class="amsb-container-right-item">
 
         <h2 class="amsb-form-item-title">Liste des matchs</h2>
-
+        <input type="button" value="moi précédent" onclick="sort_match_by_date(date2.getTime()/1000, date1.getTime()/1000, 'match_div', items)">
+        <input type="button" value="moi suivant" onclick="sort_match_by_date(date1.getTime()/1000, date3.getTime()/1000, 'match_div', items)">
+        <input type="button" value="année précédente" onclick="sort_match_by_date(date4.getTime()/1000, date1.getTime()/1000, 'match_div', items)">
+        <input type="button" value="année suivante" onclick="sort_match_by_date(date1.getTime()/1000, date5.getTime()/1000, 'match_div', items)">
         <div class="amsb-display">
             <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_match(this.value, items, 'match_div')" placeholder="Recherche..">
 

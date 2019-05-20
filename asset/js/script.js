@@ -60,13 +60,13 @@ function sort_element_by_categorie(cat, surclassage, str, array, id) {
     var j = 0;
     var categorie = ["U9", "U11", "U13", "U15",  "U17",   "U18",  "U20",  "Senior"];
     var array2 = new Array();
+    console.log(array);
     if(cat ==="all"){
         array2 = array;
     }else{
         if(surclassage && categorie.indexOf(cat) !== 0){
-            console.log(categorie[categorie.indexOf(cat)-1]);
             for(var i in array){
-                if(array[i][7].toLowerCase().includes(cat.toLowerCase())||array[i][7].toLowerCase().includes(categorie[categorie.indexOf(cat)-1].toLowerCase())){
+                if(array[i][7].toLowerCase().includes(cat.toLowerCase())||(array[i][7].toLowerCase().includes(categorie[categorie.indexOf(cat)-1].toLowerCase()) && array[i][8] === "on")){
                     array2[j] = array[i];
                     j++;
                 }
@@ -93,7 +93,6 @@ function sort_element_by_categorie(cat, surclassage, str, array, id) {
 
 function sort_match(str, array, classe) {
     var j = 0;
-    console.log(array);
     var array2 = new Array();
     for(var i in array){
         if(array[i][1].toLowerCase().includes(str.toLowerCase())||array[i][2].toLowerCase().includes(str.toLowerCase())||array[i][3].toLowerCase().includes(str.toLowerCase())){
@@ -101,9 +100,10 @@ function sort_match(str, array, classe) {
             j++;
         }
     }
-    hide_class(classe);
+    add_class_by_class(classe, "hide_by_text");
     for(var i in array2){
-        show_id('match_'+array2[i][0]);
+        remove_class_by_id('match_'+array2[i][0], "hide_by_text");
+
     }
 }
 
@@ -138,6 +138,37 @@ function select_cat(date, id) {
     }else if(date < U20){
         document.getElementById(id).value = "Senior";
     }
+}
+
+function sort_match_by_date(date1, date2, classe, array){
+    console.log(array);
+    var j = 0;
+    var array2 = new Array();
+    for(var i in array){
+        console.log(array[i][4]);
+        if(date1<array[i][4] && date2>array[i][4]){
+            array2[j] = array[i];
+            j++;
+        }
+    }
+    console.log(array2)
+    add_class_by_class(classe, "hide_by_date");
+    for(var i in array2){
+        remove_class_by_id('match_'+array2[i][0], "hide_by_date");
+
+    }
+
+
+
+
+}
+
+function  add_class_by_class(class1, class2) {
+    $( "."+class1+"" ).addClass(class2);
+}
+
+function remove_class_by_id(id, class1) {
+    $( "#"+id+"" ).removeClass(class1);
 }
 
 function hide_class($class) {
