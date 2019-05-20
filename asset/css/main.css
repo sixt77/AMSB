@@ -537,6 +537,9 @@ label {
  *   Display                                                                        *
 \*********************************************************************************/
 
+#user_edit .amsb-display {
+    height: 650px;
+}
 
 .amsb-display {
     max-width: 1100px;
@@ -545,7 +548,7 @@ label {
     box-shadow: 0 1px 3px rgba(0,0,0,.13);
     padding: 25px 25px;
     position: relative;
-    height: 570px;
+    height: 600px;
 }
 
 .amsb-display-scroll {
@@ -929,8 +932,9 @@ label {
 }
 
 
+#role_selction .amsb-display-item,
 #role_update .amsb-display-item {
-    width: 40%;
+    width: 80%;
 }
 
 #role_update {
@@ -957,13 +961,12 @@ label {
     float: right;
 }
 
+#display_team_list .amsb-display-item {
+    width: 60%;
+}
 
-/*********************************************************************************\
- *   Script                                                                       *
-\*********************************************************************************/
-.hide_by_text{
-    display: none;
+.amsb-display-otherRole {
+    width: 50%;
+    float: right;
 }
-.hide_by_date{
-    display: none;
-}
+

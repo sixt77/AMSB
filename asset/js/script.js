@@ -6,6 +6,7 @@ function create_element($tag, $id, $class, $onclick, $html){
     if($html != "" && $html != undefined)item.innerHTML =$html;
     return item;
 }
+
 function create_input($type, $id, $class, $name, $required){
     var item = document.createElement("input");
     item.type = $type;
@@ -261,5 +262,98 @@ function delete_parent_form(date){
 function verif_date(date, id) {
     if(!isMajor(date) && count_class("parent_form")===0){
         add_parent_form(id, count_class("parent_form")+1);
+    }
+}
+
+
+function navBarMove() {
+    var navBarStyle         = document.getElementById('navBar').style;
+    var imgLogoStyle        = document.getElementById('logo_move').style;
+    var titleImgStyle       = document.getElementById('titleImg').style;
+    var containerRightStyle = document.getElementsByClassName('amsb-container-right')[0].style;
+    var navButtonStyle      = document.getElementsByClassName('amsb-navBar-main')[0].style;
+    var iconHomeStyle       = document.getElementsByClassName('icon-home')[0].style;
+    if (navBarStyle.width !== "80px") {
+        iconHomeStyle.left          = "80px";
+        navBarStyle.width           = "80px";
+        titleImgStyle.display       = "none";
+        containerRightStyle.width   = "calc(100% - 80px)";
+        imgLogoStyle.width          = "60px";
+        imgLogoStyle.height         = "60px";
+        navButtonStyle.display      = "none";
+    } else {
+        iconHomeStyle.left          = "200px";
+        navBarStyle.width           = "200px";
+        titleImgStyle.display       = "block";
+        containerRightStyle.width   = "calc(100% - 200px)";
+        imgLogoStyle.width          = "80px";
+        imgLogoStyle.height         = "80px";
+        navButtonStyle.display      = "block";
+    }
+}
+
+function followRoad() {
+    var indexPageID       = document.getElementsByClassName('amsb-container-right')[0].id;
+
+    switch (indexPageID) {
+        case 'main':
+            document.getElementsByClassName('icon-home')[0].style.color = "#F12024";
+            break;
+        case 'display_users_list':
+            document.getElementsByName('users_list')[0].style.color = "#F12024";
+            break;
+        case 'user_sub_form':
+            document.getElementsByName('subform')[0].style.color = "#F12024";
+            break;
+        case 'user_edit':
+            document.getElementsByName('edit_user')[0].style.color = "#F12024";
+            break;
+
+        case 'display_team_list':
+            document.getElementsByName('team_list')[0].style.color = "#F12024";
+            break;
+        case 'create_team_form':
+            document.getElementsByName('create_team_form')[0].style.color = "#F12024";
+            break;
+        case 'select_team':
+            document.getElementsByName('select_team')[0].style.color = "#F12024";
+            break;
+
+        case 'display_match_list':
+            document.getElementsByName('get_matchs_list')[0].style.color = "#F12024";
+            break;
+        case 'create_match_form':
+            document.getElementsByName('create_match_form')[0].style.color = "#F12024";
+            break;
+        case 'match_selction':
+            document.getElementsByName('designation_OTM_form')[0].style.color = "#F12024";
+            break;
+        case 'match_selection':
+            document.getElementsByName('designation_arbiter_form')[0].style.color = "#F12024";
+            break;
+    }
+}
+
+function afficheButtunRole($role) {
+
+}
+
+function afficheDivSousRole() {
+
+    var checkboxDirig       = document.getElementById("leaderCheckbox");
+    var divSousRole         = document.getElementById("sous_role");
+    var gestionUtilisateur  = document.getElementById("0");
+    var gestionEquipe       = document.getElementById("1");
+    var gestionMatch        = document.getElementById("2");
+    var gestionNotification = document.getElementById("3");
+
+    if (checkboxDirig.checked === true) {
+        divSousRole.style.display = "block";
+    } else {
+        divSousRole.style.display = "none";
+        gestionUtilisateur.checked = false;
+        gestionEquipe.checked = false;
+        gestionMatch.checked = false;
+        gestionNotification.checked = false;
     }
 }
