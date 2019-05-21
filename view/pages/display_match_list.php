@@ -56,6 +56,8 @@
                 <li>Equipe 2</li>
                 <li>Lieu</li>
                 <li>Date</li>
+                <li>Heure</li>
+                <li>Catégorie</li>
             </ul>
 
             <div class="amsb-display-scroll">
@@ -67,16 +69,26 @@
                     //afficher le nom de l'équipe 1 :
                     if (isset($data['team'][0])){
                         echo '<li>'.$data['team'][0]['nom'].'</li>';
+                    } else {
+                        echo '<li></li>';
                     }
                     //afficher le nom de l'équipe 2 :
                     if (isset($data['team'][1])){
                         echo '<li>'.$data['team'][1]['nom'].'</li>';
+                    } else {
+                        echo '<li></li>';
                     }
                     //afficher le lieux
                     echo '<li>'.$data['match']['lieux'].'</li>';
 
                     //afficher la date :
                     echo '<li>'.date('d/m/Y',$data['match']['date']).'</li>';
+
+                    //afficher l'heure :
+                    echo '<li>'.date('H:i',$data['match']['date']).'</li>';
+
+                    //afficher la catégorie :
+                    echo '<li>'.$data['match']['categorie'].'</li>';
                     echo '</ul>';
 
                 }

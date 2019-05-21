@@ -120,6 +120,18 @@ function display_create_match_form($team_list) {
 
 }
 
+function display_select_match($match_data) {
+
+    require("pages/select_match.php");
+
+}
+
+function display_edit_match_form($match_info) {
+
+    require("pages/edit_match_form.php");
+
+}
+
 function display_match_selection_form($match_list, $get) {
 
     require("pages/match_selection.php");

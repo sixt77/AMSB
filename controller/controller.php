@@ -345,16 +345,16 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 }
             }
 
-            //formulaire creation match
+            //formulaire création match
             if (isset($_POST["create_match_form"])) {
                 $page = 'create_match_form';
                 $team_list = get_team_list($c);
             }
 
-            //creation match
+            //création match
             if (isset($_POST["create_match"])) {
                 $sucess = true;
-                if(!create_match(strtotime($_POST['date'])+(strtotime($_POST['time'])%86400), $_POST['lieux'], $c)){
+                if(!create_match(strtotime($_POST['date'])+(strtotime($_POST['time'])%86400), $_POST['lieux'], $_POST['categorie'], $c)){
                     $sucess = false;
                 }
 
@@ -396,7 +396,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 }
             }
 
-            //voire liste des matchs
+            //voir liste des matchs
             if(isset($_POST["get_matchs_list"])) {
                 $loop = 0;
                 $match_list = get_all_matchs($c);
@@ -407,6 +407,36 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                     $loop++;
                 }
                 $page = "display_match_list";
+            }
+
+            //Séléction d'un match
+            if(isset($_POST["select_match"])) {
+                $loop = 0;
+                $match_list = get_all_matchs($c);
+                $match_data = null;
+                foreach ((array) $match_list as $match) {
+                    $match_data[$loop]['match'] = get_matchs_info_by_id($match['id'], $c);
+                    $match_data[$loop]['team'] = get_team_by_match_id($match['id'], $c);
+                    $loop++;
+                }
+                $page = "select_match";
+            }
+
+            //modification d'un match
+            if(isset($_POST["edit_match_form"])) {
+                $match_info = get_matchs_info_by_id($_POST['match_id'], $c);
+                $page = "edit_match_form";
+            }
+
+            //mise à jour de match
+            if(isset($_POST['update_match'])){
+                if (!empty($_POST['lieu']) && (!empty($_POST['date']) && (!empty($_POST['time'])) )) {
+                    if (update_match($_POST['update_match'], strtotime($_POST['date'])+(strtotime($_POST['time'])%86400), $_POST['lieu'], $_POST['categorie'], $c)) {
+                        $page = "creation_success";
+                    } else {
+                        $page = "creation_failed";
+                    }
+                }
             }
 
             //désignation d'otm sur un match (choix du match)
@@ -494,13 +524,13 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 $team_list = get_team_list($c);
             }
 
-            //formulaire creation equipe
+            //formulaire création equipe
             if (isset($_POST["create_team_form"])) {
                 $page = 'create_team_form';
                 $player_list = get_players_list($c);
                 $coach_list = get_coach_list($c);
             }
-            //creation equipe
+            //création equipe
             if (isset($_POST["create_team"])) {
                 if (isset($_POST['coach']) && isset($_POST['nom'])) {
                     if (create_team($_POST['coach'], $_POST['nom'], $c)) {
@@ -521,7 +551,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 }
             }
 
-            //selection  d'équipe
+            //selection d'équipe
             if (isset($_POST["select_team"])) {
                 $page = 'select_team';
                 $team_list = get_internal_team_list($c);
@@ -550,28 +580,24 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
 
 
 
-
-
-            //incription
+            //inscription
             if (isset($_POST["user_edit_form"])) {
                 $page = 'edit_user_form';
                 $user_info = get_info_user_by_id($_POST['user_id'], $c);
             }
 
-            //formulaire d'incription
+            //formulaire d'inscription
             if (isset($_POST["subform"])) {
                 $page = "user_sub";
             }
-            //formulaire d'incription
+            //formulaire d'inscription
             if (isset($_POST["edit_user"])) {
                 $page = "edit_user";
                 $user_list = get_users_list($c);
                 $id_leader = $_SESSION['id_leader'];
             }
 
-
-
-            //déconnection
+            //déconnexion
             if (isset($_GET["logout"])) {
                 user_logout();
                 header('location: index.php');

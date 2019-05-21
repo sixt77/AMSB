@@ -92,6 +92,16 @@ elseif ($page == "create_match_form") {
     display_create_match_form($team_list);
 }
 
+elseif ($page == "select_match") {
+    display_navBar($leader_role_array);
+    display_select_match($match_data);
+}
+
+elseif ($page == "edit_match_form") {
+    display_navBar($leader_role_array);
+    display_edit_match_form($match_info);
+}
+
 elseif ($page == "match_selection_form") {
     display_navBar($leader_role_array);
     display_match_selection_form($match_list, $get);

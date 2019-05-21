@@ -82,7 +82,7 @@
                             <button type=\"submit\" name=\"create_match_form\" value=\"\">Ajouter</button>
                         </li>
                         <li>
-                            <button>Modifier</button>
+                            <button type=\"submit\" name=\"select_match\" value=\"\">Modifier</button>
                         </li>
                         <li>
                             <button type=\"submit\" name=\"designation_OTM_form\" value=\"\">Désignation des OTM</button>
