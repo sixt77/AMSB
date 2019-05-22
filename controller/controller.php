@@ -424,13 +424,15 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
 
             //modification d'un match
             if(isset($_POST["edit_match_form"])) {
-                $match_info = get_matchs_info_by_id($_POST['match_id'], $c);
+                $match_info = null;
+                $match_info['match'] = get_matchs_info_by_id($_POST['match_id'], $c);
+                $match_info['team'] = get_team_by_match_id($_POST['match_id'], $c);
                 $page = "edit_match_form";
             }
 
             //mise à jour de match
             if(isset($_POST['update_match'])){
-                if (!empty($_POST['lieu']) && (!empty($_POST['date']) && (!empty($_POST['time'])) )) {
+                if (!empty($_POST['lieu']) && !empty($_POST['date']) && !empty($_POST['time']) && !empty($_POST['team1']) && !empty($_POST['team2']) && !empty($_POST['categorie'])) {
                     if (update_match($_POST['update_match'], strtotime($_POST['date'])+(strtotime($_POST['time'])%86400), $_POST['lieu'], $_POST['categorie'], $c)) {
                         $page = "creation_success";
                     } else {
