@@ -13,7 +13,7 @@
                 </li>
 
                 <li class="amsb-form">
-                    <input id="team1" class="amsb-item-input" list="team_list" name="team1" placeholder="Equipe 1" required>
+                    <input id="team1" class="amsb-item-input" list="team_list" name="team1" placeholder="Equipe 1" value="<?php echo $match_info    ?>" required>
                     <input id="team2" class="amsb-item-input" list="team_list" name="team2" placeholder="Equipe 2" required>
                 </li>
 

@@ -32,18 +32,18 @@
         date4 = new Date();
         date5 = new Date();
         //affectation des intervals
-        date2.setMonth(date2.getMonth()-1); //moi précédent
-        date3.setMonth(date3.getMonth()+1); //moi suivant
-        date4.setFullYear(date4.getFullYear()-1); //anneé suivante
-        date5.setFullYear(date5.getFullYear()+1); //anneé suivante
+        date2.setMonth(date2.getMonth()-1); //mois précédent
+        date3.setMonth(date3.getMonth()+1); //mois suivant
+        date4.setFullYear(date4.getFullYear()-1); //année suivante
+        date5.setFullYear(date5.getFullYear()+1); //année suivante
 
 
     </script>
     <div class="amsb-container-right-item">
 
         <h2 class="amsb-form-item-title">Liste des matchs</h2>
-        <input type="button" value="moi précédent" onclick="sort_match_by_date(date2.getTime()/1000, date1.getTime()/1000, 'match_div', items)">
-        <input type="button" value="moi suivant" onclick="sort_match_by_date(date1.getTime()/1000, date3.getTime()/1000, 'match_div', items)">
+        <input type="button" value="mois précédent" onclick="sort_match_by_date(date2.getTime()/1000, date1.getTime()/1000, 'match_div', items)">
+        <input type="button" value="mois suivant" onclick="sort_match_by_date(date1.getTime()/1000, date3.getTime()/1000, 'match_div', items)">
         <input type="button" value="année précédente" onclick="sort_match_by_date(date4.getTime()/1000, date1.getTime()/1000, 'match_div', items)">
         <input type="button" value="année suivante" onclick="sort_match_by_date(date1.getTime()/1000, date5.getTime()/1000, 'match_div', items)">
         <div class="amsb-display">

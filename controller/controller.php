@@ -426,6 +426,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
             if(isset($_POST["edit_match_form"])) {
                 $match_info = get_matchs_info_by_id($_POST['match_id'], $c);
                 $page = "edit_match_form";
+                var_dump($match_info);
             }
 
             //mise à jour de match

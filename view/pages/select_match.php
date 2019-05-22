@@ -23,7 +23,7 @@
 
 </script>
 
-<div id="display_match_list" class="amsb-container-right">
+<div id="select_match" class="amsb-container-right">
 
     <div class="amsb-container-right-item">
 
