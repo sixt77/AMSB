@@ -55,7 +55,7 @@
 
                 </div>
 
-                <button type="submit" class="amsb-button" name="update_team_form" value="">Valider</button>
+                <button type="submit" class="amsb-button" name="update_team_form" value="">Modifier</button>
             </form>
         </div>
     </div>

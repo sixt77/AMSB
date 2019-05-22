@@ -87,7 +87,7 @@
 
                 </div>
 
-                <button type="submit" class="amsb-button" name="edit_match_form">Valider</button>
+                <button type="submit" class="amsb-button" name="edit_match_form">Modifier</button>
 
             </form>
         </div>

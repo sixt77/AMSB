@@ -123,7 +123,7 @@
 
             </ul>
 
-            <button type="submit" class="amsb-button" name="update_user" value="<?php echo $user_info[0]; ?>">Valider</button>
+            <button type="submit" class="amsb-button" name="update_user" value="<?php echo $user_info[0]; ?>">Modifier</button>
         </form>
     </div>
 </div>

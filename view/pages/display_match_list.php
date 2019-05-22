@@ -42,13 +42,32 @@
     <div class="amsb-container-right-item">
 
         <h2 class="amsb-form-item-title">Liste des matchs</h2>
-        <input type="button" value="mois précédent" onclick="sort_match_by_date(date2.getTime()/1000, date1.getTime()/1000, 'match_div', items)">
-        <input type="button" value="mois suivant" onclick="sort_match_by_date(date1.getTime()/1000, date3.getTime()/1000, 'match_div', items)">
-        <input type="button" value="année précédente" onclick="sort_match_by_date(date4.getTime()/1000, date1.getTime()/1000, 'match_div', items)">
-        <input type="button" value="année suivante" onclick="sort_match_by_date(date1.getTime()/1000, date5.getTime()/1000, 'match_div', items)">
         <div class="amsb-display">
             <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_match(this.value, items, 'match_div')" placeholder="Recherche..">
+            <label class="amsb-diplay-input_time_display" for="annee_precedente">
+                <input type="radio" id="annee_precedente" onclick="sort_match_by_date(date4.getTime()/1000, date1.getTime()/1000, 'match_div', items)">
+                <span>Année suivante</span>
+            </label>
 
+            <label class="amsb-diplay-input_time_display" for="mois_precedent">
+                <input type="radio" id="mois_precedent" onclick="sort_match_by_date(date2.getTime()/1000, date1.getTime()/1000, 'match_div', items)">
+                <span>Année suivante</span>
+            </label>
+
+            <label class="amsb-diplay-input_time_display" for="mois_courant">
+                <input type="radio" id="mois_courant">
+                <span>Année suivante</span>
+            </label>
+
+            <label class="amsb-diplay-input_time_display" for="mois_suivant">
+                <input type="radio" id="mois_suivant" onclick="sort_match_by_date(date1.getTime()/1000, date3.getTime()/1000, 'match_div', items)">
+                <span>Année suivante</span>
+            </label>
+
+            <label class="amsb-diplay-input_time_display" for="annee_suivante">
+                <input type="radio" id="annee_suivante" onclick="sort_match_by_date(date1.getTime()/1000, date5.getTime()/1000, 'match_div', items)">
+                <span>Année suivante</span>
+            </label>
 
 
             <ul id="reference_display" class="user_div_reference">

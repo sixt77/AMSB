@@ -1,4 +1,4 @@
-<div id="create_match_form" class="amsb-container-right">
+<div id="edit_match_form" class="amsb-container-right">
     <div class="amsb-container-right-item">
         <h2 class="amsb-form-item-title">Modifier un match !</h2>
 
@@ -19,7 +19,7 @@
 
                 <li class="amsb-form">
                     <label for="categorie_select">
-                        <select id="categorie_select" name="categorie">
+                        <select id="categorie_select" name="categorie" required>
                             <option value="Catégorie" selected disabled>Catégorie</option>
                             <option value="all"
                                 <?php if ($match_info['match']['categorie'] == "all") {
@@ -37,7 +37,7 @@
                                 } ?>
                             >U11</option>
                             <option value="U13"
-                                <?php if ($match_info['match']['categorie'] == "U11") {
+                                <?php if ($match_info['match']['categorie'] == "U13") {
                                     echo "selected = \"selected\"";
                                 } ?>
                             >U13</option>
@@ -76,7 +76,7 @@
 
             </ul>
 
-            <button type="submit" class="amsb-button" name="update_match" value="<?php echo $match_info['match']['id']; ?>">Valider</button>
+            <button type="submit" class="amsb-button" name="update_match" value="<?php echo $match_info['match']['id']; ?>">Modifier</button>
         </form>
     </div>
 </div>

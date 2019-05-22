@@ -250,7 +250,6 @@ label {
     border-radius: 3px;
     font-family: "Roboto";
     font-size: 20px;
-    width: 90px;
     display: block;
     padding: 5px 15px;
     color: #FFF;
@@ -332,7 +331,7 @@ label {
     text-transform: uppercase;
 }
 
-    .amsb-navBar div ul li {
+.amsb-navBar div ul li {
     background: #000;
     color: #fff;
 }
@@ -349,6 +348,7 @@ label {
     color: #fff;
     border: 0;
     display: block;
+    font-family: 'Roboto', 'PT Sans', sans-serif;
 }
 
 .amsb-navBar div ul li button:hover,
@@ -521,7 +521,7 @@ label {
 
 .amsb-form-item-title {
     line-height: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     text-align: center;
     font-size: 28px;
 }
@@ -538,7 +538,11 @@ label {
 \*********************************************************************************/
 
 #user_edit .amsb-display {
-    height: 650px;
+    height: 600px;
+}
+
+#create_team_form .amsb-display-scroll {
+    height: calc(100vh - 380px);
 }
 
 .amsb-display {
@@ -548,12 +552,16 @@ label {
     box-shadow: 0 1px 3px rgba(0,0,0,.13);
     padding: 25px 25px;
     position: relative;
-    height: 600px;
+    height: 540px;
+}
+
+#match_selection .amsb-display-scroll {
+    height: calc(100vh - 380px);
 }
 
 .amsb-display-scroll {
     overflow: scroll;
-    height: calc(100vh - 350px);
+    height: calc(100vh - 320px);
 }
 
 .amsb-display-searchBar {
@@ -845,20 +853,23 @@ label {
 
 #display_match_list .user_div_reference li,
 #display_match_list .user_div li {
-    width: calc(100% / 4);
+    width: calc(100% / 6);
 }
 
-#create_match_form #team1 {
+#create_match_form #team1,
+#edit_match_form #team1 {
     width: 50%;
     float: left;
 }
 
-#create_match_form #team2 {
+#create_match_form #team2,
+#edit_match_form #team2 {
     width: 50%;
     float: right;
 }
 
-#create_match_form li {
+#create_match_form li,
+#edit_match_form li {
     height: 40px;
     margin-bottom: 15px;
 }
@@ -970,3 +981,18 @@ label {
     float: right;
 }
 
+.amsb-diplay-input_time_display {
+
+}
+
+.amsb-diplay-input_time_display input {
+
+}
+
+.amsb-diplay-input_time_display input + span {
+
+}
+
+.amsb-diplay-input_time_display input:checked + span {
+
+}

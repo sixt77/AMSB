@@ -1,7 +1,5 @@
 <div id="create_match_form" class="amsb-container-right">
-
     <div class="amsb-container-right-item">
-
         <h2 class="amsb-form-item-title">Création de match !</h2>
 
         <form class="amsb-form-user_sub_form" action="index.php" method="post">
@@ -54,7 +52,7 @@
 
             </ul>
 
-            <button type="submit" class="amsb-button" name="create_match" value="">Valider</button>
+            <button type="submit" class="amsb-button" name="create_match" value="">Créer</button>
 
         </form>
 
