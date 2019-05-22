@@ -18,6 +18,26 @@ LIMIT 1");
     }
 }
 
+//permet de trouver l'id de sujet en fonction de l'id match et du role
+function find_id_subject_by_match($id_match, $c) {
+    $sql = ("SELECT id_sujets, role
+FROM sujets
+WHERE id_matchs = '$id_match'");
+    $result = mysqli_query($c,$sql);
+    $subject_list = array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $subject_list[$loop] = $donnees;
+        $loop++;
+    }
+    if($loop > 0) {
+        return $subject_list;
+    }else{
+        return null;
+    }
+}
+
 //permet de poster un message sur un sujet en fonction de son id
 function send_message($id_subject, $id_user, $date, $contenu, $c) {
     //insertion des valeurs dans la bdd
