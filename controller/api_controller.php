@@ -427,6 +427,18 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
             }
         }
 
+        //permet d'obtenir l'id sujet en fonction d'un id match
+        if ($_GET['action'] == "get_subject_list") {
+            if (isset($_GET["match_id"])) {
+                $id_subject = find_id_subject_by_match($_GET['match_id'], $c);
+                if(isset($id_subject)) {
+                    write_json($id_subject);
+                }else{
+                    write_json(null);
+                }
+            }
+        }
+
         //permet d'obtenir la liste des sujet en fonction d'un id sujet
         if ($_GET['action'] == "get_message_list") {
             if (isset($_GET["subject_id"]) && isset($_GET["limit"])) {
