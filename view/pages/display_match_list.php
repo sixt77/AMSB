@@ -51,13 +51,13 @@
         //affectation des intervals
 
         //moi
-        date2.setMonth(date2.getMonth()-2); //moi précédent
+        date2.setMonth(date2.getMonth()-1); //moi précédent
         date2.setDate(0);
-        date3.setMonth(date3.getMonth()-1); //moi actuel
+        //date3.setMonth(date3.getMonth()); //moi actuel
         date3.setDate(0);
-        //date4.setMonth(date4.getMonth()+1); //moi suivant
+        date4.setMonth(date4.getMonth()+1); //moi suivant
         date4.setDate(0);
-        date5.setMonth(date5.getMonth()+1); //moi suivant+1
+        date5.setMonth(date5.getMonth()+2); //moi suivant+1
         date5.setDate(0);
 
         //saison
@@ -86,10 +86,13 @@
     <div class="amsb-container-right-item">
 
         <h2 class="amsb-form-item-title">Liste des matchs</h2>
-        <input type="button" value="moi précédent" onclick="sort_match_by_date(date2.getTime()/1000, date1.getTime()/1000, 'match_div', items)">
-        <input type="button" value="moi suivant" onclick="sort_match_by_date(date1.getTime()/1000, date3.getTime()/1000, 'match_div', items)">
-        <input type="button" value="année précédente" onclick="sort_match_by_date(date4.getTime()/1000, date1.getTime()/1000, 'match_div', items)">
-        <input type="button" value="année suivante" onclick="sort_match_by_date(date1.getTime()/1000, date5.getTime()/1000, 'match_div', items)">
+        <input type="button" value="moi précédent" onclick="sort_match_by_date(date2.getTime()/1000, date3.getTime()/1000, 'match_div', items)">
+        <input type="button" value="moi actuel" onclick="sort_match_by_date(date3.getTime()/1000, date4.getTime()/1000, 'match_div', items)">
+        <input type="button" value="moi suivant" onclick="sort_match_by_date(date4.getTime()/1000, date5.getTime()/1000, 'match_div', items)">
+        <input type="button" value="saison précédente" onclick="sort_match_by_date(date6.getTime()/1000, date7.getTime()/1000, 'match_div', items)">
+        <input type="button" value="saison actuelle" onclick="sort_match_by_date(date7.getTime()/1000, date8.getTime()/1000, 'match_div', items)">
+        <input type="button" value="saison suivante" onclick="sort_match_by_date(date8.getTime()/1000, date9.getTime()/1000, 'match_div', items)">
+        <input type="button" value="tout" onclick="sort_match_by_date(null, null, 'match_div', items)">
         <div class="amsb-display">
             <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_match(this.value, items, 'match_div')" placeholder="Recherche..">
 

@@ -31,7 +31,7 @@
 
                 <li class="amsb-form">
                     <label for="categorie_select">
-                        <select id="categorie_select" name="categorie">
+                        <select id="categorie_select" name="categorie" required>
                             <option value="Catégorie" selected disabled>Catégorie</option>
                             <option value="all">Aucune</option>
                             <option value="U9">U9</option>
