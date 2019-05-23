@@ -106,6 +106,17 @@ function get_info_user_by_id($id, $c){
     return $user_info;
 }
 
+function get_all_info_user_by_id($id, $c){
+    $sql = ("SELECT * FROM utilisateurs WHERE id ='$id'");
+    $result = mysqli_query($c,$sql);
+    $user_info= array ();
+    if($row = mysqli_fetch_row($result)){
+        $user_info= $row;
+    }
+
+    return $user_info;
+}
+
 function get_role_user_by_id($id, $c){
     $sql = ("SELECT U.id, D.id_dirigeants, O.id_otm, A.id_arbitre,B.id_benevole, J.id_joueurs, E.id_entraineurs
 FROM utilisateurs U
@@ -136,6 +147,19 @@ function get_users_list($c){
         $loop++;
     }
     return $users_list;
+}
+
+function update_user_licence($id, $date_licence, $licence, $categorie, $surclassage, $c){
+    //insertion des valeurs dans la bdd
+    $sql = ("UPDATE utilisateurs
+SET date_licence = '$date_licence', licence = '$licence', categorie = '$categorie', surclassage = '$surclassage'
+WHERE id = '$id'");
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 

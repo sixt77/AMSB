@@ -39,7 +39,7 @@
                             <button type=\"submit\" name=\"edit_user\" value=\"\">Modifier</button>
                         </li>
                          <li>
-                            <button type=\"submit\" name=\"edit_user\" value=\"\">Renouvellement licence</button>
+                            <button type=\"submit\" name=\"renewal_licence\" value=\"\">Renouvellement licence</button>
                         </li>";
 
                     }

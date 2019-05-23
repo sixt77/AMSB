@@ -109,6 +109,8 @@ function sort_match(str, array, classe) {
 }
 
 function select_cat(date, id) {
+    console.log(date);
+    console.log(id);
     //date du jours
     date = new Date(date);
     var currentDate = new Date();
@@ -161,11 +163,6 @@ function sort_match_by_date(date1, date2, classe, array){
 
         }
     }
-
-
-
-
-
 }
 
 function  add_class_by_class(class1, class2) {

@@ -81,8 +81,8 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                                 $page = "erreur_message";
                             }
                         }
-                        $i = 1;
 
+                        $i = 1;
                         while(isset($_POST['parent'.$i.'_last_name']) && isset($_POST['parent'.$i.'_first_name']) && isset($_POST['parent'.$i.'_mail']) && isset($_POST['parent'.$i.'_password']) && isset($_POST['parent'.$i.'_phone'])){
                             parent_signup(protect($_POST['parent'.$i.'_last_name']), protect($_POST['parent'.$i.'_first_name']), protect($_POST['parent'.$i.'_mail']), protect($_POST['parent'.$i.'_password']), protect($_POST['parent'.$i.'_phone']), $c);
                             $id_parent = $c->insert_id;
@@ -180,6 +180,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                     $page = "erreur";
                 }
             }
+
 
             //mise a jour des droits d'un utilisateur
             if (isset($_POST["update_user_right"])) {
@@ -350,6 +351,39 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 $page = 'create_match_form';
                 $team_list = get_team_list($c);
             }
+
+
+            //renouvellement licence
+            if (isset($_POST["renewal_licence"])) {
+                $users_list = get_users_list($c);
+                $page = 'renewal_licence';
+            }
+
+            //formulaire de renouvellement de licence
+            if (isset($_POST["user_renewal_form"])) {
+                $user_info = get_all_info_user_by_id($_POST['user_id'], $c);
+                $page = 'user_renewal_form';
+            }
+
+            //script de renouvellement de licence
+            if (isset($_POST["user_renewal"])) {
+                if(!isset($_POST['surclassage'])){
+                    $_POST['surclassage'] = "false";
+                }
+                if(($_FILES['image']['size']>0)){
+                    $message = upload_image($_POST['user_renewal']);
+                    if($message !== true){
+                        $page = "erreur_message";
+                    }
+
+                }
+                if(update_user_licence($_POST['user_renewal'], strtotime($_POST['dateDeLicence']), $_POST['licence'], $_POST['categorie'], $_POST['surclassage'], $c) &&  $page != "erreur_message"){
+                    $page = "creation_success";
+                }else{
+                    $page = "creation_success";
+                }
+            }
+
 
             //création match
             if (isset($_POST["create_match"])) {
