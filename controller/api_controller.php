@@ -407,6 +407,18 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
         }
 
 
+        //permet d'envoyer un message
+        if ($_GET['action'] == "post_score") {
+            if (isset($_GET["match_id"]) && isset($_GET["score1"]) && isset($_GET["score2"])) {
+                if(post_score($_GET["match_id"], $_GET["score1"], $_GET["score2"], $c)) {
+                    write_json(true);
+                }else{
+                    write_json(null);
+                }
+            }
+        }
+
+
 
 
 

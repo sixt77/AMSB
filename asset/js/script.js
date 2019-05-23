@@ -142,22 +142,26 @@ function select_cat(date, id) {
 }
 
 function sort_match_by_date(date1, date2, classe, array){
-    console.log(array);
     var j = 0;
     var array2 = new Array();
-    for(var i in array){
-        console.log(array[i][4]);
-        if(date1<array[i][4] && date2>array[i][4]){
-            array2[j] = array[i];
-            j++;
+    if(date1 == null && date2 == null){
+        for(var i in array){
+            remove_class_by_id('match_'+array[i][0], "hide_by_date");
+        }
+    }else{
+        for(var i in array){
+            if(date1<array[i][4] && date2>array[i][4]){
+                array2[j] = array[i];
+                j++;
+            }
+        }
+        add_class_by_class(classe, "hide_by_date");
+        for(var i in array2){
+            remove_class_by_id('match_'+array2[i][0], "hide_by_date");
+
         }
     }
-    console.log(array2)
-    add_class_by_class(classe, "hide_by_date");
-    for(var i in array2){
-        remove_class_by_id('match_'+array2[i][0], "hide_by_date");
 
-    }
 
 
 

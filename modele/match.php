@@ -69,5 +69,17 @@ WHERE id = '$match_id'  ORDER BY date DESC");
     return $matchs_info;
 }
 
-
+//post le score d'un match
+function post_score($match_id, $score1, $score2, $c) {
+    //insertion des valeurs dans la bdd
+    $sql = ("UPDATE matchs
+SET scEquipe1 = '$score1', scEquipe2 =  '$score2'
+WHERE id =  '$match_id'");
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 

@@ -969,4 +969,9 @@ label {
     width: 50%;
     float: right;
 }
-
+.hide_by_date{
+    display: none;
+}
+.hide_by_text{
+    display: none;
+}
