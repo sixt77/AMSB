@@ -23,6 +23,17 @@ function add_team_to_match($id_match, $id_team, $id_coach, $c){
     }
 }
 
+function delete_team_from_match($id_match, $id_coach, $c) {
+    //suppression des valeurs dans la bdd
+    $sql = ("DELETE FROM matchs_equipes_coachs WHERE id_matchs = $id_match && id_coachs = $id_coach");
+    if(mysqli_query($c,$sql)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 //recupère la liste des id de match via un id joueur
 function get_all_matchs($c){
     $sql = ("SELECT id FROM matchs ORDER BY date DESC");

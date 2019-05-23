@@ -394,7 +394,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
 
                 $id_match = $c->insert_id;
 
-                $team_list =  get_team_list($c);
+                $team_list = get_team_list($c);
 
                 //ajout team1
                 if(search_team_id_by_name($_POST['team1'], $team_list) != false){
@@ -466,14 +466,60 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
 
             //mise à jour de match
             if(isset($_POST['update_match'])){
+                $match_team = get_team_by_match_id($_POST['update_match'], $c);
+                $team_list = get_team_list($c);
                 if (!empty($_POST['lieu']) && !empty($_POST['date']) && !empty($_POST['time']) && !empty($_POST['team1']) && !empty($_POST['team2']) && !empty($_POST['categorie'])) {
-                    if (update_match($_POST['update_match'], strtotime($_POST['date'])+(strtotime($_POST['time'])%86400), $_POST['lieu'], $_POST['categorie'], $c)) {
-                        $page = "creation_success";
+                    if (($_POST['team1'] == $match_team['0']['nom']) && ($_POST['team2'] == $match_team['1']['nom'])) {
+                        if (update_match($_POST['update_match'], strtotime($_POST['date']) + (strtotime($_POST['time']) % 86400), $_POST['lieu'], $_POST['categorie'], $c)) {
+                            $page = "creation_success";
+                        } else {
+                            $page = "creation_failed";
+                        }
                     } else {
-                        $page = "creation_failed";
+                        //suppression de match
+                        delete_team_from_match($_POST['update_match'], $match_team['0']['id_coachs'], $c);
+                        delete_team_from_match($_POST['update_match'], $match_team['1']['id_coachs'], $c);
+                        //recréation du match
+                        $sucess = true;
+
+                        $id_match = $c->insert_id;
+
+                        //ajout team1
+                        if(search_team_id_by_name($_POST['team1'], $team_list) != false){
+                            if(!add_team_to_match($_POST['update_match'], search_team_id_by_name($_POST['team1'], $team_list), get_coach_id_by_team_id(search_team_id_by_name($_POST['team1'], $team_list),$c), $c)){
+                                $sucess = false;
+                            }
+                        }else{
+                            if(create_external_team($_POST['team1'], $c)){
+                                $team_list =  get_team_list($c);
+                                if(!add_team_to_match($_POST['update_match'], search_team_id_by_name($_POST['team1'], $team_list), 0, $c)){
+                                    $sucess = false;
+                                }
+                            }
+                        }
+                        //ajout team2
+                        if(search_team_id_by_name($_POST['team2'], $team_list) != false){
+                            if(!add_team_to_match($_POST['update_match'], search_team_id_by_name($_POST['team2'], $team_list), get_coach_id_by_team_id(search_team_id_by_name($_POST['team2'], $team_list),$c), $c)){
+                                $sucess = false;
+                            }
+                        }else{
+                            if(create_external_team($_POST['team2'], $c)){
+                                $team_list =  get_team_list($c);
+                                if(!add_team_to_match($_POST['update_match'], search_team_id_by_name($_POST['team2'],  $team_list), 0, $c)){
+                                    $sucess = false;
+                                }
+                            }
+                        }
+
+                        if($sucess == true){
+                            $page = "creation_success";
+                        }else{
+                            $page = "creation_failed";
+                        }
                     }
                 }
             }
+
 
             //désignation d'otm sur un match (choix du match)
             if (isset($_POST["designation_OTM_form"])) {
