@@ -126,7 +126,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="amsb-button" name="update_team" value="<?php echo $team_info[0]; ?>">Valider</button>
+            <button type="submit" class="amsb-button" name="update_team" value="<?php echo $team_info[0]; ?>">Modifier</button>
         </form>
     </div>
 </div>

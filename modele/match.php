@@ -1,8 +1,8 @@
 <?php
 //creer un match
-function create_match($date, $lieux, $c) {
+function create_match($date, $lieux, $categorie, $c) {
     //insertion des valeurs dans la bdd
-    $sql = ("INSERT INTO matchs(date, lieux) VALUES('$date', '$lieux')");
+    $sql = ("INSERT INTO matchs(date, lieux, categorie) VALUES('$date', '$lieux', '$categorie')");
     if(mysqli_query($c,$sql)){
         return true;
     }
@@ -61,12 +61,25 @@ function get_matchs_info_by_id($match_id, $c){
     $sql = ("SELECT * FROM matchs
 WHERE id = '$match_id'  ORDER BY date DESC");
     $result = mysqli_query($c,$sql);
-    $matchs_info= array ();
+    $match_info = array ();
     while ($donnees = mysqli_fetch_assoc($result))
     {
-        $matchs_info = $donnees;
+        $match_info = $donnees;
     }
-    return $matchs_info;
+    return $match_info;
+}
+
+
+//verif si équipe1 change, puis équipe2, si change pas, changer juste lieu/date, si change, supprimer dans match_equipe_coach par id_match et id_equipe, supprimer dans list_match, par id_match et id_coach
+function update_match($match_id, $match_date, $match_location, $match_categorie, $c) {
+    $sql = ("UPDATE matchs
+SET date = '$match_date', lieux = '$match_location', categorie = '$match_categorie'
+WHERE id = '$match_id'");
+    if (mysqli_query($c, $sql)) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 //post le score d'un match

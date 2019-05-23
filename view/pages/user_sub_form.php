@@ -96,7 +96,7 @@
                 </li>
             </ul>
 
-            <button type="submit" class="amsb-button" name="signup" value="">Valider</button>
+            <button type="submit" class="amsb-button" name="signup" value="">Créer</button>
         </form>
     </div>
 </div>

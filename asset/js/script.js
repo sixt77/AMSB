@@ -300,16 +300,23 @@ function followRoad() {
     var indexPageID       = document.getElementsByClassName('amsb-container-right')[0].id;
 
     switch (indexPageID) {
+        // Home
         case 'main':
             document.getElementsByClassName('icon-home')[0].style.color = "#F12024";
             break;
+        // Affiche liste
         case 'display_users_list':
             document.getElementsByName('users_list')[0].style.color = "#F12024";
             break;
+        // Ajout licencier
         case 'user_sub_form':
+        case 'role_selection':
             document.getElementsByName('subform')[0].style.color = "#F12024";
             break;
+        // Modifie licencier
         case 'user_edit':
+        case 'user_edit_form':
+        case 'role_update':
             document.getElementsByName('edit_user')[0].style.color = "#F12024";
             break;
 
@@ -320,6 +327,7 @@ function followRoad() {
             document.getElementsByName('create_team_form')[0].style.color = "#F12024";
             break;
         case 'select_team':
+        case 'edit_team_form':
             document.getElementsByName('select_team')[0].style.color = "#F12024";
             break;
 
@@ -329,14 +337,22 @@ function followRoad() {
         case 'create_match_form':
             document.getElementsByName('create_match_form')[0].style.color = "#F12024";
             break;
-        case 'match_selction':
-            document.getElementsByName('designation_OTM_form')[0].style.color = "#F12024";
+        case 'select_match':
+        case 'edit_match_form':
+            document.getElementsByName('select_match')[0].style.color = "#F12024";
             break;
+
         case 'match_selection':
-            document.getElementsByName('designation_arbiter_form')[0].style.color = "#F12024";
+
+            if (document.getElementsByClassName('user_div')[0].id === "otm_1") {
+                document.getElementsByName('designation_OTM_form')[0].style.color = "#F12024";
+            } else {
+                document.getElementsByName('designation_arbiter_form')[0].style.color = "#F12024";
+            }
+
             break;
+        }
     }
-}
 
 function afficheButtunRole($role) {
 

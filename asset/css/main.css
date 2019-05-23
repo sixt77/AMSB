@@ -975,3 +975,19 @@ label {
 .hide_by_text{
     display: none;
 }
+
+.amsb-diplay-input_time_display {
+
+}
+
+.amsb-diplay-input_time_display input {
+
+}
+
+.amsb-diplay-input_time_display input + span {
+
+}
+
+.amsb-diplay-input_time_display input:checked + span {
+
+}

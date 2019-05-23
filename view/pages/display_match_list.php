@@ -86,13 +86,10 @@
     <div class="amsb-container-right-item">
 
         <h2 class="amsb-form-item-title">Liste des matchs</h2>
-        <input type="button" value="moi précédent" onclick="sort_match_by_date(date2.getTime()/1000, date3.getTime()/1000, 'match_div', items)">
-        <input type="button" value="moi actuel" onclick="sort_match_by_date(date3.getTime()/1000, date4.getTime()/1000, 'match_div', items)">
-        <input type="button" value="moi suivant" onclick="sort_match_by_date(date4.getTime()/1000, date5.getTime()/1000, 'match_div', items)">
-        <input type="button" value="saison précédente" onclick="sort_match_by_date(date6.getTime()/1000, date7.getTime()/1000, 'match_div', items)">
-        <input type="button" value="saison actuelle" onclick="sort_match_by_date(date7.getTime()/1000, date8.getTime()/1000, 'match_div', items)">
-        <input type="button" value="saison suivante" onclick="sort_match_by_date(date8.getTime()/1000, date9.getTime()/1000, 'match_div', items)">
-        <input type="button" value="tout" onclick="sort_match_by_date(null, null, 'match_div', items)">
+        <input type="button" value="moi précédent" onclick="sort_match_by_date(date2.getTime()/1000, date1.getTime()/1000, 'match_div', items)">
+        <input type="button" value="moi suivant" onclick="sort_match_by_date(date1.getTime()/1000, date3.getTime()/1000, 'match_div', items)">
+        <input type="button" value="année précédente" onclick="sort_match_by_date(date4.getTime()/1000, date1.getTime()/1000, 'match_div', items)">
+        <input type="button" value="année suivante" onclick="sort_match_by_date(date1.getTime()/1000, date5.getTime()/1000, 'match_div', items)">
         <div class="amsb-display">
             <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_match(this.value, items, 'match_div')" placeholder="Recherche..">
 
@@ -103,6 +100,8 @@
                 <li>Equipe 2</li>
                 <li>Lieu</li>
                 <li>Date</li>
+                <li>Heure</li>
+                <li>Catégorie</li>
             </ul>
 
             <div class="amsb-display-scroll">
@@ -114,16 +113,26 @@
                     //afficher le nom de l'équipe 1 :
                     if (isset($data['team'][0])){
                         echo '<li>'.$data['team'][0]['nom'].'</li>';
+                    } else {
+                        echo '<li></li>';
                     }
                     //afficher le nom de l'équipe 2 :
                     if (isset($data['team'][1])){
                         echo '<li>'.$data['team'][1]['nom'].'</li>';
+                    } else {
+                        echo '<li></li>';
                     }
                     //afficher le lieux
                     echo '<li>'.$data['match']['lieux'].'</li>';
 
                     //afficher la date :
                     echo '<li>'.date('d/m/Y',$data['match']['date']).'</li>';
+
+                    //afficher l'heure :
+                    echo '<li>'.date('H:i',$data['match']['date']).'</li>';
+
+                    //afficher la catégorie :
+                    echo '<li>'.$data['match']['categorie'].'</li>';
                     echo '</ul>';
 
                 }

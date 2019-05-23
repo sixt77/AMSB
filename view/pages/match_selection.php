@@ -29,7 +29,7 @@
                     $i = 1;
                     foreach ((array) $match_list as $match){
                         if(isset($match["nb_otm"])){
-                            echo'<label for="'.$i.'" class="user_div">';
+                            echo'<label id="otm_'.$i.'"  for="'.$i.'" class="user_div">';
                             if ($i == 1) {
                                 echo '<input class="input-none-displayList" type="radio" id="'.$i.'" name="match_id" value="'.$match['id'].'" checked>';
                             } else {
@@ -44,7 +44,7 @@
                         }
 
                         if(isset($match["nb_arbitres"])) {
-                            echo '<label for="'.$i.'" class="user_div">';
+                            echo '<label id="arbitre_'.$i.'" for="'.$i.'" class="user_div">';
                             if ($i == 1) {
                                 echo '<input class="input-none-displayList" type="radio" id="'.$i.'" name="match_id" value="'.$match['id'].'" checked>';
                             } else {
@@ -64,7 +64,7 @@
 
                 </div>
 
-                <button type="submit" class="amsb-button" name="<?php echo$get;?>">Valider</button>
+                <button type="submit" class="amsb-button" name="<?php echo$get;?>">Modifier</button>
             </form>
         </div>
     </div>

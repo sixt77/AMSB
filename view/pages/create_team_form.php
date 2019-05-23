@@ -117,10 +117,10 @@
 
                         ?>
                     </div>
+                    <button type="submit" class="amsb-button" name="create_team" value="">Créer</button>
                 </div>
             </div>
 
-            <button type="submit" class="amsb-button" name="create_team" value="">Valider</button>
         </form>
     </div>
 </div>
