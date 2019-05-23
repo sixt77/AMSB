@@ -47,7 +47,7 @@
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="text" name="lieux" placeholder="Lieux" required>
+                    <input class="amsb-item-input" type="text" name="lieu" placeholder="Lieu" required>
                 </li>
 
             </ul>
