@@ -18,7 +18,7 @@
     console.log(items);
 </script>
 
-<div id="user_edit" class="amsb-container-right">
+<div id="renewal_licence" class="amsb-container-right">
     <div class="amsb-container-right-item">
 
         <h2 class="amsb-form-item-title">Séléctionnez un licencié à renouveler</h2>
@@ -95,7 +95,7 @@
 
                 </div>
 
-                <button type="submit" class="amsb-button" name="user_renewal_form">renouveler</button>
+                <button type="submit" class="amsb-button" name="user_renewal_form">Renouveler</button>
             </form>
         </div>
     </div>

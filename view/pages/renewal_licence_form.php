@@ -1,8 +1,6 @@
-
-
-<div id="user_edit_form" class="amsb-container-right">
+<div id="renewal_licence_form" class="amsb-container-right">
     <div class="amsb-container-right-item">
-        <h2 class="amsb-form-item-title">renouveller un licencié !</h2>
+        <h2 class="amsb-form-item-title">Renouveller un licencié !</h2>
 
         <form class="amsb-form-user_sub_form" action="index.php" method="post" enctype="multipart/form-data">
             <ul>
@@ -95,6 +93,11 @@
         </form>
     </div>
 </div>
-<script>
+<script type="text/javascript">
+    document.querySelector('input[type="file"]').addEventListener('change', function(evt) {
+        document.getElementById('img').innerHTML = evt.target.files[0].name;
+        document.getElementById('imgView').src = URL.createObjectURL(evt.target.files[0]);
+    });
     select_cat(<?php echo $user_info[5]; ?>, 'categorie_select');
+
 </script>

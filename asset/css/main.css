@@ -967,10 +967,10 @@ label {
 }
 
 .div_tweet {
-    height: calc(100vh - 150px);
+    height: calc(100vh - 120px);
     overflow-y: scroll;
-    width: 400px;
-    float: right;
+    width: 540px;
+    margin: 0 auto;
 }
 
 #display_team_list .amsb-display-item {

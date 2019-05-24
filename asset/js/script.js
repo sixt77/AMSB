@@ -320,6 +320,10 @@ function followRoad() {
         case 'role_update':
             document.getElementsByName('edit_user')[0].style.color = "#F12024";
             break;
+        case 'renewal_licence':
+        case 'renewal_licence_form':
+            document.getElementsByName('renewal_licence')[0].style.color = "#F12024";
+            break;
 
         case 'display_team_list':
             document.getElementsByName('team_list')[0].style.color = "#F12024";
@@ -351,6 +355,13 @@ function followRoad() {
                 document.getElementsByName('designation_arbiter_form')[0].style.color = "#F12024";
             }
 
+            break;
+        case 'otm_selection':
+            document.getElementsByName('designation_OTM_form')[0].style.color = "#F12024";
+            break;
+
+        case 'arbiter_selection':
+            document.getElementsByName('designation_arbiter_form')[0].style.color = "#F12024";
             break;
         }
     }
