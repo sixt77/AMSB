@@ -1,6 +1,5 @@
-<div class="amsb-home-container">
+<div id="error404" class="amsb-home-container">
     <div class="amsb-home-header">
-
 
         <h2 class="amsb-home-header-title">
             Aix Maurienne Savoie Basket
@@ -14,13 +13,11 @@
             Erreur 404, page inconnue.
         </p>
 
-        <div class="amsb-button">
-            <a href='index.php'>
-                <button class="amsb-button-confirm">
-                    Retour
-                </button>
-            </a>
-        </div>
+        <a href='index.php'>
+            <button class="amsb-button">
+                Retour
+            </button>
+        </a>
 
     </div>
 

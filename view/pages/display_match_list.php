@@ -23,8 +23,6 @@
 
         ?>
 
-    </script>
-    <script>
         //génération des intervals pour le trie
         date1 = new Date();
         saison = new Date();
@@ -83,19 +81,50 @@
         console.log(date9);
 
     </script>
+
     <div class="amsb-container-right-item">
 
         <h2 class="amsb-form-item-title">Liste des matchs</h2>
-        <input type="button" value="moi précédent" onclick="sort_match_by_date(date2.getTime()/1000, date3.getTime()/1000, 'match_div', items)">
-        <input type="button" value="moi actuel" onclick="sort_match_by_date(date3.getTime()/1000, date4.getTime()/1000, 'match_div', items)">
-        <input type="button" value="moi suivant" onclick="sort_match_by_date(date4.getTime()/1000, date5.getTime()/1000, 'match_div', items)">
-        <input type="button" value="saison précédente" onclick="sort_match_by_date(date6.getTime()/1000, date7.getTime()/1000, 'match_div', items)">
-        <input type="button" value="saison actuelle" onclick="sort_match_by_date(date7.getTime()/1000, date8.getTime()/1000, 'match_div', items)">
-        <input type="button" value="saison suivante" onclick="sort_match_by_date(date8.getTime()/1000, date9.getTime()/1000, 'match_div', items)">
-        <input type="button" value="tout" onclick="sort_match_by_date(null, null, 'match_div', items)">
+
         <div class="amsb-display">
             <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_match(this.value, items, 'match_div')" placeholder="Recherche..">
 
+
+
+            <label class="amsb-diplay-input_time_display" for="mois_precedent">
+                <input class="input-none-displayList" name="match_affichage" type="radio" id="mois_precedent" onclick="sort_match_by_date(date2.getTime()/1000, date3.getTime()/1000, 'match_div', items)">
+                <span>Mois précédent</span>
+            </label>
+
+            <label class="amsb-diplay-input_time_display" for="mois_actuel">
+                <input class="input-none-displayList" name="match_affichage" type="radio" id="mois_actuel" onclick="sort_match_by_date(date3.getTime()/1000, date4.getTime()/1000, 'match_div', items)">
+                <span>Mois actuel</span>
+            </label>
+
+            <label class="amsb-diplay-input_time_display" for="mois_suivant">
+                <input class="input-none-displayList" name="match_affichage" type="radio" id="mois_suivant" onclick="sort_match_by_date(date4.getTime()/1000, date5.getTime()/1000, 'match_div', items)">
+                <span>Mois suivant</span>
+            </label>
+
+            <label class="amsb-diplay-input_time_display" for="saison_precedente">
+                <input class="input-none-displayList" name="match_affichage" type="radio" id="saison_precedente" onclick="sort_match_by_date(date6.getTime()/1000, date7.getTime()/1000, 'match_div', items)">
+                <span>Saison précédente</span>
+            </label>
+
+            <label class="amsb-diplay-input_time_display" for="saison_actuel">
+                <input class="input-none-displayList" name="match_affichage" type="radio" id="saison_actuel" onclick="sort_match_by_date(date3.getTime()/1000, date4.getTime()/1000, 'match_div', items)">
+                <span>Saison actuel</span>
+            </label>
+
+            <label class="amsb-diplay-input_time_display" for="saison_suivante">
+                <input class="input-none-displayList" name="match_affichage" type="radio" id="saison_suivante" onclick="sort_match_by_date(date8.getTime()/1000, date9.getTime()/1000, 'match_div', items)">
+                <span>Saison suivante</span>
+            </label>
+
+            <label class="amsb-diplay-input_time_display amsb-diplay-input_time_display_last" for="tous_match">
+                <input class="input-none-displayList" name="match_affichage" type="radio" id="tous_match" onclick="sort_match_by_date(null, null, 'match_div', items)" checked>
+                <span>Tous les matchs</span>
+            </label>
 
 
             <ul id="reference_display" class="user_div_reference">

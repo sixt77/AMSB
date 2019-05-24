@@ -279,6 +279,8 @@ function navBarMove() {
     var iconHomeStyle       = document.getElementsByClassName('icon-home')[0].style;
     if (navBarStyle.width !== "80px") {
         iconHomeStyle.left          = "80px";
+        iconHomeStyle.borderLeft    = "none";
+        iconHomeStyle.borderRight   = "1px solid #000";
         navBarStyle.width           = "80px";
         titleImgStyle.display       = "none";
         containerRightStyle.width   = "calc(100% - 80px)";
@@ -286,7 +288,9 @@ function navBarMove() {
         imgLogoStyle.height         = "60px";
         navButtonStyle.display      = "none";
     } else {
-        iconHomeStyle.left          = "200px";
+        iconHomeStyle.left          = "149px";
+        iconHomeStyle.borderLeft    = "1px solid #000";
+        iconHomeStyle.borderRight   = "none";
         navBarStyle.width           = "200px";
         titleImgStyle.display       = "block";
         containerRightStyle.width   = "calc(100% - 200px)";

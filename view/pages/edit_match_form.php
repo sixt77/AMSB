@@ -3,6 +3,16 @@
         <h2 class="amsb-form-item-title">Modifier un match !</h2>
 
         <form class="amsb-form-user_sub_form" action="index.php" method="post">
+
+            <datalist id="team_liste">
+                <?php
+                foreach ((array) $team_list as $team){
+                    echo'<option value="'.$team['nom'].'">';
+                }
+
+                ?>
+            </datalist>
+
             <ul>
                 <li class="amsb-form">
                     <input class="amsb-item-input" type="date" name="date" value='<?php echo date('Y-m-d', $match_info['match']['date']); ?>' required>
@@ -13,8 +23,8 @@
                 </li>
 
                 <li class="amsb-form">
-                    <input id="team1" class="amsb-item-input" list="team_list" name="team1" placeholder="Equipe 1" value =" <?php echo $match_info['team']['0']['nom']; ?>" required>
-                    <input id="team2" class="amsb-item-input" list="team_list" name="team2" placeholder="Equipe 2" value =" <?php echo $match_info['team']['1']['nom']; ?>" required>
+                    <input id="team1" class="amsb-item-input" list="team_liste" name="team1" placeholder="Equipe 1" value ="<?php echo $match_info['team']['0']['nom']; ?>" required>
+                    <input id="team2" class="amsb-item-input" list="team_list" name="team2" placeholder="Equipe 2" value ="<?php echo $match_info['team']['1']['nom']; ?>" required>
                 </li>
 
                 <li class="amsb-form">
@@ -71,7 +81,7 @@
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="text" name="lieu" placeholder="Lieu" value=" <?php echo $match_info['match']['lieux'] ?>" required>
+                    <input class="amsb-item-input" type="text" name="lieu" placeholder="Lieu" value="<?php echo $match_info['match']['lieux'] ?>" required>
                 </li>
 
             </ul>

@@ -14,8 +14,6 @@
             </datalist>
 
             <ul>
-
-
                 <li class="amsb-form">
                     <input class="amsb-item-input" type="date" name="date" required>
                 </li>
@@ -47,7 +45,7 @@
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="text" name="lieu" placeholder="Lieu" required>
+                    <input class="amsb-item-input" type="text" name="lieux" placeholder="Lieux" required>
                 </li>
 
             </ul>
