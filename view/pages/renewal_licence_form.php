@@ -21,7 +21,7 @@
 
                 <li class="amsb-form">
                     <span>Photo de la licence</span>
-                    <input class="input-none-displayList" id="addImg" type="file" name="image" placeholder="Cliquez ici pour télécharger la photo !" required>
+                    <input class="input-none-displayList" id="addImg" type="file" name="image" placeholder="Cliquez ici pour télécharger la photo !">
                     <label id="img" for="addImg" class="fileContainer">Cliquez ici pour télécharger la photo !</label>
                     <img id="imgView" src="" alt="" style="max-width: 500px;margin-top: 10px;">
                 </li>
