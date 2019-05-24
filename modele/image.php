@@ -1,7 +1,7 @@
 <?php
 function upload_image($name)
 {
-
+    $target = "";
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
@@ -14,6 +14,30 @@ function upload_image($name)
             $return = "le fichier n'est pas une image";
             $uploadOk = 0;
         }
+    }
+
+
+    //check if file already exist
+    $find = false;
+    if(file_exists("uploads/".$name.".png")){
+        $target = "uploads/".$name.".png";
+        $find = true;
+    }
+    if(file_exists("uploads/".$name.".jpg")){
+        $target = "uploads/".$name.".jpg";
+        $find = true;
+    }
+    if(file_exists("uploads/".$name.".jpeg")){
+        $target = "uploads/".$name.".jpeg";
+        $find = true;
+    }
+    if(file_exists("uploads/".$name.".gif")){
+        $target = "uploads/".$name.".gif";
+        $find = true;
+    }
+
+    if($find){
+        unlink($target);
     }
 
 

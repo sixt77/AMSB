@@ -75,10 +75,7 @@
         date9.setMonth(5);
         date9.setDate(29);
         date9.setFullYear(date9.getFullYear()+1);
-        console.log(date6);
-        console.log(date7);
-        console.log(date8);
-        console.log(date9);
+
 
     </script>
 

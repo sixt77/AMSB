@@ -82,6 +82,19 @@ elseif ($page == "edit_user_form") {
     display_user_edit_form($user_info);
 }
 
+
+elseif ($page == "renewal_licence") {
+    display_navBar($leader_role_array);
+    display_renewal_licence($users_list);
+}
+
+elseif ($page == "user_renewal_form") {
+    display_navBar($leader_role_array);
+    display_renewal_form($user_info);
+}
+
+
+
 elseif ($page == "display_match_list") {
     display_navBar($leader_role_array);
     display_create_match_list($match_data);

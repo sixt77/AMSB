@@ -81,8 +81,8 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                                 $page = "erreur_message";
                             }
                         }
-                        $i = 1;
 
+                        $i = 1;
                         while(isset($_POST['parent'.$i.'_last_name']) && isset($_POST['parent'.$i.'_first_name']) && isset($_POST['parent'.$i.'_mail']) && isset($_POST['parent'.$i.'_password']) && isset($_POST['parent'.$i.'_phone'])){
                             parent_signup(protect($_POST['parent'.$i.'_last_name']), protect($_POST['parent'.$i.'_first_name']), protect($_POST['parent'.$i.'_mail']), protect($_POST['parent'.$i.'_password']), protect($_POST['parent'.$i.'_phone']), $c);
                             $id_parent = $c->insert_id;
@@ -180,6 +180,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                     $page = "erreur";
                 }
             }
+
 
             //mise a jour des droits d'un utilisateur
             if (isset($_POST["update_user_right"])) {
@@ -351,6 +352,39 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 $team_list = get_team_list($c);
             }
 
+
+            //renouvellement licence
+            if (isset($_POST["renewal_licence"])) {
+                $users_list = get_users_list($c);
+                $page = 'renewal_licence';
+            }
+
+            //formulaire de renouvellement de licence
+            if (isset($_POST["user_renewal_form"])) {
+                $user_info = get_all_info_user_by_id($_POST['user_id'], $c);
+                $page = 'user_renewal_form';
+            }
+
+            //script de renouvellement de licence
+            if (isset($_POST["user_renewal"])) {
+                if(!isset($_POST['surclassage'])){
+                    $_POST['surclassage'] = "false";
+                }
+                if(($_FILES['image']['size']>0)){
+                    $message = upload_image($_POST['user_renewal']);
+                    if($message !== true){
+                        $page = "erreur_message";
+                    }
+
+                }
+                if(update_user_licence($_POST['user_renewal'], strtotime($_POST['dateDeLicence']), $_POST['licence'], $_POST['categorie'], $_POST['surclassage'], $c) &&  $page != "erreur_message"){
+                    $page = "creation_success";
+                }else{
+                    $page = "creation_success";
+                }
+            }
+
+
             //création match
             if (isset($_POST["create_match"])) {
                 $sucess = true;
@@ -360,7 +394,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
 
                 $id_match = $c->insert_id;
 
-                $team_list =  get_team_list($c);
+                $team_list = get_team_list($c);
 
                 //ajout team1
                 if(search_team_id_by_name($_POST['team1'], $team_list) != false){
@@ -432,14 +466,60 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
 
             //mise à jour de match
             if(isset($_POST['update_match'])){
+                $match_team = get_team_by_match_id($_POST['update_match'], $c);
+                $team_list = get_team_list($c);
                 if (!empty($_POST['lieu']) && !empty($_POST['date']) && !empty($_POST['time']) && !empty($_POST['team1']) && !empty($_POST['team2']) && !empty($_POST['categorie'])) {
-                    if (update_match($_POST['update_match'], strtotime($_POST['date'])+(strtotime($_POST['time'])%86400), $_POST['lieu'], $_POST['categorie'], $c)) {
-                        $page = "creation_success";
+                    if (($_POST['team1'] == $match_team['0']['nom']) && ($_POST['team2'] == $match_team['1']['nom'])) {
+                        if (update_match($_POST['update_match'], strtotime($_POST['date']) + (strtotime($_POST['time']) % 86400), $_POST['lieu'], $_POST['categorie'], $c)) {
+                            $page = "creation_success";
+                        } else {
+                            $page = "creation_failed";
+                        }
                     } else {
-                        $page = "creation_failed";
+                        //suppression de match
+                        delete_team_from_match($_POST['update_match'], $match_team['0']['id_coachs'], $c);
+                        delete_team_from_match($_POST['update_match'], $match_team['1']['id_coachs'], $c);
+                        //recréation du match
+                        $sucess = true;
+
+                        $id_match = $c->insert_id;
+
+                        //ajout team1
+                        if(search_team_id_by_name($_POST['team1'], $team_list) != false){
+                            if(!add_team_to_match($_POST['update_match'], search_team_id_by_name($_POST['team1'], $team_list), get_coach_id_by_team_id(search_team_id_by_name($_POST['team1'], $team_list),$c), $c)){
+                                $sucess = false;
+                            }
+                        }else{
+                            if(create_external_team($_POST['team1'], $c)){
+                                $team_list =  get_team_list($c);
+                                if(!add_team_to_match($_POST['update_match'], search_team_id_by_name($_POST['team1'], $team_list), 0, $c)){
+                                    $sucess = false;
+                                }
+                            }
+                        }
+                        //ajout team2
+                        if(search_team_id_by_name($_POST['team2'], $team_list) != false){
+                            if(!add_team_to_match($_POST['update_match'], search_team_id_by_name($_POST['team2'], $team_list), get_coach_id_by_team_id(search_team_id_by_name($_POST['team2'], $team_list),$c), $c)){
+                                $sucess = false;
+                            }
+                        }else{
+                            if(create_external_team($_POST['team2'], $c)){
+                                $team_list =  get_team_list($c);
+                                if(!add_team_to_match($_POST['update_match'], search_team_id_by_name($_POST['team2'],  $team_list), 0, $c)){
+                                    $sucess = false;
+                                }
+                            }
+                        }
+
+                        if($sucess == true){
+                            $page = "creation_success";
+                        }else{
+                            $page = "creation_failed";
+                        }
                     }
                 }
             }
+
 
             //désignation d'otm sur un match (choix du match)
             if (isset($_POST["designation_OTM_form"])) {

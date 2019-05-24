@@ -95,6 +95,19 @@ function display_user_edit($id_leader, $user_list) {
     require("pages/user_edit.php");
 
 }
+function display_renewal_licence($user_list) {
+
+    require("pages/renewal_licence.php");
+
+}
+
+function display_renewal_form($user_info) {
+
+    require("pages/renewal_licence_form.php");
+
+}
+
+
 
 function display_user_edit_form($user_info) {
 
