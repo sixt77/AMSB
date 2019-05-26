@@ -15,8 +15,11 @@
 
 
     ?>
-    console.log(items);
 </script>
+
+
+
+
 
 <div id="user_edit" class="amsb-container-right">
     <div class="amsb-container-right-item">
@@ -87,3 +90,9 @@
         </div>
     </div>
 </div>
+<script>
+    <?php
+    //affichage du fil d'ariane
+    echo"display_breadcrumb('user_edit');"
+    ?>
+</script>

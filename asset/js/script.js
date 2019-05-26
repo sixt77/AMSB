@@ -165,6 +165,11 @@ function sort_match_by_date(date1, date2, classe, array){
     }
 }
 
+function display_breadcrumb(page){
+    //ici tu met juste en rouge la bonne ligne en fonction de la variable page et tu efface ce commenentaire après
+    console.log(page);
+}
+
 function  add_class_by_class(class1, class2) {
     $( "."+class1+"" ).addClass(class2);
 }
