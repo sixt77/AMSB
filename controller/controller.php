@@ -388,7 +388,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
             //création match
             if (isset($_POST["create_match"])) {
                 $sucess = true;
-                if(!create_match(strtotime($_POST['date'])+(strtotime($_POST['time'])%86400), $_POST['lieu'], $_POST['categorie'], $c)){
+                if(!create_match(strtotime($_POST['date'])+(strtotime($_POST['time'])%86400), $_POST['lieux'], $_POST['categorie'], $c)){
                     $sucess = false;
                 }
 

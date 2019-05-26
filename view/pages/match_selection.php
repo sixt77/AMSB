@@ -69,3 +69,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    <?php
+    //affichage du fil d'ariane
+    if(isset($match["nb_otm"])) {
+        echo"display_breadcrumb('match_selection_otm');";
+    }
+
+    if(isset($match["nb_arbitres"])) {
+        echo"display_breadcrumb('match_selection_arbiter');";
+    }
+    ?>
+</script>

@@ -23,8 +23,8 @@
                 </li>
 
                 <li class="amsb-form">
-                    <input id="team1" class="amsb-item-input" list="team_list" name="team1" placeholder="Equipe 1" required>
-                    <input id="team2" class="amsb-item-input" list="team_list" name="team2" placeholder="Equipe 2" required>
+                    <input id="team1" class="amsb-item-input" list="team_list" name="team1" placeholder="Local" required>
+                    <input id="team2" class="amsb-item-input" list="team_list" name="team2" placeholder="Extérieur" required>
                 </li>
 
                 <li class="amsb-form">
@@ -57,3 +57,10 @@
     </div>
 
 </div>
+
+<script>
+    <?php
+    //affichage du fil d'ariane
+    echo"display_breadcrumb('create_match_form');"
+    ?>
+</script>

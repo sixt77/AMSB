@@ -45,3 +45,10 @@
         </div>
     </div>
 </div>
+
+<script>
+    <?php
+    //affichage du fil d'ariane
+    echo"display_breadcrumb('display_team_list');"
+    ?>
+</script>
