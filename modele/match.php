@@ -3,8 +3,13 @@
 function create_match($date, $lieux, $categorie, $c) {
     //insertion des valeurs dans la bdd
     $sql = ("INSERT INTO matchs(date, lieux, categorie) VALUES('$date', '$lieux', '$categorie')");
+
     if(mysqli_query($c,$sql)){
-        return true;
+        if(create_subject_for_match($c->insert_id, $c)){
+            return true;
+        }else{
+            return false;
+        }
     }
     else{
         return false;
@@ -56,6 +61,24 @@ function get_matchs_by_player_id($player_id, $c){
 INNER JOIN matchs_equipes_coachs MEC ON JE.id_equipes = MEC.id_equipes 
 INNER JOIN matchs M ON MEC.id_matchs = M.id 
 WHERE JE.id_joueurs = '$player_id' ORDER BY date DESC");
+    $result = mysqli_query($c,$sql);
+    $matchs_list= array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $matchs_list[$loop] = $donnees;
+        $loop++;
+    }
+    return $matchs_list;
+}
+
+//recupère la liste des id de match via un id joueur
+function get_sub_matchs_by_player_id($player_id, $c){
+    $sql = ("SELECT DISTINCT M.ID as id, LM.etat as etat
+FROM matchs M
+INNER JOIN liste_matchs LM
+WHERE LM.id_joueurs = '$player_id'
+ORDER BY M.date DESC");
     $result = mysqli_query($c,$sql);
     $matchs_list= array ();
     $loop = 0;

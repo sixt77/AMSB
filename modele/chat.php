@@ -1,4 +1,24 @@
 <?php
+
+//create subject for a match
+function create_subject_for_match($id_match, $c){
+    //insertion des valeurs dans la bdd
+    $sql = ("INSERT INTO sujets (id_matchs, role) VALUES");
+    $sql .= ("('$id_match', 'general')");
+    $sql .= (",('$id_match', 'dirigeant')");
+    $sql .= (",('$id_match', 'joueur')");
+    $sql .= (",('$id_match', 'coach')");
+    $sql .= (",('$id_match', 'OTM')");
+    $sql .= (",('$id_match', 'arbitre')");
+    $sql .= (",('$id_match', 'benevole')");
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 //permet de trouver l'id de sujet en fonction de l'id match et du role
 function find_id_subject_by_role($id_match, $role, $c) {
     $sql = ("SELECT id_sujets

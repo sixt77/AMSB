@@ -15,7 +15,7 @@ function delete_match_list($id_coach, $id_match, $c) {
 //creation de liste de match
 function create_match_list($id_coach, $id_match, $player_id, $c) {
     //insertion des valeurs dans la bdd
-    $sql = ("INSERT INTO liste_matchs(id_coachs, id_matchs, id_joueurs) VALUES('$id_coach', '$id_match', '$player_id')");
+    $sql = ("INSERT INTO liste_matchs(id_coachs, id_matchs, id_joueurs, etat) VALUES('$id_coach', '$id_match', '$player_id', 'false')");
     if(mysqli_query($c,$sql)){
         return true;
     }
@@ -37,7 +37,7 @@ function switch_coach_match_list($id_coach1, $id_coach2, $id_match, $c){
 
 //retourne tous les joueurs d'une match_list via son id
 function get_player_match_list($id_coach, $id_match, $c){
-    $sql = ("SELECT id_joueurs FROM liste_matchs WHERE id_coachs = '$id_coach' AND id_matchs = '$id_match'");
+    $sql = ("SELECT id_joueurs, etat FROM liste_matchs WHERE id_coachs = '$id_coach' AND id_matchs = '$id_match'");
     $result = mysqli_query($c,$sql);
     $player_list= array ();
     $loop = 0;

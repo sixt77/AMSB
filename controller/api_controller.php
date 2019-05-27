@@ -98,10 +98,11 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
         if ($_GET['action'] == "get_match_list_by_id_player") {
             if (isset($_GET["player_id"])) {
                 $loop = 0;
-                $match_list = get_matchs_by_player_id($_GET["player_id"], $c);
+                $match_list = get_sub_matchs_by_player_id($_GET["player_id"], $c);
                 foreach ((array)$match_list as $match) {
                     $data[$loop]['match'] = get_matchs_info_by_id($match['id'], $c);
                     $data[$loop]['team'] = get_team_by_match_id($match['id'], $c);
+                    $data[$loop]['stat'] = $match['etat'];
                     $loop++;
                 }
                 if (isset($data)) {
