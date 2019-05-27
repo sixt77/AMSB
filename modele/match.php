@@ -94,7 +94,7 @@ ORDER BY M.date DESC");
 //recupère les informations sur un match via son id
 function get_matchs_info_by_id($match_id, $c){
     $sql = ("SELECT * FROM matchs
-WHERE id = '$match_id'  ORDER BY date DESC");
+WHERE id = '$match_id'");
     $result = mysqli_query($c,$sql);
     $match_info = array ();
     while ($donnees = mysqli_fetch_assoc($result))

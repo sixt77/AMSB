@@ -139,6 +139,32 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
             }
         }
 
+        //recuperation des matchs pour un otm (nombre d'otm présent sur chaque match et si l'otm actuel est affecté a un match
+        if ($_GET['action'] == "get_matchs_without_score_OTM") {
+            if (isset($_GET["OTM_id"])) {
+                $loop = 0;
+                $all_matchs = get_otm_number_on_all_match($c);
+                $match_list = get_matchs_without_score_by_OTM_id($_GET['OTM_id'], $c);
+                foreach ((array)$all_matchs as $match) {
+                    $data[$loop]['match'] = $match;
+                    if (in_array($match['id'], $match_list)) {
+                        $data[$loop]['match']['selected'] = true;
+                    } else {
+                        $data[$loop]['match']['selected'] = false;
+                    }
+                    $data[$loop]['team'] = get_team_by_match_id($match['id'], $c);
+
+                    $loop++;
+                }
+
+                if (isset($data)) {
+                    write_json($data);
+                } else {
+                    write_json(null);
+                }
+            }
+        }
+
         //permet a un OTM de s'inscire sur un match, renvoie true si la requette fonctionne, false sinon, et null si les informations ne sont pas suffisante
         if ($_GET['action'] == "OTM_subscribe_to_match") {
             if (isset($_GET["OTM_id"]) && isset($_GET['match_id'])) {
@@ -429,7 +455,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
 
         if ($_GET['action'] == "valid_switch_coach_request") {
             if (isset($_GET["id_request"]) && isset($_GET["id_coach1"]) && isset($_GET["id_coach2"]) && isset($_GET["id_match"])) {
-                if(switch_coach_match_list($_GET["id_coach1"], $_GET["id_coach2"], $_GET["id_match"], $c)){
+                if(switch_coach_match_list($_GET["id_coach1"], $_GET["id_coach2"], $_GET["id_match"], $c) && switch_coach_match_equipe($_GET["id_coach1"], $_GET["id_coach2"], $_GET["id_match"], $c)){
                     if(valid_coach_switch_request($_GET["id_request"], $c)){
                         $data = true;
                     }else{

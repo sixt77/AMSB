@@ -42,7 +42,7 @@ INNER JOIN otm O ON O.id_utilisateurs = U.id");
 
 //recupère la liste des matchs, le nombre d'otm présent sur chaque
 function get_otm_number_on_all_match($c){
-        $sql = ("SELECT M.id, COUNT(MO.id_otm) as nb_otm, M.date, M.lieux
+        $sql = ("SELECT M.id, COUNT(MO.id_otm) as nb_otm, M.date, M.lieux, M.categorie
 FROM matchs M
 LEFT JOIN matchs_otm MO ON MO.id_matchs = M.id
 GROUP BY M.id");
@@ -62,6 +62,27 @@ function get_matchs_by_OTM_id($id_otm, $c){
     $sql = ("SELECT id_matchs
 FROM matchs_otm
 WHERE id_otm = '$id_otm'");
+    $result = mysqli_query($c,$sql);
+    $matchs_list= array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $matchs_list[$loop] = $donnees['id_matchs'];
+        $loop++;
+    }
+    return $matchs_list;
+}
+
+
+//recupère la liste des match ou l'otm est présent et qui n'ont pas de score
+function get_matchs_without_score_by_OTM_id($id_otm, $c){
+    $sql = ("SELECT MO.id_matchs
+FROM matchs_otm MO
+INNER JOIN matchs M ON MO.id_matchs = M.id
+WHERE MO.id_otm = '$id_otm'
+AND M.scEquipe1 IS NULL
+AND M.scEquipe2 IS NULL
+");
     $result = mysqli_query($c,$sql);
     $matchs_list= array ();
     $loop = 0;
