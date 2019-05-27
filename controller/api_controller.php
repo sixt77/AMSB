@@ -287,7 +287,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
         if ($_GET['action'] == "get_match_list_by_id_coach") {
             if (isset($_GET["coach_id"])) {
                 $loop = 0;
-                $match_list = get_list_matchs_by_coach_id($_GET['coach_id'], $c);
+                $match_list = get_matchs_by_coach_id($_GET['coach_id'], $c);
                 foreach ((array)$match_list as $match) {
                     $data[$loop]['match'] = get_matchs_info_by_id($match, $c);
                     $data[$loop]['team'] = get_team_by_match_id($match, $c);
@@ -310,7 +310,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
                 $accepeted_player_list = get_accepted_player_info_by_match_id($_GET['match_id'], $c);
                 foreach ((array) $player_list as $player) {
                     $data[$loop] = $player;
-                    if(in_array($data[$loop]['id'],$accepeted_player_list)){
+                    if(in_array($data[$loop]['id_joueurs'],$accepeted_player_list)){
                         $data[$loop]['selected']=true;
                     }else{
                         $data[$loop]['selected']=false;
@@ -318,7 +318,6 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
                     $loop++;
 
                 }
-
                 if (isset($data)) {
                     write_json($data);
                 } else {

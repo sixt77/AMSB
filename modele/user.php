@@ -127,12 +127,14 @@ LEFT JOIN benevoles B ON U.id = B.id_utilisateurs
 LEFT JOIN joueurs J ON U.id = J.id_utilisateurs
 LEFT JOIN entraineurs E ON U.id = E.id_utilisateurs
 WHERE U.id ='$id'");
+
     $result = mysqli_query($c,$sql);
     $user_info= array ();
 
     if($row = mysqli_fetch_row($result)){
         $user_info = $row;
     }
+
     return $user_info;
 }
 
