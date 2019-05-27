@@ -131,6 +131,8 @@
                 <li>Date</li>
                 <li>Heure</li>
                 <li>Catégorie</li>
+                <li>Score local</li>
+                <li>Score extérieur</li>
             </ul>
 
             <div class="amsb-display-scroll">
@@ -164,8 +166,7 @@
                     echo '<li>'.$data['match']['categorie'].'</li>';
 
                     //afficher le score, si match terminé :
-                    //$fin_match = mktime(date("H", $data['match']['date'])+1, date("i", $data['match']['date'])+30, date("s", $data['match']['date']), date("m", $data['match']['date']), date("d", $data['match']['date']), date("Y", $data['match']['date']));
-                    if (date("Y m d H i",$data['match']['date']/*fin_match*/)<(date("Y m d H i")) && $data['match']['scEquipe1']!= null && $data['match']['scEquipe2']!= null) {
+                    if ($data['match']['date'] < time() && $data['match']['scEquipe1']!= null && $data['match']['scEquipe2']!= null) {
                         echo  '<li>'.$data['match']['scEquipe1'].'</li>';
                         echo  '<li>'.$data['match']['scEquipe2'].'</li>';
                     } else {

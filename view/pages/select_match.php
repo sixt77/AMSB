@@ -83,8 +83,7 @@
                         echo '<li>'.$match['match']['categorie'].'</li>';
 
                         //afficher le score, si match terminé :
-                        //$fin_match = mktime(date("H", $data['match']['date'])+1, date("i", $data['match']['date'])+30, date("s", $data['match']['date']), date("m", $data['match']['date']), date("d", $data['match']['date']), date("Y", $data['match']['date']));
-                        if (date("Y m d H i",$match['match']['date']/*fin_match*/)<(date("Y m d H i")) && $match['match']['scEquipe1']!= null && $match['match']['scEquipe2']!= null) {
+                        if ($match['match']['date'] < time() && $match['match']['scEquipe1']!= null && $match['match']['scEquipe2']!= null) {
                             echo  '<li>'.$match['match']['scEquipe1'].'</li>';
                             echo  '<li>'.$match['match']['scEquipe2'].'</li>';
                         } else {

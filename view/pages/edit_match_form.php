@@ -15,11 +15,11 @@
 
             <ul>
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="date" name="date" value='<?php echo date('Y-m-d', $match_info['match']['date']); ?>' required>
+                    <input class="amsb-item-input" type="date" name="date" value="<?php echo date('Y-m-d',$match_info['match']['date']); ?>" required>
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="time" name="time" value='<?php echo date('H:i', $match_info['match']['date']); ?>' required>
+                    <input class="amsb-item-input" type="time" name="time" value="<?php echo date('H:i',$match_info['match']['date']); ?>" required>
                 </li>
 
                 <li class="amsb-form">
@@ -84,7 +84,7 @@
                     <input class="amsb-item-input" type="text" name="lieu" placeholder="Lieu" value="<?php echo $match_info['match']['lieux'] ?>" required>
                 </li>
                 <?php
-                    if(date("F j, Y, H:i", $match_info['match']['date'])<(date("F j, Y, H:i"))) {
+                    if(date("Y m d H i", $match_info['match']['date'])<(date("Y m d H i"))) {
                         echo '<li class="amsb-form">
                                 <input class="amsb-item-input" type="text" name="scEquipe1" placeholder="Score Equipe 1" value="'.$match_info['match']['scEquipe1'].'">
                             </li>';
