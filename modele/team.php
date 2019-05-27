@@ -170,13 +170,12 @@ INNER JOIN equipes E ON MEC.id_equipes = E.id_equipes
 WHERE MEC.id_matchs = '$id_match'");
     $result = mysqli_query($c,$sql);
     $team_list= array ();
-    $loop = 1;
+    $loop = 0;
     while ($donnees = mysqli_fetch_assoc($result))
     {
         $team_list[$loop]= $donnees;
-        $loop--;
+        $loop++;
     }
-
     return $team_list;
 }
 

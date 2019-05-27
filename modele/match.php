@@ -3,10 +3,10 @@
 function create_match($date, $lieux, $categorie, $c) {
     //insertion des valeurs dans la bdd
     $sql = ("INSERT INTO matchs(date, lieux, categorie) VALUES('$date', '$lieux', '$categorie')");
-
     if(mysqli_query($c,$sql)){
-        if(create_subject_for_match($c->insert_id, $c)){
-            return true;
+        $id_match = $c->insert_id;
+        if(create_subject_for_match($id_match, $c)){
+            return $id_match;
         }else{
             return false;
         }
@@ -20,6 +20,7 @@ function create_match($date, $lieux, $categorie, $c) {
 function add_team_to_match($id_match, $id_team, $id_coach, $c){
     //insertion des valeurs dans la bdd
     $sql = ("INSERT INTO matchs_equipes_coachs(id_matchs, id_equipes, id_coachs) VALUES('$id_match', '$id_team', '$id_coach')");
+
     if(mysqli_query($c,$sql)){
         return true;
     }

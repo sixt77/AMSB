@@ -388,40 +388,40 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
             //création match
             if (isset($_POST["create_match"])) {
                 $sucess = true;
-                if(!create_match(strtotime($_POST['date'])+(strtotime($_POST['time'])%86400), $_POST['lieux'], $_POST['categorie'], $c)){
+                $id_match = create_match(strtotime($_POST['date'])+(strtotime($_POST['time'])%86400), $_POST['lieux'], $_POST['categorie'], $c);
+                if($id_match == null){
                     $sucess = false;
-                }
-
-                $id_match = $c->insert_id;
-
-                $team_list = get_team_list($c);
-
-                //ajout team1
-                if(search_team_id_by_name($_POST['team1'], $team_list) != false){
-                    if(!add_team_to_match($id_match, search_team_id_by_name($_POST['team1'], $team_list), get_coach_id_by_team_id(search_team_id_by_name($_POST['team1'], $team_list),$c), $c)){
-                        $sucess = false;
-                    }
                 }else{
-                    if(create_external_team($_POST['team1'], $c)){
-                        $team_list =  get_team_list($c);
-                        if(!add_team_to_match($id_match, search_team_id_by_name($_POST['team1'], $team_list), 0, $c)){
+                    $team_list = get_team_list($c);
+
+                    //ajout team1
+                    if(search_team_id_by_name($_POST['team1'], $team_list) != false){
+                        if(!add_team_to_match($id_match, search_team_id_by_name($_POST['team1'], $team_list), get_coach_id_by_team_id(search_team_id_by_name($_POST['team1'], $team_list),$c), $c)){
                             $sucess = false;
+                        }
+                    }else{
+                        if(create_external_team($_POST['team1'], $c)){
+                            $team_list =  get_team_list($c);
+                            if(!add_team_to_match($id_match, search_team_id_by_name($_POST['team1'], $team_list), 0, $c)){
+                                $sucess = false;
+                            }
+                        }
+                    }
+                    //ajout team2
+                    if(search_team_id_by_name($_POST['team2'], $team_list) != false){
+                        if(!add_team_to_match($id_match, search_team_id_by_name($_POST['team2'], $team_list), get_coach_id_by_team_id(search_team_id_by_name($_POST['team2'], $team_list),$c), $c)){
+                            $sucess = false;
+                        }
+                    }else{
+                        if(create_external_team($_POST['team2'], $c)){
+                            $team_list =  get_team_list($c);
+                            if(!add_team_to_match($id_match, search_team_id_by_name($_POST['team2'],  $team_list), 0, $c)){
+                                $sucess = false;
+                            }
                         }
                     }
                 }
-                //ajout team2
-                if(search_team_id_by_name($_POST['team2'], $team_list) != false){
-                    if(!add_team_to_match($id_match, search_team_id_by_name($_POST['team2'], $team_list), get_coach_id_by_team_id(search_team_id_by_name($_POST['team2'], $team_list),$c), $c)){
-                        $sucess = false;
-                    }
-                }else{
-                    if(create_external_team($_POST['team2'], $c)){
-                        $team_list =  get_team_list($c);
-                        if(!add_team_to_match($id_match, search_team_id_by_name($_POST['team2'],  $team_list), 0, $c)){
-                            $sucess = false;
-                        }
-                    }
-                }
+
 
                 if($sucess == true){
                     $page = "creation_success";
