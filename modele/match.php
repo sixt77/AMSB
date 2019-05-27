@@ -76,7 +76,7 @@ WHERE JE.id_joueurs = '$player_id' ORDER BY date DESC");
 function get_sub_matchs_by_player_id($player_id, $c){
     $sql = ("SELECT DISTINCT M.ID as id, LM.etat as etat
 FROM matchs M
-INNER JOIN liste_matchs LM
+INNER JOIN liste_matchs LM ON LM.id_matchs = M.id
 WHERE LM.id_joueurs = '$player_id'
 ORDER BY M.date DESC");
     $result = mysqli_query($c,$sql);

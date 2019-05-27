@@ -214,6 +214,39 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
             }
         }
 
+        //permet a un joueur de s'inscire sur un match, renvoie true si la requette fonctionne, false sinon, et null si les informations ne sont pas suffisante
+        if ($_GET['action'] == "player_subscribe_to_match") {
+            if (isset($_GET["id_player"]) && isset($_GET['match_id'])) {
+                if (player_subscribe_to_match($_GET['match_id'], $_GET["id_player"], $c)) {
+                    $data = true;
+                } else {
+                    $data = false;
+                }
+            }
+            if (isset($data)) {
+                write_json($data);
+            } else {
+                write_json(null);
+            }
+        }
+
+        //permet a un joueur de se désinscire d'un match, renvoie true si la requette fonctionne, false sinon, et null si les informations ne sont pas suffisante
+        if ($_GET['action'] == "player_unsubscribe_to_match") {
+            if (isset($_GET["id_player"]) && isset($_GET['match_id'])) {
+                if (player_unsubscribe_to_match($_GET['match_id'], $_GET["id_player"], $c)) {
+                    $data = true;
+                } else {
+                    $data = false;
+                }
+            }
+            if (isset($data)) {
+                write_json($data);
+            } else {
+                write_json(null);
+            }
+        }
+
+
         //permet a un arbitre de se désinscire d'un match, renvoie true si la requette fonctionne, false sinon, et null si les informations ne sont pas suffisante
         if ($_GET['action'] == "arbiter_unsubscribe_to_match") {
             if (isset($_GET["arbiter_id"]) && isset($_GET['match_id'])) {
@@ -274,10 +307,18 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
             if (isset($_GET["match_id"]) && isset($_GET["coach_id"])) {
                 $loop = 0;
                 $player_list = get_player_info_by_match_id($_GET['match_id'], $c);
+                $accepeted_player_list = get_accepted_player_info_by_match_id($_GET['match_id'], $c);
                 foreach ((array) $player_list as $player) {
                     $data[$loop] = $player;
+                    if(in_array($data[$loop]['id'],$accepeted_player_list)){
+                        $data[$loop]['selected']=true;
+                    }else{
+                        $data[$loop]['selected']=false;
+                    }
                     $loop++;
+
                 }
+
                 if (isset($data)) {
                     write_json($data);
                 } else {

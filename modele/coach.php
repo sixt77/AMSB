@@ -38,6 +38,7 @@ INNER JOIN utilisateurs U ON C.id_utilisateurs = U.id");
     return $coach_list;
 }
 
+//recupere la liste de les joueurs selectionnable pour un match
 function get_player_info_by_match_id($match_id, $c){
     $sql = ("SELECT DISTINCT U.id, U.nom, U.prenom, U.telephone, U.licence, U.mail, J.id_joueurs
 FROM matchs_equipes_coachs MEC
@@ -55,6 +56,24 @@ WHERE MEC.id_matchs = '$match_id' ");
     }
     return $coach_list;
 }
+
+//recupere la liste de les joueurs selectionnable pour un match
+function get_accepted_player_info_by_match_id($match_id, $c){
+    $sql = ("SELECT id_joueurs 
+FROM liste_matchs
+WHERE id_matchs = '$match_id'
+AND etat = 'true'");
+    $result = mysqli_query($c,$sql);
+    $player_list= array ();
+    $loop = 0;
+    while ($donnees = mysqli_fetch_assoc($result))
+    {
+        $player_list[$loop]= $donnees['id_joueurs'];
+        $loop++;
+    }
+    return $player_list;
+}
+
 
 //recupère la liste des match ou l'arbitre est présent
 function get_matchs_by_coach_id($id_coachs, $c){

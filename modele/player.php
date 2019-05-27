@@ -51,4 +51,33 @@ function get_player_profil($player_id, $c){
 }
 
 
+//permet a un otm de s'inscire sur un match
+function player_subscribe_to_match($id_match, $id_player, $c){
+    $sql = ("UPDATE liste_matchs 
+SET etat = 'true' 
+WHERE id_matchs = '$id_match'
+AND id_joueurs = '$id_player'");
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+//permet a un otm de désinscrire d'un match
+function player_unsubscribe_to_match($id_match, $id_player, $c){
+    $sql = ("UPDATE liste_matchs 
+SET etat = 'false' 
+WHERE id_matchs = '$id_match'
+AND id_joueurs = '$id_player'");
+    if(mysqli_query($c,$sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+
 ?>
