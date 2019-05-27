@@ -165,11 +165,6 @@ function sort_match_by_date(date1, date2, classe, array){
     }
 }
 
-function display_breadcrumb(page){
-    //ici tu met juste en rouge la bonne ligne en fonction de la variable page et tu efface ce commenentaire après
-    console.log(page);
-}
-
 function  add_class_by_class(class1, class2) {
     $( "."+class1+"" ).addClass(class2);
 }
@@ -302,24 +297,20 @@ function navBarMove() {
     }
 }
 
-function followRoad() {
-    var indexPageID       = document.getElementsByClassName('amsb-container-right')[0].id;
+function display_breadcrumb(page) {
 
-    switch (indexPageID) {
-        // Home
+    switch (page) {
         case 'main':
             document.getElementsByClassName('icon-home')[0].style.color = "#F12024";
             break;
-        // Affiche liste
+
         case 'display_users_list':
             document.getElementsByName('users_list')[0].style.color = "#F12024";
             break;
-        // Ajout licencier
         case 'user_sub_form':
         case 'role_selection':
             document.getElementsByName('subform')[0].style.color = "#F12024";
             break;
-        // Modifie licencier
         case 'user_edit':
         case 'user_edit_form':
         case 'role_update':
@@ -329,6 +320,7 @@ function followRoad() {
         case 'renewal_licence_form':
             document.getElementsByName('renewal_licence')[0].style.color = "#F12024";
             break;
+
 
         case 'display_team_list':
             document.getElementsByName('team_list')[0].style.color = "#F12024";
@@ -341,6 +333,7 @@ function followRoad() {
             document.getElementsByName('select_team')[0].style.color = "#F12024";
             break;
 
+
         case 'display_match_list':
             document.getElementsByName('get_matchs_list')[0].style.color = "#F12024";
             break;
@@ -351,28 +344,19 @@ function followRoad() {
         case 'edit_match_form':
             document.getElementsByName('select_match')[0].style.color = "#F12024";
             break;
-
-        case 'match_selection':
-
-            if (document.getElementsByClassName('user_div')[0].id === "otm_1") {
-                document.getElementsByName('designation_OTM_form')[0].style.color = "#F12024";
-            } else {
+        case 'match_selection_otm':
+            document.getElementsByName('designation_OTM_form')[0].style.color = "#F12024";
+            break;
+        case 'match_selection_arbiter':
                 document.getElementsByName('designation_arbiter_form')[0].style.color = "#F12024";
-            }
-
             break;
         case 'otm_selection':
             document.getElementsByName('designation_OTM_form')[0].style.color = "#F12024";
             break;
-
         case 'arbiter_selection':
             document.getElementsByName('designation_arbiter_form')[0].style.color = "#F12024";
             break;
-        }
     }
-
-function afficheButtunRole($role) {
-
 }
 
 function afficheDivSousRole() {

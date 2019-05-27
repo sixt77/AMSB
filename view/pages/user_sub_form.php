@@ -106,4 +106,9 @@
         document.getElementById('img').innerHTML = evt.target.files[0].name;
         document.getElementById('imgView').src = URL.createObjectURL(evt.target.files[0]);
     });
+
+    <?php
+    //affichage du fil d'ariane
+    echo"display_breadcrumb('user_sub_form');"
+    ?>
 </script>

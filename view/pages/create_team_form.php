@@ -124,3 +124,10 @@
         </form>
     </div>
 </div>
+
+<script>
+    <?php
+    //affichage du fil d'ariane
+    echo"display_breadcrumb('create_team_form');"
+    ?>
+</script>

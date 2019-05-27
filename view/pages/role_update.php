@@ -89,4 +89,9 @@
     } else {
         divSousRole.style.display = "none";
     }
+
+    <?php
+    //affichage du fil d'ariane
+    echo"display_breadcrumb('role_update');"
+    ?>
 </script>

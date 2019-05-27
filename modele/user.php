@@ -81,10 +81,10 @@ function user_signup($nom, $prenom, $mail,$motDePasse, $telephone, $licence, $se
 }
 //met a jour les information d'un joueur
 //renvoi true si la connection a fonctionné sinon false
-function user_update($user_id, $nom, $prenom, $mail, $telephone, $licence, $sex, $categorie, $surclassage, $c) {
+function user_update($user_id, $nom, $prenom, $mail, $telephone, $licence, $sex, $categorie, $surclassage, $date_licence, $c) {
     //insertion des valeurs dans la bdd
     $sql = ("UPDATE utilisateurs
-SET nom = '$nom', prenom = '$prenom', mail = '$mail', telephone = '$telephone', licence = '$licence', sex = '$sex', categorie = '$categorie', surclassage = '$surclassage'
+SET nom = '$nom', prenom = '$prenom', mail = '$mail', telephone = '$telephone', licence = '$licence', sex = '$sex', categorie = '$categorie', surclassage = '$surclassage', date_licence = $date_licence
 WHERE id = '$user_id'");
     if(mysqli_query($c,$sql)){
         return true;
@@ -96,7 +96,7 @@ WHERE id = '$user_id'");
 
 
 function get_info_user_by_id($id, $c){
-    $sql = ("SELECT id, nom, prenom, mail, telephone, licence, sex, categorie, surclassage FROM utilisateurs WHERE id ='$id'");
+    $sql = ("SELECT id, nom, prenom, mail, telephone, licence, sex, categorie, surclassage, date_licence FROM utilisateurs WHERE id ='$id'");
     $result = mysqli_query($c,$sql);
     $user_info= array ();
     if($row = mysqli_fetch_row($result)){

@@ -881,12 +881,12 @@ label {
 }
 
 #match_selection .amsb-display-searchBar {
-    width: calc(100% - 180px);
+    width: 100%;
 }
 
 #arbiter_selection ul,
 #otm_selection ul {
-    height: calc(100vh - 250px);
+    height: calc(100vh - 280px);
     overflow: scroll;
 }
 

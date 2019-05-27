@@ -103,8 +103,6 @@ WHERE id = '$match_id'  ORDER BY date DESC");
     return $match_info;
 }
 
-
-//verif si équipe1 change, puis équipe2, si change pas, changer juste lieu/date, si change, supprimer dans match_equipe_coach par id_match et id_equipe, supprimer dans list_match, par id_match et id_coach
 function update_match($match_id, $match_date, $match_location, $match_categorie, $c) {
     $sql = ("UPDATE matchs
 SET date = '$match_date', lieux = '$match_location', categorie = '$match_categorie'

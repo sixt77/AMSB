@@ -39,6 +39,8 @@
                 <li>Date</li>
                 <li>Heure</li>
                 <li>Catégorie</li>
+                <li>Score 1</li>
+                <li>Score 2</li>
             </ul>
 
             <form action="index.php" method="post">
@@ -79,6 +81,16 @@
 
                         //afficher la catégorie
                         echo '<li>'.$match['match']['categorie'].'</li>';
+
+                        //afficher le score, si match terminé :
+                        if ($match['match']['date'] < time() && $match['match']['scEquipe1']!= null && $match['match']['scEquipe2']!= null) {
+                            echo  '<li>'.$match['match']['scEquipe1'].'</li>';
+                            echo  '<li>'.$match['match']['scEquipe2'].'</li>';
+                        } else {
+                            echo '<li></li>';
+                            echo '<li></li>';
+                        }
+
                         echo '</ul>';
                         echo '</label>';
                         $i++;
@@ -95,3 +107,10 @@
     </div>
 
 </div>
+
+<script>
+    <?php
+    //affichage du fil d'ariane
+    echo"display_breadcrumb('select_match');"
+    ?>
+</script>

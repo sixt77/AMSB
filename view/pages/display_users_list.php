@@ -8,9 +8,9 @@
             echo"var items = [";
             foreach ((array) $users_list as $user){
                 if($i == 0){
-                    echo"['".$user["id"]."','".$user["nom"]."','".$user["prenom"]."','".$user["mail"]."','".$user["telephone"]."','".$user["licence"]."','".$user["sex"]."','".$user["categorie"]."','".$user["surclassage"]."']";
+                    echo"['".$user["id"]."','".$user["nom"]."','".$user["prenom"]."','".$user["mail"]."','".$user["telephone"]."','".$user["licence"]."','".$user["sex"]."','".$user["categorie"]."','".$user["surclassage"]."','".$user["date_licence"]."']";
                 }else{
-                    echo",['".$user["id"]."','".$user["nom"]."','".$user["prenom"]."','".$user["mail"]."','".$user["telephone"]."','".$user["licence"]."','".$user["sex"]."','".$user["categorie"]."','".$user["surclassage"]."']";
+                    echo",['".$user["id"]."','".$user["nom"]."','".$user["prenom"]."','".$user["mail"]."','".$user["telephone"]."','".$user["licence"]."','".$user["sex"]."','".$user["categorie"]."','".$user["surclassage"]."','".$user["date_licence"]."']";
                 }
                 $i++;
             }
@@ -50,6 +50,7 @@
                 <li>Licence</li>
                 <li>Sexe</li>
                 <li>Catégorie</li>
+                <li>Date</li>
             </ul>
 
             <div class="amsb-display-scroll">
@@ -64,6 +65,11 @@
                     echo'<li>'.$user['licence'].'</li>';
                     echo'<li>'.$user['sex'].'</li>';
                     echo'<li>'.$user['categorie'].'</li>';
+                    if($user['date_licence'] != "") {
+                        echo '<li>' . date('d/m/Y', $user['date_licence']) . '</li>';
+                    } else {
+                        echo '<li></li>';
+                    }
                     echo'</ul>';
 
                     $i++;
@@ -75,3 +81,9 @@
         </div>
     </div>
 </div>
+<script>
+    <?php
+    //affichage du fil d'ariane
+    echo"display_breadcrumb('display_users_list');"
+    ?>
+</script>

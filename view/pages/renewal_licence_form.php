@@ -100,4 +100,9 @@
     });
     select_cat(<?php echo $user_info[5]; ?>, 'categorie_select');
 
+    <?php
+    //affichage du fil d'ariane
+    echo"display_breadcrumb('renewal_licence_form');"
+    ?>
+
 </script>

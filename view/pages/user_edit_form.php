@@ -111,6 +111,14 @@
                     </label>
                 </li>
 
+                <li class="amsb-form">
+                    <span>Date d'inscription :</span>
+                    <input class="amsb-item-input" type="date" name="date_licence" value="<?php if($user_info[9] != "") {
+                        echo date('Y-m-d', $user_info[9]);
+                    }
+                    ?>" required>
+                </li>
+
                 <label class="amsb-display-label" for="surclassage" style="position: initial;float: none;margin: 30px auto 0;">
                     <input class="amsb-display-surclasse" type="checkbox" id="surclassage" name="surclassage" onchange="sort_element_by_categorie(document.getElementById('categorie_select').value, document.getElementById('surclassage').checked, document.getElementById('search_bar').value, items, 'user_div')"
                         <?php if ($user_info[8] == "on"){
@@ -127,3 +135,10 @@
         </form>
     </div>
 </div>
+
+<script>
+    <?php
+    //affichage du fil d'ariane
+    echo"display_breadcrumb('user_edit_form');"
+    ?>
+</script>

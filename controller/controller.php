@@ -158,12 +158,12 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
 
             //mise a jour d'un utilisateur
             if (isset($_POST["update_user"])) {
-                if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["telephone"]) && !empty($_POST["licence"]) && !empty($_POST["sexe"]) && !empty($_POST["categorie"])) {
+                if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["telephone"]) && !empty($_POST["licence"]) && !empty($_POST["sexe"]) && !empty($_POST["categorie"]) && !empty($_POST["date_licence"])) {
                     if (!isset($_POST["surclassage"]))
                     {
                         $_POST["surclassage"] = "0";
                     }
-                    if (user_update($_POST["update_user"], protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["telephone"]), protect($_POST["licence"]), protect($_POST["sexe"]), protect($_POST["categorie"]), $_POST["surclassage"], $c)) {
+                    if (user_update($_POST["update_user"], protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["telephone"]), protect($_POST["licence"]), protect($_POST["sexe"]), protect($_POST["categorie"]), $_POST["surclassage"], strtotime($_POST["date_licence"]), $c)) {
                         $id = $_POST["update_user"];
                         $role_list = get_roles_list($c);
                         $user_role_list = get_role_user_by_id($id, $c);
@@ -467,55 +467,67 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
             //mise à jour de match
             if(isset($_POST['update_match'])){
                 $match_team = get_team_by_match_id($_POST['update_match'], $c);
+                $match_info = get_matchs_info_by_id($_POST['update_match'], $c);
                 $team_list = get_team_list($c);
                 if (!empty($_POST['lieu']) && !empty($_POST['date']) && !empty($_POST['time']) && !empty($_POST['team1']) && !empty($_POST['team2']) && !empty($_POST['categorie'])) {
-                    if (($_POST['team1'] == $match_team['0']['nom']) && ($_POST['team2'] == $match_team['1']['nom'])) {
-                        if (update_match($_POST['update_match'], strtotime($_POST['date']) + (strtotime($_POST['time']) % 86400), $_POST['lieu'], $_POST['categorie'], $c)) {
-                            $page = "creation_success";
+                    if ($match_info['date'] == $_POST['date'] || (date("Y m d H i",strtotime($_POST['date']))>  date("Y m d H i"))) {
+                        if (($_POST['team1'] == $match_team['0']['nom']) && ($_POST['team2'] == $match_team['1']['nom'])) {
+                            if (!empty($_POST['scEquipe1']) && !empty($_POST['scEquipe2'])) {
+                                post_score($_POST['update_match'], $_POST['scEquipe1'], $_POST['scEquipe2'], $c);
+                            }
+                            if (update_match($_POST['update_match'], strtotime($_POST['date']) + (strtotime($_POST['time']) % 86400), $_POST['lieu'], $_POST['categorie'], $c)) {
+                                $page = "creation_success";
+                            } else {
+                                $page = "creation_failed";
+                            }
                         } else {
-                            $page = "creation_failed";
+                            //suppression de match
+                            delete_team_from_match($_POST['update_match'], $match_team['0']['id_coachs'], $c);
+                            delete_team_from_match($_POST['update_match'], $match_team['1']['id_coachs'], $c);
+                            //recréation du match
+                            $sucess = true;
+
+                            $id_match = $c->insert_id;
+
+                            //ajout team1
+                            if (search_team_id_by_name($_POST['team1'], $team_list) != false) {
+                                if (!add_team_to_match($_POST['update_match'], search_team_id_by_name($_POST['team1'], $team_list), get_coach_id_by_team_id(search_team_id_by_name($_POST['team1'], $team_list), $c), $c)) {
+                                    $sucess = false;
+                                }
+                            } else {
+                                if (create_external_team($_POST['team1'], $c)) {
+                                    $team_list = get_team_list($c);
+                                    if (!add_team_to_match($_POST['update_match'], search_team_id_by_name($_POST['team1'], $team_list), 0, $c)) {
+                                        $sucess = false;
+                                    }
+                                }
+                            }
+                            //ajout team2
+                            if (search_team_id_by_name($_POST['team2'], $team_list) != false) {
+                                if (!add_team_to_match($_POST['update_match'], search_team_id_by_name($_POST['team2'], $team_list), get_coach_id_by_team_id(search_team_id_by_name($_POST['team2'], $team_list), $c), $c)) {
+                                    $sucess = false;
+                                }
+                            } else {
+                                if (create_external_team($_POST['team2'], $c)) {
+                                    $team_list = get_team_list($c);
+                                    if (!add_team_to_match($_POST['update_match'], search_team_id_by_name($_POST['team2'], $team_list), 0, $c)) {
+                                        $sucess = false;
+                                    }
+                                }
+                            }
+
+                            if (!empty($_POST['scEquipe1']) && !empty($_POST['scEquipe2'])) {
+                                post_score($_POST['update_match'], $_POST['scEquipe1'], $_POST['scEquipe2'], $c);
+                            }
+
+                            if ($sucess == true && update_match($_POST['update_match'], strtotime($_POST['date']) + (strtotime($_POST['time']) % 86400), $_POST['lieu'], $_POST['categorie'], $c)) {
+                                $page = "creation_success";
+                            } else {
+                                $page = "creation_failed";
+                            }
                         }
                     } else {
-                        //suppression de match
-                        delete_team_from_match($_POST['update_match'], $match_team['0']['id_coachs'], $c);
-                        delete_team_from_match($_POST['update_match'], $match_team['1']['id_coachs'], $c);
-                        //recréation du match
-                        $sucess = true;
-
-                        $id_match = $c->insert_id;
-
-                        //ajout team1
-                        if(search_team_id_by_name($_POST['team1'], $team_list) != false){
-                            if(!add_team_to_match($_POST['update_match'], search_team_id_by_name($_POST['team1'], $team_list), get_coach_id_by_team_id(search_team_id_by_name($_POST['team1'], $team_list),$c), $c)){
-                                $sucess = false;
-                            }
-                        }else{
-                            if(create_external_team($_POST['team1'], $c)){
-                                $team_list =  get_team_list($c);
-                                if(!add_team_to_match($_POST['update_match'], search_team_id_by_name($_POST['team1'], $team_list), 0, $c)){
-                                    $sucess = false;
-                                }
-                            }
-                        }
-                        //ajout team2
-                        if(search_team_id_by_name($_POST['team2'], $team_list) != false){
-                            if(!add_team_to_match($_POST['update_match'], search_team_id_by_name($_POST['team2'], $team_list), get_coach_id_by_team_id(search_team_id_by_name($_POST['team2'], $team_list),$c), $c)){
-                                $sucess = false;
-                            }
-                        }else{
-                            if(create_external_team($_POST['team2'], $c)){
-                                $team_list =  get_team_list($c);
-                                if(!add_team_to_match($_POST['update_match'], search_team_id_by_name($_POST['team2'],  $team_list), 0, $c)){
-                                    $sucess = false;
-                                }
-                            }
-                        }
-
-                        if($sucess == true){
-                            $page = "creation_success";
-                        }else{
-                            $page = "creation_failed";
-                        }
+                        $page = "creation_failed";
                     }
                 }
             }

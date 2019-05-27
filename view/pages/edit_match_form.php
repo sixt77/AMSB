@@ -15,16 +15,16 @@
 
             <ul>
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="date" name="date" value='<?php echo date('Y-m-d', $match_info['match']['date']); ?>' required>
+                    <input class="amsb-item-input" type="date" name="date" value="<?php echo date('Y-m-d',$match_info['match']['date']); ?>" required>
                 </li>
 
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="time" name="time" value='<?php echo date('H:i', $match_info['match']['date']); ?>' required>
+                    <input class="amsb-item-input" type="time" name="time" value="<?php echo date('H:i',$match_info['match']['date']); ?>" required>
                 </li>
 
                 <li class="amsb-form">
-                    <input id="team1" class="amsb-item-input" list="team_list" name="team1" placeholder="Equipe 1" value ="<?php echo($match_info['team']['0']['nom']); ?>" required>
-                    <input id="team2" class="amsb-item-input" list="team_list" name="team2" placeholder="Equipe 2" value ="<?php echo($match_info['team']['1']['nom']); ?>" required>
+                    <input id="team1" class="amsb-item-input" list="team_list" name="team1" placeholder="Local" value ="<?php echo($match_info['team']['0']['nom']); ?>" required>
+                    <input id="team2" class="amsb-item-input" list="team_list" name="team2" placeholder="Extérieur" value ="<?php echo($match_info['team']['1']['nom']); ?>" required>
                 </li>
 
                 <li class="amsb-form">
@@ -83,10 +83,26 @@
                 <li class="amsb-form">
                     <input class="amsb-item-input" type="text" name="lieu" placeholder="Lieu" value="<?php echo $match_info['match']['lieux'] ?>" required>
                 </li>
-
+                <?php
+                    if(date("Y m d H i", $match_info['match']['date'])<(date("Y m d H i"))) {
+                        echo '<li class="amsb-form">
+                                <input class="amsb-item-input" type="text" name="scEquipe1" placeholder="Score Equipe 1" value="'.$match_info['match']['scEquipe1'].'">
+                            </li>';
+                        echo '<li class="amsb-form">
+                                <input class="amsb-item-input" type="text" name="scEquipe2" placeholder="Score Equipe 2" value="'.$match_info['match']['scEquipe2'].'">
+                            </li>';
+                    }
+                ?>
             </ul>
 
             <button type="submit" class="amsb-button" name="update_match" value="<?php echo $match_info['match']['id']; ?>">Modifier</button>
         </form>
     </div>
 </div>
+
+<script>
+    <?php
+    //affichage du fil d'ariane
+    echo"display_breadcrumb('edit_match_form');"
+    ?>
+</script>

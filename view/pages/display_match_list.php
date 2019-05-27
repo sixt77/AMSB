@@ -109,7 +109,7 @@
             </label>
 
             <label class="amsb-diplay-input_time_display" for="saison_actuel">
-                <input class="input-none-displayList" name="match_affichage" type="radio" id="saison_actuel" onclick="sort_match_by_date(date3.getTime()/1000, date4.getTime()/1000, 'match_div', items)">
+                <input class="input-none-displayList" name="match_affichage" type="radio" id="saison_actuel" onclick="sort_match_by_date(date7.getTime()/1000, date8.getTime()/1000, 'match_div', items)">
                 <span>Saison actuel</span>
             </label>
 
@@ -125,12 +125,14 @@
 
 
             <ul id="reference_display" class="user_div_reference">
-                <li>Equipe 1</li>
-                <li>Equipe 2</li>
+                <li>Local</li>
+                <li>Extérieur</li>
                 <li>Lieu</li>
                 <li>Date</li>
                 <li>Heure</li>
                 <li>Catégorie</li>
+                <li>Score local</li>
+                <li>Score extérieur</li>
             </ul>
 
             <div class="amsb-display-scroll">
@@ -162,6 +164,15 @@
 
                     //afficher la catégorie :
                     echo '<li>'.$data['match']['categorie'].'</li>';
+
+                    //afficher le score, si match terminé :
+                    if ($data['match']['date'] < time() && $data['match']['scEquipe1']!= null && $data['match']['scEquipe2']!= null) {
+                        echo  '<li>'.$data['match']['scEquipe1'].'</li>';
+                        echo  '<li>'.$data['match']['scEquipe2'].'</li>';
+                    } else {
+                        echo '<li></li>';
+                        echo '<li></li>';
+                    }
                     echo '</ul>';
 
                 }
@@ -174,3 +185,10 @@
     </div>
 
 </div>
+
+<script>
+    <?php
+    //affichage du fil d'ariane
+    echo"display_breadcrumb('display_match_list');"
+    ?>
+</script>
