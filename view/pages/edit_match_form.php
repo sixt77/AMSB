@@ -83,7 +83,16 @@
                 <li class="amsb-form">
                     <input class="amsb-item-input" type="text" name="lieu" placeholder="Lieu" value="<?php echo $match_info['match']['lieux'] ?>" required>
                 </li>
-
+                <?php
+                    if(date("F j, Y, H:i", $match_info['match']['date'])<(date("F j, Y, H:i"))) {
+                        echo '<li class="amsb-form">
+                                <input class="amsb-item-input" type="text" name="scEquipe1" placeholder="Score Equipe 1" value="'.$match_info['match']['scEquipe1'].'">
+                            </li>';
+                        echo '<li class="amsb-form">
+                                <input class="amsb-item-input" type="text" name="scEquipe2" placeholder="Score Equipe 2" value="'.$match_info['match']['scEquipe2'].'">
+                            </li>';
+                    }
+                ?>
             </ul>
 
             <button type="submit" class="amsb-button" name="update_match" value="<?php echo $match_info['match']['id']; ?>">Modifier</button>

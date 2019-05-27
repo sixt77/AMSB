@@ -158,12 +158,12 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
 
             //mise a jour d'un utilisateur
             if (isset($_POST["update_user"])) {
-                if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["telephone"]) && !empty($_POST["licence"]) && !empty($_POST["sexe"]) && !empty($_POST["categorie"])) {
+                if (!empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["email"]) && !empty($_POST["telephone"]) && !empty($_POST["licence"]) && !empty($_POST["sexe"]) && !empty($_POST["categorie"]) && !empty($_POST["date_licence"])) {
                     if (!isset($_POST["surclassage"]))
                     {
                         $_POST["surclassage"] = "0";
                     }
-                    if (user_update($_POST["update_user"], protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["telephone"]), protect($_POST["licence"]), protect($_POST["sexe"]), protect($_POST["categorie"]), $_POST["surclassage"], $c)) {
+                    if (user_update($_POST["update_user"], protect($_POST["nom"]), protect($_POST["prenom"]), protect($_POST["email"]), protect($_POST["telephone"]), protect($_POST["licence"]), protect($_POST["sexe"]), protect($_POST["categorie"]), $_POST["surclassage"], strtotime($_POST["date_licence"]), $c)) {
                         $id = $_POST["update_user"];
                         $role_list = get_roles_list($c);
                         $user_role_list = get_role_user_by_id($id, $c);
@@ -470,6 +470,9 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 $team_list = get_team_list($c);
                 if (!empty($_POST['lieu']) && !empty($_POST['date']) && !empty($_POST['time']) && !empty($_POST['team1']) && !empty($_POST['team2']) && !empty($_POST['categorie'])) {
                     if (($_POST['team1'] == $match_team['0']['nom']) && ($_POST['team2'] == $match_team['1']['nom'])) {
+                        if(!empty($_POST['scEquipe1']) && !empty($_POST['scEquipe2'])) {
+                            post_score($_POST['update_match'], $_POST['scEquipe1'], $_POST['scEquipe2'], $c);
+                        }
                         if (update_match($_POST['update_match'], strtotime($_POST['date']) + (strtotime($_POST['time']) % 86400), $_POST['lieu'], $_POST['categorie'], $c)) {
                             $page = "creation_success";
                         } else {
@@ -511,7 +514,11 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                             }
                         }
 
-                        if($sucess == true){
+                        if(!empty($_POST['scEquipe1']) && !empty($_POST['scEquipe2'])) {
+                            post_score($_POST['update_match'], $_POST['scEquipe1'], $_POST['scEquipe2'], $c);
+                        }
+
+                        if($sucess == true && update_match($_POST['update_match'], strtotime($_POST['date']) + (strtotime($_POST['time']) % 86400), $_POST['lieu'], $_POST['categorie'], $c)){
                             $page = "creation_success";
                         }else{
                             $page = "creation_failed";
