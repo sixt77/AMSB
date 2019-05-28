@@ -340,9 +340,9 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                 }
 
                 if ($sucess == true) {
-                    $page = "creation_success";
+                    $page = "modif_success";
                 } else {
-                    $page = "creation_failed";
+                    $page = "modif_failed";
                 }
             }
 
@@ -378,9 +378,9 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
 
                 }
                 if(update_user_licence($_POST['user_renewal'], strtotime($_POST['dateDeLicence']), $_POST['licence'], $_POST['categorie'], $_POST['surclassage'], $c) &&  $page != "erreur_message"){
-                    $page = "creation_success";
+                    $page = "modif_success";
                 }else{
-                    $page = "creation_success";
+                    $page = "modif_success";
                 }
             }
 
@@ -476,9 +476,9 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                                 post_score($_POST['update_match'], $_POST['scEquipe1'], $_POST['scEquipe2'], $c);
                             }
                             if (update_match($_POST['update_match'], strtotime($_POST['date']) + (strtotime($_POST['time']) % 86400), $_POST['lieu'], $_POST['categorie'], $c)) {
-                                $page = "creation_success";
+                                $page = "modif_success";
                             } else {
-                                $page = "creation_failed";
+                                $page = "modif_failed";
                             }
                         } else {
                             //suppression de match
@@ -521,13 +521,13 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                             }
 
                             if ($sucess == true && update_match($_POST['update_match'], strtotime($_POST['date']) + (strtotime($_POST['time']) % 86400), $_POST['lieu'], $_POST['categorie'], $c)) {
-                                $page = "creation_success";
+                                $page = "modif_success";
                             } else {
-                                $page = "creation_failed";
+                                $page = "modif_failed";
                             }
                         }
                     } else {
-                        $page = "creation_failed";
+                        $page = "modif_failed";
                     }
                 }
             }
@@ -662,12 +662,12 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
             if (isset($_POST["update_team"])) {
                 if (update_team($_POST['update_team'], $_POST['coach'], $_POST['nom'], $c)) {
                     if (delete_all_player_team($_POST['update_team'], $c) && add_player_team($_POST['player_list'], $_POST['update_team'], $c)) {
-                        $page = "creation_success";
+                        $page = "modif_success";
                     } else {
-                        $page = "creation_failed";
+                        $page = "modif_failed";
                     }
                 } else {
-                    $page = "creation_failed";
+                    $page = "modif_failed";
                 }
 
             }

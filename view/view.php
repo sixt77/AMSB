@@ -38,6 +38,16 @@ elseif ($page == "creation_failed") {
     display_creation_failed();
 }
 
+elseif ($page == "modif_success") {
+    display_navBar($leader_role_array);
+    display_modif_success();
+}
+
+elseif ($page == "modif_failed") {
+    display_navBar($leader_role_array);
+    display_modif_failed();
+}
+
 elseif ($page == "subscribe_parent_success") {
     display_subscribe_parent_success();
 }

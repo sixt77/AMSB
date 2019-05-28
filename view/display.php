@@ -54,6 +54,18 @@ function display_creation_failed(){
 
 }
 
+function display_modif_success(){
+
+    require ("pages/modif_success.php");
+
+}
+
+function display_modif_failed(){
+
+    require ("pages/modif_failed.php");
+
+}
+
 function display_subscribe_parent_success(){
 
     require ("pages/subscribe_parent_success.php");

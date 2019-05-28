@@ -4,7 +4,7 @@
 
         <div class="amsb-home">
 
-            <p class="amsb-error-text">Création réussie!</p>
+            <p class="amsb-error-text">Modification réussie!</p>
             <a class="amsb-a-button" href='index.php'>
                 <button class="amsb-button">Retour</button>
             </a>
