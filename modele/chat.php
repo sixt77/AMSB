@@ -38,20 +38,32 @@ LIMIT 1");
     }
 }
 
-//permet de trouver l'id de sujet en fonction de l'id match et du role
-function find_id_subject_by_match($id_match, $c) {
+//permet de trouver l'id de sujet en fonction de l'id match
+function find_id_subject_by_match($id_match, $user_id ,$c) {
     $sql = ("SELECT id_sujets, role
 FROM sujets
 WHERE id_matchs = '$id_match'");
+    $user_role = get_role_user_by_id($user_id,$c);
     $result = mysqli_query($c,$sql);
     $subject_list = array ();
     $loop = 0;
+    $subject = 0;
     while ($donnees = mysqli_fetch_assoc($result))
     {
-        $subject_list[$loop] = $donnees;
+        if($donnees['role'] == "general"
+            || ($donnees['role'] == "dirigeant" && isset($user_role[1]))
+            || ($donnees['role'] == "OTM" && isset($user_role[2]))
+            || ($donnees['role'] == "arbitre" && isset($user_role[3]))
+            || ($donnees['role'] == "benevole" && isset($user_role[4]))
+            || ($donnees['role'] == "joueur" && isset($user_role[5]))
+            || ($donnees['role'] == "coach" && isset($user_role[6]))){
+            $subject_list[$loop] = $donnees;
+            $subject++;
+        }
         $loop++;
     }
-    if($loop > 0) {
+
+    if($subject > 0) {
         return $subject_list;
     }else{
         return null;
