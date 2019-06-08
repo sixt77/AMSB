@@ -45,7 +45,8 @@ function get_otm_number_on_all_match($c){
         $sql = ("SELECT M.id, COUNT(MO.id_otm) as nb_otm, M.date, M.lieux, M.categorie, M.scEquipe1, M.scEquipe2
 FROM matchs M
 LEFT JOIN matchs_otm MO ON MO.id_matchs = M.id
-GROUP BY M.id");
+GROUP BY M.id
+ORDER BY M.date DESC");
     $result = mysqli_query($c,$sql);
     $matchs_list= array ();
     $loop = 0;
