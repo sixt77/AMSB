@@ -60,6 +60,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
                 $data[$loop]['team'] = get_team_by_match_id($match['id'], $c);
                 $loop++;
             }
+
             if (isset($data)) {
                 write_json($data);
             } else {
