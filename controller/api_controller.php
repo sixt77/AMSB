@@ -478,7 +478,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
         //permet d'envoyer un message
         if ($_GET['action'] == "post_score") {
             if (isset($_GET["match_id"]) && isset($_GET["score1"]) && isset($_GET["score2"])) {
-                if(post_score($_GET["match_id"], $_GET["score1"], $_GET["score2"], $c)) {
+                if(post_score($_GET["match_id"], protect($_GET["score1"]), protect($_GET["score2"]), $c)) {
                     write_json(true);
                 }else{
                     write_json(null);
@@ -535,7 +535,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) != 
         //permet d'envoyer un message
         if ($_GET['action'] == "send_message") {
             if (isset($_GET["subject_id"]) && isset($_GET["user_id"]) && isset($_GET["date"]) && isset($_GET["content"])) {
-                if(send_message($_GET["subject_id"], $_GET["user_id"], $_GET["date"], $_GET["content"], $c)) {
+                if(send_message($_GET["subject_id"], $_GET["user_id"], protect($_GET["date"]), protect($_GET["content"]), $c)) {
                     write_json(true);
                 }else{
                     write_json(null);

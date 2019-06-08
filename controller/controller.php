@@ -167,6 +167,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                         $id = $_POST["update_user"];
                         $role_list = get_roles_list($c);
                         $user_role_list = get_role_user_by_id($id, $c);
+                        $image = get_image_by_id_user($_POST["update_user"]);
                         if (isset($user_role_list[1])) {
                             $leader_role_list = get_leader_role_leader_by_id($user_role_list[1], $c);
                         } else {
@@ -473,9 +474,9 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
                     if ($match_info['date'] == $_POST['date'] || (date("Y m d H i",strtotime($_POST['date']))>  date("Y m d H i"))) {
                         if (($_POST['team1'] == $match_team['0']['nom']) && ($_POST['team2'] == $match_team['1']['nom'])) {
                             if (!empty($_POST['scEquipe1']) && !empty($_POST['scEquipe2'])) {
-                                post_score($_POST['update_match'], $_POST['scEquipe1'], $_POST['scEquipe2'], $c);
+                                post_score($_POST['update_match'], protect($_POST['scEquipe1']), protect($_POST['scEquipe2']), $c);
                             }
-                            if (update_match($_POST['update_match'], strtotime($_POST['date']) + (strtotime($_POST['time']) % 86400), $_POST['lieu'], $_POST['categorie'], $c)) {
+                            if (update_match($_POST['update_match'], strtotime($_POST['date']) + (strtotime($_POST['time']) % 86400), protect($_POST['lieu']), protect($_POST['categorie']), $c)) {
                                 $page = "modif_success";
                             } else {
                                 $page = "modif_failed";
@@ -627,7 +628,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
             //création equipe
             if (isset($_POST["create_team"])) {
                 if (isset($_POST['coach']) && isset($_POST['nom'])) {
-                    if (create_team($_POST['coach'], $_POST['nom'], $c)) {
+                    if (create_team($_POST['coach'], protect($_POST['nom']), $c)) {
                         $id_team = $c->insert_id;
                         if (isset($_POST['player_list'])) {
                             if (add_player_team($_POST['player_list'], $id_team, $c)) {
@@ -660,7 +661,7 @@ if(parse_url(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), PHP_URL_PATH) == 
             }
             //modification equipe
             if (isset($_POST["update_team"])) {
-                if (update_team($_POST['update_team'], $_POST['coach'], $_POST['nom'], $c)) {
+                if (update_team($_POST['update_team'], $_POST['coach'], protect($_POST['nom']), $c)) {
                     if (delete_all_player_team($_POST['update_team'], $c) && add_player_team($_POST['player_list'], $_POST['update_team'], $c)) {
                         $page = "modif_success";
                     } else {

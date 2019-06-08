@@ -47,6 +47,7 @@ function add_player_team($player_list, $id_team, $c) {
     foreach ((array)$player_list as $player)
     {
         if ($i > 0) $sql .= ", ";
+        $player_list[$i] = protect($player_list[$i]);
         $sql .= "({$player_list[$i]}, {$id_team})";
         $i++;
     }
