@@ -15,7 +15,7 @@
 
             <ul>
                 <li class="amsb-form">
-                    <input class="amsb-item-input" type="date" name="date" required>
+                    <input class="amsb-item-input" type="date" name="date" required onchange="verif_date_match(this.valueAsNumber, 'create_match_submit')">
                 </li>
 
                 <li class="amsb-form">
@@ -50,7 +50,7 @@
 
             </ul>
 
-            <button type="submit" class="amsb-button" name="create_match" value="">Créer</button>
+            <button type="submit" id="create_match_submit" class="amsb-button" name="create_match" value="">Créer</button>
 
         </form>
 

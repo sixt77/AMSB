@@ -62,7 +62,7 @@
                     $season = new DateTime();
                     $season->setTime(0,0,0);
                     //ajustement de l'année pour la fin de saison
-                    if($season->format('m')<6){
+                    if($season->format('m')<7){
                         $season->setDate($season->format('Y')-1, 7, 1);
                     }else{
                         $season->setDate($season->format('Y'), 7, 1);

@@ -42,7 +42,8 @@ LIMIT 1");
 function find_id_subject_by_match($id_match, $user_id ,$c) {
     $sql = ("SELECT id_sujets, role
 FROM sujets
-WHERE id_matchs = '$id_match'");
+WHERE id_matchs = '$id_match'
+ORDER BY id_sujets");
     $user_role = get_role_user_by_id($user_id,$c);
     $result = mysqli_query($c,$sql);
     $subject_list = array ();

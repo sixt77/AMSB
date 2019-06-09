@@ -203,6 +203,16 @@ function isMajor(date) {
     }
 }
 
+function isPassed(date){
+    console.log(date);
+    console.log(Date.now());
+    if(date >= (Date.now())){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 function add_parent_form(id, incr) {
     //ajout nom
     document.getElementById(id).appendChild(create_element("LI", "form_last_name"+incr, "parent_form amsb-form", "", "Parent n°"+incr+" :"));
@@ -263,6 +273,13 @@ function delete_parent_form(date){
 function verif_date(date, id) {
     if(!isMajor(date) && count_class("parent_form")===0){
         add_parent_form(id, count_class("parent_form")+1);
+    }
+}
+function verif_date_match(date, id){
+    if(isPassed(date)){
+        document.getElementById(id).disabled = false;
+    }else{
+        document.getElementById(id).disabled = true;
     }
 }
 
