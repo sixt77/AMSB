@@ -101,7 +101,7 @@
     </div>
 </div>
 
-<script type="text/javascript">
+<script>
     document.querySelector('input[type="file"]').addEventListener('change', function(evt) {
         document.getElementById('img').innerHTML = evt.target.files[0].name;
         document.getElementById('imgView').src = URL.createObjectURL(evt.target.files[0]);

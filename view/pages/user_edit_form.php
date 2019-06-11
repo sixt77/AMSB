@@ -55,7 +55,7 @@
                     <span>Photo de la licence</span>
                     <input class="input-none-displayList" id="addImg" type="file" name="image" placeholder="Cliquez ici pour télécharger la photo !">
                     <label id="img" for="addImg" class="fileContainer">Cliquez ici pour télécharger la photo !</label>
-                    <img id="imgView" src="" alt="" style="max-width: 500px;margin-top: 10px;">
+                    <img id="imgView" src="<?php echo get_image_by_id_user($user_info[0]); ?>" alt="" style="max-width: 500px;margin-top: 10px;">
                 </li>
 
                 <li class="amsb-form">
@@ -137,6 +137,11 @@
 </div>
 
 <script>
+    document.querySelector('input[type="file"]').addEventListener('change', function(evt) {
+        document.getElementById('img').innerHTML = evt.target.files[0].name;
+        document.getElementById('imgView').src = URL.createObjectURL(evt.target.files[0]);
+    });
+
     <?php
     //affichage du fil d'ariane
     echo"display_breadcrumb('user_edit_form');"

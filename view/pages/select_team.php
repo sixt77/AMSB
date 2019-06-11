@@ -23,8 +23,6 @@
 
         <h2 class="amsb-form-item-title">Modification d'équipe !</h2>
 
-        <h3 class="amsb-form-item-title-h3">Liste des équipes :</h3>
-
         <div  class="amsb-display">
             <input style="width: 100%;float: none;" type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_team(this.value, items, 'team_div')" placeholder="Recherche..">
 

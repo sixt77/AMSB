@@ -17,4 +17,4 @@
 
 
 </head>
-<body onload="followRoad()">
+<body>

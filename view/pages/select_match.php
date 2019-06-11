@@ -33,14 +33,14 @@
             <input type="text" id="search_bar" class="amsb-display-searchBar" onchange="sort_match(this.value, items, 'match_div')" placeholder="Recherche..">
 
             <ul id="reference_display" class="user_div_reference">
-                <li>Equipe 1</li>
-                <li>Equipe 2</li>
+                <li>Local</li>
+                <li>Extérieur</li>
                 <li>Lieu</li>
                 <li>Date</li>
                 <li>Heure</li>
                 <li>Catégorie</li>
-                <li>Score 1</li>
-                <li>Score 2</li>
+                <li>Local</li>
+                <li>Extérieur</li>
             </ul>
 
             <form action="index.php" method="post">
